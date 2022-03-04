@@ -2,7 +2,6 @@ fragment PageParts on Page {
   body
 }
 
-fragment PostParts on Post {
-  title
+fragment GlobalParts on Global {
   body
 }

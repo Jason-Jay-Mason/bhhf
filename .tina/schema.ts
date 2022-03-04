@@ -1,4 +1,5 @@
 import { defineSchema } from "@tinacms/cli";
+import type { TinaTemplate, TinaField } from "@tinacms/cli";
 
 export default defineSchema({
   collections: [
@@ -17,23 +18,15 @@ export default defineSchema({
       ],
     },
     {
-      label: "Blog Posts",
-      name: "post",
-      path: "content/post",
+      label: "Global",
+      name: "global",
+      path: "content/global",
+      format: "json",
       fields: [
         {
-          type: "string",
-          label: "Title",
-          name: "title",
-        },
-        {
-          type: "string",
-          label: "Blog Post Body",
           name: "body",
-          isBody: true,
-          ui: {
-            component: "textarea",
-          },
+          label: "Write some stuff!",
+          type: "string",
         },
       ],
     },

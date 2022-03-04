@@ -29,35 +29,23 @@
       ]
     },
     {
-      "label": "Blog Posts",
-      "name": "post",
-      "path": "content/post",
+      "label": "Global",
+      "name": "global",
+      "path": "content/global",
+      "format": "json",
       "fields": [
         {
-          "type": "string",
-          "label": "Title",
-          "name": "title",
-          "namespace": [
-            "post",
-            "title"
-          ]
-        },
-        {
-          "type": "string",
-          "label": "Blog Post Body",
           "name": "body",
-          "isBody": true,
-          "ui": {
-            "component": "textarea"
-          },
+          "label": "Write some stuff!",
+          "type": "string",
           "namespace": [
-            "post",
+            "global",
             "body"
           ]
         }
       ],
       "namespace": [
-        "post"
+        "global"
       ]
     }
   ]

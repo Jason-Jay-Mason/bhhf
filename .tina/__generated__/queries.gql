@@ -37,8 +37,8 @@ query getPageList {
   }
 }
 
-query getPostDocument($relativePath: String!) {
-  getPostDocument(relativePath: $relativePath) {
+query getGlobalDocument($relativePath: String!) {
+  getGlobalDocument(relativePath: $relativePath) {
     sys {
       filename
       basename
@@ -49,13 +49,13 @@ query getPostDocument($relativePath: String!) {
     }
     id
     data {
-      ...PostParts
+      ...GlobalParts
     }
   }
 }
 
-query getPostList {
-  getPostList {
+query getGlobalList {
+  getGlobalList {
     totalCount
     edges {
       node {
@@ -69,7 +69,7 @@ query getPostList {
           extension
         }
         data {
-          ...PostParts
+          ...GlobalParts
         }
       }
     }

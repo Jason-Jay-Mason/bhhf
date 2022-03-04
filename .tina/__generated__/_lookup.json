@@ -4,7 +4,7 @@
     "resolveType": "multiCollectionDocumentList",
     "collections": [
       "page",
-      "post"
+      "global"
     ]
   },
   "Node": {
@@ -29,16 +29,16 @@
     "resolveType": "collectionDocumentList",
     "collection": "page"
   },
-  "PostDocument": {
-    "type": "PostDocument",
+  "GlobalDocument": {
+    "type": "GlobalDocument",
     "resolveType": "collectionDocument",
-    "collection": "post",
-    "createPostDocument": "create",
-    "updatePostDocument": "update"
+    "collection": "global",
+    "createGlobalDocument": "create",
+    "updateGlobalDocument": "update"
   },
-  "PostConnection": {
-    "type": "PostConnection",
+  "GlobalConnection": {
+    "type": "GlobalConnection",
     "resolveType": "collectionDocumentList",
-    "collection": "post"
+    "collection": "global"
   }
 }

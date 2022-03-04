@@ -50,8 +50,8 @@ type Query {
   getDocumentFields: JSON!
   getPageDocument(relativePath: String): PageDocument!
   getPageList(before: String, after: String, first: Float, last: Float): PageConnection!
-  getPostDocument(relativePath: String): PostDocument!
-  getPostList(before: String, after: String, first: Float, last: Float): PostConnection!
+  getGlobalDocument(relativePath: String): GlobalDocument!
+  getGlobalList(before: String, after: String, first: Float, last: Float): GlobalConnection!
 }
 
 type DocumentConnectionEdges {
@@ -77,7 +77,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
 }
 
-union DocumentNode = PageDocument | PostDocument
+union DocumentNode = PageDocument | GlobalDocument
 
 type Page {
   body: JSON
@@ -103,29 +103,28 @@ type PageConnection implements Connection {
   edges: [PageConnectionEdges]
 }
 
-type Post {
-  title: String
+type Global {
   body: String
 }
 
-type PostDocument implements Node & Document {
+type GlobalDocument implements Node & Document {
   id: ID!
   sys: SystemInfo!
-  data: Post!
+  data: Global!
   form: JSON!
   values: JSON!
   dataJSON: JSON!
 }
 
-type PostConnectionEdges {
+type GlobalConnectionEdges {
   cursor: String
-  node: PostDocument
+  node: GlobalDocument
 }
 
-type PostConnection implements Connection {
+type GlobalConnection implements Connection {
   pageInfo: PageInfo
   totalCount: Float!
-  edges: [PostConnectionEdges]
+  edges: [GlobalConnectionEdges]
 }
 
 type Mutation {
@@ -134,21 +133,20 @@ type Mutation {
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePageDocument(relativePath: String!, params: PageMutation!): PageDocument!
   createPageDocument(relativePath: String!, params: PageMutation!): PageDocument!
-  updatePostDocument(relativePath: String!, params: PostMutation!): PostDocument!
-  createPostDocument(relativePath: String!, params: PostMutation!): PostDocument!
+  updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
+  createGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
 }
 
 input DocumentMutation {
   page: PageMutation
-  post: PostMutation
+  global: GlobalMutation
 }
 
 input PageMutation {
   body: JSON
 }
 
-input PostMutation {
-  title: String
+input GlobalMutation {
   body: String
 }
 

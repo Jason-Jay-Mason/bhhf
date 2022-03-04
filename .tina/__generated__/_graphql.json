@@ -785,7 +785,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "getPostDocument"
+            "value": "getGlobalDocument"
           },
           "arguments": [
             {
@@ -809,7 +809,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "PostDocument"
+                "value": "GlobalDocument"
               }
             }
           }
@@ -818,7 +818,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "getPostList"
+            "value": "getGlobalList"
           },
           "arguments": [
             {
@@ -884,7 +884,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "PostConnection"
+                "value": "GlobalConnection"
               }
             }
           }
@@ -1242,7 +1242,7 @@
           "kind": "NamedType",
           "name": {
             "kind": "Name",
-            "value": "PostDocument"
+            "value": "GlobalDocument"
           }
         }
       ]
@@ -1524,24 +1524,9 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "Post"
+        "value": "Global"
       },
       "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "title"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -1580,7 +1565,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PostDocument"
+        "value": "GlobalDocument"
       },
       "fields": [
         {
@@ -1632,7 +1617,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "Post"
+                "value": "Global"
               }
             }
           }
@@ -1699,7 +1684,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PostConnectionEdges"
+        "value": "GlobalConnectionEdges"
       },
       "fields": [
         {
@@ -1728,7 +1713,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "PostDocument"
+              "value": "GlobalDocument"
             }
           }
         }
@@ -1748,7 +1733,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PostConnection"
+        "value": "GlobalConnection"
       },
       "fields": [
         {
@@ -1797,7 +1782,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "PostConnectionEdges"
+                "value": "GlobalConnectionEdges"
               }
             }
           }
@@ -2124,7 +2109,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "updatePostDocument"
+            "value": "updateGlobalDocument"
           },
           "arguments": [
             {
@@ -2156,7 +2141,7 @@
                   "kind": "NamedType",
                   "name": {
                     "kind": "Name",
-                    "value": "PostMutation"
+                    "value": "GlobalMutation"
                   }
                 }
               }
@@ -2168,7 +2153,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "PostDocument"
+                "value": "GlobalDocument"
               }
             }
           }
@@ -2177,7 +2162,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "createPostDocument"
+            "value": "createGlobalDocument"
           },
           "arguments": [
             {
@@ -2209,7 +2194,7 @@
                   "kind": "NamedType",
                   "name": {
                     "kind": "Name",
-                    "value": "PostMutation"
+                    "value": "GlobalMutation"
                   }
                 }
               }
@@ -2221,7 +2206,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "PostDocument"
+                "value": "GlobalDocument"
               }
             }
           }
@@ -2253,13 +2238,13 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "post"
+            "value": "global"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "PostMutation"
+              "value": "GlobalMutation"
             }
           }
         }
@@ -2292,23 +2277,9 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PostMutation"
+        "value": "GlobalMutation"
       },
       "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "title"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
         {
           "kind": "InputValueDefinition",
           "name": {
