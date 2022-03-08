@@ -67,8 +67,8 @@ export type Query = {
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
   getDocumentFields: Scalars['JSON'];
-  getPageDocument: PageDocument;
-  getPageList: PageConnection;
+  getMainPageDocument: MainPageDocument;
+  getMainPageList: MainPageConnection;
   getGlobalDocument: GlobalDocument;
   getGlobalList: GlobalConnection;
 };
@@ -98,12 +98,12 @@ export type QueryGetDocumentListArgs = {
 };
 
 
-export type QueryGetPageDocumentArgs = {
+export type QueryGetMainPageDocumentArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetPageListArgs = {
+export type QueryGetMainPageListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
@@ -157,39 +157,276 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
-export type DocumentNode = PageDocument | GlobalDocument;
+export type DocumentNode = MainPageDocument | GlobalDocument;
 
-export type Page = {
-  __typename?: 'Page';
-  body?: Maybe<Scalars['JSON']>;
+export type MainPageBlocksLargeHero = {
+  __typename?: 'MainPageBlocksLargeHero';
+  headline?: Maybe<Scalars['String']>;
+  hook?: Maybe<Scalars['String']>;
+  popupVideoActive?: Maybe<Scalars['Boolean']>;
+  popupVideoButtonLabel?: Maybe<Scalars['String']>;
+  popupVideoButtonSource?: Maybe<Scalars['String']>;
+  serviceBarActive?: Maybe<Scalars['Boolean']>;
+  videoBackgroundActive?: Maybe<Scalars['Boolean']>;
+  backgroundVideoSource?: Maybe<Scalars['String']>;
+  backgroundImageSourceDesktop?: Maybe<Scalars['String']>;
+  backgroundImageAltDesktop?: Maybe<Scalars['String']>;
+  backgroundImageSourceMobile?: Maybe<Scalars['String']>;
+  backgroundImageAltMobile?: Maybe<Scalars['String']>;
 };
 
-export type PageDocument = Node & Document & {
-  __typename?: 'PageDocument';
+export type MainPageBlocksHero = {
+  __typename?: 'MainPageBlocksHero';
+  subHeadline?: Maybe<Scalars['String']>;
+  headline?: Maybe<Scalars['String']>;
+  hook?: Maybe<Scalars['String']>;
+  ctaActive?: Maybe<Scalars['Boolean']>;
+  ctaLabel?: Maybe<Scalars['String']>;
+  ctaHref?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageFeaturedImage = {
+  __typename?: 'MainPageBlocksLongFeaturedImageFeaturedImage';
+  image?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb = {
+  __typename?: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb';
+  icon?: Maybe<Scalars['String']>;
+  iconAlt?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['JSON']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList = {
+  __typename?: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList';
+  title?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksIconListBlurb = {
+  __typename?: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb';
+  iconList?: Maybe<Array<Maybe<MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList>>>;
+  text?: Maybe<Scalars['JSON']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksButton = {
+  __typename?: 'MainPageBlocksLongFeaturedImageBlocksButton';
+  label?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb = {
+  __typename?: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb';
+  icon?: Maybe<Scalars['String']>;
+  iconAlt?: Maybe<Scalars['String']>;
+  Headline?: Maybe<Scalars['String']>;
+  subHeadline?: Maybe<Scalars['String']>;
+  blurb?: Maybe<Scalars['JSON']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocks = MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb | MainPageBlocksLongFeaturedImageBlocksIconListBlurb | MainPageBlocksLongFeaturedImageBlocksButton | MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb;
+
+export type MainPageBlocksLongFeaturedImage = {
+  __typename?: 'MainPageBlocksLongFeaturedImage';
+  standardSubHeadline?: Maybe<Scalars['String']>;
+  standardHeadline?: Maybe<Scalars['String']>;
+  twoColumnText?: Maybe<Scalars['JSON']>;
+  featuredImage?: Maybe<Array<Maybe<MainPageBlocksLongFeaturedImageFeaturedImage>>>;
+  featuredImageRightActive?: Maybe<Scalars['Boolean']>;
+  blocks?: Maybe<Array<Maybe<MainPageBlocksLongFeaturedImageBlocks>>>;
+  bottomPaddingActive?: Maybe<Scalars['Boolean']>;
+};
+
+export type MainPageBlocksCtaButtons = {
+  __typename?: 'MainPageBlocksCtaButtons';
+  mainCallToActionLabel?: Maybe<Scalars['String']>;
+  mainCallToActionHref?: Maybe<Scalars['String']>;
+  secondaryCallToActionLabel?: Maybe<Scalars['String']>;
+  secondaryCallToActionVideoActive?: Maybe<Scalars['Boolean']>;
+  secondaryCallToActionHrefOrSource?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksShortIconGridFeaturedIconBlurb = {
+  __typename?: 'MainPageBlocksShortIconGridFeaturedIconBlurb';
+  title?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  blurb?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksShortIconGrid = {
+  __typename?: 'MainPageBlocksShortIconGrid';
+  headline?: Maybe<Scalars['String']>;
+  featuredIconBlurb?: Maybe<Array<Maybe<MainPageBlocksShortIconGridFeaturedIconBlurb>>>;
+};
+
+export type MainPageBlocksTestimonialSlider = {
+  __typename?: 'MainPageBlocksTestimonialSlider';
+  standardSubHeadline?: Maybe<Scalars['String']>;
+  standardHeadline?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksPreFooterCta = {
+  __typename?: 'MainPageBlocksPreFooterCta';
+  standardSubHeadline?: Maybe<Scalars['String']>;
+  standardHeadline?: Maybe<Scalars['String']>;
+  hook?: Maybe<Scalars['String']>;
+  mainCallToActionLabel?: Maybe<Scalars['String']>;
+  mainCallToActionHref?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocks = MainPageBlocksLargeHero | MainPageBlocksHero | MainPageBlocksLongFeaturedImage | MainPageBlocksCtaButtons | MainPageBlocksShortIconGrid | MainPageBlocksTestimonialSlider | MainPageBlocksPreFooterCta;
+
+export type MainPageSeo = {
+  __typename?: 'MainPageSeo';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  noFollow?: Maybe<Scalars['Boolean']>;
+  noIndex?: Maybe<Scalars['Boolean']>;
+};
+
+export type MainPage = {
+  __typename?: 'MainPage';
+  blocks?: Maybe<Array<Maybe<MainPageBlocks>>>;
+  seo?: Maybe<MainPageSeo>;
+};
+
+export type MainPageDocument = Node & Document & {
+  __typename?: 'MainPageDocument';
   id: Scalars['ID'];
   sys: SystemInfo;
-  data: Page;
+  data: MainPage;
   form: Scalars['JSON'];
   values: Scalars['JSON'];
   dataJSON: Scalars['JSON'];
 };
 
-export type PageConnectionEdges = {
-  __typename?: 'PageConnectionEdges';
+export type MainPageConnectionEdges = {
+  __typename?: 'MainPageConnectionEdges';
   cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<PageDocument>;
+  node?: Maybe<MainPageDocument>;
 };
 
-export type PageConnection = Connection & {
-  __typename?: 'PageConnection';
+export type MainPageConnection = Connection & {
+  __typename?: 'MainPageConnection';
   pageInfo?: Maybe<PageInfo>;
   totalCount: Scalars['Float'];
-  edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<MainPageConnectionEdges>>>;
+};
+
+export type GlobalHeaderLinks = {
+  __typename?: 'GlobalHeaderLinks';
+  title?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+};
+
+export type GlobalHeader = {
+  __typename?: 'GlobalHeader';
+  preHeaderCtaLabel?: Maybe<Scalars['String']>;
+  preHeaderCtaHref?: Maybe<Scalars['String']>;
+  links?: Maybe<Array<Maybe<GlobalHeaderLinks>>>;
+  ctaLabel?: Maybe<Scalars['String']>;
+  ctaHref?: Maybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoContact = {
+  __typename?: 'GlobalBusinessInfoContact';
+  phone?: Maybe<Scalars['String']>;
+  address?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoHours = {
+  __typename?: 'GlobalBusinessInfoHours';
+  monday?: Maybe<Scalars['String']>;
+  tuesday?: Maybe<Scalars['String']>;
+  wednesday?: Maybe<Scalars['String']>;
+  thursday?: Maybe<Scalars['String']>;
+  friday?: Maybe<Scalars['String']>;
+  saturday?: Maybe<Scalars['String']>;
+  sunday?: Maybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoSocialLinks = {
+  __typename?: 'GlobalBusinessInfoSocialLinks';
+  facebook?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  youtube?: Maybe<Scalars['String']>;
+  twitter?: Maybe<Scalars['String']>;
+  linkedin?: Maybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfo = {
+  __typename?: 'GlobalBusinessInfo';
+  contact?: Maybe<GlobalBusinessInfoContact>;
+  hours?: Maybe<GlobalBusinessInfoHours>;
+  socialLinks?: Maybe<GlobalBusinessInfoSocialLinks>;
+};
+
+export type GlobalServices = {
+  __typename?: 'GlobalServices';
+  title?: Maybe<Scalars['String']>;
+  serviceBarImage?: Maybe<Scalars['String']>;
+};
+
+export type GlobalTestimonialsTestimonialsListActivePagesTitleDocument = MainPageDocument;
+
+export type GlobalTestimonialsTestimonialsListActivePages = {
+  __typename?: 'GlobalTestimonialsTestimonialsListActivePages';
+  title?: Maybe<GlobalTestimonialsTestimonialsListActivePagesTitleDocument>;
+};
+
+export type GlobalTestimonialsTestimonialsList = {
+  __typename?: 'GlobalTestimonialsTestimonialsList';
+  title?: Maybe<Scalars['String']>;
+  shortDescription?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  imageAlt?: Maybe<Scalars['String']>;
+  testimonialBody?: Maybe<Scalars['String']>;
+  activePages?: Maybe<Array<Maybe<GlobalTestimonialsTestimonialsListActivePages>>>;
+  videoActive?: Maybe<Scalars['Boolean']>;
+  videoSource?: Maybe<Scalars['String']>;
+};
+
+export type GlobalTestimonials = {
+  __typename?: 'GlobalTestimonials';
+  testimonialsList?: Maybe<Array<Maybe<GlobalTestimonialsTestimonialsList>>>;
+};
+
+export type GlobalEventsEventList = {
+  __typename?: 'GlobalEventsEventList';
+  title?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['JSON']>;
+};
+
+export type GlobalEvents = {
+  __typename?: 'GlobalEvents';
+  eventList?: Maybe<Array<Maybe<GlobalEventsEventList>>>;
+};
+
+export type GlobalCampsCampList = {
+  __typename?: 'GlobalCampsCampList';
+  title?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['JSON']>;
+  bookingHref?: Maybe<Scalars['String']>;
+};
+
+export type GlobalCamps = {
+  __typename?: 'GlobalCamps';
+  campList?: Maybe<Array<Maybe<GlobalCampsCampList>>>;
 };
 
 export type Global = {
   __typename?: 'Global';
-  body?: Maybe<Scalars['String']>;
+  header?: Maybe<GlobalHeader>;
+  businessInfo?: Maybe<GlobalBusinessInfo>;
+  services?: Maybe<Array<Maybe<GlobalServices>>>;
+  testimonials?: Maybe<GlobalTestimonials>;
+  events?: Maybe<GlobalEvents>;
+  camps?: Maybe<GlobalCamps>;
 };
 
 export type GlobalDocument = Node & Document & {
@@ -220,8 +457,8 @@ export type Mutation = {
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
   createDocument: DocumentNode;
-  updatePageDocument: PageDocument;
-  createPageDocument: PageDocument;
+  updateMainPageDocument: MainPageDocument;
+  createMainPageDocument: MainPageDocument;
   updateGlobalDocument: GlobalDocument;
   createGlobalDocument: GlobalDocument;
 };
@@ -248,15 +485,15 @@ export type MutationCreateDocumentArgs = {
 };
 
 
-export type MutationUpdatePageDocumentArgs = {
+export type MutationUpdateMainPageDocumentArgs = {
   relativePath: Scalars['String'];
-  params: PageMutation;
+  params: MainPageMutation;
 };
 
 
-export type MutationCreatePageDocumentArgs = {
+export type MutationCreateMainPageDocumentArgs = {
   relativePath: Scalars['String'];
-  params: PageMutation;
+  params: MainPageMutation;
 };
 
 
@@ -272,59 +509,459 @@ export type MutationCreateGlobalDocumentArgs = {
 };
 
 export type DocumentMutation = {
-  page?: InputMaybe<PageMutation>;
+  mainPage?: InputMaybe<MainPageMutation>;
   global?: InputMaybe<GlobalMutation>;
 };
 
-export type PageMutation = {
-  body?: InputMaybe<Scalars['JSON']>;
+export type MainPageBlocksLargeHeroMutation = {
+  headline?: InputMaybe<Scalars['String']>;
+  hook?: InputMaybe<Scalars['String']>;
+  popupVideoActive?: InputMaybe<Scalars['Boolean']>;
+  popupVideoButtonLabel?: InputMaybe<Scalars['String']>;
+  popupVideoButtonSource?: InputMaybe<Scalars['String']>;
+  serviceBarActive?: InputMaybe<Scalars['Boolean']>;
+  videoBackgroundActive?: InputMaybe<Scalars['Boolean']>;
+  backgroundVideoSource?: InputMaybe<Scalars['String']>;
+  backgroundImageSourceDesktop?: InputMaybe<Scalars['String']>;
+  backgroundImageAltDesktop?: InputMaybe<Scalars['String']>;
+  backgroundImageSourceMobile?: InputMaybe<Scalars['String']>;
+  backgroundImageAltMobile?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksHeroMutation = {
+  subHeadline?: InputMaybe<Scalars['String']>;
+  headline?: InputMaybe<Scalars['String']>;
+  hook?: InputMaybe<Scalars['String']>;
+  ctaActive?: InputMaybe<Scalars['Boolean']>;
+  ctaLabel?: InputMaybe<Scalars['String']>;
+  ctaHref?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageFeaturedImageMutation = {
+  image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation = {
+  icon?: InputMaybe<Scalars['String']>;
+  iconAlt?: InputMaybe<Scalars['String']>;
+  text?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconListMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  icon?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksIconListBlurbMutation = {
+  iconList?: InputMaybe<Array<InputMaybe<MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconListMutation>>>;
+  text?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksButtonMutation = {
+  label?: InputMaybe<Scalars['String']>;
+  href?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation = {
+  icon?: InputMaybe<Scalars['String']>;
+  iconAlt?: InputMaybe<Scalars['String']>;
+  Headline?: InputMaybe<Scalars['String']>;
+  subHeadline?: InputMaybe<Scalars['String']>;
+  blurb?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocksMutation = {
+  centeredIconBlurb?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation>;
+  iconListBlurb?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksIconListBlurbMutation>;
+  button?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksButtonMutation>;
+  titledIconBlurb?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation>;
+};
+
+export type MainPageBlocksLongFeaturedImageMutation = {
+  standardSubHeadline?: InputMaybe<Scalars['String']>;
+  standardHeadline?: InputMaybe<Scalars['String']>;
+  twoColumnText?: InputMaybe<Scalars['JSON']>;
+  featuredImage?: InputMaybe<Array<InputMaybe<MainPageBlocksLongFeaturedImageFeaturedImageMutation>>>;
+  featuredImageRightActive?: InputMaybe<Scalars['Boolean']>;
+  blocks?: InputMaybe<Array<InputMaybe<MainPageBlocksLongFeaturedImageBlocksMutation>>>;
+  bottomPaddingActive?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MainPageBlocksCtaButtonsMutation = {
+  mainCallToActionLabel?: InputMaybe<Scalars['String']>;
+  mainCallToActionHref?: InputMaybe<Scalars['String']>;
+  secondaryCallToActionLabel?: InputMaybe<Scalars['String']>;
+  secondaryCallToActionVideoActive?: InputMaybe<Scalars['Boolean']>;
+  secondaryCallToActionHrefOrSource?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksShortIconGridFeaturedIconBlurbMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  icon?: InputMaybe<Scalars['String']>;
+  blurb?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksShortIconGridMutation = {
+  headline?: InputMaybe<Scalars['String']>;
+  featuredIconBlurb?: InputMaybe<Array<InputMaybe<MainPageBlocksShortIconGridFeaturedIconBlurbMutation>>>;
+};
+
+export type MainPageBlocksTestimonialSliderMutation = {
+  standardSubHeadline?: InputMaybe<Scalars['String']>;
+  standardHeadline?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksPreFooterCtaMutation = {
+  standardSubHeadline?: InputMaybe<Scalars['String']>;
+  standardHeadline?: InputMaybe<Scalars['String']>;
+  hook?: InputMaybe<Scalars['String']>;
+  mainCallToActionLabel?: InputMaybe<Scalars['String']>;
+  mainCallToActionHref?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksMutation = {
+  largeHero?: InputMaybe<MainPageBlocksLargeHeroMutation>;
+  hero?: InputMaybe<MainPageBlocksHeroMutation>;
+  longFeaturedImage?: InputMaybe<MainPageBlocksLongFeaturedImageMutation>;
+  ctaButtons?: InputMaybe<MainPageBlocksCtaButtonsMutation>;
+  shortIconGrid?: InputMaybe<MainPageBlocksShortIconGridMutation>;
+  testimonialSlider?: InputMaybe<MainPageBlocksTestimonialSliderMutation>;
+  preFooterCta?: InputMaybe<MainPageBlocksPreFooterCtaMutation>;
+};
+
+export type MainPageSeoMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  noFollow?: InputMaybe<Scalars['Boolean']>;
+  noIndex?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MainPageMutation = {
+  blocks?: InputMaybe<Array<InputMaybe<MainPageBlocksMutation>>>;
+  seo?: InputMaybe<MainPageSeoMutation>;
+};
+
+export type GlobalHeaderLinksMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  href?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalHeaderMutation = {
+  preHeaderCtaLabel?: InputMaybe<Scalars['String']>;
+  preHeaderCtaHref?: InputMaybe<Scalars['String']>;
+  links?: InputMaybe<Array<InputMaybe<GlobalHeaderLinksMutation>>>;
+  ctaLabel?: InputMaybe<Scalars['String']>;
+  ctaHref?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoContactMutation = {
+  phone?: InputMaybe<Scalars['String']>;
+  address?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoHoursMutation = {
+  monday?: InputMaybe<Scalars['String']>;
+  tuesday?: InputMaybe<Scalars['String']>;
+  wednesday?: InputMaybe<Scalars['String']>;
+  thursday?: InputMaybe<Scalars['String']>;
+  friday?: InputMaybe<Scalars['String']>;
+  saturday?: InputMaybe<Scalars['String']>;
+  sunday?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoSocialLinksMutation = {
+  facebook?: InputMaybe<Scalars['String']>;
+  instagram?: InputMaybe<Scalars['String']>;
+  youtube?: InputMaybe<Scalars['String']>;
+  twitter?: InputMaybe<Scalars['String']>;
+  linkedin?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalBusinessInfoMutation = {
+  contact?: InputMaybe<GlobalBusinessInfoContactMutation>;
+  hours?: InputMaybe<GlobalBusinessInfoHoursMutation>;
+  socialLinks?: InputMaybe<GlobalBusinessInfoSocialLinksMutation>;
+};
+
+export type GlobalServicesMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  serviceBarImage?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalTestimonialsTestimonialsListActivePagesMutation = {
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalTestimonialsTestimonialsListMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  shortDescription?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  imageAlt?: InputMaybe<Scalars['String']>;
+  testimonialBody?: InputMaybe<Scalars['String']>;
+  activePages?: InputMaybe<Array<InputMaybe<GlobalTestimonialsTestimonialsListActivePagesMutation>>>;
+  videoActive?: InputMaybe<Scalars['Boolean']>;
+  videoSource?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalTestimonialsMutation = {
+  testimonialsList?: InputMaybe<Array<InputMaybe<GlobalTestimonialsTestimonialsListMutation>>>;
+};
+
+export type GlobalEventsEventListMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  date?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
+};
+
+export type GlobalEventsMutation = {
+  eventList?: InputMaybe<Array<InputMaybe<GlobalEventsEventListMutation>>>;
+};
+
+export type GlobalCampsCampListMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  date?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['JSON']>;
+  bookingHref?: InputMaybe<Scalars['String']>;
+};
+
+export type GlobalCampsMutation = {
+  campList?: InputMaybe<Array<InputMaybe<GlobalCampsCampListMutation>>>;
 };
 
 export type GlobalMutation = {
-  body?: InputMaybe<Scalars['String']>;
+  header?: InputMaybe<GlobalHeaderMutation>;
+  businessInfo?: InputMaybe<GlobalBusinessInfoMutation>;
+  services?: InputMaybe<Array<InputMaybe<GlobalServicesMutation>>>;
+  testimonials?: InputMaybe<GlobalTestimonialsMutation>;
+  events?: InputMaybe<GlobalEventsMutation>;
+  camps?: InputMaybe<GlobalCampsMutation>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', body?: any | null };
+export type MainPagePartsFragment = { __typename?: 'MainPage', blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
-export type GlobalPartsFragment = { __typename?: 'Global', body?: string | null };
+export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, twitter?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, bookingHref?: string | null } | null> | null } | null };
 
-export type GetPageDocumentQueryVariables = Exact<{
+export type GetMainPageDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', body?: any | null } } };
+export type GetMainPageDocumentQuery = { __typename?: 'Query', getMainPageDocument: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } };
 
-export type GetPageListQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetMainPageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', body?: any | null } } | null } | null> | null } };
+export type GetMainPageListQuery = { __typename?: 'Query', getMainPageList: { __typename?: 'MainPageConnection', totalCount: number, edges?: Array<{ __typename?: 'MainPageConnectionEdges', node?: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } | null } | null> | null } };
 
 export type GetGlobalDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetGlobalDocumentQuery = { __typename?: 'Query', getGlobalDocument: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', body?: string | null } } };
+export type GetGlobalDocumentQuery = { __typename?: 'Query', getGlobalDocument: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, twitter?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, bookingHref?: string | null } | null> | null } | null } } };
 
 export type GetGlobalListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', body?: string | null } } | null } | null> | null } };
+export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, twitter?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, bookingHref?: string | null } | null> | null } | null } } | null } | null> | null } };
 
-export const PagePartsFragmentDoc = gql`
-    fragment PageParts on Page {
-  body
+export const MainPagePartsFragmentDoc = gql`
+    fragment MainPageParts on MainPage {
+  blocks {
+    __typename
+    ... on MainPageBlocksLargeHero {
+      headline
+      hook
+      popupVideoActive
+      popupVideoButtonLabel
+      popupVideoButtonSource
+      serviceBarActive
+      videoBackgroundActive
+      backgroundVideoSource
+      backgroundImageSourceDesktop
+      backgroundImageAltDesktop
+      backgroundImageSourceMobile
+      backgroundImageAltMobile
+    }
+    ... on MainPageBlocksHero {
+      subHeadline
+      headline
+      hook
+      ctaActive
+      ctaLabel
+      ctaHref
+    }
+    ... on MainPageBlocksLongFeaturedImage {
+      standardSubHeadline
+      standardHeadline
+      twoColumnText
+      featuredImage {
+        __typename
+        image
+        title
+      }
+      featuredImageRightActive
+      blocks {
+        __typename
+        ... on MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb {
+          icon
+          iconAlt
+          text
+        }
+        ... on MainPageBlocksLongFeaturedImageBlocksIconListBlurb {
+          iconList {
+            __typename
+            title
+            icon
+          }
+          text
+        }
+        ... on MainPageBlocksLongFeaturedImageBlocksButton {
+          label
+          href
+        }
+        ... on MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb {
+          icon
+          iconAlt
+          Headline
+          subHeadline
+          blurb
+        }
+      }
+      bottomPaddingActive
+    }
+    ... on MainPageBlocksCtaButtons {
+      mainCallToActionLabel
+      mainCallToActionHref
+      secondaryCallToActionLabel
+      secondaryCallToActionVideoActive
+      secondaryCallToActionHrefOrSource
+    }
+    ... on MainPageBlocksShortIconGrid {
+      headline
+      featuredIconBlurb {
+        __typename
+        title
+        icon
+        blurb
+      }
+    }
+    ... on MainPageBlocksTestimonialSlider {
+      standardSubHeadline
+      standardHeadline
+    }
+    ... on MainPageBlocksPreFooterCta {
+      standardSubHeadline
+      standardHeadline
+      hook
+      mainCallToActionLabel
+      mainCallToActionHref
+    }
+  }
+  seo {
+    __typename
+    title
+    description
+    image
+    noFollow
+    noIndex
+  }
 }
     `;
 export const GlobalPartsFragmentDoc = gql`
     fragment GlobalParts on Global {
-  body
+  header {
+    __typename
+    preHeaderCtaLabel
+    preHeaderCtaHref
+    links {
+      __typename
+      title
+      href
+    }
+    ctaLabel
+    ctaHref
+  }
+  businessInfo {
+    __typename
+    contact {
+      __typename
+      phone
+      address
+      email
+    }
+    hours {
+      __typename
+      monday
+      tuesday
+      wednesday
+      thursday
+      friday
+      saturday
+      sunday
+    }
+    socialLinks {
+      __typename
+      facebook
+      instagram
+      youtube
+      twitter
+      linkedin
+    }
+  }
+  services {
+    __typename
+    title
+    serviceBarImage
+  }
+  testimonials {
+    __typename
+    testimonialsList {
+      __typename
+      title
+      shortDescription
+      image
+      imageAlt
+      testimonialBody
+      activePages {
+        __typename
+        title {
+          ... on Document {
+            id
+          }
+        }
+      }
+      videoActive
+      videoSource
+    }
+  }
+  events {
+    __typename
+    eventList {
+      __typename
+      title
+      date
+      description
+    }
+  }
+  camps {
+    __typename
+    campList {
+      __typename
+      title
+      date
+      description
+      bookingHref
+    }
+  }
 }
     `;
-export const GetPageDocumentDocument = gql`
-    query getPageDocument($relativePath: String!) {
-  getPageDocument(relativePath: $relativePath) {
+export const GetMainPageDocumentDocument = gql`
+    query getMainPageDocument($relativePath: String!) {
+  getMainPageDocument(relativePath: $relativePath) {
     sys {
       filename
       basename
@@ -335,14 +972,14 @@ export const GetPageDocumentDocument = gql`
     }
     id
     data {
-      ...PageParts
+      ...MainPageParts
     }
   }
 }
-    ${PagePartsFragmentDoc}`;
-export const GetPageListDocument = gql`
-    query getPageList {
-  getPageList {
+    ${MainPagePartsFragmentDoc}`;
+export const GetMainPageListDocument = gql`
+    query getMainPageList {
+  getMainPageList {
     totalCount
     edges {
       node {
@@ -356,13 +993,13 @@ export const GetPageListDocument = gql`
           extension
         }
         data {
-          ...PageParts
+          ...MainPageParts
         }
       }
     }
   }
 }
-    ${PagePartsFragmentDoc}`;
+    ${MainPagePartsFragmentDoc}`;
 export const GetGlobalDocumentDocument = gql`
     query getGlobalDocument($relativePath: String!) {
   getGlobalDocument(relativePath: $relativePath) {
@@ -407,11 +1044,11 @@ export const GetGlobalListDocument = gql`
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      getPageDocument(variables: GetPageDocumentQueryVariables, options?: C): Promise<{data: GetPageDocumentQuery, variables: GetPageDocumentQueryVariables, query: string}> {
-        return requester<{data: GetPageDocumentQuery, variables: GetPageDocumentQueryVariables, query: string}, GetPageDocumentQueryVariables>(GetPageDocumentDocument, variables, options);
+      getMainPageDocument(variables: GetMainPageDocumentQueryVariables, options?: C): Promise<{data: GetMainPageDocumentQuery, variables: GetMainPageDocumentQueryVariables, query: string}> {
+        return requester<{data: GetMainPageDocumentQuery, variables: GetMainPageDocumentQueryVariables, query: string}, GetMainPageDocumentQueryVariables>(GetMainPageDocumentDocument, variables, options);
       },
-    getPageList(variables?: GetPageListQueryVariables, options?: C): Promise<{data: GetPageListQuery, variables: GetPageListQueryVariables, query: string}> {
-        return requester<{data: GetPageListQuery, variables: GetPageListQueryVariables, query: string}, GetPageListQueryVariables>(GetPageListDocument, variables, options);
+    getMainPageList(variables?: GetMainPageListQueryVariables, options?: C): Promise<{data: GetMainPageListQuery, variables: GetMainPageListQueryVariables, query: string}> {
+        return requester<{data: GetMainPageListQuery, variables: GetMainPageListQueryVariables, query: string}, GetMainPageListQueryVariables>(GetMainPageListDocument, variables, options);
       },
     getGlobalDocument(variables: GetGlobalDocumentQueryVariables, options?: C): Promise<{data: GetGlobalDocumentQuery, variables: GetGlobalDocumentQueryVariables, query: string}> {
         return requester<{data: GetGlobalDocumentQuery, variables: GetGlobalDocumentQueryVariables, query: string}, GetGlobalDocumentQueryVariables>(GetGlobalDocumentDocument, variables, options);

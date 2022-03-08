@@ -1,26 +1,70 @@
 import { gql } from "tinacms";
 
 const getGlobalDocument = `
-  getGlobalDocument(relativePath: "index.json") {
-    id
-    data {
-      body
+getGlobalDocument(relativePath: "global.json") {
+  id
+  data {
+    header {
+      links {
+        title
+        href
+      }
     }
+  }
+}
+`;
+
+const getMainPageDocument = gql`
+getMainPageDocument (relativePath: $relativePath) {
+  id
+  data{
+    blocks{
+      __typename
+    }
+  }
+}
+`;
+
+const getMainPageBlah = `
+...on MainPageBlocksLargeHero{
+  headline
+  hook
+  popupVideoActive
+  popupVideoButtonLabel
+  popupVideoButtonSource
+  serviceBarActive
+  videoBackgroundActive
+  backgroundVideoSource
+  backgroundImageSourceDesktop
+  backgroundImageAltDesktop
+  backgroundImageSourceMobile
+  backgroundImageAltMobile
+}
+...on MainPageBlocksHero{
+            subHeadline
+            headline
+            hook
+            ctaActive
   }
 `;
 
-const getPageDocument = `
-  getPageDocument(relativePath: "home.mdx") {
-    id
-    data {
-      body
+const getMainPageList = `
+getMainPageList {
+  totalCount
+  edges {
+    cursor
+    node{
+      sys{
+        filename
+      }
     }
   }
+}
 `;
-
 const Query = {
   getGlobalDocument,
-  getPageDocument,
+  getMainPageDocument,
+  getMainPageList,
 };
 
 export default Query;

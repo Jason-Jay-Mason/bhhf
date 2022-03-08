@@ -8,24 +8,942 @@
   "meta": {},
   "collections": [
     {
-      "label": "Page Content",
-      "name": "page",
+      "label": "Main Pages",
+      "name": "mainPage",
       "path": "content/page",
       "format": "mdx",
       "fields": [
         {
-          "name": "body",
-          "label": "Main Content",
-          "type": "rich-text",
-          "isBody": true,
+          "type": "object",
+          "name": "blocks",
+          "label": "Page Sections",
+          "list": true,
+          "templates": [
+            {
+              "name": "largeHero",
+              "label": "Large Hero",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "headline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "headline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "hook",
+                  "label": "Hook",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "hook"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "popupVideoActive",
+                  "label": "Active popup video button",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "popupVideoActive"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "popupVideoButtonLabel",
+                  "label": "Popup video button label",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "popupVideoButtonLabel"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "popupVideoButtonSource",
+                  "label": "Popup video button source",
+                  "description": "Paste the iframe video link (not the entire iframe code) here.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "popupVideoButtonSource"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "serviceBarActive",
+                  "label": "Activate Service Bar",
+                  "description": "Services are edited in the Global Menu",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "serviceBarActive"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "videoBackgroundActive",
+                  "label": "Activate background video functionality",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "videoBackgroundActive"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "backgroundVideoSource",
+                  "label": "Background video source",
+                  "description": "Paste the video source link here. Make sure background video functionality is set to true. note: vimeo download link is the recommended method tutorial here (https://vimeo.zendesk.com/hc/en-us/articles/224823567-Direct-links-to-video-files)",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "backgroundVideoSource"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "name": "backgroundImageSourceDesktop",
+                  "label": "Background image source (Desktop)",
+                  "description": "(Optimal size: width = 1920px, height = 900px) The image that will be displayed if the background video is deactivated.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "backgroundImageSourceDesktop"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "backgroundImageAltDesktop",
+                  "label": "Background image Desktop description (for SEO)",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "backgroundImageAltDesktop"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "name": "backgroundImageSourceMobile",
+                  "label": "Background image source (mobile)",
+                  "description": "(Optimal size: width = 320px, height = 468px) The image that will be displayed on mobile.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "backgroundImageSourceMobile"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "backgroundImageAltMobile",
+                  "label": "Background image mobile description (for SEO)",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "backgroundImageAltMobile"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "largeHero"
+              ]
+            },
+            {
+              "name": "hero",
+              "label": "Hero",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "subHeadline",
+                  "label": "Sub Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "subHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "headline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "headline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "hook",
+                  "label": "Hook",
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "hook"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "ctaActive",
+                  "label": "Activate Call To Action Button",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "ctaActive"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "ctaLabel",
+                  "label": "Call To Action Label",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "ctaLabel"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "ctaHref",
+                  "label": "Call To Action Href",
+                  "description": "When somebody clicks the Call To Action, it will go to this location.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "ctaHref"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "hero"
+              ]
+            },
+            {
+              "name": "longFeaturedImage",
+              "label": "Long Form Featured Image",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "standardSubHeadline",
+                  "label": "Sub Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "standardSubHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "standardHeadline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "standardHeadline"
+                  ]
+                },
+                {
+                  "type": "rich-text",
+                  "name": "twoColumnText",
+                  "label": "Two Column Body Text",
+                  "description": "Leave blank to deactivate",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "twoColumnText"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "featuredImage",
+                  "label": "Featured Image(s)",
+                  "list": true,
+                  "description": "Adding more than one image will activate slider functionality",
+                  "ui": {
+                    "component": "labeled-group-list"
+                  },
+                  "fields": [
+                    {
+                      "type": "image",
+                      "name": "image",
+                      "label": "Image",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "featuredImage",
+                        "image"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Featured Image Description (for SEO)",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "featuredImage",
+                        "title"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "featuredImage"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "featuredImageRightActive",
+                  "label": "Featured image left vs right",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "featuredImageRightActive"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "blocks",
+                  "label": "Featured Sections",
+                  "list": true,
+                  "templates": [
+                    {
+                      "name": "centeredIconBlurb",
+                      "label": "Centered Icon Blurb",
+                      "fields": [
+                        {
+                          "type": "image",
+                          "name": "icon",
+                          "label": "Icon (SVG file type only please!)",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "centeredIconBlurb",
+                            "icon"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "iconAlt",
+                          "label": "Icon description (for SEO)",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "centeredIconBlurb",
+                            "iconAlt"
+                          ]
+                        },
+                        {
+                          "type": "rich-text",
+                          "name": "text",
+                          "label": "Text",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "centeredIconBlurb",
+                            "text"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "blocks",
+                        "centeredIconBlurb"
+                      ]
+                    },
+                    {
+                      "name": "iconListBlurb",
+                      "label": "Icon List Blurb",
+                      "fields": [
+                        {
+                          "type": "object",
+                          "name": "iconList",
+                          "label": "Icon List (SVG file type only please!)",
+                          "list": true,
+                          "ui": {
+                            "component": "labeled-group-list"
+                          },
+                          "fields": [
+                            {
+                              "type": "string",
+                              "name": "title",
+                              "label": "Icon Alt Text",
+                              "namespace": [
+                                "mainPage",
+                                "blocks",
+                                "longFeaturedImage",
+                                "blocks",
+                                "iconListBlurb",
+                                "iconList",
+                                "title"
+                              ]
+                            },
+                            {
+                              "type": "image",
+                              "name": "icon",
+                              "label": "Icon (SVG file type only please!)",
+                              "namespace": [
+                                "mainPage",
+                                "blocks",
+                                "longFeaturedImage",
+                                "blocks",
+                                "iconListBlurb",
+                                "iconList",
+                                "icon"
+                              ]
+                            }
+                          ],
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "iconListBlurb",
+                            "iconList"
+                          ]
+                        },
+                        {
+                          "type": "rich-text",
+                          "name": "text",
+                          "label": "Text",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "iconListBlurb",
+                            "text"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "blocks",
+                        "iconListBlurb"
+                      ]
+                    },
+                    {
+                      "name": "button",
+                      "label": "Button",
+                      "fields": [
+                        {
+                          "type": "string",
+                          "name": "label",
+                          "label": "Button Label",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "button",
+                            "label"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "href",
+                          "label": "Button Href",
+                          "description": "When the button is clicked the user will go to this location.",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "button",
+                            "href"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "blocks",
+                        "button"
+                      ]
+                    },
+                    {
+                      "name": "titledIconBlurb",
+                      "label": "Titled Icon Blurb",
+                      "fields": [
+                        {
+                          "type": "image",
+                          "name": "icon",
+                          "label": "Icon (SVG file type only please!)",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "titledIconBlurb",
+                            "icon"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "iconAlt",
+                          "label": "Icon description (for SEO)",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "titledIconBlurb",
+                            "iconAlt"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "Headline",
+                          "label": "Headline",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "titledIconBlurb",
+                            "Headline"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "subHeadline",
+                          "label": "Sub Headline",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "titledIconBlurb",
+                            "subHeadline"
+                          ]
+                        },
+                        {
+                          "type": "rich-text",
+                          "name": "blurb",
+                          "label": "Blurb",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "titledIconBlurb",
+                            "blurb"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "blocks",
+                        "titledIconBlurb"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "blocks"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "bottomPaddingActive",
+                  "label": "Activate bottom Padding",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "bottomPaddingActive"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "longFeaturedImage"
+              ]
+            },
+            {
+              "name": "ctaButtons",
+              "label": "CTA Button Section",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "mainCallToActionLabel",
+                  "label": "Main call to action  Label",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "ctaButtons",
+                    "mainCallToActionLabel"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "mainCallToActionHref",
+                  "label": "Main call to action Href",
+                  "description": "The location a user will be brought to when the CTA is clicked.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "ctaButtons",
+                    "mainCallToActionHref"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "secondaryCallToActionLabel",
+                  "label": "Secondary call to action Label",
+                  "description": "Leave blank to disable",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "ctaButtons",
+                    "secondaryCallToActionLabel"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "secondaryCallToActionVideoActive",
+                  "label": "Secondary call to action video popup",
+                  "description": "When this is activated, a video pop will occur when the button is clicked.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "ctaButtons",
+                    "secondaryCallToActionVideoActive"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "secondaryCallToActionHrefOrSource",
+                  "label": "Secondary call to action href or video source",
+                  "description": "If video is activated, paste the video embedded source, if not, input the buttons link (location).",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "ctaButtons",
+                    "secondaryCallToActionHrefOrSource"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "ctaButtons"
+              ]
+            },
+            {
+              "name": "shortIconGrid",
+              "label": "Short Icon Grid",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "headline",
+                  "label": "Headline",
+                  "description": "Leave blank to deactivate headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "shortIconGrid",
+                    "headline"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "featuredIconBlurb",
+                  "label": "Featured Icon Blurb",
+                  "list": true,
+                  "ui": {
+                    "component": "labeled-group-list"
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Title",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "shortIconGrid",
+                        "featuredIconBlurb",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "name": "icon",
+                      "label": "Icon",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "shortIconGrid",
+                        "featuredIconBlurb",
+                        "icon"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "blurb",
+                      "label": "Short Blurb",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "shortIconGrid",
+                        "featuredIconBlurb",
+                        "blurb"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "shortIconGrid",
+                    "featuredIconBlurb"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "shortIconGrid"
+              ]
+            },
+            {
+              "name": "testimonialSlider",
+              "label": "Testimonial Slider",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "standardSubHeadline",
+                  "label": "Sub Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "testimonialSlider",
+                    "standardSubHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "standardHeadline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "testimonialSlider",
+                    "standardHeadline"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "testimonialSlider"
+              ]
+            },
+            {
+              "name": "preFooterCta",
+              "label": "Pre Footer CTA",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "standardSubHeadline",
+                  "label": "Sub Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "preFooterCta",
+                    "standardSubHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "standardHeadline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "preFooterCta",
+                    "standardHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "hook",
+                  "label": "Hook",
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "preFooterCta",
+                    "hook"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "mainCallToActionLabel",
+                  "label": "Main call to action  Label",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "preFooterCta",
+                    "mainCallToActionLabel"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "mainCallToActionHref",
+                  "label": "Main call to action Href",
+                  "description": "The location a user will be brought to when the CTA is clicked.",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "preFooterCta",
+                    "mainCallToActionHref"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "preFooterCta"
+              ]
+            }
+          ],
           "namespace": [
-            "page",
-            "body"
+            "mainPage",
+            "blocks"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "SEO",
+          "name": "seo",
+          "ui": {
+            "component": "group"
+          },
+          "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "description": "50-60 characters",
+              "name": "title",
+              "namespace": [
+                "mainPage",
+                "seo",
+                "title"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Description",
+              "description": "155-160 characters",
+              "name": "description",
+              "ui": {
+                "component": "textarea"
+              },
+              "namespace": [
+                "mainPage",
+                "seo",
+                "description"
+              ]
+            },
+            {
+              "type": "image",
+              "label": "Image",
+              "name": "image",
+              "namespace": [
+                "mainPage",
+                "seo",
+                "image"
+              ]
+            },
+            {
+              "type": "boolean",
+              "label": "No Follow",
+              "name": "noFollow",
+              "namespace": [
+                "mainPage",
+                "seo",
+                "noFollow"
+              ]
+            },
+            {
+              "type": "boolean",
+              "label": "No Index",
+              "name": "noIndex",
+              "namespace": [
+                "mainPage",
+                "seo",
+                "noIndex"
+              ]
+            }
+          ],
+          "namespace": [
+            "mainPage",
+            "seo"
           ]
         }
       ],
       "namespace": [
-        "page"
+        "mainPage"
       ]
     },
     {
@@ -35,12 +953,645 @@
       "format": "json",
       "fields": [
         {
-          "name": "body",
-          "label": "Write some stuff!",
-          "type": "string",
+          "type": "object",
+          "name": "header",
+          "label": "Header",
+          "fields": [
+            {
+              "type": "string",
+              "name": "preHeaderCtaLabel",
+              "label": "Pre Header Call To Action Label",
+              "namespace": [
+                "global",
+                "header",
+                "preHeaderCtaLabel"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "preHeaderCtaHref",
+              "label": "Pre Header Call To Action Href",
+              "description": "When somebody clicks the label, it will go to this location.",
+              "namespace": [
+                "global",
+                "header",
+                "preHeaderCtaHref"
+              ]
+            },
+            {
+              "type": "object",
+              "label": "Links",
+              "name": "links",
+              "list": true,
+              "ui": {
+                "component": "labeled-group-list"
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "title",
+                  "label": "Link Label",
+                  "namespace": [
+                    "global",
+                    "header",
+                    "links",
+                    "title"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "href",
+                  "label": "Link Href",
+                  "description": "When somebody clicks the link, it will go to this location.",
+                  "namespace": [
+                    "global",
+                    "header",
+                    "links",
+                    "href"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "header",
+                "links"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "ctaLabel",
+              "label": "Call To Action Label",
+              "namespace": [
+                "global",
+                "header",
+                "ctaLabel"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "ctaHref",
+              "label": "Call To Action Href",
+              "description": "When somebody clicks the Call To Action, it will go to this location.",
+              "namespace": [
+                "global",
+                "header",
+                "ctaHref"
+              ]
+            }
+          ],
           "namespace": [
             "global",
-            "body"
+            "header"
+          ]
+        },
+        {
+          "type": "object",
+          "name": "businessInfo",
+          "label": "Business Info",
+          "description": "The Broken Heart business info like hours, contact, social, etc.",
+          "fields": [
+            {
+              "type": "object",
+              "name": "contact",
+              "label": "Contact",
+              "description": "Your contact info that is propagated throughout the site automatically!",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "phone",
+                  "label": "Phone",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "contact",
+                    "phone"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "address",
+                  "label": "Address",
+                  "description": "Your business address.",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "contact",
+                    "address"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "email",
+                  "label": "Email",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "contact",
+                    "email"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "businessInfo",
+                "contact"
+              ]
+            },
+            {
+              "type": "object",
+              "label": "Hours",
+              "name": "hours",
+              "description": "Enter your business hours by day.",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "monday",
+                  "label": "Monday Hours",
+                  "description": "Enter the hours for Monday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "monday"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "tuesday",
+                  "label": "Tuesday Hours",
+                  "description": "Enter the hours for Tuesday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "tuesday"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "wednesday",
+                  "label": "Wednesday Hours",
+                  "description": "Enter the hours for Wednesday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "wednesday"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "thursday",
+                  "label": "Thursday Hours",
+                  "description": "Enter the hours for Thursday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "thursday"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "friday",
+                  "label": "Friday Hours",
+                  "description": "Enter the hours for Friday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "friday"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "saturday",
+                  "label": "Saturday Hours",
+                  "description": "Enter the hours for Saturday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "saturday"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "sunday",
+                  "label": "Sunday Hours",
+                  "description": "Enter the hours for Sunday. Format 00:00 - 00:00",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "hours",
+                    "sunday"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "businessInfo",
+                "hours"
+              ]
+            },
+            {
+              "type": "object",
+              "name": "socialLinks",
+              "label": "Social Links",
+              "description": "Input the Broken Heart social links.",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "facebook",
+                  "label": "Facebook Link",
+                  "description": "Enter the link to the Broken Heart Facebook page. (Leave blank if there is none)",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "socialLinks",
+                    "facebook"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "instagram",
+                  "label": "Instagram Link",
+                  "description": "Enter the link to the Broken Heart Instagram page. (Leave blank if there is none)",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "socialLinks",
+                    "instagram"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "youtube",
+                  "label": "Youtube Link",
+                  "description": "Enter the link to the Broken Heart Youtube page. (Leave blank if there is none)",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "socialLinks",
+                    "youtube"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "twitter",
+                  "label": "Twitter Link",
+                  "description": "Enter the link to the Broken Heart Twitter page. (Leave blank if there is none)",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "socialLinks",
+                    "twitter"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "linkedin",
+                  "label": "Linkedin Link",
+                  "description": "Enter the link to the Broken Heart Linkedin page. (Leave blank if there is none)",
+                  "namespace": [
+                    "global",
+                    "businessInfo",
+                    "socialLinks",
+                    "linkedin"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "businessInfo",
+                "socialLinks"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "businessInfo"
+          ]
+        },
+        {
+          "type": "object",
+          "name": "services",
+          "label": "Services",
+          "description": "This section will be removed from the Global Menu in a future update when service pages are introduced",
+          "list": true,
+          "ui": {
+            "component": "labeled-group-list"
+          },
+          "fields": [
+            {
+              "type": "string",
+              "name": "title",
+              "label": "Service Label",
+              "namespace": [
+                "global",
+                "services",
+                "title"
+              ]
+            },
+            {
+              "type": "image",
+              "name": "serviceBarImage",
+              "label": "Service Bar Image",
+              "description": "(Optimal Size: width: 238px height: 337px) The image that will be display on the Broken Heart home page service bar on mouse hover.",
+              "namespace": [
+                "global",
+                "services",
+                "serviceBarImage"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "services"
+          ]
+        },
+        {
+          "type": "object",
+          "name": "testimonials",
+          "label": "Testimonials",
+          "description": "Add Broken Heart testimonials by page",
+          "fields": [
+            {
+              "type": "object",
+              "name": "testimonialsList",
+              "label": "Testimonials",
+              "description": "Create/delete testimonials and add/remove them by page",
+              "list": true,
+              "ui": {
+                "component": "labeled-group-list"
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "title",
+                  "label": "Name",
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "title"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "shortDescription",
+                  "label": "Short Description",
+                  "description": "Example: \"IEA Team Member\"",
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "shortDescription"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "name": "image",
+                  "label": "Image",
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "image"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "imageAlt",
+                  "label": "Image Description (for SEO)",
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "imageAlt"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "testimonialBody",
+                  "label": "Testimonial",
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "testimonialBody"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "activePages",
+                  "label": "Active Pages",
+                  "description": "Choose the pages you want this testimonial to be on",
+                  "list": true,
+                  "ui": {
+                    "component": "labeled-group-list"
+                  },
+                  "fields": [
+                    {
+                      "type": "reference",
+                      "name": "title",
+                      "label": "Active Pages",
+                      "description": "Choose the pages you want this testimonial to be on",
+                      "collections": [
+                        "mainPage"
+                      ],
+                      "namespace": [
+                        "global",
+                        "testimonials",
+                        "testimonialsList",
+                        "activePages",
+                        "title"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "activePages"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "videoActive",
+                  "label": "Activate Video",
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "videoActive"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "videoSource",
+                  "label": "Video Source",
+                  "description": "Paste the src link from the vimeo embeded code here (ie in the embed code you will see src='{copy the link in here}'). Make sure video functionality is enabled. Video tutorial here: (https://vimeo.zendesk.com/hc/en-us/articles/224823567-Direct-links-to-video-files)",
+                  "namespace": [
+                    "global",
+                    "testimonials",
+                    "testimonialsList",
+                    "videoSource"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "testimonials",
+                "testimonialsList"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "testimonials"
+          ]
+        },
+        {
+          "type": "object",
+          "name": "events",
+          "label": "Events",
+          "description": "Add Broken Heart events globally",
+          "fields": [
+            {
+              "type": "object",
+              "name": "eventList",
+              "label": "Add Events",
+              "list": true,
+              "ui": {
+                "component": "labeled-group-list"
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "title",
+                  "label": "Event Title",
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "title"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "date",
+                  "label": "Event Date",
+                  "ui": {
+                    "component": "date"
+                  },
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "date"
+                  ]
+                },
+                {
+                  "type": "rich-text",
+                  "name": "description",
+                  "label": "Event Description",
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "description"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "events",
+                "eventList"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "events"
+          ]
+        },
+        {
+          "type": "object",
+          "name": "camps",
+          "label": "Camps",
+          "description": "Add Broken Heart camps globally",
+          "fields": [
+            {
+              "type": "object",
+              "name": "campList",
+              "label": "Add Camps",
+              "list": true,
+              "ui": {
+                "component": "labeled-group-list"
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "title",
+                  "label": "Camp Title",
+                  "namespace": [
+                    "global",
+                    "camps",
+                    "campList",
+                    "title"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "date",
+                  "label": "Camp Date",
+                  "ui": {
+                    "component": "date"
+                  },
+                  "namespace": [
+                    "global",
+                    "camps",
+                    "campList",
+                    "date"
+                  ]
+                },
+                {
+                  "type": "rich-text",
+                  "name": "description",
+                  "label": "Camp Description",
+                  "namespace": [
+                    "global",
+                    "camps",
+                    "campList",
+                    "description"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "bookingHref",
+                  "label": "Booking Page Link",
+                  "namespace": [
+                    "global",
+                    "camps",
+                    "campList",
+                    "bookingHref"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "camps",
+                "campList"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "camps"
           ]
         }
       ],

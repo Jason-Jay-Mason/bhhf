@@ -1,7 +1,188 @@
-fragment PageParts on Page {
-  body
+fragment MainPageParts on MainPage {
+  blocks {
+    __typename
+    ... on MainPageBlocksLargeHero {
+      headline
+      hook
+      popupVideoActive
+      popupVideoButtonLabel
+      popupVideoButtonSource
+      serviceBarActive
+      videoBackgroundActive
+      backgroundVideoSource
+      backgroundImageSourceDesktop
+      backgroundImageAltDesktop
+      backgroundImageSourceMobile
+      backgroundImageAltMobile
+    }
+    ... on MainPageBlocksHero {
+      subHeadline
+      headline
+      hook
+      ctaActive
+      ctaLabel
+      ctaHref
+    }
+    ... on MainPageBlocksLongFeaturedImage {
+      standardSubHeadline
+      standardHeadline
+      twoColumnText
+      featuredImage {
+        __typename
+        image
+        title
+      }
+      featuredImageRightActive
+      blocks {
+        __typename
+        ... on MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb {
+          icon
+          iconAlt
+          text
+        }
+        ... on MainPageBlocksLongFeaturedImageBlocksIconListBlurb {
+          iconList {
+            __typename
+            title
+            icon
+          }
+          text
+        }
+        ... on MainPageBlocksLongFeaturedImageBlocksButton {
+          label
+          href
+        }
+        ... on MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb {
+          icon
+          iconAlt
+          Headline
+          subHeadline
+          blurb
+        }
+      }
+      bottomPaddingActive
+    }
+    ... on MainPageBlocksCtaButtons {
+      mainCallToActionLabel
+      mainCallToActionHref
+      secondaryCallToActionLabel
+      secondaryCallToActionVideoActive
+      secondaryCallToActionHrefOrSource
+    }
+    ... on MainPageBlocksShortIconGrid {
+      headline
+      featuredIconBlurb {
+        __typename
+        title
+        icon
+        blurb
+      }
+    }
+    ... on MainPageBlocksTestimonialSlider {
+      standardSubHeadline
+      standardHeadline
+    }
+    ... on MainPageBlocksPreFooterCta {
+      standardSubHeadline
+      standardHeadline
+      hook
+      mainCallToActionLabel
+      mainCallToActionHref
+    }
+  }
+  seo {
+    __typename
+    title
+    description
+    image
+    noFollow
+    noIndex
+  }
 }
 
 fragment GlobalParts on Global {
-  body
+  header {
+    __typename
+    preHeaderCtaLabel
+    preHeaderCtaHref
+    links {
+      __typename
+      title
+      href
+    }
+    ctaLabel
+    ctaHref
+  }
+  businessInfo {
+    __typename
+    contact {
+      __typename
+      phone
+      address
+      email
+    }
+    hours {
+      __typename
+      monday
+      tuesday
+      wednesday
+      thursday
+      friday
+      saturday
+      sunday
+    }
+    socialLinks {
+      __typename
+      facebook
+      instagram
+      youtube
+      twitter
+      linkedin
+    }
+  }
+  services {
+    __typename
+    title
+    serviceBarImage
+  }
+  testimonials {
+    __typename
+    testimonialsList {
+      __typename
+      title
+      shortDescription
+      image
+      imageAlt
+      testimonialBody
+      activePages {
+        __typename
+        title {
+          ... on Document {
+            id
+          }
+        }
+      }
+      videoActive
+      videoSource
+    }
+  }
+  events {
+    __typename
+    eventList {
+      __typename
+      title
+      date
+      description
+    }
+  }
+  camps {
+    __typename
+    campList {
+      __typename
+      title
+      date
+      description
+      bookingHref
+    }
+  }
 }

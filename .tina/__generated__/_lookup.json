@@ -3,7 +3,7 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "page",
+      "mainPage",
       "global"
     ]
   },
@@ -17,17 +17,46 @@
     "createDocument": "create",
     "updateDocument": "update"
   },
-  "PageDocument": {
-    "type": "PageDocument",
-    "resolveType": "collectionDocument",
-    "collection": "page",
-    "createPageDocument": "create",
-    "updatePageDocument": "update"
+  "MainPageBlocksLongFeaturedImageBlocks": {
+    "type": "MainPageBlocksLongFeaturedImageBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "centeredIconBlurb": "MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb",
+      "iconListBlurb": "MainPageBlocksLongFeaturedImageBlocksIconListBlurb",
+      "button": "MainPageBlocksLongFeaturedImageBlocksButton",
+      "titledIconBlurb": "MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb"
+    }
   },
-  "PageConnection": {
-    "type": "PageConnection",
+  "MainPageBlocks": {
+    "type": "MainPageBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "largeHero": "MainPageBlocksLargeHero",
+      "hero": "MainPageBlocksHero",
+      "longFeaturedImage": "MainPageBlocksLongFeaturedImage",
+      "ctaButtons": "MainPageBlocksCtaButtons",
+      "shortIconGrid": "MainPageBlocksShortIconGrid",
+      "testimonialSlider": "MainPageBlocksTestimonialSlider",
+      "preFooterCta": "MainPageBlocksPreFooterCta"
+    }
+  },
+  "MainPageDocument": {
+    "type": "MainPageDocument",
+    "resolveType": "collectionDocument",
+    "collection": "mainPage",
+    "createMainPageDocument": "create",
+    "updateMainPageDocument": "update"
+  },
+  "MainPageConnection": {
+    "type": "MainPageConnection",
     "resolveType": "collectionDocumentList",
-    "collection": "page"
+    "collection": "mainPage"
+  },
+  "GlobalTestimonialsTestimonialsListActivePagesTitleDocument": {
+    "type": "GlobalTestimonialsTestimonialsListActivePagesTitleDocument",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
   },
   "GlobalDocument": {
     "type": "GlobalDocument",

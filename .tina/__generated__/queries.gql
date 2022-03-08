@@ -1,5 +1,5 @@
-query getPageDocument($relativePath: String!) {
-  getPageDocument(relativePath: $relativePath) {
+query getMainPageDocument($relativePath: String!) {
+  getMainPageDocument(relativePath: $relativePath) {
     sys {
       filename
       basename
@@ -10,13 +10,13 @@ query getPageDocument($relativePath: String!) {
     }
     id
     data {
-      ...PageParts
+      ...MainPageParts
     }
   }
 }
 
-query getPageList {
-  getPageList {
+query getMainPageList {
+  getMainPageList {
     totalCount
     edges {
       node {
@@ -30,7 +30,7 @@ query getPageList {
           extension
         }
         data {
-          ...PageParts
+          ...MainPageParts
         }
       }
     }

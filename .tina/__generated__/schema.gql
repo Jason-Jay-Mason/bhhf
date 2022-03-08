@@ -48,8 +48,8 @@ type Query {
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Float, last: Float): DocumentConnection!
   getDocumentFields: JSON!
-  getPageDocument(relativePath: String): PageDocument!
-  getPageList(before: String, after: String, first: Float, last: Float): PageConnection!
+  getMainPageDocument(relativePath: String): MainPageDocument!
+  getMainPageList(before: String, after: String, first: Float, last: Float): MainPageConnection!
   getGlobalDocument(relativePath: String): GlobalDocument!
   getGlobalList(before: String, after: String, first: Float, last: Float): GlobalConnection!
 }
@@ -77,34 +77,242 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
 }
 
-union DocumentNode = PageDocument | GlobalDocument
+union DocumentNode = MainPageDocument | GlobalDocument
 
-type Page {
-  body: JSON
+type MainPageBlocksLargeHero {
+  headline: String
+  hook: String
+  popupVideoActive: Boolean
+  popupVideoButtonLabel: String
+  popupVideoButtonSource: String
+  serviceBarActive: Boolean
+  videoBackgroundActive: Boolean
+  backgroundVideoSource: String
+  backgroundImageSourceDesktop: String
+  backgroundImageAltDesktop: String
+  backgroundImageSourceMobile: String
+  backgroundImageAltMobile: String
 }
 
-type PageDocument implements Node & Document {
+type MainPageBlocksHero {
+  subHeadline: String
+  headline: String
+  hook: String
+  ctaActive: Boolean
+  ctaLabel: String
+  ctaHref: String
+}
+
+type MainPageBlocksLongFeaturedImageFeaturedImage {
+  image: String
+  title: String
+}
+
+type MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb {
+  icon: String
+  iconAlt: String
+  text: JSON
+}
+
+type MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList {
+  title: String
+  icon: String
+}
+
+type MainPageBlocksLongFeaturedImageBlocksIconListBlurb {
+  iconList: [MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList]
+  text: JSON
+}
+
+type MainPageBlocksLongFeaturedImageBlocksButton {
+  label: String
+  href: String
+}
+
+type MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb {
+  icon: String
+  iconAlt: String
+  Headline: String
+  subHeadline: String
+  blurb: JSON
+}
+
+union MainPageBlocksLongFeaturedImageBlocks = MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb | MainPageBlocksLongFeaturedImageBlocksIconListBlurb | MainPageBlocksLongFeaturedImageBlocksButton | MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb
+
+type MainPageBlocksLongFeaturedImage {
+  standardSubHeadline: String
+  standardHeadline: String
+  twoColumnText: JSON
+  featuredImage: [MainPageBlocksLongFeaturedImageFeaturedImage]
+  featuredImageRightActive: Boolean
+  blocks: [MainPageBlocksLongFeaturedImageBlocks]
+  bottomPaddingActive: Boolean
+}
+
+type MainPageBlocksCtaButtons {
+  mainCallToActionLabel: String
+  mainCallToActionHref: String
+  secondaryCallToActionLabel: String
+  secondaryCallToActionVideoActive: Boolean
+  secondaryCallToActionHrefOrSource: String
+}
+
+type MainPageBlocksShortIconGridFeaturedIconBlurb {
+  title: String
+  icon: String
+  blurb: String
+}
+
+type MainPageBlocksShortIconGrid {
+  headline: String
+  featuredIconBlurb: [MainPageBlocksShortIconGridFeaturedIconBlurb]
+}
+
+type MainPageBlocksTestimonialSlider {
+  standardSubHeadline: String
+  standardHeadline: String
+}
+
+type MainPageBlocksPreFooterCta {
+  standardSubHeadline: String
+  standardHeadline: String
+  hook: String
+  mainCallToActionLabel: String
+  mainCallToActionHref: String
+}
+
+union MainPageBlocks = MainPageBlocksLargeHero | MainPageBlocksHero | MainPageBlocksLongFeaturedImage | MainPageBlocksCtaButtons | MainPageBlocksShortIconGrid | MainPageBlocksTestimonialSlider | MainPageBlocksPreFooterCta
+
+type MainPageSeo {
+  title: String
+  description: String
+  image: String
+  noFollow: Boolean
+  noIndex: Boolean
+}
+
+type MainPage {
+  blocks: [MainPageBlocks]
+  seo: MainPageSeo
+}
+
+type MainPageDocument implements Node & Document {
   id: ID!
   sys: SystemInfo!
-  data: Page!
+  data: MainPage!
   form: JSON!
   values: JSON!
   dataJSON: JSON!
 }
 
-type PageConnectionEdges {
+type MainPageConnectionEdges {
   cursor: String
-  node: PageDocument
+  node: MainPageDocument
 }
 
-type PageConnection implements Connection {
+type MainPageConnection implements Connection {
   pageInfo: PageInfo
   totalCount: Float!
-  edges: [PageConnectionEdges]
+  edges: [MainPageConnectionEdges]
+}
+
+type GlobalHeaderLinks {
+  title: String
+  href: String
+}
+
+type GlobalHeader {
+  preHeaderCtaLabel: String
+  preHeaderCtaHref: String
+  links: [GlobalHeaderLinks]
+  ctaLabel: String
+  ctaHref: String
+}
+
+type GlobalBusinessInfoContact {
+  phone: String
+  address: String
+  email: String
+}
+
+type GlobalBusinessInfoHours {
+  monday: String
+  tuesday: String
+  wednesday: String
+  thursday: String
+  friday: String
+  saturday: String
+  sunday: String
+}
+
+type GlobalBusinessInfoSocialLinks {
+  facebook: String
+  instagram: String
+  youtube: String
+  twitter: String
+  linkedin: String
+}
+
+type GlobalBusinessInfo {
+  contact: GlobalBusinessInfoContact
+  hours: GlobalBusinessInfoHours
+  socialLinks: GlobalBusinessInfoSocialLinks
+}
+
+type GlobalServices {
+  title: String
+  serviceBarImage: String
+}
+
+union GlobalTestimonialsTestimonialsListActivePagesTitleDocument = MainPageDocument
+
+type GlobalTestimonialsTestimonialsListActivePages {
+  title: GlobalTestimonialsTestimonialsListActivePagesTitleDocument
+}
+
+type GlobalTestimonialsTestimonialsList {
+  title: String
+  shortDescription: String
+  image: String
+  imageAlt: String
+  testimonialBody: String
+  activePages: [GlobalTestimonialsTestimonialsListActivePages]
+  videoActive: Boolean
+  videoSource: String
+}
+
+type GlobalTestimonials {
+  testimonialsList: [GlobalTestimonialsTestimonialsList]
+}
+
+type GlobalEventsEventList {
+  title: String
+  date: String
+  description: JSON
+}
+
+type GlobalEvents {
+  eventList: [GlobalEventsEventList]
+}
+
+type GlobalCampsCampList {
+  title: String
+  date: String
+  description: JSON
+  bookingHref: String
+}
+
+type GlobalCamps {
+  campList: [GlobalCampsCampList]
 }
 
 type Global {
-  body: String
+  header: GlobalHeader
+  businessInfo: GlobalBusinessInfo
+  services: [GlobalServices]
+  testimonials: GlobalTestimonials
+  events: GlobalEvents
+  camps: GlobalCamps
 }
 
 type GlobalDocument implements Node & Document {
@@ -131,23 +339,242 @@ type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updatePageDocument(relativePath: String!, params: PageMutation!): PageDocument!
-  createPageDocument(relativePath: String!, params: PageMutation!): PageDocument!
+  updateMainPageDocument(relativePath: String!, params: MainPageMutation!): MainPageDocument!
+  createMainPageDocument(relativePath: String!, params: MainPageMutation!): MainPageDocument!
   updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
   createGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
 }
 
 input DocumentMutation {
-  page: PageMutation
+  mainPage: MainPageMutation
   global: GlobalMutation
 }
 
-input PageMutation {
-  body: JSON
+input MainPageBlocksLargeHeroMutation {
+  headline: String
+  hook: String
+  popupVideoActive: Boolean
+  popupVideoButtonLabel: String
+  popupVideoButtonSource: String
+  serviceBarActive: Boolean
+  videoBackgroundActive: Boolean
+  backgroundVideoSource: String
+  backgroundImageSourceDesktop: String
+  backgroundImageAltDesktop: String
+  backgroundImageSourceMobile: String
+  backgroundImageAltMobile: String
+}
+
+input MainPageBlocksHeroMutation {
+  subHeadline: String
+  headline: String
+  hook: String
+  ctaActive: Boolean
+  ctaLabel: String
+  ctaHref: String
+}
+
+input MainPageBlocksLongFeaturedImageFeaturedImageMutation {
+  image: String
+  title: String
+}
+
+input MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation {
+  icon: String
+  iconAlt: String
+  text: JSON
+}
+
+input MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconListMutation {
+  title: String
+  icon: String
+}
+
+input MainPageBlocksLongFeaturedImageBlocksIconListBlurbMutation {
+  iconList: [MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconListMutation]
+  text: JSON
+}
+
+input MainPageBlocksLongFeaturedImageBlocksButtonMutation {
+  label: String
+  href: String
+}
+
+input MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation {
+  icon: String
+  iconAlt: String
+  Headline: String
+  subHeadline: String
+  blurb: JSON
+}
+
+input MainPageBlocksLongFeaturedImageBlocksMutation {
+  centeredIconBlurb: MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation
+  iconListBlurb: MainPageBlocksLongFeaturedImageBlocksIconListBlurbMutation
+  button: MainPageBlocksLongFeaturedImageBlocksButtonMutation
+  titledIconBlurb: MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation
+}
+
+input MainPageBlocksLongFeaturedImageMutation {
+  standardSubHeadline: String
+  standardHeadline: String
+  twoColumnText: JSON
+  featuredImage: [MainPageBlocksLongFeaturedImageFeaturedImageMutation]
+  featuredImageRightActive: Boolean
+  blocks: [MainPageBlocksLongFeaturedImageBlocksMutation]
+  bottomPaddingActive: Boolean
+}
+
+input MainPageBlocksCtaButtonsMutation {
+  mainCallToActionLabel: String
+  mainCallToActionHref: String
+  secondaryCallToActionLabel: String
+  secondaryCallToActionVideoActive: Boolean
+  secondaryCallToActionHrefOrSource: String
+}
+
+input MainPageBlocksShortIconGridFeaturedIconBlurbMutation {
+  title: String
+  icon: String
+  blurb: String
+}
+
+input MainPageBlocksShortIconGridMutation {
+  headline: String
+  featuredIconBlurb: [MainPageBlocksShortIconGridFeaturedIconBlurbMutation]
+}
+
+input MainPageBlocksTestimonialSliderMutation {
+  standardSubHeadline: String
+  standardHeadline: String
+}
+
+input MainPageBlocksPreFooterCtaMutation {
+  standardSubHeadline: String
+  standardHeadline: String
+  hook: String
+  mainCallToActionLabel: String
+  mainCallToActionHref: String
+}
+
+input MainPageBlocksMutation {
+  largeHero: MainPageBlocksLargeHeroMutation
+  hero: MainPageBlocksHeroMutation
+  longFeaturedImage: MainPageBlocksLongFeaturedImageMutation
+  ctaButtons: MainPageBlocksCtaButtonsMutation
+  shortIconGrid: MainPageBlocksShortIconGridMutation
+  testimonialSlider: MainPageBlocksTestimonialSliderMutation
+  preFooterCta: MainPageBlocksPreFooterCtaMutation
+}
+
+input MainPageSeoMutation {
+  title: String
+  description: String
+  image: String
+  noFollow: Boolean
+  noIndex: Boolean
+}
+
+input MainPageMutation {
+  blocks: [MainPageBlocksMutation]
+  seo: MainPageSeoMutation
+}
+
+input GlobalHeaderLinksMutation {
+  title: String
+  href: String
+}
+
+input GlobalHeaderMutation {
+  preHeaderCtaLabel: String
+  preHeaderCtaHref: String
+  links: [GlobalHeaderLinksMutation]
+  ctaLabel: String
+  ctaHref: String
+}
+
+input GlobalBusinessInfoContactMutation {
+  phone: String
+  address: String
+  email: String
+}
+
+input GlobalBusinessInfoHoursMutation {
+  monday: String
+  tuesday: String
+  wednesday: String
+  thursday: String
+  friday: String
+  saturday: String
+  sunday: String
+}
+
+input GlobalBusinessInfoSocialLinksMutation {
+  facebook: String
+  instagram: String
+  youtube: String
+  twitter: String
+  linkedin: String
+}
+
+input GlobalBusinessInfoMutation {
+  contact: GlobalBusinessInfoContactMutation
+  hours: GlobalBusinessInfoHoursMutation
+  socialLinks: GlobalBusinessInfoSocialLinksMutation
+}
+
+input GlobalServicesMutation {
+  title: String
+  serviceBarImage: String
+}
+
+input GlobalTestimonialsTestimonialsListActivePagesMutation {
+  title: String
+}
+
+input GlobalTestimonialsTestimonialsListMutation {
+  title: String
+  shortDescription: String
+  image: String
+  imageAlt: String
+  testimonialBody: String
+  activePages: [GlobalTestimonialsTestimonialsListActivePagesMutation]
+  videoActive: Boolean
+  videoSource: String
+}
+
+input GlobalTestimonialsMutation {
+  testimonialsList: [GlobalTestimonialsTestimonialsListMutation]
+}
+
+input GlobalEventsEventListMutation {
+  title: String
+  date: String
+  description: JSON
+}
+
+input GlobalEventsMutation {
+  eventList: [GlobalEventsEventListMutation]
+}
+
+input GlobalCampsCampListMutation {
+  title: String
+  date: String
+  description: JSON
+  bookingHref: String
+}
+
+input GlobalCampsMutation {
+  campList: [GlobalCampsCampListMutation]
 }
 
 input GlobalMutation {
-  body: String
+  header: GlobalHeaderMutation
+  businessInfo: GlobalBusinessInfoMutation
+  services: [GlobalServicesMutation]
+  testimonials: GlobalTestimonialsMutation
+  events: GlobalEventsMutation
+  camps: GlobalCampsMutation
 }
 
 schema {
