@@ -2,6 +2,7 @@ import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
 import Query from "../.tina/tools/queries/query";
 import MainPageBlocks from "../components/mainPageBlocks";
+import { useThemeStatus, useThemeToggle } from "../hooks/useTheme";
 
 //The query for tina cms
 const query = `query getMainPage($relativePath: String!) {

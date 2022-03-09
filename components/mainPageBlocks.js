@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 
 const MainPageBlocks = ({ blocks }) => {
-  console.log(blocks);
   return (
     <>
       {blocks?.map((block, i) => {

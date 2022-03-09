@@ -24,7 +24,9 @@ const globals = css`
     h4,
     h5,
     p,
-    h6 {
+    h6,
+    a {
+      font-size: 17px;
       z-index: 5;
       margin: 0;
       padding: 0;
