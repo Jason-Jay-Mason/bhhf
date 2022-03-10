@@ -136,7 +136,7 @@ fragment GlobalParts on Global {
       facebook
       instagram
       youtube
-      twitter
+      maps
       linkedin
     }
   }

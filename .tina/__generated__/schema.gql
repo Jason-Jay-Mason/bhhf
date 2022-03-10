@@ -249,7 +249,7 @@ type GlobalBusinessInfoSocialLinks {
   facebook: String
   instagram: String
   youtube: String
-  twitter: String
+  maps: String
   linkedin: String
 }
 
@@ -513,7 +513,7 @@ input GlobalBusinessInfoSocialLinksMutation {
   facebook: String
   instagram: String
   youtube: String
-  twitter: String
+  maps: String
   linkedin: String
 }
 

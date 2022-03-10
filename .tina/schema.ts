@@ -698,7 +698,7 @@ const socialLinks: TinaField = {
   name: "socialLinks",
   label: "Social Links",
   description: `Input the ${businessName} social links.`,
-  fields: [createSocialLink("facebook"), createSocialLink("instagram"), createSocialLink("youtube"), createSocialLink("twitter"), createSocialLink("linkedin")],
+  fields: [createSocialLink("facebook"), createSocialLink("instagram"), createSocialLink("youtube"), createSocialLink("maps"), createSocialLink("linkedin")],
 };
 const createHoursField = (dayOfWeek: String) => {
   let lower = dayOfWeek.slice(1);

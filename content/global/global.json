@@ -26,7 +26,11 @@
       "email": "BrokenHeart@BrokenHeart.com"
     },
     "socialLinks": {
-      "facebook": "/"
+      "facebook": "/",
+      "instagram": "/",
+      "youtube": "/",
+      "maps": "/",
+      "linkedin": "/"
     }
   },
   "services": [

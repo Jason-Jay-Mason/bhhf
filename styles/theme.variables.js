@@ -15,13 +15,14 @@ export const light = css`
   --text-brown: ${colorPallet.light.textBrown};
   --logo-coal: ${colorPallet.light.logoCoal};
   --white: white;
+  --icon-filter: "none";
 `;
 export const dark = css`
   --saddle-beige: ${colorPallet.dark.saddleBeige};
   --cloud-beige: ${colorPallet.dark.coalDarkTwo};
   --skin-beige: ${colorPallet.dark.coalDarkOne};
   --rainCloud-beige: ${colorPallet.dark.coalTwo};
-  --rainCloud-beige-two: ${colorPallet.dark.coalOne};
+  --rainCloud-beige-two: ${colorPallet.dark.coalDarkOne};
   --icon-beige: ${colorPallet.dark.white};
   --icon-blue: ${colorPallet.dark.white};
   --button-blue: ${colorPallet.dark.buttonBlue};
@@ -30,4 +31,5 @@ export const dark = css`
   --text-brown: ${colorPallet.dark.white};
   --logo-coal: ${colorPallet.light.white};
   --white: ${colorPallet.dark.coalTwo};
+  --icon-filter: brightness(0) invert(1);
 `;

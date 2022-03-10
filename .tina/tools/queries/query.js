@@ -5,9 +5,66 @@ getGlobalDocument(relativePath: "global.json") {
   id
   data {
     header {
+      preHeaderCtaLabel
+      preHeaderCtaHref
       links {
-        title
+        title   
         href
+      }
+      ctaLabel
+      ctaHref
+    }
+    businessInfo {
+      contact {
+        phone
+        address
+        email
+      }
+      hours {
+        monday
+        tuesday
+        wednesday
+        thursday
+        friday
+        saturday
+        sunday
+      }
+      socialLinks {
+        facebook
+        instagram
+        youtube
+        maps
+        linkedin
+      }
+    }
+    services {
+      title   
+      serviceBarImage
+    }
+    testimonials {
+      testimonialsList {
+        title   
+        shortDescription
+        image
+        imageAlt
+        testimonialBody
+        videoActive
+        videoSource
+      }
+    }
+    events {
+      eventList {
+        title
+        date
+        description
+      }
+    }
+    camps {
+      campList {
+        title
+        date
+        description
+        bookingHref
       }
     }
   }

@@ -11,7 +11,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <TinaDynamicProvider>
       <ThemeProvider>
-        <Layout>
+        <Layout {...pageProps}>
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

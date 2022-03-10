@@ -33,6 +33,7 @@ export const colors = {
   skinBeige: "var(--skin-beige)",
   rainCloudBeige: "var(--rainCloud-beige)",
   rainCloudBeigeTwo: "var(--rainCloud-beige-two)",
+  beige: "var(--beige)",
   iconBeige: "var(--icon-beige)",
   iconBlue: "var(--icon-blue)",
   buttonBlue: "var(--button-blue)",
@@ -40,15 +41,16 @@ export const colors = {
   horseBrown: "var(--horse-Brown)",
   textBrown: "var(--text-brown)",
   white: "var(--white)",
+  iconFilter: "var(--icon-filter)",
 };
 
 export const breakPoints = {
   xsml: "(max-width:480px)",
-  sm: "(max-width: 640px)",
+  sml: "(max-width: 640px)",
   md: "(max-width: 768px)",
-  lg: "(max-width:1024px)",
-  xl: "(max-width:1280px)",
-  xxl: "(max-width:1536px)",
+  lrg: "(max-width:1024px)",
+  xlrg: "(max-width:1280px)",
+  xxlrg: "(max-width:1536px)",
 };
 
 export const spacing = {
@@ -74,10 +76,18 @@ export const fontSize = {
   baseSml: "14.8px",
   baseXsml: "12px",
 };
+export const fonts = {
+  noto: "'Noto Serif', serif",
+};
+export const typography = {
+  notoBaseSml: `
+    font-family: ${fonts.noto};
+    line-height: 126%;
+    letter-spacing: 3%;
+  `,
+};
 
-const typography = {};
-
-const maxMin = {
+export const maxMin = {
   contentMaxWidth: "1536px",
   containerMaxWidth: "1688px",
 };
@@ -86,5 +96,7 @@ const theme = {
   spacing,
   colors,
   breakPoints,
+  fonts,
+  typography,
 };
 export { theme };

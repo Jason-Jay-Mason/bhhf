@@ -1238,14 +1238,14 @@
                 },
                 {
                   "type": "string",
-                  "name": "twitter",
-                  "label": "Twitter Link",
-                  "description": "Enter the link to the Broken Heart Twitter page. (Leave blank if there is none)",
+                  "name": "maps",
+                  "label": "Maps Link",
+                  "description": "Enter the link to the Broken Heart Maps page. (Leave blank if there is none)",
                   "namespace": [
                     "global",
                     "businessInfo",
                     "socialLinks",
-                    "twitter"
+                    "maps"
                   ]
                 },
                 {

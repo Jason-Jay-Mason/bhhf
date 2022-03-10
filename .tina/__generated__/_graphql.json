@@ -3115,7 +3115,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "twitter"
+            "value": "maps"
           },
           "arguments": [],
           "type": {
@@ -6012,7 +6012,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "twitter"
+            "value": "maps"
           },
           "type": {
             "kind": "NamedType",

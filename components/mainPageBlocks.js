@@ -6,19 +6,19 @@ const MainPageBlocks = ({ blocks }) => {
       {blocks?.map((block, i) => {
         switch (block.__typename) {
           case "MainPageBlocksLargeHero":
-            return <p>{block.__typename}</p>;
+            return;
           case "MainPageBlocksHero":
-            return <p>{block.__typename}</p>;
+            return;
           case "MainPageBlocksShortIconGrid":
-            return <p>{block.__typename}</p>;
+            return;
           case "MainPageBlocksLongFeaturedImage":
-            return <p>{block.__typename}</p>;
+            return;
           case "MainPageBlocksCtaButtons":
-            return <p>{block.__typename}</p>;
+            return;
           case "MainPageBlocksTestimonialSlider":
-            return <p>{block.__typename}</p>;
+            return;
           case "MainPageBlocksPreFooterCta":
-            return <p>{block.__typename}</p>;
+            return;
           default:
             return null;
         }
