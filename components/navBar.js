@@ -11,33 +11,6 @@ import SubNav from "./subNav";
 
 //#region styles
 const div = {};
-div.subNav = styled.div`
-  width: 100%;
-  background-color: ${colors.skinBeige};
-
-  svg {
-    filter: ${colors.iconFilter};
-  }
-  a {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    color: ${colors.textBrown};
-    padding: 0 ${spacing.s10ish};
-  }
-  p {
-    padding: 0 ${spacing.s10ish};
-    font-size: ${fontSize.baseSml};
-  }
-  .arrow {
-    margin-top: 3px;
-  }
-  @media ${breakPoints.lrg} {
-    display: none;
-  }
-`;
 div.nav = styled.div`
   position: relative;
   display: flex;
@@ -152,7 +125,6 @@ const NavBar = ({ header, businessInfo }) => {
     setPage(location);
   }, [windowLocation]);
 
-  console.log(page);
   return (
     <>
       <SubNav header={header} />

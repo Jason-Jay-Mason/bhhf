@@ -36,7 +36,6 @@ export const getStaticPaths = async () => {
     data = await staticRequest({
       query,
     });
-    console.log(data);
   } catch (e) {
     console.warn(e);
   }
