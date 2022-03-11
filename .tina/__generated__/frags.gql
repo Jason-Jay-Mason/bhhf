@@ -98,6 +98,7 @@ fragment MainPageParts on MainPage {
     noFollow
     noIndex
   }
+  mapEnabled
 }
 
 fragment GlobalParts on Global {

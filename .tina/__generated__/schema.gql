@@ -194,6 +194,7 @@ type MainPageSeo {
 type MainPage {
   blocks: [MainPageBlocks]
   seo: MainPageSeo
+  mapEnabled: Boolean
 }
 
 type MainPageDocument implements Node & Document {
@@ -478,6 +479,7 @@ input MainPageSeoMutation {
 input MainPageMutation {
   blocks: [MainPageBlocksMutation]
   seo: MainPageSeoMutation
+  mapEnabled: Boolean
 }
 
 input GlobalHeaderLinksMutation {

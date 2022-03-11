@@ -16,6 +16,8 @@ export const light = css`
   --logo-coal: ${colorPallet.light.logoCoal};
   --white: white;
   --icon-filter: "none";
+  --link-grey: ${colorPallet.light.linkGrey};
+  --headline-grey: ${colorPallet.light.headlineGrey};
 `;
 export const dark = css`
   --saddle-beige: ${colorPallet.dark.saddleBeige};
@@ -32,4 +34,6 @@ export const dark = css`
   --logo-coal: ${colorPallet.light.white};
   --white: ${colorPallet.dark.coalTwo};
   --icon-filter: brightness(0) invert(1);
+  --link-grey: ${colorPallet.dark.white};
+  --headline-grey: ${colorPallet.dark.white};
 `;

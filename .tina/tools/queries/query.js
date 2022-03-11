@@ -78,6 +78,7 @@ getMainPageDocument (relativePath: $relativePath) {
     blocks{
       __typename
     }
+    mapEnabled
   }
 }
 `;

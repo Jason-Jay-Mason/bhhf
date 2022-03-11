@@ -46,7 +46,7 @@ const Hamburger = ({ isActive }) => {
   return (
     <>
       <div.container isActive={isActive}>
-        <div className="hamburger" isActive={isActive}></div>
+        <div className="hamburger"></div>
       </div.container>
     </>
   );

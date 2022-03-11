@@ -9,7 +9,6 @@ div.wrapper = styled.div`
   input[type="checkbox"] {
     opacity: 0;
     position: absolute;
-    top: -1000000rem;
     left: -1000000rem;
   }
   input[type="checkbox"] + label {
@@ -65,8 +64,8 @@ const Toggle = ({ uniqueKey }) => {
   const checked = themeStatus === "dark" ? true : false;
   return (
     <div.wrapper>
-      <input type="checkbox" id={"toggle-check" + uniqueKey} checked={checked} />
-      <label for={"toggle-check" + uniqueKey} onClick={toggleTheme}></label>
+      <input type="checkbox" id={"toggle-check" + uniqueKey} defaultChecked={checked} />
+      <label htmlFor={"toggle-check" + uniqueKey} onClick={toggleTheme}></label>
     </div.wrapper>
   );
 };

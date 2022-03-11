@@ -15,6 +15,8 @@ export const colorPallet = {
     textBrown: "#333130",
     logoCoal: "#343232",
     white: "#ffffff",
+    linkGrey: "#4E4E4E",
+    headlineGrey: "#343232",
   },
   dark: {
     saddleBeige: "#BC946C",
@@ -42,6 +44,8 @@ export const colors = {
   textBrown: "var(--text-brown)",
   white: "var(--white)",
   iconFilter: "var(--icon-filter)",
+  linkGrey: "var(--link-grey)",
+  headlineGrey: "var(--headline-grey)",
 };
 
 export const breakPoints = {

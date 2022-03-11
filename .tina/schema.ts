@@ -466,6 +466,13 @@ const largeHero: TinaTemplate = {
 };
 //#endregion large hero
 
+const mapEnabled: TinaField = {
+  type: "boolean",
+  name: "mapEnabled",
+  label: "Enable Footer Map",
+  description: "The google map in the footer can be turned on and off. Note: using the map in the footer is a double edged sword, on one hand, google like when a map is in the footer with your location information. However, google maps can decrease page load speed.",
+};
+
 const mainPageFields: TinaField = {
   type: "object",
   name: "blocks",
@@ -777,7 +784,7 @@ export default defineSchema({
       name: "mainPage",
       path: "content/page",
       format: "mdx",
-      fields: [mainPageFields, seo],
+      fields: [mainPageFields, seo, mapEnabled],
     },
     {
       label: "Global",

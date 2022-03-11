@@ -8,6 +8,7 @@ import { useThemeStatus, useThemeToggle } from "../hooks/useTheme";
 const query = `query getMainPage($relativePath: String!) {
     ${Query.getMainPageDocument}
     ${Query.getGlobalDocument}
+    ${Query.getMainPageList}
   }
   `;
 export default function MainPage(props) {

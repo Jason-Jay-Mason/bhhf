@@ -67,9 +67,7 @@ const TinaConfig = defineConfig({
 const TinaDynamicProvider = ({ children }) => {
   return (
     <>
-      <TinaEditProvider showEditButton={true} editMode={<TinaCMS {...TinaConfig}>{children}</TinaCMS>}>
-        {children}
-      </TinaEditProvider>
+      <TinaEditProvider editMode={<TinaCMS {...TinaConfig}>{children}</TinaCMS>}>{children}</TinaEditProvider>
     </>
   );
 };
