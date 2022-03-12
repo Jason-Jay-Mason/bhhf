@@ -10,6 +10,7 @@ div.greyBar = styled.div`
 const ComponentFramer = ({ children }) => {
   return (
     <>
+      <div.greyBar />
       {children}
       <div.greyBar />
     </>

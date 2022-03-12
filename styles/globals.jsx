@@ -4,7 +4,8 @@ const globals = css`
   :global() {
     @font-face {
       font-family: "Snell Roundhand";
-      src: local(""), url("https://res.cloudinary.com/broken-heart-horse-farm/raw/upload/v1646945556/fonts/SnellRoundhand-BoldScript_pkd3do.woff2") format("woff2"), url("https://res.cloudinary.com/broken-heart-horse-farm/raw/upload/v1646947546/fonts/SnellRoundhand-BoldScript_fictkk.woff") format("woff");
+      font-weight: 300;
+      src: local(""), url("https://res.cloudinary.com/broken-heart-horse-farm/raw/upload/v1647059543/fonts/SnellBT-Regular_wr6e1x.woff2") format("woff2"), url("https://res.cloudinary.com/broken-heart-horse-farm/raw/upload/v1647059543/fonts/SnellBT-Regular_dwetaw.woff") format("woff");
     }
     /* open-sans-300 - latin */
     @font-face {
@@ -92,6 +93,10 @@ const globals = css`
       border: none;
       z-index: 5;
     }
+    p {
+      line-height: 223%;
+      font-size: 17px;
+    }
     h1,
     h2,
     h3,
@@ -100,7 +105,6 @@ const globals = css`
     p,
     h6,
     a {
-      font-size: 17px;
       z-index: 5;
       margin: 0;
       padding: 0;

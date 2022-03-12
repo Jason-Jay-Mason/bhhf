@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import LongFeaturedImage from "../blocks/longFeaturedImage";
 
 const MainPageBlocks = ({ blocks }) => {
   return (
@@ -12,7 +13,7 @@ const MainPageBlocks = ({ blocks }) => {
           case "MainPageBlocksShortIconGrid":
             return;
           case "MainPageBlocksLongFeaturedImage":
-            return;
+            return <LongFeaturedImage />;
           case "MainPageBlocksCtaButtons":
             return;
           case "MainPageBlocksTestimonialSlider":

@@ -17,6 +17,7 @@ export const colorPallet = {
     white: "#ffffff",
     linkGrey: "#4E4E4E",
     headlineGrey: "#343232",
+    lineGrey: "#EEEEEE",
   },
   dark: {
     saddleBeige: "#BC946C",
@@ -46,6 +47,8 @@ export const colors = {
   iconFilter: "var(--icon-filter)",
   linkGrey: "var(--link-grey)",
   headlineGrey: "var(--headline-grey)",
+  backgroundWhite: "var(--background-white)",
+  lineGrey: "var(--line-grey)",
 };
 
 export const breakPoints = {
@@ -72,7 +75,7 @@ export const spacing = {
 export const fontSize = {
   xxlrg: "5.938rem",
   xlrg: "3.69rem",
-  lrg: "3rem",
+  lrg: "3.2rem",
   med: "2.125rem",
   sml: "1.5rem",
   xsml: "1.25rem",

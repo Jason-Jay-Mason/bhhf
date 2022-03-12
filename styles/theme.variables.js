@@ -18,6 +18,8 @@ export const light = css`
   --icon-filter: "none";
   --link-grey: ${colorPallet.light.linkGrey};
   --headline-grey: ${colorPallet.light.headlineGrey};
+  --background-white: white;
+  --line-grey: ${colorPallet.light.lineGrey};
 `;
 export const dark = css`
   --saddle-beige: ${colorPallet.dark.saddleBeige};
@@ -36,4 +38,6 @@ export const dark = css`
   --icon-filter: brightness(0) invert(1);
   --link-grey: ${colorPallet.dark.white};
   --headline-grey: ${colorPallet.dark.white};
+  --background-white: ${colorPallet.dark.coalDarkTwo};
+  --line-grey: ${colorPallet.dark.white};
 `;
