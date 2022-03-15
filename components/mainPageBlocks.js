@@ -13,7 +13,7 @@ const MainPageBlocks = ({ blocks }) => {
           case "MainPageBlocksShortIconGrid":
             return;
           case "MainPageBlocksLongFeaturedImage":
-            return <LongFeaturedImage />;
+            return <LongFeaturedImage {...block} />;
           case "MainPageBlocksCtaButtons":
             return;
           case "MainPageBlocksTestimonialSlider":

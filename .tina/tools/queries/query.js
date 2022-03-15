@@ -70,40 +70,61 @@ getGlobalDocument(relativePath: "global.json") {
   }
 }
 `;
+//#region main page document blocks
 
-const getMainPageDocument = gql`
+const LongFeaturedImage = `
+        ...on MainPageBlocksLongFeaturedImage{
+          standardSubHeadline
+          standardHeadline
+          twoColumnText
+            featuredImage {
+              image
+              title
+            }
+          featuredImageRightActive
+          bottomPaddingActive
+          blocks{
+            __typename
+            ...on MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb {
+              icon
+              text
+              iconAlt
+            }
+            ...on MainPageBlocksLongFeaturedImageBlocksIconListBlurb {
+              iconList {
+                title
+                icon
+              }
+            text
+          }
+            ...on MainPageBlocksLongFeaturedImageBlocksButton {
+              label
+              href
+            }
+            ...on MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb {
+              icon
+              iconAlt
+              Headline
+              subHeadline
+                blurb
+              }
+          }
+        }
+`;
+const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
-  data{
-    blocks{
-      __typename
+    sys {
+      filename
     }
-    mapEnabled
-  }
+    data {
+      blocks{
+        __typename
+      ${LongFeaturedImage}
+      }
+      mapEnabled
+    }
 }
-`;
-
-const getMainPageBlah = `
-...on MainPageBlocksLargeHero{
-  headline
-  hook
-  popupVideoActive
-  popupVideoButtonLabel
-  popupVideoButtonSource
-  serviceBarActive
-  videoBackgroundActive
-  backgroundVideoSource
-  backgroundImageSourceDesktop
-  backgroundImageAltDesktop
-  backgroundImageSourceMobile
-  backgroundImageAltMobile
-}
-...on MainPageBlocksHero{
-            subHeadline
-            headline
-            hook
-            ctaActive
-  }
 `;
 
 const getMainPageList = `

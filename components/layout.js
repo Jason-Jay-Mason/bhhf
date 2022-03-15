@@ -19,7 +19,7 @@ const Layout = (props) => {
   return (
     <>
       <NavBar businessInfo={businessInfo} header={header} />
-      <ComponentFramer>{props?.children}</ComponentFramer>
+      {props?.children}
       <Footer businessInfo={businessInfo} services={services} mainPageList={mainPageList} mapEnabled={mapEnabled} />
     </>
   );

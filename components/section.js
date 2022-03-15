@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { colors, spacing } from "../styles/theme";
+import { breakPoints, colors, spacing } from "../styles/theme";
 
 //#region styles
 const section = {};
@@ -9,6 +9,11 @@ section.default = styled.section`
   .mainSection {
     background-color: ${colors.cloudBeige};
     margin: 0 ${spacing.s17ish};
+  }
+  @media ${breakPoints.lrg} {
+    .mainSection {
+      margin: 0;
+    }
   }
 `;
 //#endregion

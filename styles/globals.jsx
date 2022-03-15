@@ -96,6 +96,7 @@ const globals = css`
     p {
       line-height: 223%;
       font-size: 17px;
+      font-weight: 300;
     }
     h1,
     h2,

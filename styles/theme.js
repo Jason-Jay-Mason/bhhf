@@ -18,6 +18,7 @@ export const colorPallet = {
     linkGrey: "#4E4E4E",
     headlineGrey: "#343232",
     lineGrey: "#EEEEEE",
+    heartBeige: "#E6D9C9",
   },
   dark: {
     saddleBeige: "#BC946C",
@@ -27,6 +28,7 @@ export const colorPallet = {
     coalOne: "#4A4A4A",
     white: "#ffffff",
     buttonBlue: "#526FBC",
+    heartBeige: "#756A5F",
   },
 };
 
@@ -49,6 +51,7 @@ export const colors = {
   headlineGrey: "var(--headline-grey)",
   backgroundWhite: "var(--background-white)",
   lineGrey: "var(--line-grey)",
+  heartBeige: "var(--heart-beige)",
 };
 
 export const breakPoints = {

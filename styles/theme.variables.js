@@ -20,6 +20,7 @@ export const light = css`
   --headline-grey: ${colorPallet.light.headlineGrey};
   --background-white: white;
   --line-grey: ${colorPallet.light.lineGrey};
+  --heart-beige: ${colorPallet.light.heartBeige};
 `;
 export const dark = css`
   --saddle-beige: ${colorPallet.dark.saddleBeige};
@@ -40,4 +41,5 @@ export const dark = css`
   --headline-grey: ${colorPallet.dark.white};
   --background-white: ${colorPallet.dark.coalDarkTwo};
   --line-grey: ${colorPallet.dark.white};
+  --heart-beige: ${colorPallet.dark.heartBeige};
 `;
