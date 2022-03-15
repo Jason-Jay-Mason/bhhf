@@ -3,7 +3,7 @@ import { colors } from "../styles/theme";
 import NavBar from "./navBar";
 import Footer from "./footer";
 
-import ComponentFramer from "./componentFramer";
+import PopupVideo from "./popupVideo";
 
 const ColorTest = styled.h1`
   color: ${colors.horseBrown};
@@ -18,6 +18,7 @@ const Layout = (props) => {
 
   return (
     <>
+      <PopupVideo />
       <NavBar businessInfo={businessInfo} header={header} />
       {props?.children}
       <Footer businessInfo={businessInfo} services={services} mainPageList={mainPageList} mapEnabled={mapEnabled} />

@@ -111,6 +111,16 @@ const LongFeaturedImage = `
           }
         }
 `;
+const CtaButtons = `
+...on MainPageBlocksCtaButtons{
+  mainCallToActionLabel
+  mainCallToActionHref
+  secondaryCallToActionLabel
+secondaryCallToActionVideoActive
+  secondaryCallToActionHrefOrSource
+
+}
+`;
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -121,6 +131,7 @@ getMainPageDocument (relativePath: $relativePath) {
       blocks{
         __typename
       ${LongFeaturedImage}
+      ${CtaButtons}
       }
       mapEnabled
     }

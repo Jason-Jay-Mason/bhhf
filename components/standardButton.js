@@ -1,19 +1,21 @@
 import { styled } from "@linaria/react";
 import { css } from "linaria";
 import Link from "next/link";
-import { colors } from "../styles/theme";
+import { colors, spacing } from "../styles/theme";
 
 //#region styles
 const button = {};
 button.standardButton = styled.button`
-  padding: 38px 80px;
+  padding: ${spacing.s30ish};
   font-weight: 100;
   font-size: 1rem;
+  height: 90px;
+  min-width: 220px;
 `;
 //#endregion
 
 export const standardButtonCss = css`
-  border-radius: 2px;
+  border-radius: 3px;
   color: white;
   background-color: ${colors.buttonBlue};
   cursor: pointer;
@@ -27,11 +29,17 @@ export const standardButtonCss = css`
 
 const NavCta = ({ children, href }) => {
   return (
-    <Link href={href || "/"} passHref>
-      <a>
+    <>
+      {href ? (
+        <Link href={href || "/"} passHref>
+          <a>
+            <button.standardButton className={standardButtonCss}>{children ? children : "No Label"}</button.standardButton>
+          </a>
+        </Link>
+      ) : (
         <button.standardButton className={standardButtonCss}>{children ? children : "No Label"}</button.standardButton>
-      </a>
-    </Link>
+      )}
+    </>
   );
 };
 

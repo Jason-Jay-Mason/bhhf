@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import LongFeaturedImage from "../blocks/longFeaturedImage";
+import CtaButtons from "../blocks/ctaButtons";
 
 const MainPageBlocks = ({ blocks }) => {
   return (
@@ -15,7 +16,7 @@ const MainPageBlocks = ({ blocks }) => {
           case "MainPageBlocksLongFeaturedImage":
             return <LongFeaturedImage {...block} />;
           case "MainPageBlocksCtaButtons":
-            return;
+            return <CtaButtons {...block} />;
           case "MainPageBlocksTestimonialSlider":
             return;
           case "MainPageBlocksPreFooterCta":
