@@ -12,6 +12,8 @@ div.buttons = styled.div`
   justify-content: center;
   align-items: center;
   padding: ${spacing.s120ish} 0;
+  position: relative;
+  z-index: 2;
   @media ${breakPoints.md} {
     flex-direction: column;
   }
@@ -31,17 +33,21 @@ const CtaButtons = ({ mainCallToActionHref, mainCallToActionLabel, secondaryCall
     <Section>
       <div.buttons>
         <Button href={mainCallToActionHref}>{mainCallToActionLabel}</Button>
-        {secondaryCallToActionVideoActive ? (
-          <div
-            onClick={() => {
-              popupToggle(true);
-              setPopupSource(secondaryCallToActionHrefOrSource);
-            }}
-          >
-            <Button>{secondaryCallToActionLabel}</Button>
-          </div>
-        ) : (
-          <Button href={secondaryCallToActionHrefOrSource}>{secondaryCallToActionLabel}</Button>
+        {secondaryCallToActionLabel && (
+          <>
+            {secondaryCallToActionVideoActive ? (
+              <div
+                onClick={() => {
+                  popupToggle(true);
+                  setPopupSource(secondaryCallToActionHrefOrSource);
+                }}
+              >
+                <Button>{secondaryCallToActionLabel}</Button>
+              </div>
+            ) : (
+              <Button href={secondaryCallToActionHrefOrSource}>{secondaryCallToActionLabel}</Button>
+            )}
+          </>
         )}
       </div.buttons>
     </Section>

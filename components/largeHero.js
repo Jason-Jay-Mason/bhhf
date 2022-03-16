@@ -7,7 +7,7 @@ import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
 const section = {};
 section.largeHero = styled.section`
   position: relative;
-  z-index: 3;
+  z-index: 1;
   .largeHeroContainer {
     min-height: 750px;
     position: relative;

@@ -137,6 +137,15 @@ backgroundImageSourceMobile
 backgroundImageAltMobile
 }
 `;
+const preFooterCta = `
+...on MainPageBlocksPreFooterCta{
+  mainCallToActionHref
+ mainCallToActionLabel
+  hook
+  standardHeadline
+  standardSubHeadline
+}
+`;
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -149,6 +158,7 @@ getMainPageDocument (relativePath: $relativePath) {
       ${LongFeaturedImage}
       ${CtaButtons}
       ${LargeHero}
+      ${preFooterCta}
       }
       mapEnabled
     }

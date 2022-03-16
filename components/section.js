@@ -6,6 +6,7 @@ const section = {};
 
 section.default = styled.section`
   background-color: ${colors.backgroundWhite};
+
   .mainSection {
     background-color: ${colors.cloudBeige};
     margin: 0 ${spacing.s17ish};

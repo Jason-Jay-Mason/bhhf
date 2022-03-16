@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import LongFeaturedImage from "../blocks/longFeaturedImage";
 import CtaButtons from "../blocks/ctaButtons";
 import LargeHero from "./largeHero";
+import PreFooterCta from "./preFooterCta";
 
 const MainPageBlocks = ({ blocks, services }) => {
   return (
@@ -21,7 +22,7 @@ const MainPageBlocks = ({ blocks, services }) => {
           case "MainPageBlocksTestimonialSlider":
             return;
           case "MainPageBlocksPreFooterCta":
-            return;
+            return <PreFooterCta {...block} />;
           default:
             return null;
         }

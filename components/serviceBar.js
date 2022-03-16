@@ -17,13 +17,14 @@ div.serviceBar = styled.div`
   font-size: 20px;
   text-transform: uppercase;
   margin-top: -60px;
-  z-index: 5;
+  z-index: 4 !important;
   position: relative;
   border-radius: 3px;
   @media ${breakPoints.xlrg} {
     display: none;
   }
   .service {
+    z-index: 4 !important;
     position: relative;
     display: flex;
     align-items: center;
