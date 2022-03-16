@@ -19,10 +19,11 @@ export default function MainPage(props) {
   });
   //deconstruct data here for use in components
   const { blocks } = data.getMainPageDocument.data;
+  const { services } = data.getGlobalDocument.data;
 
   return (
     <>
-      <MainPageBlocks blocks={blocks} />
+      <MainPageBlocks blocks={blocks} services={services} />
     </>
   );
 }

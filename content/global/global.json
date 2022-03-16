@@ -44,19 +44,24 @@
   },
   "services": [
     {
-      "title": "Camps"
+      "title": "Camps",
+      "serviceBarImage": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647300536/demos/Webp.net-compress-image_2_cwso0i.jpg"
     },
     {
-      "title": "Lessons"
+      "title": "Lessons",
+      "serviceBarImage": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647300536/demos/Webp.net-compress-image_2_cwso0i.jpg"
     },
     {
-      "title": "Teams"
+      "title": "Teams",
+      "serviceBarImage": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647300536/demos/Webp.net-compress-image_2_cwso0i.jpg"
     },
     {
-      "title": "Boarding"
+      "title": "Boarding",
+      "serviceBarImage": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295743/sample.jpg"
     },
     {
-      "title": "Horse Sales"
+      "title": "Horse Sales",
+      "serviceBarImage": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647290783/demos/Webp.net-compress-image_1_werupn.jpg"
     }
   ],
   "testimonials": {

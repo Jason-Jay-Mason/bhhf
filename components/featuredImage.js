@@ -1,7 +1,6 @@
 import { styled } from "@linaria/react";
 import { spacing, colors, maxMin, breakPoints } from "../styles/theme";
-import Image from "next/image";
-import MyImage from "./image";
+import Image from "./image";
 import FeaturedImageBlocks from "./featuredImageBlocks";
 
 //#region styles
@@ -64,13 +63,13 @@ const FeaturedImage = ({ blocks, featuredImageRightActive, featuredImage }) => {
             <FeaturedImageBlocks blocks={blocks} />
           </div>
           <div className="image">
-            <MyImage src={featuredImage[0].image} layout="fill" objectFit="cover" quality={60} alt={featuredImage?.title} />
+            <Image src={featuredImage ? featuredImage[0].image : null} layout="fill" objectFit="cover" quality={80} alt={featuredImage?.title} />
           </div>
         </>
       ) : (
         <>
           <div className="image">
-            <Image src={hasImage ? featuredImage[0].image : "/no-image.svg"} layout="fill" objectFit="cover" quality={60} alt={hasImage && featuredImage?.title} />
+            <Image src={featuredImage ? featuredImage[0].image : null} layout="fill" objectFit="cover" quality={80} alt={featuredImage?.title} />
           </div>
           <div className="contentBlocks">
             <FeaturedImageBlocks blocks={blocks} />

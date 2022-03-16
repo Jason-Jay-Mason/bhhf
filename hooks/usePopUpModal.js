@@ -1,5 +1,5 @@
 import { useDarkMode } from "./useDarkMode";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const PopupContext = createContext();
 const PopupToggleContext = createContext();
@@ -24,7 +24,11 @@ export const useSetPopupSource = () => {
 export const PopupProvider = ({ children }) => {
   const [popupStatus, popupStatusToggle] = useState(false);
   const [popupSrc, setPopupSrc] = useState(null);
-
+  useEffect(() => {
+    if (popupStatus === false) {
+      setPopupSrc(null);
+    }
+  }, [popupStatus]);
   return (
     <PopupContext.Provider value={popupStatus}>
       <PopupToggleContext.Provider value={popupStatusToggle}>

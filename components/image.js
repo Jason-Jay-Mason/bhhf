@@ -76,7 +76,6 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality }) => {
   useEffect(() => {
     setImgSrc(webpPrimary);
   }, [src]);
-  console.log(imgSrc);
 
   return (
     <Image

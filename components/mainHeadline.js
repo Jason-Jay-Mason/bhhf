@@ -63,25 +63,11 @@ div.mainHeadline = styled.div`
 //#endregion
 
 const MainHeadline = ({ headline, subHeadline, heart }) => {
-  const getSubHeadline = (subHeadline) => {
-    if (subHeadline) {
-      return subHeadline;
-    }
-    return "No headline found";
-  };
-  const getHeadline = (headline) => {
-    if (headline) {
-      return headline;
-    }
-    return "No headline found";
-  };
-  const renderedSubHeadline = getSubHeadline(subHeadline);
-  const renderedHeadline = getHeadline(headline);
   return (
     <div.mainHeadline>
       <HeadlineHeart />
-      <h3>{renderedSubHeadline}</h3>
-      <h4>{renderedHeadline}</h4>
+      <h3>{subHeadline ? subHeadline : "No headline found"}</h3>
+      <h4>{headline ? headline : "No headline found"}</h4>
     </div.mainHeadline>
   );
 };

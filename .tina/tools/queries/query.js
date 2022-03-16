@@ -121,6 +121,22 @@ secondaryCallToActionVideoActive
 
 }
 `;
+const LargeHero = `
+...on MainPageBlocksLargeHero{
+  headline
+hook
+popupVideoActive
+popupVideoButtonLabel
+popupVideoButtonSource
+serviceBarActive
+videoBackgroundActive
+backgroundVideoSource
+backgroundImageSourceDesktop
+backgroundImageAltDesktop
+backgroundImageSourceMobile
+backgroundImageAltMobile
+}
+`;
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -132,6 +148,7 @@ getMainPageDocument (relativePath: $relativePath) {
         __typename
       ${LongFeaturedImage}
       ${CtaButtons}
+      ${LargeHero}
       }
       mapEnabled
     }
