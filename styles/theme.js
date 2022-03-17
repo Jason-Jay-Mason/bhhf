@@ -3,6 +3,7 @@ const goldenRatio = 1.61803398875;
 export const colorPallet = {
   light: {
     saddleBeige: "#BC946C",
+    lightSaddleBeige: "#E1D0C0",
     cloudBeige: "#FAF8F5",
     skinBeige: "#EFE6DC",
     rainCloudBeige: "#F7F4F1",
@@ -22,7 +23,7 @@ export const colorPallet = {
   },
   dark: {
     saddleBeige: "#BC946C",
-    coalDarkTwo: "#232323",
+    coalDarkTwo: "#2C2C2C",
     coalDarkOne: "#232323",
     coalTwo: "#3F3F3F",
     coalOne: "#4A4A4A",
@@ -52,6 +53,8 @@ export const colors = {
   backgroundWhite: "var(--background-white)",
   lineGrey: "var(--line-grey)",
   heartBeige: "var(--heart-beige)",
+  arrowButtonBeige: "var(--arrow-button)",
+  arrowButtonHoverBeige: "var( --arrow-button-hover)",
 };
 
 export const breakPoints = {
@@ -80,7 +83,7 @@ export const fontSize = {
   xlrg: "3.69rem",
   lrg: "3.2rem",
   med: "2.125rem",
-  sml: "1.5rem",
+  sml: "1.7rem",
   xsml: "1.25rem",
   base: "17px",
   baseSml: "14.8px",

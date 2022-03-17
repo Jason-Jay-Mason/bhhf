@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import { css } from "linaria";
 import Link from "next/link";
-import { colors, spacing } from "../styles/theme";
+import { colors, spacing, breakPoints } from "../styles/theme";
 
 //#region styles
 const button = {};
@@ -12,6 +12,10 @@ button.standardButton = styled.button`
   font-size: 1.05rem;
   height: 100px;
   min-width: 220px;
+  @media ${breakPoints.md} {
+    height: 80px;
+    min-width: 220px;
+  }
 `;
 //#endregion
 

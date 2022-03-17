@@ -16,11 +16,12 @@ div.buttons = styled.div`
   z-index: 2;
   @media ${breakPoints.md} {
     flex-direction: column;
+    padding: ${spacing.s75ish} 0;
   }
   button {
     margin: 0 ${spacing.s17ish};
     @media ${breakPoints.md} {
-      margin: ${spacing.s17ish} 0;
+      margin: ${spacing.s10ish} 0;
     }
   }
 `;

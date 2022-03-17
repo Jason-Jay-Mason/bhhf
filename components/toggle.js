@@ -62,10 +62,13 @@ div.wrapper = styled.div`
 const Toggle = ({ uniqueKey }) => {
   const [themeStatus, toggleTheme] = useTheme();
   const checked = themeStatus === "dark" ? true : false;
+  const handleChange = (e) => {
+    toggleTheme();
+  };
   return (
     <div.wrapper>
-      <input type="checkbox" id={"toggle-check" + uniqueKey} defaultChecked={checked} />
-      <label htmlFor={"toggle-check" + uniqueKey} onClick={toggleTheme}></label>
+      <input type="checkbox" id={"toggle-check" + uniqueKey} onChange={handleChange} checked={checked} />
+      <label htmlFor={"toggle-check" + uniqueKey}></label>
     </div.wrapper>
   );
 };

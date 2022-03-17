@@ -16,7 +16,7 @@ div.preFooterCta = styled.div`
     padding: ${spacing.s320ish} ${spacing.s17ish};
   }
   @media ${breakPoints.md} {
-    padding-top: ${spacing.s120ish};
+    padding: ${spacing.s120ish} ${spacing.s17ish};
   }
   h3,
   h4,

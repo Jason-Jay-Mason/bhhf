@@ -21,13 +21,15 @@ export const light = css`
   --background-white: white;
   --line-grey: ${colorPallet.light.lineGrey};
   --heart-beige: ${colorPallet.light.heartBeige};
+  --arrow-button: ${colorPallet.light.lightSaddleBeige};
+  --arrow-button-hover: ${colorPallet.light.saddleBeige};
 `;
 export const dark = css`
   --saddle-beige: ${colorPallet.dark.saddleBeige};
   --cloud-beige: ${colorPallet.dark.coalDarkTwo};
   --skin-beige: ${colorPallet.dark.coalDarkOne};
   --rainCloud-beige: ${colorPallet.dark.coalTwo};
-  --rainCloud-beige-two: ${colorPallet.dark.coalDarkOne};
+  --rainCloud-beige-two: ${colorPallet.dark.coalOne};
   --icon-beige: ${colorPallet.dark.white};
   --icon-blue: ${colorPallet.dark.white};
   --button-blue: ${colorPallet.dark.buttonBlue};
@@ -42,4 +44,6 @@ export const dark = css`
   --background-white: ${colorPallet.dark.coalDarkTwo};
   --line-grey: ${colorPallet.dark.white};
   --heart-beige: ${colorPallet.dark.heartBeige};
+  --arrow-button: ${colorPallet.dark.coalDarkTwo};
+  --arrow-button-hover: ${colorPallet.dark.coalDarkOne};
 `;

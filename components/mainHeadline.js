@@ -9,6 +9,7 @@ div.mainHeadline = styled.div`
   width: fit-content;
   margin: 0 auto;
   padding-top: ${spacing.s195ish};
+  padding: ${spacing.s195ish} ${spacing.s17ish} 0 ${spacing.s17ish};
   @media ${breakPoints.lrg} {
     padding-top: ${spacing.s120ish};
   }
@@ -49,14 +50,15 @@ div.mainHeadline = styled.div`
 
     color: ${colors.textBrown};
     border-top: solid 2px #7c7c7c;
-    padding-bottom: ${spacing.s45ish};
+    padding-bottom: ${spacing.s75ish};
 
     @media ${breakPoints.lrg} {
       font-size: ${fontSize.med};
     }
     @media ${breakPoints.md} {
+      width: fit-content;
       font-size: ${fontSize.sml};
-      padding-bottom: ${spacing.s30ish};
+      padding-bottom: ${spacing.s45ish};
     }
   }
 `;

@@ -8,6 +8,7 @@ import { Instagram, Linkedin, Youtube, Facebook, Maps } from "./svg";
 const div = {};
 div.modalNav = styled.div`
   background-color: ${colors.white};
+  z-index: 15;
   position: absolute;
   height: auto;
   width: 100%;

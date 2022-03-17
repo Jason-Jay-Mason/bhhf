@@ -18,7 +18,7 @@ div.longText = styled.div`
   }
   @media ${breakPoints.lrg} {
     column-count: 1;
-    padding: 0 ${spacing.s17ish} ${spacing.s45ish} ${spacing.s17ish};
+    padding: 0 ${spacing.s17ish} ${spacing.s75ish} ${spacing.s17ish};
   }
 `;
 //#endregion

@@ -50,6 +50,15 @@ getGlobalDocument(relativePath: "global.json") {
         testimonialBody
         videoActive
         videoSource
+        activePages{
+          title{
+            ...on MainPageDocument{
+              sys{
+                filename
+              }
+            }
+          }
+        }
       }
     }
     events {
@@ -146,6 +155,12 @@ const preFooterCta = `
   standardSubHeadline
 }
 `;
+const testimonialSlider = `
+...on MainPageBlocksTestimonialSlider {
+  standardSubHeadline
+  standardHeadline
+}
+`;
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -159,6 +174,7 @@ getMainPageDocument (relativePath: $relativePath) {
       ${CtaButtons}
       ${LargeHero}
       ${preFooterCta}
+      ${testimonialSlider}
       }
       mapEnabled
     }
