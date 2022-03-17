@@ -208,6 +208,39 @@
                   ]
                 },
                 {
+                  "type": "image",
+                  "name": "backgroundImage",
+                  "label": "Background Image",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "backgroundImage"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "name": "backgroundImageMobile",
+                  "label": "Background Image Mobile",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "backgroundImageMobile"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "backgroundImageAlt",
+                  "label": "Background Image Description",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "backgroundImageAlt"
+                  ]
+                },
+                {
                   "type": "boolean",
                   "name": "ctaActive",
                   "label": "Activate Call To Action Button",

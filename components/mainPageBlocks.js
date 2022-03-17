@@ -1,9 +1,10 @@
 import dynamic from "next/dynamic";
 import LongFeaturedImage from "../blocks/longFeaturedImage";
 import CtaButtons from "../blocks/ctaButtons";
-import LargeHero from "./largeHero";
-import PreFooterCta from "./preFooterCta";
+import LargeHero from "../blocks/largeHero";
+import PreFooterCta from "../blocks/preFooterCta";
 import TestimonialSlider from "../blocks/testimonialSlider";
+import StandardHero from "../blocks/standardHero";
 
 const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
   return (
@@ -13,7 +14,7 @@ const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
           case "MainPageBlocksLargeHero":
             return <LargeHero {...block} services={services} />;
           case "MainPageBlocksHero":
-            return;
+            return <StandardHero {...block} />;
           case "MainPageBlocksShortIconGrid":
             return;
           case "MainPageBlocksLongFeaturedImage":

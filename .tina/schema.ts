@@ -378,6 +378,21 @@ const heroFields: TinaField[] = [
     },
   },
   {
+    type: "image",
+    name: "backgroundImage",
+    label: "Background Image",
+  },
+  {
+    type: "image",
+    name: "backgroundImageMobile",
+    label: "Background Image Mobile",
+  },
+  {
+    type: "string",
+    name: "backgroundImageAlt",
+    label: "Background Image Description",
+  },
+  {
     type: "boolean",
     name: "ctaActive",
     label: "Activate Call To Action Button",

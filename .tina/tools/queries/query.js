@@ -161,6 +161,19 @@ const testimonialSlider = `
   standardHeadline
 }
 `;
+const standardHero = `
+...on MainPageBlocksHero{
+  subHeadline
+  headline
+  hook
+  ctaActive
+  ctaLabel
+  ctaHref
+  backgroundImage
+  backgroundImageAlt
+  backgroundImageMobile
+}
+`;
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -175,6 +188,7 @@ getMainPageDocument (relativePath: $relativePath) {
       ${LargeHero}
       ${preFooterCta}
       ${testimonialSlider}
+      ${standardHero}
       }
       mapEnabled
     }

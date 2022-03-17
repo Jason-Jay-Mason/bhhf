@@ -5,7 +5,7 @@ import Image from "next/image";
 const div = {};
 //#endregion
 
-const MyImage = ({ src, height, width, objectFit, alt, layout, quality }) => {
+const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale }) => {
   const hasValidSource = (source) => {
     if (source && source !== null && source !== "" && typeof source === "string") {
       return true;
@@ -33,6 +33,13 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality }) => {
     return "";
   };
 
+  const createGreyScaleParam = (g) => {
+    if (g === true) {
+      return "e_grayscale";
+    }
+    return null;
+  };
+
   const getFileType = (s) => {
     if (s) {
       let split = s.split(".");
@@ -41,14 +48,14 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality }) => {
     }
   };
 
-  const buildSrcUrls = (w, h, q, src) => {
+  const buildSrcUrls = (w, h, q, src, g) => {
     let isValid = hasValidSource(src);
     if (isValid) {
       let fileType = getFileType(src);
       let placeholder;
       let primary;
       let insertionPoint = "/upload/";
-      let buildPrimaryParams = [createWidthHeightParams(w, h), createQualityParam(q)]
+      let buildPrimaryParams = [createWidthHeightParams(w, h), createQualityParam(q), createGreyScaleParam(g)]
         .filter((param, i) => {
           if (param == "" || param == null || typeof param == "undefined") {
             return;
@@ -70,7 +77,7 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality }) => {
     return ["/no-image.svg", "/no-image.svg", "/no-image.svg"];
   };
 
-  const [primary, placeholder, webpPrimary] = buildSrcUrls(width, height, quality, src);
+  const [primary, placeholder, webpPrimary] = buildSrcUrls(width, height, quality, src, greyScale);
 
   const [imgSrc, setImgSrc] = useState(webpPrimary);
   useEffect(() => {

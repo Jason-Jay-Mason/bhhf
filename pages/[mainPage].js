@@ -18,11 +18,10 @@ export default function MainPage(props) {
     data: props.data,
   });
   //deconstruct data here for use in components
-  const { blocks } = data.getMainPageDocument.data;
-  const { services } = data.getGlobalDocument.data;
-  const { testimonialsList } = data.getGlobalDocument.data.testimonials;
+  const { blocks } = data?.getMainPageDocument?.data;
+  const { services } = data?.getGlobalDocument?.data;
+  const { testimonialsList } = data?.getGlobalDocument?.data?.testimonials;
   const filename = data?.getMainPageDocument?.sys?.filename;
-  console.log(data);
 
   return (
     <>

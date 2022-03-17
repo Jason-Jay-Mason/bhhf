@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import { breakPoints, fontSize, spacing } from "../styles/theme";
-import Image from "./image";
-import ServiceBar from "./serviceBar";
+import Image from "../components/image";
+import ServiceBar from "../components/serviceBar";
 import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
 //#region styles
 const section = {};

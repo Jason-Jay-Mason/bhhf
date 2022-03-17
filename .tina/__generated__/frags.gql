@@ -19,6 +19,9 @@ fragment MainPageParts on MainPage {
       subHeadline
       headline
       hook
+      backgroundImage
+      backgroundImageMobile
+      backgroundImageAlt
       ctaActive
       ctaLabel
       ctaHref

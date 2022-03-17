@@ -98,6 +98,9 @@ type MainPageBlocksHero {
   subHeadline: String
   headline: String
   hook: String
+  backgroundImage: String
+  backgroundImageMobile: String
+  backgroundImageAlt: String
   ctaActive: Boolean
   ctaLabel: String
   ctaHref: String
@@ -370,6 +373,9 @@ input MainPageBlocksHeroMutation {
   subHeadline: String
   headline: String
   hook: String
+  backgroundImage: String
+  backgroundImageMobile: String
+  backgroundImageAlt: String
   ctaActive: Boolean
   ctaLabel: String
   ctaHref: String

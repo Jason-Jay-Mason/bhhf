@@ -1,8 +1,8 @@
 import { styled } from "@linaria/react";
 import { colors, spacing, breakPoints, fontSize } from "../styles/theme";
-import Section from "./section";
-import Button from "./standardButton";
-import { BackGroundHeart } from "./svg";
+import Section from "../components/section";
+import Button from "../components/standardButton";
+import { BackGroundHeart } from "../components/svg";
 
 //#region styles
 const div = {};
@@ -22,6 +22,7 @@ div.preFooterCta = styled.div`
   h4,
   p,
   button {
+    margin: 0 auto;
     position: relative;
     z-index: 2;
   }

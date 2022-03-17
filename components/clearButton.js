@@ -1,16 +1,14 @@
 import { styled } from "@linaria/react";
 import { css } from "linaria";
-import Link from "next/link";
 import { colors, spacing, breakPoints } from "../styles/theme";
-
 //#region styles
 const button = {};
-button.standardButton = styled.button`
-  padding: ${spacing.s30ish};
+button.clearButton = styled.button`
+  padding: ${spacing.s30ish} ${spacing.s45ish};
   font-weight: 100;
   letter-spacing: 0.5px;
   font-size: 1.05rem;
-  height: 100px;
+  height: 90px;
   min-width: 220px;
   display: flex;
   align-items: center;
@@ -20,20 +18,20 @@ button.standardButton = styled.button`
     min-width: 220px;
   }
 `;
-//#endregion
 
-export const standardButtonCss = css`
+export const clearButtonCss = css`
   border-radius: 3px;
   color: white;
-  background-color: ${colors.buttonBlue};
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(2px);
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: -2px 2px 10px rgba(21, 66, 188, 0.4);
+  border: 1px solid #ffffff;
   :hover {
-    background-color: #3e60bd;
-    box-shadow: 0px 0px 15px rgba(21, 66, 188, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
   }
 `;
+//#endregion
 
 const Button = ({ children, href }) => {
   return (
@@ -41,11 +39,11 @@ const Button = ({ children, href }) => {
       {href ? (
         <Link href={href || "/"} passHref>
           <a>
-            <button.standardButton className={standardButtonCss}>{children ? children : "No Label"}</button.standardButton>
+            <button.clearButton className={clearButtonCss}>{children ? children : "No Label"}</button.clearButton>
           </a>
         </Link>
       ) : (
-        <button.standardButton className={standardButtonCss}>{children ? children : "No Label"}</button.standardButton>
+        <button.clearButton className={clearButtonCss}>{children ? children : "No Label"}</button.clearButton>
       )}
     </>
   );
