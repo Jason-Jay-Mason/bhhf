@@ -5,6 +5,7 @@ import { breakPoints, colors, spacing } from "../styles/theme";
 const section = {};
 
 section.default = styled.section`
+  position: relative;
   background-color: ${colors.backgroundWhite};
 
   .mainSection {

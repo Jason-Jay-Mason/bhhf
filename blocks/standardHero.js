@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { fontSize, spacing, breakPoints } from "../styles/theme";
+import { fontSize, spacing, breakPoints, colors } from "../styles/theme";
 import Image from "../components/image";
 import Button from "../components/clearButton";
 
@@ -16,7 +16,6 @@ section.hero = styled.section`
   text-align: center;
   min-height: 600px;
   padding: ${spacing.s120ish} ${spacing.s17ish};
-
   h1 {
     font-family: "Snell Roundhand";
     font-weight: lighter;

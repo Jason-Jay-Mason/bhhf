@@ -10,6 +10,9 @@ div.button = styled.div`
     padding: 0 ${spacing.s17ish} ${spacing.s75ish} ${spacing.s17ish};
   }
   text-align: center;
+  button {
+    margin: 0 auto;
+  }
 `;
 //#endregion
 

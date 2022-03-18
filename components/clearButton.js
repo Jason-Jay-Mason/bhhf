@@ -5,13 +5,14 @@ import { colors, spacing, breakPoints } from "../styles/theme";
 const button = {};
 button.clearButton = styled.button`
   padding: ${spacing.s30ish} ${spacing.s45ish};
-  font-weight: 100;
+  font-weight: 300;
   letter-spacing: 0.5px;
   font-size: 1.05rem;
   height: 90px;
   min-width: 220px;
   display: flex;
   align-items: center;
+  backdrop-filter: blur(1000px);
   justify-content: center;
   @media ${breakPoints.md} {
     height: 80px;
@@ -20,15 +21,16 @@ button.clearButton = styled.button`
 `;
 
 export const clearButtonCss = css`
+  backdrop-filter: blur(1.5px);
   border-radius: 3px;
   color: white;
   background-color: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(2px);
+
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid #ffffff;
   :hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `;
 //#endregion

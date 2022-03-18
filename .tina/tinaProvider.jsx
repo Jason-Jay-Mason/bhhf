@@ -38,7 +38,7 @@ const TinaConfig = defineConfig({
     //maps the link to the admin section collections
     import("tinacms").then(({ RouteMappingPlugin }) => {
       const RouteMapping = new RouteMappingPlugin((collection, document) => {
-        if (["testimonial", "global"].includes(collection.name)) {
+        if (["contact", "global"].includes(collection.name)) {
           return undefined;
         }
         if (["mainPage"].includes(collection.name)) {

@@ -10,6 +10,8 @@ import FooterMap from "./footerMap";
 //#region styles
 const footer = {};
 footer.main = styled.footer`
+  position: relative;
+  z-index: 100;
   background-color: ${colors.white};
   .row {
     max-width: 1400px;

@@ -114,12 +114,17 @@
       {
         "title": "Event Tile Here 2",
         "date": "2022-03-02T07:00:00.000Z",
-        "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n"
+        "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n"
       },
       {
         "title": "Event Tile Here 1",
         "date": "2022-03-01T07:00:00.000Z",
         "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n"
+      },
+      {
+        "title": "Event test 4",
+        "date": "2022-03-17T06:00:00.000Z",
+        "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n"
       }
     ]
   },
@@ -129,13 +134,15 @@
         "title": "Camp Title Here 1",
         "date": "2022-03-02T07:00:00.000Z",
         "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n",
-        "bookingHref": "/"
+        "ctaLabel": "Book Now",
+        "ctaHref": "/"
       },
       {
         "title": "Camp 2",
         "date": "2022-03-03T07:00:00.000Z",
-        "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n\nA sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n",
-        "bookingHref": "/"
+        "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n",
+        "ctaLabel": "Book Now",
+        "ctaHref": "/"
       }
     ]
   }

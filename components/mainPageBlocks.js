@@ -5,6 +5,7 @@ import LargeHero from "../blocks/largeHero";
 import PreFooterCta from "../blocks/preFooterCta";
 import TestimonialSlider from "../blocks/testimonialSlider";
 import StandardHero from "../blocks/standardHero";
+import ShortIconGrid from "../blocks/shortIconGrid";
 
 const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
   return (
@@ -16,7 +17,7 @@ const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
           case "MainPageBlocksHero":
             return <StandardHero {...block} />;
           case "MainPageBlocksShortIconGrid":
-            return;
+            return <ShortIconGrid {...block} />;
           case "MainPageBlocksLongFeaturedImage":
             return <LongFeaturedImage {...block} />;
           case "MainPageBlocksCtaButtons":

@@ -66,6 +66,8 @@ getGlobalDocument(relativePath: "global.json") {
         title
         date
         description
+        ctaHref
+        ctaLabel
       }
     }
     camps {
@@ -73,7 +75,8 @@ getGlobalDocument(relativePath: "global.json") {
         title
         date
         description
-        bookingHref
+        ctaHref
+        ctaLabel
       }
     }
   }
@@ -174,6 +177,16 @@ const standardHero = `
   backgroundImageMobile
 }
 `;
+const shorIconGrid = `
+...on MainPageBlocksShortIconGrid{
+  headline
+  featuredIconBlurb{
+    title
+    icon
+    blurb
+  }
+}
+`;
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -189,6 +202,7 @@ getMainPageDocument (relativePath: $relativePath) {
       ${preFooterCta}
       ${testimonialSlider}
       ${standardHero}
+      ${shorIconGrid}
       }
       mapEnabled
     }
@@ -208,10 +222,26 @@ getMainPageList {
   }
 }
 `;
+
+const getContactPage = `
+  getContactDocument(relativePath: "contact.mdx") {
+    id
+    data {
+      subHeadline
+      headline
+      hook
+      backgroundImage
+      backgroundImageMobile
+      backgroundImageAlt
+    }
+  }
+
+`;
 const Query = {
   getGlobalDocument,
   getMainPageDocument,
   getMainPageList,
+  getContactPage,
 };
 
 export default Query;

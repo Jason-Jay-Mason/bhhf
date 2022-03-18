@@ -104,6 +104,15 @@ fragment MainPageParts on MainPage {
   mapEnabled
 }
 
+fragment ContactParts on Contact {
+  subHeadline
+  headline
+  hook
+  backgroundImage
+  backgroundImageAlt
+  backgroundImageMobile
+}
+
 fragment GlobalParts on Global {
   header {
     __typename
@@ -177,6 +186,8 @@ fragment GlobalParts on Global {
       title
       date
       description
+      ctaLabel
+      ctaHref
     }
   }
   camps {
@@ -186,7 +197,8 @@ fragment GlobalParts on Global {
       title
       date
       description
-      bookingHref
+      ctaLabel
+      ctaHref
     }
   }
 }

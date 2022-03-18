@@ -1,10 +1,13 @@
 import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
 import Query from "../.tina/tools/queries/query";
+import ContactPage from "../components/contactPage";
 
 //The query for tina cms
 const query = `{
+  ${Query.getContactPage}
     ${Query.getGlobalDocument}
+
   }
   `;
 export default function MainPage(props) {
@@ -14,13 +17,12 @@ export default function MainPage(props) {
     variables: {},
     data: props.data,
   });
+  const contactHero = data?.getContactDocument?.data;
+  const camps = data?.getGlobalDocument?.data?.camps;
+  const events = data?.getGlobalDocument?.data?.events;
+  const businessInfo = data?.getGlobalDocument?.data?.businessInfo;
   //deconstruct data here for use in components
-  return (
-    <div>
-      <h1>Global:</h1>
-      <p>{JSON.stringify(data?.getGlobalDocument?.data)}</p>
-    </div>
-  );
+  return <ContactPage {...contactHero} contactHero={contactHero} camps={camps} events={events} businessInfo={businessInfo} />;
 }
 
 export const getStaticProps = async (context) => {

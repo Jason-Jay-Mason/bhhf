@@ -71,6 +71,42 @@ const seo: TinaField = {
 
 //#endregion reusable fields
 
+//#region Contact page fields
+const contactFields: TinaField[] = [
+  {
+    type: "string",
+    name: "subHeadline",
+    label: "Sub Headline",
+  },
+  {
+    type: "string",
+    name: "headline",
+    label: "Headline",
+  },
+  {
+    type: "string",
+    name: "hook",
+    label: "Hook",
+  },
+  {
+    type: "image",
+    name: "backgroundImage",
+    label: "Background image",
+  },
+  {
+    type: "string",
+    name: "backgroundImageAlt",
+    label: "Background image description",
+  },
+  {
+    type: "image",
+    name: "backgroundImageMobile",
+    label: "Background image mobile",
+  },
+];
+
+//#endregion contact page fields
+
 //#region Main Page blocks and fields
 
 //#region pre footer cta
@@ -527,8 +563,15 @@ const campFields: TinaField = {
     },
     {
       type: "string",
-      name: "bookingHref",
-      label: "Booking Page Link",
+      name: "ctaLabel",
+      label: "CTA Label",
+      description: "The button label. Leave blank to disable button.",
+    },
+    {
+      type: "string",
+      name: "ctaHref",
+      label: "CTA href",
+      description: "The button link",
     },
   ],
 };
@@ -567,6 +610,18 @@ const eventFields: TinaField = {
       type: "rich-text",
       name: "description",
       label: "Event Description",
+    },
+    {
+      type: "string",
+      name: "ctaLabel",
+      label: "CTA Label",
+      description: "The button label. Leave blank to disable button.",
+    },
+    {
+      type: "string",
+      name: "ctaHref",
+      label: "CTA href",
+      description: "The button link",
     },
   ],
 };
@@ -800,6 +855,13 @@ export default defineSchema({
       path: "content/page",
       format: "mdx",
       fields: [mainPageFields, seo, mapEnabled],
+    },
+    {
+      label: "Contact",
+      name: "contact",
+      path: "content/contact",
+      format: "mdx",
+      fields: [...contactFields],
     },
     {
       label: "Global",

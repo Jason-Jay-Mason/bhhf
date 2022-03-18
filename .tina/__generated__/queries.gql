@@ -37,6 +37,45 @@ query getMainPageList {
   }
 }
 
+query getContactDocument($relativePath: String!) {
+  getContactDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...ContactParts
+    }
+  }
+}
+
+query getContactList {
+  getContactList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...ContactParts
+        }
+      }
+    }
+  }
+}
+
 query getGlobalDocument($relativePath: String!) {
   getGlobalDocument(relativePath: $relativePath) {
     sys {

@@ -14,7 +14,7 @@ div.map = styled.div`
 const FooterMap = () => {
   const themeStatus = useThemeStatus();
   const googlemap = useRef(null);
-  const [mapId, setMapId] = useState();
+
   useEffect(() => {
     const mapId = themeStatus === "dark" ? process.env.NEXT_PUBLIC_MAPID_DARK : process.env.NEXT_PUBLIC_MAPID;
     const loader = new Loader({

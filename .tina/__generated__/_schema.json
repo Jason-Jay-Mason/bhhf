@@ -990,6 +990,71 @@
       ]
     },
     {
+      "label": "Contact",
+      "name": "contact",
+      "path": "content/contact",
+      "format": "mdx",
+      "fields": [
+        {
+          "type": "string",
+          "name": "subHeadline",
+          "label": "Sub Headline",
+          "namespace": [
+            "contact",
+            "subHeadline"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "headline",
+          "label": "Headline",
+          "namespace": [
+            "contact",
+            "headline"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "hook",
+          "label": "Hook",
+          "namespace": [
+            "contact",
+            "hook"
+          ]
+        },
+        {
+          "type": "image",
+          "name": "backgroundImage",
+          "label": "Background image",
+          "namespace": [
+            "contact",
+            "backgroundImage"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "backgroundImageAlt",
+          "label": "Background image description",
+          "namespace": [
+            "contact",
+            "backgroundImageAlt"
+          ]
+        },
+        {
+          "type": "image",
+          "name": "backgroundImageMobile",
+          "label": "Background image mobile",
+          "namespace": [
+            "contact",
+            "backgroundImageMobile"
+          ]
+        }
+      ],
+      "namespace": [
+        "contact"
+      ]
+    },
+    {
       "label": "Global",
       "name": "global",
       "path": "content/global",
@@ -1548,6 +1613,30 @@
                     "eventList",
                     "description"
                   ]
+                },
+                {
+                  "type": "string",
+                  "name": "ctaLabel",
+                  "label": "CTA Label",
+                  "description": "The button label. Leave blank to disable button.",
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "ctaLabel"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "ctaHref",
+                  "label": "CTA href",
+                  "description": "The button link",
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "ctaHref"
+                  ]
                 }
               ],
               "namespace": [
@@ -1615,13 +1704,26 @@
                 },
                 {
                   "type": "string",
-                  "name": "bookingHref",
-                  "label": "Booking Page Link",
+                  "name": "ctaLabel",
+                  "label": "CTA Label",
+                  "description": "The button label. Leave blank to disable button.",
                   "namespace": [
                     "global",
                     "camps",
                     "campList",
-                    "bookingHref"
+                    "ctaLabel"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "ctaHref",
+                  "label": "CTA href",
+                  "description": "The button link",
+                  "namespace": [
+                    "global",
+                    "camps",
+                    "campList",
+                    "ctaHref"
                   ]
                 }
               ],

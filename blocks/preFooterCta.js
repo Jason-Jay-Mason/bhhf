@@ -84,15 +84,31 @@ div.preFooterCta = styled.div`
     }
   }
 `;
+div.backgroundHeart = styled.div`
+  height: 900px;
+  right: 0;
+  left: 0;
+  top: 80px;
+  position: absolute;
+  z-index: 0;
+  @media ${breakPoints.lrg} {
+  }
+  @media ${breakPoints.md} {
+    top: -200px;
+  }
+  svg {
+    color: ${colors.rainCloudBeige};
+  }
+`;
 //#endregion
 
 const PreFooterCta = ({ mainCallToActionLabel, standardHeadline, standardSubHeadline, mainCallToActionHref, hook }) => {
   return (
     <Section>
+      <div.backgroundHeart>
+        <BackGroundHeart />
+      </div.backgroundHeart>
       <div.preFooterCta>
-        <div className="backgroundHeartCta">
-          <BackGroundHeart />
-        </div>
         <h3>{standardHeadline ? standardHeadline : "No headline!"}</h3>
         <h4>{standardSubHeadline ? standardSubHeadline : "No headline!"}</h4>
         <p>{hook ? hook : "No hook. Please write a hook!"}</p>

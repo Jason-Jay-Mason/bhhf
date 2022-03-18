@@ -69,6 +69,8 @@ export type Query = {
   getDocumentFields: Scalars['JSON'];
   getMainPageDocument: MainPageDocument;
   getMainPageList: MainPageConnection;
+  getContactDocument: ContactDocument;
+  getContactList: ContactConnection;
   getGlobalDocument: GlobalDocument;
   getGlobalList: GlobalConnection;
 };
@@ -104,6 +106,19 @@ export type QueryGetMainPageDocumentArgs = {
 
 
 export type QueryGetMainPageListArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+};
+
+
+export type QueryGetContactDocumentArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetContactListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
@@ -157,7 +172,7 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
-export type DocumentNode = MainPageDocument | GlobalDocument;
+export type DocumentNode = MainPageDocument | ContactDocument | GlobalDocument;
 
 export type MainPageBlocksLargeHero = {
   __typename?: 'MainPageBlocksLargeHero';
@@ -319,6 +334,39 @@ export type MainPageConnection = Connection & {
   edges?: Maybe<Array<Maybe<MainPageConnectionEdges>>>;
 };
 
+export type Contact = {
+  __typename?: 'Contact';
+  subHeadline?: Maybe<Scalars['String']>;
+  headline?: Maybe<Scalars['String']>;
+  hook?: Maybe<Scalars['String']>;
+  backgroundImage?: Maybe<Scalars['String']>;
+  backgroundImageAlt?: Maybe<Scalars['String']>;
+  backgroundImageMobile?: Maybe<Scalars['String']>;
+};
+
+export type ContactDocument = Node & Document & {
+  __typename?: 'ContactDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Contact;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type ContactConnectionEdges = {
+  __typename?: 'ContactConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<ContactDocument>;
+};
+
+export type ContactConnection = Connection & {
+  __typename?: 'ContactConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Float'];
+  edges?: Maybe<Array<Maybe<ContactConnectionEdges>>>;
+};
+
 export type GlobalHeaderLinks = {
   __typename?: 'GlobalHeaderLinks';
   title?: Maybe<Scalars['String']>;
@@ -403,6 +451,8 @@ export type GlobalEventsEventList = {
   title?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['JSON']>;
+  ctaLabel?: Maybe<Scalars['String']>;
+  ctaHref?: Maybe<Scalars['String']>;
 };
 
 export type GlobalEvents = {
@@ -415,7 +465,8 @@ export type GlobalCampsCampList = {
   title?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['JSON']>;
-  bookingHref?: Maybe<Scalars['String']>;
+  ctaLabel?: Maybe<Scalars['String']>;
+  ctaHref?: Maybe<Scalars['String']>;
 };
 
 export type GlobalCamps = {
@@ -463,6 +514,8 @@ export type Mutation = {
   createDocument: DocumentNode;
   updateMainPageDocument: MainPageDocument;
   createMainPageDocument: MainPageDocument;
+  updateContactDocument: ContactDocument;
+  createContactDocument: ContactDocument;
   updateGlobalDocument: GlobalDocument;
   createGlobalDocument: GlobalDocument;
 };
@@ -501,6 +554,18 @@ export type MutationCreateMainPageDocumentArgs = {
 };
 
 
+export type MutationUpdateContactDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ContactMutation;
+};
+
+
+export type MutationCreateContactDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ContactMutation;
+};
+
+
 export type MutationUpdateGlobalDocumentArgs = {
   relativePath: Scalars['String'];
   params: GlobalMutation;
@@ -514,6 +579,7 @@ export type MutationCreateGlobalDocumentArgs = {
 
 export type DocumentMutation = {
   mainPage?: InputMaybe<MainPageMutation>;
+  contact?: InputMaybe<ContactMutation>;
   global?: InputMaybe<GlobalMutation>;
 };
 
@@ -651,6 +717,15 @@ export type MainPageMutation = {
   mapEnabled?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type ContactMutation = {
+  subHeadline?: InputMaybe<Scalars['String']>;
+  headline?: InputMaybe<Scalars['String']>;
+  hook?: InputMaybe<Scalars['String']>;
+  backgroundImage?: InputMaybe<Scalars['String']>;
+  backgroundImageAlt?: InputMaybe<Scalars['String']>;
+  backgroundImageMobile?: InputMaybe<Scalars['String']>;
+};
+
 export type GlobalHeaderLinksMutation = {
   title?: InputMaybe<Scalars['String']>;
   href?: InputMaybe<Scalars['String']>;
@@ -722,6 +797,8 @@ export type GlobalEventsEventListMutation = {
   title?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
+  ctaLabel?: InputMaybe<Scalars['String']>;
+  ctaHref?: InputMaybe<Scalars['String']>;
 };
 
 export type GlobalEventsMutation = {
@@ -732,7 +809,8 @@ export type GlobalCampsCampListMutation = {
   title?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
-  bookingHref?: InputMaybe<Scalars['String']>;
+  ctaLabel?: InputMaybe<Scalars['String']>;
+  ctaHref?: InputMaybe<Scalars['String']>;
 };
 
 export type GlobalCampsMutation = {
@@ -750,7 +828,9 @@ export type GlobalMutation = {
 
 export type MainPagePartsFragment = { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
-export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, bookingHref?: string | null } | null> | null } | null };
+export type ContactPartsFragment = { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null };
+
+export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null };
 
 export type GetMainPageDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -764,17 +844,29 @@ export type GetMainPageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetMainPageListQuery = { __typename?: 'Query', getMainPageList: { __typename?: 'MainPageConnection', totalCount: number, edges?: Array<{ __typename?: 'MainPageConnectionEdges', node?: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } | null } | null> | null } };
 
+export type GetContactDocumentQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetContactDocumentQuery = { __typename?: 'Query', getContactDocument: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null } } };
+
+export type GetContactListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetContactListQuery = { __typename?: 'Query', getContactList: { __typename?: 'ContactConnection', totalCount: number, edges?: Array<{ __typename?: 'ContactConnectionEdges', node?: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null } } | null } | null> | null } };
+
 export type GetGlobalDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetGlobalDocumentQuery = { __typename?: 'Query', getGlobalDocument: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, bookingHref?: string | null } | null> | null } | null } } };
+export type GetGlobalDocumentQuery = { __typename?: 'Query', getGlobalDocument: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } };
 
 export type GetGlobalListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, bookingHref?: string | null } | null> | null } | null } } | null } | null> | null } };
+export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } | null } | null> | null } };
 
 export const MainPagePartsFragmentDoc = gql`
     fragment MainPageParts on MainPage {
@@ -883,6 +975,16 @@ export const MainPagePartsFragmentDoc = gql`
   mapEnabled
 }
     `;
+export const ContactPartsFragmentDoc = gql`
+    fragment ContactParts on Contact {
+  subHeadline
+  headline
+  hook
+  backgroundImage
+  backgroundImageAlt
+  backgroundImageMobile
+}
+    `;
 export const GlobalPartsFragmentDoc = gql`
     fragment GlobalParts on Global {
   header {
@@ -957,6 +1059,8 @@ export const GlobalPartsFragmentDoc = gql`
       title
       date
       description
+      ctaLabel
+      ctaHref
     }
   }
   camps {
@@ -966,7 +1070,8 @@ export const GlobalPartsFragmentDoc = gql`
       title
       date
       description
-      bookingHref
+      ctaLabel
+      ctaHref
     }
   }
 }
@@ -1012,6 +1117,47 @@ export const GetMainPageListDocument = gql`
   }
 }
     ${MainPagePartsFragmentDoc}`;
+export const GetContactDocumentDocument = gql`
+    query getContactDocument($relativePath: String!) {
+  getContactDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...ContactParts
+    }
+  }
+}
+    ${ContactPartsFragmentDoc}`;
+export const GetContactListDocument = gql`
+    query getContactList {
+  getContactList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...ContactParts
+        }
+      }
+    }
+  }
+}
+    ${ContactPartsFragmentDoc}`;
 export const GetGlobalDocumentDocument = gql`
     query getGlobalDocument($relativePath: String!) {
   getGlobalDocument(relativePath: $relativePath) {
@@ -1061,6 +1207,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     getMainPageList(variables?: GetMainPageListQueryVariables, options?: C): Promise<{data: GetMainPageListQuery, variables: GetMainPageListQueryVariables, query: string}> {
         return requester<{data: GetMainPageListQuery, variables: GetMainPageListQueryVariables, query: string}, GetMainPageListQueryVariables>(GetMainPageListDocument, variables, options);
+      },
+    getContactDocument(variables: GetContactDocumentQueryVariables, options?: C): Promise<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}> {
+        return requester<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}, GetContactDocumentQueryVariables>(GetContactDocumentDocument, variables, options);
+      },
+    getContactList(variables?: GetContactListQueryVariables, options?: C): Promise<{data: GetContactListQuery, variables: GetContactListQueryVariables, query: string}> {
+        return requester<{data: GetContactListQuery, variables: GetContactListQueryVariables, query: string}, GetContactListQueryVariables>(GetContactListDocument, variables, options);
       },
     getGlobalDocument(variables: GetGlobalDocumentQueryVariables, options?: C): Promise<{data: GetGlobalDocumentQuery, variables: GetGlobalDocumentQueryVariables, query: string}> {
         return requester<{data: GetGlobalDocumentQuery, variables: GetGlobalDocumentQueryVariables, query: string}, GetGlobalDocumentQueryVariables>(GetGlobalDocumentDocument, variables, options);

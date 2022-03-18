@@ -6,7 +6,7 @@ import { colors, spacing, breakPoints } from "../styles/theme";
 //#region styles
 const button = {};
 button.standardButton = styled.button`
-  padding: ${spacing.s30ish};
+  padding: ${spacing.s30ish} 55px;
   font-weight: 100;
   letter-spacing: 0.5px;
   font-size: 1.05rem;

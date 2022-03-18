@@ -4,6 +4,7 @@
     "resolveType": "multiCollectionDocumentList",
     "collections": [
       "mainPage",
+      "contact",
       "global"
     ]
   },
@@ -51,6 +52,18 @@
     "type": "MainPageConnection",
     "resolveType": "collectionDocumentList",
     "collection": "mainPage"
+  },
+  "ContactDocument": {
+    "type": "ContactDocument",
+    "resolveType": "collectionDocument",
+    "collection": "contact",
+    "createContactDocument": "create",
+    "updateContactDocument": "update"
+  },
+  "ContactConnection": {
+    "type": "ContactConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "contact"
   },
   "GlobalTestimonialsTestimonialsListActivePagesTitleDocument": {
     "type": "GlobalTestimonialsTestimonialsListActivePagesTitleDocument",
