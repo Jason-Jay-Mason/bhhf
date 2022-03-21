@@ -93,7 +93,7 @@ const EventSection = ({ events, title }) => {
         <h4>{title}</h4>
         {events ? (
           events.map((event, i) => {
-            if (i === visibleEvents || i === visibleEvents - 1) return <EventCard event={event} index={i} />;
+            if (i === visibleEvents || i === visibleEvents - 1) return <EventCard key={event + i + "event"} event={event} index={i} />;
           })
         ) : (
           <p>There are currently no events listed!</p>

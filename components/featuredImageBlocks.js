@@ -9,13 +9,29 @@ const FeaturedImageBlocks = ({ blocks }) => {
       {blocks?.map((block, i) => {
         switch (block.__typename) {
           case "MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb":
-            return <CenteredIconBlurb {...block} />;
+            return (
+              <div key={i + block.__typename}>
+                <CenteredIconBlurb {...block} />{" "}
+              </div>
+            );
           case "MainPageBlocksLongFeaturedImageBlocksIconListBlurb":
-            return <CenteredIconBlurb list={true} {...block} />;
+            return (
+              <div key={i + block.__typename}>
+                <CenteredIconBlurb list={true} {...block} />
+              </div>
+            );
           case "MainPageBlocksLongFeaturedImageBlocksButton":
-            return <Button {...block} />;
+            return (
+              <div key={i + block.__typename}>
+                <Button {...block} />
+              </div>
+            );
           case "MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb":
-            return <TitledIconBlurb {...block} />;
+            return (
+              <div key={i + block.__typename}>
+                <TitledIconBlurb {...block} />
+              </div>
+            );
           default:
             return null;
         }

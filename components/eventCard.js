@@ -79,7 +79,7 @@ const EventCard = ({ event, index }) => {
   useEffect(() => {
     const handler = setTimeout(() => {
       let element = document.getElementById(`${index + event.title}-event-card`);
-      console.log(element.clientHeight);
+
       if (element.scrollHeight > element.clientHeight + 5) {
         setReadMore(true);
       } else {

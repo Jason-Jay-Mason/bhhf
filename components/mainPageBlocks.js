@@ -13,19 +13,47 @@ const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
       {blocks?.map((block, i) => {
         switch (block.__typename) {
           case "MainPageBlocksLargeHero":
-            return <LargeHero {...block} services={services} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <LargeHero {...block} services={services} data-tinafield="MainPageBlocksLargeHero" />
+              </div>
+            );
           case "MainPageBlocksHero":
-            return <StandardHero {...block} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <StandardHero {...block} />
+              </div>
+            );
           case "MainPageBlocksShortIconGrid":
-            return <ShortIconGrid {...block} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <ShortIconGrid {...block} />
+              </div>
+            );
           case "MainPageBlocksLongFeaturedImage":
-            return <LongFeaturedImage {...block} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <LongFeaturedImage {...block} />
+              </div>
+            );
           case "MainPageBlocksCtaButtons":
-            return <CtaButtons {...block} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <CtaButtons {...block} />
+              </div>
+            );
           case "MainPageBlocksTestimonialSlider":
-            return <TestimonialSlider {...block} testimonials={testimonials} pageName={pageName} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <TestimonialSlider {...block} testimonials={testimonials} pageName={pageName} />
+              </div>
+            );
           case "MainPageBlocksPreFooterCta":
-            return <PreFooterCta {...block} />;
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <PreFooterCta {...block} />
+              </div>
+            );
           default:
             return null;
         }

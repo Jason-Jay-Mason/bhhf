@@ -156,18 +156,16 @@ const ServiceBar = ({ services }) => {
         </div>
         <div className="services">
           {services
-            ? services.map((service) => {
+            ? services.map((service, i) => {
                 return (
-                  <>
-                    <div className="service">
-                      <div className="image">
-                        <div className="imageContainer">
-                          <Image layout="fill" objectFit="cover" src={service.serviceBarImage} height={400} quality={70} />
-                        </div>
+                  <div className="service" key={service + i + "service"}>
+                    <div className="image">
+                      <div className="imageContainer">
+                        <Image layout="fill" objectFit="cover" src={service.serviceBarImage} height={400} quality={70} />
                       </div>
-                      <h4>{service.title}</h4>
                     </div>
-                  </>
+                    <h4>{service.title}</h4>
+                  </div>
                 );
               })
             : null}

@@ -70,9 +70,9 @@ const ShortIconGrid = ({ featuredIconBlurb, headline }) => {
         <h4>{headline ? headline : "No Headline!"}</h4>
         <div className="iconGrid">
           {featuredIconBlurb ? (
-            featuredIconBlurb.map((iconBlurb) => {
+            featuredIconBlurb.map((iconBlurb, i) => {
               return (
-                <div className="iconBlurb">
+                <div key={iconBlurb + i + "iconBlurb"} className="iconBlurb">
                   <Svg src={iconBlurb.icon} />
                   <h5>{iconBlurb.blurb}</h5>
                 </div>

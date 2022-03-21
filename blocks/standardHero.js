@@ -1,21 +1,27 @@
 import { styled } from "@linaria/react";
-import { fontSize, spacing, breakPoints, colors } from "../styles/theme";
+import { fontSize, spacing, breakPoints } from "../styles/theme";
 import Image from "../components/image";
 import Button from "../components/clearButton";
+import { isDesktop } from "react-device-detect";
 
 //#region styles
 const section = {};
 section.hero = styled.section`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(79, 56, 26, 0.66);
-  color: white;
-  text-align: center;
-  min-height: 600px;
-  padding: ${spacing.s120ish} ${spacing.s17ish};
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    min-height: 600px;
+    padding: ${spacing.s120ish} ${spacing.s17ish};
+    position: relative;
+    z-index: 10;
+    background-color: rgba(79, 56, 26, 0.66);
+  }
   h1 {
     font-family: "Snell Roundhand";
     font-weight: lighter;
@@ -48,21 +54,10 @@ section.hero = styled.section`
     font-weight: 300;
     padding-bottom: 37px;
   }
-  .desktopImage,
-  .mobileImage {
+  span {
+    z-index: -10;
     img {
-      z-index: -1;
-    }
-  }
-  .desktopImage {
-    @media ${breakPoints.md} {
-      display: none;
-    }
-  }
-  .mobileImage {
-    display: none;
-    @media ${breakPoints.md} {
-      display: block;
+      z-index: -10;
     }
   }
 `;
@@ -71,16 +66,13 @@ section.hero = styled.section`
 const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadline, backgroundImage, backgroundImageAlt, backgroundImageMobile }) => {
   return (
     <section.hero>
-      <h1>{subHeadline ? subHeadline : "No Headline"}</h1>
-      <h2>{headline ? headline : "No Headline"}</h2>
-      {hook && <h3>{hook}</h3>}
-      {ctaActive && <Button>{ctaLabel}</Button>}
-      <div className="desktopImage">
-        <Image greyScale={true} width={1500} layout="fill" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} />
+      <div className="content">
+        <h1>{subHeadline ? subHeadline : "No Headline"}</h1>
+        <h2>{headline ? headline : "No Headline"}</h2>
+        {hook && <h3>{hook}</h3>}
+        {ctaActive && <Button>{ctaLabel}</Button>}
       </div>
-      <div className="mobileImage">
-        <Image greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />
-      </div>
+      {isDesktop ? <Image greyScale={true} width={1920} layout="fill" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
     </section.hero>
   );
 };

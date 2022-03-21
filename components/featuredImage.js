@@ -63,13 +63,13 @@ const FeaturedImage = ({ blocks, featuredImageRightActive, featuredImage }) => {
             <FeaturedImageBlocks blocks={blocks} />
           </div>
           <div className="image">
-            <Image src={featuredImage ? featuredImage[0].image : null} layout="fill" objectFit="cover" quality={80} alt={featuredImage?.title} />
+            <Image src={featuredImage ? featuredImage[0].image : null} layout="fill" objectFit="cover" quality={80} width={900} alt={featuredImage?.title} />
           </div>
         </>
       ) : (
         <>
           <div className="image">
-            <Image src={featuredImage ? featuredImage[0].image : null} layout="fill" objectFit="cover" quality={80} alt={featuredImage?.title} />
+            <Image src={featuredImage ? featuredImage[0].image : null} layout="fill" objectFit="cover" quality={80} width={900} alt={featuredImage?.title} />
           </div>
           <div className="contentBlocks">
             <FeaturedImageBlocks blocks={blocks} />

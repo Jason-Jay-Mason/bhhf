@@ -58,7 +58,7 @@ export async function getStaticPaths() {
       query,
     });
   } catch (err) {
-    console.log(err);
+    console.warn(err);
   }
   return {
     paths: data.getLegalList.edges.map((legal) => ({

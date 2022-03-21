@@ -9,7 +9,9 @@ div.titledIconBlurb = styled.div`
   padding: 0 ${spacing.s45ish} ${spacing.s75ish} ${spacing.s45ish};
   max-width: 650px;
   margin: 0 auto;
-  p {
+  p,
+  h5,
+  h6 {
     color: ${colors.textBrown};
     @media ${breakPoints.md} {
       text-align: center;
@@ -35,6 +37,7 @@ div.titledIconBlurb = styled.div`
       margin-right: ${spacing.s17ish};
       @media ${breakPoints.md} {
         height: 43px;
+        margin-right: 0;
         margin-bottom: ${spacing.s10ish};
       }
     }
@@ -43,7 +46,6 @@ div.titledIconBlurb = styled.div`
       font-size: ${fontSize.sml};
       font-weight: bold;
       letter-spacing: 3%;
-      color: ${colors.textBrown};
       padding-bottom: 5px;
       @media ${breakPoints.md} {
         font-size: ${fontSize.base};
@@ -54,7 +56,6 @@ div.titledIconBlurb = styled.div`
       font-size: ${fontSize.base};
       font-weight: 300;
       letter-spacing: 3%;
-      color: ${colors.textBrown};
       @media ${breakPoints.md} {
         font-size: ${fontSize.baseSml};
       }

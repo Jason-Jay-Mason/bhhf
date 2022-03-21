@@ -1,5 +1,3 @@
-import { gql } from "tinacms";
-
 const seoFields = `
 seo {
   title
@@ -251,7 +249,7 @@ const getContactPage = `
 
 `;
 
-export const getLegalList = gql`
+export const getLegalList = `
   getLegalList {
     totalCount
     edges {

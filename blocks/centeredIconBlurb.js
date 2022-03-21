@@ -27,7 +27,7 @@ div.centeredIconBlurb = styled.div`
   }
   .iconList {
     object {
-      height: ${spacing.s75ish};
+      height: 90px;
       padding-right: ${spacing.s17ish};
       filter: ${colors.iconFilter};
     }
@@ -40,8 +40,8 @@ const CenteredIconBlurb = ({ text, icon, list, iconList }) => {
     <div.centeredIconBlurb>
       {iconList ? (
         <div className="iconList">
-          {iconList.map((icon) => (
-            <Svg src={icon.icon} />
+          {iconList.map((icon, i) => (
+            <Svg key={icon + i + "iconBlurb"} src={icon.icon} />
           ))}
         </div>
       ) : (

@@ -216,10 +216,12 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
 
   if (testimonials) {
     const filteredTestimonials = testimonials.filter((testimonial) => {
-      for (let i = 0; i < testimonial.activePages.length; i++) {
-        if (testimonial.activePages[i].title.sys.filename == pageName) {
-          return testimonial;
-          break;
+      if (testimonial) {
+        for (let i = 0; i < testimonial.activePages.length; i++) {
+          if (testimonial?.activePages[i]?.title?.sys?.filename == pageName) {
+            return testimonial;
+            break;
+          }
         }
       }
     });
@@ -289,13 +291,12 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                 </div>
                 {testimonialsForSlider.map((testimonial, i) => {
                   let bodyLegth = testimonial?.testimonialBody.length;
-
                   let body = testimonial?.testimonialBody;
                   if (bodyLegth > 250) {
                     body = testimonial?.testimonialBody.slice(0, 240) + '..."';
                   }
                   return (
-                    <div className={i == textSelected ? `testimonialText testimonialVisible` : `testimonialText testimonialHidden`}>
+                    <div key={testimonial?.title + i} className={i == textSelected ? `testimonialText testimonialVisible` : `testimonialText testimonialHidden`}>
                       <p>"{body}</p>
                       <h5>{testimonial?.title}</h5>
                       <h6>{testimonial?.shortDescription}</h6>
@@ -306,7 +307,7 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
               <div className="imageSliderContainer" onTransitionEnd={handleImageTransition}>
                 {testimonialsForSlider.map((testimonial, i) => {
                   return (
-                    <div className={getImageStyle(i)}>
+                    <div key={testimonial + i + "image"} className={getImageStyle(i)}>
                       <Image key={testimonial?.title + i} src={testimonial?.image} width={618} layout="fill" objectFit="cover" quality={80} alt={testimonial?.imageAlt} />
                     </div>
                   );

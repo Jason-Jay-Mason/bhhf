@@ -1,23 +1,29 @@
 import { styled } from "@linaria/react";
+import { css } from "linaria";
 import { breakPoints, fontSize, spacing } from "../styles/theme";
 import Image from "../components/image";
 import ServiceBar from "../components/serviceBar";
 import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
+import { isDesktop } from "react-device-detect";
 //#region styles
 const section = {};
 section.largeHero = styled.section`
   position: relative;
   z-index: 1;
-  .largeHeroContainer {
+  .contentLargeHero {
     min-height: 750px;
     position: relative;
     margin: 0 auto;
-    padding: ${(props) => (props.popupVideoActive ? "230px 17px" : "280px 17px")};
+    padding: ${(props) => (props.popupVideoActive ? "230px 0" : "260px 0 280px 0")};
     width: 100%;
     background-color: rgba(26, 26, 26, 0.4);
     @media ${breakPoints.lrg} {
       min-height: 650px;
       padding: ${(props) => (props.popupVideoActive ? "170px 17px" : "170px 17px")};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
   h1,
@@ -98,11 +104,13 @@ section.largeHero = styled.section`
   }
   .mobileImage {
     display: none;
+
     @media ${breakPoints.md} {
       display: block;
     }
   }
 `;
+const desktopImage = css``;
 //#endregion
 
 const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobile, backgroundImageSourceDesktop, backgroundImageSourceMobile, backgroundVideoSource, headline, hook, popupVideoActive, popupVideoButtonLabel, popupVideoButtonSource, serviceBarActive, videoBackgroundActive }) => {
@@ -111,7 +119,7 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
   return (
     <>
       <section.largeHero popupVideoActive={popupVideoActive}>
-        <div className="largeHeroContainer">
+        <div className="contentLargeHero">
           <h1>{headline ? headline : "No Headline!"}</h1>
           <h2>{hook ? hook : "No hook!"}</h2>
           {popupVideoActive ? (
@@ -128,20 +136,18 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
               <p>{popupVideoButtonLabel ? popupVideoButtonLabel : "No Label!"}</p>
             </div>
           ) : null}
-          {videoBackgroundActive ? (
-            <div>
-              <video src={backgroundVideoSource} autoPlay loop />
-            </div>
-          ) : (
-            <div className="desktopImage">
-              <Image layout="fill" objectFit="cover" src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
-            </div>
-          )}
-
-          <div className="mobileImage">
-            <Image layout="fill" objectFit="cover" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
-          </div>
         </div>
+        {videoBackgroundActive ? (
+          isDesktop ? (
+            <video src={backgroundVideoSource} autoPlay loop />
+          ) : (
+            <Image layout="fill" objectFit="cover" width={600} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+          )
+        ) : isDesktop ? (
+          <Image className="desktopImage" layout="fill" objectFit="cover" width={1920} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+        ) : (
+          <Image layout="fill" objectFit="cover" width={600} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+        )}
       </section.largeHero>
       {serviceBarActive ? <ServiceBar services={services} /> : null}
     </>

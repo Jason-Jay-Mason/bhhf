@@ -5,7 +5,7 @@ import Image from "next/image";
 const div = {};
 //#endregion
 
-const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale }) => {
+const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale, className }) => {
   const hasValidSource = (source) => {
     if (source && source !== null && source !== "" && typeof source === "string") {
       return true;

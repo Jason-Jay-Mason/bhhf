@@ -19,6 +19,17 @@ module.exports = withLinaria({
     ];
   },
   reactStrictMode: true,
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: "server",
+        analyzerPort: isServer ? 8888 : 8889,
+        openAnalyzer: true,
+      })
+    );
+
+    return config;
+  },
 });
 
 const analyzer = `

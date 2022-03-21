@@ -47,7 +47,7 @@ footer.main = styled.footer`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      width: 78%;
+      width: 72%;
       padding-left: ${spacing.s75ish};
       .linkColumn {
         display: flex;
@@ -195,8 +195,6 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => 
   const dummyDayOfTheWeek = "monday";
   const { facebook, instagram, youtube, linkedin, maps } = businessInfo?.socialLinks || {};
   const { phone, email, address } = businessInfo?.contact || {};
-  console.log(legal);
-
   const getTodaysHours = (day) => {
     if (day !== null && businessInfo.hours) {
       return businessInfo?.hours[day];
@@ -211,9 +209,11 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => 
           <div className="contactColumn">
             <h4>Contact</h4>
             <div className="textBlock">
-              <p>{phone}</p>
-              <p>{address}</p>
-              <a>{email}</a>
+              <p>{phone ? phone : "No phone listed"}</p>
+              <p>{address ? address : "No address listed"}</p>
+              <Link href={email ? `mailto:${email}` : "/"} passHref>
+                <a>{email ? email : "No email listed"}</a>
+              </Link>
             </div>
             <div className="textBlock">
               <h4>Todays Hours</h4>
@@ -264,8 +264,12 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => 
 
             <div className="legal">
               {legal &&
-                legal.map((legalItem) => {
-                  return <Link href={`legal/${legalItem.fileName}`}>{legalItem.title}</Link>;
+                legal.map((legalItem, i) => {
+                  return (
+                    <Link key={legalItem + i + "legal"} href={`legal/${legalItem.fileName}`}>
+                      {legalItem.title}
+                    </Link>
+                  );
                 })}
             </div>
           </div>
@@ -296,7 +300,7 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => 
           </div>
         </div>
       </footer.main>
-      <div.plug>Site Design By: Blah</div.plug>
+      <div.plug></div.plug>
     </>
   );
 };
