@@ -1,5 +1,15 @@
 import { gql } from "tinacms";
 
+const seoFields = `
+seo {
+  title
+  description
+  image
+  noFollow
+  noIndex
+}
+`;
+
 const getGlobalDocument = `
 getGlobalDocument(relativePath: "global.json") {
   id
@@ -205,6 +215,7 @@ getMainPageDocument (relativePath: $relativePath) {
       ${shorIconGrid}
       }
       mapEnabled
+      ${seoFields}
     }
 }
 `;
@@ -222,6 +233,7 @@ getMainPageList {
   }
 }
 `;
+//#endregion main page document blocks
 
 const getContactPage = `
   getContactDocument(relativePath: "contact.mdx") {
@@ -233,15 +245,52 @@ const getContactPage = `
       backgroundImage
       backgroundImageMobile
       backgroundImageAlt
+      ${seoFields}
     }
   }
 
+`;
+
+export const getLegalList = gql`
+  getLegalList {
+    totalCount
+    edges {
+      cursor
+      node{
+        sys{
+          filename
+        }
+        data{
+          legalPageTitle
+        }
+      }
+    }
+  }
+`;
+
+export const getLegalDynamicDocument = `
+  getLegalDocument(relativePath: $relativePath) {
+    data {
+      legalPageTitle
+      body
+      ${seoFields}
+    }
+  }
+`;
+
+const getStandardLayout = `
+${getGlobalDocument}
+${getMainPageList}
+${getLegalList}
 `;
 const Query = {
   getGlobalDocument,
   getMainPageDocument,
   getMainPageList,
   getContactPage,
+  getLegalDynamicDocument,
+  getLegalList,
+  getStandardLayout,
 };
 
 export default Query;

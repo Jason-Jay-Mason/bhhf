@@ -73,6 +73,8 @@ export type Query = {
   getContactList: ContactConnection;
   getGlobalDocument: GlobalDocument;
   getGlobalList: GlobalConnection;
+  getLegalDocument: LegalDocument;
+  getLegalList: LegalConnection;
 };
 
 
@@ -138,6 +140,19 @@ export type QueryGetGlobalListArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
+
+export type QueryGetLegalDocumentArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetLegalListArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+};
+
 export type DocumentConnectionEdges = {
   __typename?: 'DocumentConnectionEdges';
   cursor?: Maybe<Scalars['String']>;
@@ -172,7 +187,7 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
-export type DocumentNode = MainPageDocument | ContactDocument | GlobalDocument;
+export type DocumentNode = MainPageDocument | ContactDocument | GlobalDocument | LegalDocument;
 
 export type MainPageBlocksLargeHero = {
   __typename?: 'MainPageBlocksLargeHero';
@@ -334,6 +349,15 @@ export type MainPageConnection = Connection & {
   edges?: Maybe<Array<Maybe<MainPageConnectionEdges>>>;
 };
 
+export type ContactSeo = {
+  __typename?: 'ContactSeo';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  noFollow?: Maybe<Scalars['Boolean']>;
+  noIndex?: Maybe<Scalars['Boolean']>;
+};
+
 export type Contact = {
   __typename?: 'Contact';
   subHeadline?: Maybe<Scalars['String']>;
@@ -342,6 +366,7 @@ export type Contact = {
   backgroundImage?: Maybe<Scalars['String']>;
   backgroundImageAlt?: Maybe<Scalars['String']>;
   backgroundImageMobile?: Maybe<Scalars['String']>;
+  seo?: Maybe<ContactSeo>;
 };
 
 export type ContactDocument = Node & Document & {
@@ -507,6 +532,45 @@ export type GlobalConnection = Connection & {
   edges?: Maybe<Array<Maybe<GlobalConnectionEdges>>>;
 };
 
+export type LegalSeo = {
+  __typename?: 'LegalSeo';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  noFollow?: Maybe<Scalars['Boolean']>;
+  noIndex?: Maybe<Scalars['Boolean']>;
+};
+
+export type Legal = {
+  __typename?: 'Legal';
+  legalPageTitle?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
+  seo?: Maybe<LegalSeo>;
+};
+
+export type LegalDocument = Node & Document & {
+  __typename?: 'LegalDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Legal;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type LegalConnectionEdges = {
+  __typename?: 'LegalConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<LegalDocument>;
+};
+
+export type LegalConnection = Connection & {
+  __typename?: 'LegalConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Float'];
+  edges?: Maybe<Array<Maybe<LegalConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -518,6 +582,8 @@ export type Mutation = {
   createContactDocument: ContactDocument;
   updateGlobalDocument: GlobalDocument;
   createGlobalDocument: GlobalDocument;
+  updateLegalDocument: LegalDocument;
+  createLegalDocument: LegalDocument;
 };
 
 
@@ -577,10 +643,23 @@ export type MutationCreateGlobalDocumentArgs = {
   params: GlobalMutation;
 };
 
+
+export type MutationUpdateLegalDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: LegalMutation;
+};
+
+
+export type MutationCreateLegalDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: LegalMutation;
+};
+
 export type DocumentMutation = {
   mainPage?: InputMaybe<MainPageMutation>;
   contact?: InputMaybe<ContactMutation>;
   global?: InputMaybe<GlobalMutation>;
+  legal?: InputMaybe<LegalMutation>;
 };
 
 export type MainPageBlocksLargeHeroMutation = {
@@ -717,6 +796,14 @@ export type MainPageMutation = {
   mapEnabled?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type ContactSeoMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  noFollow?: InputMaybe<Scalars['Boolean']>;
+  noIndex?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type ContactMutation = {
   subHeadline?: InputMaybe<Scalars['String']>;
   headline?: InputMaybe<Scalars['String']>;
@@ -724,6 +811,7 @@ export type ContactMutation = {
   backgroundImage?: InputMaybe<Scalars['String']>;
   backgroundImageAlt?: InputMaybe<Scalars['String']>;
   backgroundImageMobile?: InputMaybe<Scalars['String']>;
+  seo?: InputMaybe<ContactSeoMutation>;
 };
 
 export type GlobalHeaderLinksMutation = {
@@ -826,11 +914,27 @@ export type GlobalMutation = {
   camps?: InputMaybe<GlobalCampsMutation>;
 };
 
+export type LegalSeoMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  noFollow?: InputMaybe<Scalars['Boolean']>;
+  noIndex?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type LegalMutation = {
+  legalPageTitle?: InputMaybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['JSON']>;
+  seo?: InputMaybe<LegalSeoMutation>;
+};
+
 export type MainPagePartsFragment = { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
-export type ContactPartsFragment = { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null };
+export type ContactPartsFragment = { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null, seo?: { __typename: 'ContactSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
 export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null };
+
+export type LegalPartsFragment = { __typename?: 'Legal', legalPageTitle?: string | null, body?: any | null, seo?: { __typename: 'LegalSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
 export type GetMainPageDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -849,12 +953,12 @@ export type GetContactDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetContactDocumentQuery = { __typename?: 'Query', getContactDocument: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null } } };
+export type GetContactDocumentQuery = { __typename?: 'Query', getContactDocument: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null, seo?: { __typename: 'ContactSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } };
 
 export type GetContactListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetContactListQuery = { __typename?: 'Query', getContactList: { __typename?: 'ContactConnection', totalCount: number, edges?: Array<{ __typename?: 'ContactConnectionEdges', node?: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null } } | null } | null> | null } };
+export type GetContactListQuery = { __typename?: 'Query', getContactList: { __typename?: 'ContactConnection', totalCount: number, edges?: Array<{ __typename?: 'ContactConnectionEdges', node?: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null, seo?: { __typename: 'ContactSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } | null } | null> | null } };
 
 export type GetGlobalDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -867,6 +971,18 @@ export type GetGlobalListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } | null } | null> | null } };
+
+export type GetLegalDocumentQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetLegalDocumentQuery = { __typename?: 'Query', getLegalDocument: { __typename?: 'LegalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Legal', legalPageTitle?: string | null, body?: any | null, seo?: { __typename: 'LegalSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } };
+
+export type GetLegalListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetLegalListQuery = { __typename?: 'Query', getLegalList: { __typename?: 'LegalConnection', totalCount: number, edges?: Array<{ __typename?: 'LegalConnectionEdges', node?: { __typename?: 'LegalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Legal', legalPageTitle?: string | null, body?: any | null, seo?: { __typename: 'LegalSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } | null } | null> | null } };
 
 export const MainPagePartsFragmentDoc = gql`
     fragment MainPageParts on MainPage {
@@ -983,6 +1099,14 @@ export const ContactPartsFragmentDoc = gql`
   backgroundImage
   backgroundImageAlt
   backgroundImageMobile
+  seo {
+    __typename
+    title
+    description
+    image
+    noFollow
+    noIndex
+  }
 }
     `;
 export const GlobalPartsFragmentDoc = gql`
@@ -1073,6 +1197,20 @@ export const GlobalPartsFragmentDoc = gql`
       ctaLabel
       ctaHref
     }
+  }
+}
+    `;
+export const LegalPartsFragmentDoc = gql`
+    fragment LegalParts on Legal {
+  legalPageTitle
+  body
+  seo {
+    __typename
+    title
+    description
+    image
+    noFollow
+    noIndex
   }
 }
     `;
@@ -1199,6 +1337,47 @@ export const GetGlobalListDocument = gql`
   }
 }
     ${GlobalPartsFragmentDoc}`;
+export const GetLegalDocumentDocument = gql`
+    query getLegalDocument($relativePath: String!) {
+  getLegalDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...LegalParts
+    }
+  }
+}
+    ${LegalPartsFragmentDoc}`;
+export const GetLegalListDocument = gql`
+    query getLegalList {
+  getLegalList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...LegalParts
+        }
+      }
+    }
+  }
+}
+    ${LegalPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -1219,6 +1398,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     getGlobalList(variables?: GetGlobalListQueryVariables, options?: C): Promise<{data: GetGlobalListQuery, variables: GetGlobalListQueryVariables, query: string}> {
         return requester<{data: GetGlobalListQuery, variables: GetGlobalListQueryVariables, query: string}, GetGlobalListQueryVariables>(GetGlobalListDocument, variables, options);
+      },
+    getLegalDocument(variables: GetLegalDocumentQueryVariables, options?: C): Promise<{data: GetLegalDocumentQuery, variables: GetLegalDocumentQueryVariables, query: string}> {
+        return requester<{data: GetLegalDocumentQuery, variables: GetLegalDocumentQueryVariables, query: string}, GetLegalDocumentQueryVariables>(GetLegalDocumentDocument, variables, options);
+      },
+    getLegalList(variables?: GetLegalListQueryVariables, options?: C): Promise<{data: GetLegalListQuery, variables: GetLegalListQueryVariables, query: string}> {
+        return requester<{data: GetLegalListQuery, variables: GetLegalListQueryVariables, query: string}, GetLegalListQueryVariables>(GetLegalListDocument, variables, options);
       }
     };
   }

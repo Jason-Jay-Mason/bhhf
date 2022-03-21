@@ -191,10 +191,11 @@ div.plug = styled.div`
 
 //#endregion
 
-const Footer = ({ businessInfo, services, mainPageList, mapEnabled }) => {
+const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => {
   const dummyDayOfTheWeek = "monday";
   const { facebook, instagram, youtube, linkedin, maps } = businessInfo?.socialLinks || {};
   const { phone, email, address } = businessInfo?.contact || {};
+  console.log(legal);
 
   const getTodaysHours = (day) => {
     if (day !== null && businessInfo.hours) {
@@ -262,9 +263,10 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled }) => {
             </div>
 
             <div className="legal">
-              <Link href="/">Privacy Policy</Link>
-              <Link href="/">Terms of Service</Link>
-              <Link href="/">CC Attribution</Link>
+              {legal &&
+                legal.map((legalItem) => {
+                  return <Link href={`legal/${legalItem.fileName}`}>{legalItem.title}</Link>;
+                })}
             </div>
           </div>
           <div className="links">
@@ -277,6 +279,13 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled }) => {
               {mainPageList.length &&
                 mainPageList?.map((page, i) => {
                   let uppercase = page[0].toUpperCase();
+                  if (page === "home") {
+                    return (
+                      <Link href={"/"} key={page + "i" + "footerpage"}>
+                        {uppercase + page.substring(1, page.length)}
+                      </Link>
+                    );
+                  }
                   return (
                     <Link href={"/" + page} key={page + "i" + "footerpage"}>
                       {uppercase + page.substring(1, page.length)}

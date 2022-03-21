@@ -54,6 +54,8 @@ type Query {
   getContactList(before: String, after: String, first: Float, last: Float): ContactConnection!
   getGlobalDocument(relativePath: String): GlobalDocument!
   getGlobalList(before: String, after: String, first: Float, last: Float): GlobalConnection!
+  getLegalDocument(relativePath: String): LegalDocument!
+  getLegalList(before: String, after: String, first: Float, last: Float): LegalConnection!
 }
 
 type DocumentConnectionEdges {
@@ -79,7 +81,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
 }
 
-union DocumentNode = MainPageDocument | ContactDocument | GlobalDocument
+union DocumentNode = MainPageDocument | ContactDocument | GlobalDocument | LegalDocument
 
 type MainPageBlocksLargeHero {
   headline: String
@@ -222,6 +224,14 @@ type MainPageConnection implements Connection {
   edges: [MainPageConnectionEdges]
 }
 
+type ContactSeo {
+  title: String
+  description: String
+  image: String
+  noFollow: Boolean
+  noIndex: Boolean
+}
+
 type Contact {
   subHeadline: String
   headline: String
@@ -229,6 +239,7 @@ type Contact {
   backgroundImage: String
   backgroundImageAlt: String
   backgroundImageMobile: String
+  seo: ContactSeo
 }
 
 type ContactDocument implements Node & Document {
@@ -373,6 +384,40 @@ type GlobalConnection implements Connection {
   edges: [GlobalConnectionEdges]
 }
 
+type LegalSeo {
+  title: String
+  description: String
+  image: String
+  noFollow: Boolean
+  noIndex: Boolean
+}
+
+type Legal {
+  legalPageTitle: String
+  body: JSON
+  seo: LegalSeo
+}
+
+type LegalDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Legal!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type LegalConnectionEdges {
+  cursor: String
+  node: LegalDocument
+}
+
+type LegalConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Float!
+  edges: [LegalConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
@@ -383,12 +428,15 @@ type Mutation {
   createContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
   updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
   createGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
+  updateLegalDocument(relativePath: String!, params: LegalMutation!): LegalDocument!
+  createLegalDocument(relativePath: String!, params: LegalMutation!): LegalDocument!
 }
 
 input DocumentMutation {
   mainPage: MainPageMutation
   contact: ContactMutation
   global: GlobalMutation
+  legal: LegalMutation
 }
 
 input MainPageBlocksLargeHeroMutation {
@@ -525,6 +573,14 @@ input MainPageMutation {
   mapEnabled: Boolean
 }
 
+input ContactSeoMutation {
+  title: String
+  description: String
+  image: String
+  noFollow: Boolean
+  noIndex: Boolean
+}
+
 input ContactMutation {
   subHeadline: String
   headline: String
@@ -532,6 +588,7 @@ input ContactMutation {
   backgroundImage: String
   backgroundImageAlt: String
   backgroundImageMobile: String
+  seo: ContactSeoMutation
 }
 
 input GlobalHeaderLinksMutation {
@@ -632,6 +689,20 @@ input GlobalMutation {
   testimonials: GlobalTestimonialsMutation
   events: GlobalEventsMutation
   camps: GlobalCampsMutation
+}
+
+input LegalSeoMutation {
+  title: String
+  description: String
+  image: String
+  noFollow: Boolean
+  noIndex: Boolean
+}
+
+input LegalMutation {
+  legalPageTitle: String
+  body: JSON
+  seo: LegalSeoMutation
 }
 
 schema {

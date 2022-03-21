@@ -1048,6 +1048,75 @@
             "contact",
             "backgroundImageMobile"
           ]
+        },
+        {
+          "type": "object",
+          "label": "SEO",
+          "name": "seo",
+          "ui": {
+            "component": "group"
+          },
+          "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "description": "50-60 characters",
+              "name": "title",
+              "namespace": [
+                "contact",
+                "seo",
+                "title"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Description",
+              "description": "155-160 characters",
+              "name": "description",
+              "ui": {
+                "component": "textarea"
+              },
+              "namespace": [
+                "contact",
+                "seo",
+                "description"
+              ]
+            },
+            {
+              "type": "image",
+              "label": "Image",
+              "name": "image",
+              "namespace": [
+                "contact",
+                "seo",
+                "image"
+              ]
+            },
+            {
+              "type": "boolean",
+              "label": "No Follow",
+              "name": "noFollow",
+              "namespace": [
+                "contact",
+                "seo",
+                "noFollow"
+              ]
+            },
+            {
+              "type": "boolean",
+              "label": "No Index",
+              "name": "noIndex",
+              "namespace": [
+                "contact",
+                "seo",
+                "noIndex"
+              ]
+            }
+          ],
+          "namespace": [
+            "contact",
+            "seo"
+          ]
         }
       ],
       "namespace": [
@@ -1742,6 +1811,105 @@
       ],
       "namespace": [
         "global"
+      ]
+    },
+    {
+      "label": "Legal",
+      "name": "legal",
+      "path": "content/legal",
+      "format": "md",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Legal Page Title",
+          "name": "legalPageTitle",
+          "namespace": [
+            "legal",
+            "legalPageTitle"
+          ]
+        },
+        {
+          "type": "rich-text",
+          "label": "Legal Page Title",
+          "name": "body",
+          "isBody": true,
+          "namespace": [
+            "legal",
+            "body"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "SEO",
+          "name": "seo",
+          "ui": {
+            "component": "group"
+          },
+          "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "description": "50-60 characters",
+              "name": "title",
+              "namespace": [
+                "legal",
+                "seo",
+                "title"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Description",
+              "description": "155-160 characters",
+              "name": "description",
+              "ui": {
+                "component": "textarea"
+              },
+              "namespace": [
+                "legal",
+                "seo",
+                "description"
+              ]
+            },
+            {
+              "type": "image",
+              "label": "Image",
+              "name": "image",
+              "namespace": [
+                "legal",
+                "seo",
+                "image"
+              ]
+            },
+            {
+              "type": "boolean",
+              "label": "No Follow",
+              "name": "noFollow",
+              "namespace": [
+                "legal",
+                "seo",
+                "noFollow"
+              ]
+            },
+            {
+              "type": "boolean",
+              "label": "No Index",
+              "name": "noIndex",
+              "namespace": [
+                "legal",
+                "seo",
+                "noIndex"
+              ]
+            }
+          ],
+          "namespace": [
+            "legal",
+            "seo"
+          ]
+        }
+      ],
+      "namespace": [
+        "legal"
       ]
     }
   ]

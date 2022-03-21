@@ -111,6 +111,14 @@ fragment ContactParts on Contact {
   backgroundImage
   backgroundImageAlt
   backgroundImageMobile
+  seo {
+    __typename
+    title
+    description
+    image
+    noFollow
+    noIndex
+  }
 }
 
 fragment GlobalParts on Global {
@@ -200,5 +208,18 @@ fragment GlobalParts on Global {
       ctaLabel
       ctaHref
     }
+  }
+}
+
+fragment LegalParts on Legal {
+  legalPageTitle
+  body
+  seo {
+    __typename
+    title
+    description
+    image
+    noFollow
+    noIndex
   }
 }

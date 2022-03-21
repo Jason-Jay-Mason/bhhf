@@ -69,6 +69,22 @@ const seo: TinaField = {
   ],
 };
 
+//#region legal document fields
+const legalFields: TinaField[] = [
+  {
+    type: "string",
+    label: "Legal Page Title",
+    name: "legalPageTitle",
+  },
+  {
+    type: "rich-text",
+    label: "Legal Page Title",
+    name: "body",
+    isBody: true,
+  },
+  seo,
+];
+//#endregion legal document fields
 //#endregion reusable fields
 
 //#region Contact page fields
@@ -103,6 +119,7 @@ const contactFields: TinaField[] = [
     name: "backgroundImageMobile",
     label: "Background image mobile",
   },
+  seo,
 ];
 
 //#endregion contact page fields
@@ -869,6 +886,13 @@ export default defineSchema({
       path: "content/global",
       format: "json",
       fields: [...globalFields],
+    },
+    {
+      label: "Legal",
+      name: "legal",
+      path: "content/legal",
+      format: "md",
+      fields: [...legalFields],
     },
   ],
 });

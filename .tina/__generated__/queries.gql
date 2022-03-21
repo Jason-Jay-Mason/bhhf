@@ -114,3 +114,42 @@ query getGlobalList {
     }
   }
 }
+
+query getLegalDocument($relativePath: String!) {
+  getLegalDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...LegalParts
+    }
+  }
+}
+
+query getLegalList {
+  getLegalList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...LegalParts
+        }
+      }
+    }
+  }
+}

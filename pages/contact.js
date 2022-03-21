@@ -6,8 +6,7 @@ import ContactPage from "../components/contactPage";
 //The query for tina cms
 const query = `{
   ${Query.getContactPage}
-    ${Query.getGlobalDocument}
-
+  ${Query.getStandardLayout}
   }
   `;
 export default function MainPage(props) {

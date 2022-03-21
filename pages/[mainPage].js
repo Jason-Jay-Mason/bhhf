@@ -6,8 +6,7 @@ import MainPageBlocks from "../components/mainPageBlocks";
 //The query for tina cms
 const query = `query getMainPage($relativePath: String!) {
     ${Query.getMainPageDocument}
-    ${Query.getGlobalDocument}
-    ${Query.getMainPageList}
+    ${Query.getStandardLayout}
   }
   `;
 export default function MainPage(props) {
@@ -22,6 +21,7 @@ export default function MainPage(props) {
   const { services } = data?.getGlobalDocument?.data;
   const { testimonialsList } = data?.getGlobalDocument?.data?.testimonials;
   const filename = data?.getMainPageDocument?.sys?.filename;
+  console.log(props);
 
   return (
     <>

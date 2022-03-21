@@ -5,7 +5,8 @@
     "collections": [
       "mainPage",
       "contact",
-      "global"
+      "global",
+      "legal"
     ]
   },
   "Node": {
@@ -82,5 +83,17 @@
     "type": "GlobalConnection",
     "resolveType": "collectionDocumentList",
     "collection": "global"
+  },
+  "LegalDocument": {
+    "type": "LegalDocument",
+    "resolveType": "collectionDocument",
+    "collection": "legal",
+    "createLegalDocument": "create",
+    "updateLegalDocument": "update"
+  },
+  "LegalConnection": {
+    "type": "LegalConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "legal"
   }
 }

@@ -93,7 +93,9 @@ const globals = css`
       border: none;
       z-index: 5;
     }
-    p {
+    p,
+    ul,
+    li {
       line-height: 223%;
       font-size: 17px;
       font-weight: 300;
