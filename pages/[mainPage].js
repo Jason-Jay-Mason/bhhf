@@ -2,11 +2,14 @@ import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
 import Query from "../.tina/tools/queries/query";
 import MainPageBlocks from "../components/mainPageBlocks";
+import Page404 from "../components/Page404";
 
 //The query for tina cms
 const query = `query getMainPage($relativePath: String!) {
-    ${Query.getMainPageDocument}
-    ${Query.getStandardLayout}
+  ${Query.getMainPageDocument}
+  ${Query.getStandardLayout}
+
+
   }
   `;
 export default function MainPage(props) {
@@ -17,11 +20,10 @@ export default function MainPage(props) {
     data: props.data,
   });
   //deconstruct data here for use in components
-  const { blocks } = data?.getMainPageDocument?.data;
-  const { services } = data?.getGlobalDocument?.data;
-  const { testimonialsList } = data?.getGlobalDocument?.data?.testimonials;
+  const blocks = data?.getMainPageDocument?.data?.blocks;
+  const services = data?.getGlobalDocument?.data?.services;
+  const testimonialsList = data?.getGlobalDocument?.data?.testimonials?.testimonialsList;
   const filename = data?.getMainPageDocument?.sys?.filename;
-  console.log(props);
 
   return (
     <>
@@ -63,6 +65,11 @@ export const getStaticProps = async (context) => {
     });
   } catch (e) {
     console.warn(e);
+  }
+  if (!data) {
+    return {
+      notFound: true,
+    };
   }
 
   return {

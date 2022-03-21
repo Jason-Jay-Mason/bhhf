@@ -51,7 +51,7 @@ div.testimonialSlider = styled.div`
   .testimonialTextContainer {
     width: 50%;
     height: 100%;
-    padding: ${spacing.s45ish} ${spacing.s17ish};
+    padding: ${spacing.s45ish} ${spacing.s45ish};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,10 +137,7 @@ div.testimonialSlider = styled.div`
     margin-right: var(--slider-image-spacing);
     height: 532px;
     @media ${breakPoints.lrg} {
-      height: 582px;
-    }
-    @media ${breakPoints.lrg} {
-      height: 80vw;
+      height: 70vw;
     }
   }
   .imageContainerSelected {
@@ -310,7 +307,7 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                 {testimonialsForSlider.map((testimonial, i) => {
                   return (
                     <div className={getImageStyle(i)}>
-                      <Image key={testimonial?.title + i} src={testimonial?.image} layout="fill" objectFit="cover" quality={80} alt={testimonial?.imageAlt} />
+                      <Image key={testimonial?.title + i} src={testimonial?.image} width={618} layout="fill" objectFit="cover" quality={80} alt={testimonial?.imageAlt} />
                     </div>
                   );
                 })}
