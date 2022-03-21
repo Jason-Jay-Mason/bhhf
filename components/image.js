@@ -5,7 +5,7 @@ import Image from "next/image";
 const div = {};
 //#endregion
 
-const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale, className }) => {
+const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale, priority }) => {
   const hasValidSource = (source) => {
     if (source && source !== null && source !== "" && typeof source === "string") {
       return true;
@@ -90,6 +90,7 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScal
       layout={layout}
       objectFit={objectFit}
       alt={alt}
+      priority={priority}
       placeholder="blur"
       blurDataURL={placeholder}
       onLoadingComplete={(result) => {

@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { colorPallet, spacing } from "../styles/theme";
 import { Loader } from "@googlemaps/js-api-loader";
 import { useThemeStatus } from "../hooks/useTheme";

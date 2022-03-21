@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { spacing, colors, fontSize, theme, breakPoints } from "../styles/theme";
+import { spacing, colors, fontSize, breakPoints } from "../styles/theme";
 import Link from "next/link";
 import { Logo, Facebook, Linkedin, Youtube, Maps, Instagram } from "./svg";
 import { isMobile } from "react-device-detect";

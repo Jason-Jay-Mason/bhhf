@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import TitledIconBlurb from "../blocks/titledIconBlurb";
 import CenteredIconBlurb from "../blocks/centeredIconBlurb";
 import Button from "../blocks/button";

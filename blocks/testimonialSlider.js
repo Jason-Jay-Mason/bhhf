@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { styled } from "@linaria/react";
 import { breakPoints, colors, fontSize, maxMin, spacing } from "../styles/theme";
 import Section from "../components/section";

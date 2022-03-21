@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { colors, theme, breakPoints, spacing } from "../styles/theme";
+import { colors, breakPoints, spacing } from "../styles/theme";
 
 const div = {};
 div.container = styled.div`

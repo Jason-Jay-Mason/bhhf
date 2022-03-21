@@ -1,5 +1,4 @@
 import { styled } from "@linaria/react";
-import { colorPallet } from "../styles/theme";
 import { useTheme } from "../hooks/useTheme";
 
 //#region styles

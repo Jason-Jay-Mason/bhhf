@@ -1,5 +1,3 @@
-import { styled } from "@linaria/react";
-import { colors } from "../styles/theme";
 import NavBar from "./navBar";
 import Footer from "./footer";
 

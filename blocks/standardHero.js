@@ -72,7 +72,7 @@ const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadlin
         {hook && <h3>{hook}</h3>}
         {ctaActive && <Button>{ctaLabel}</Button>}
       </div>
-      {isDesktop ? <Image greyScale={true} width={1920} layout="fill" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
+      {isDesktop ? <Image priority={true} greyScale={true} width={1920} layout="fill" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image priority={true} greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
     </section.hero>
   );
 };
