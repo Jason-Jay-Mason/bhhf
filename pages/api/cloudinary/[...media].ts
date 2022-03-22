@@ -1,7 +1,4 @@
-import {
-  mediaHandlerConfig,
-  createMediaHandler,
-} from "next-tinacms-cloudinary/dist/handlers";
+import { mediaHandlerConfig, createMediaHandler } from "next-tinacms-cloudinary/dist/handlers";
 
 import { isAuthorized } from "@tinacms/auth";
 

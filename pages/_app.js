@@ -70,6 +70,10 @@ const App = ({ Component, pageProps }) => {
             return cms;
           }}
           apiURL={apiURL}
+          clientId={process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
+          options={{
+            clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+          }}
         >
           <PopupProvider>
             <ThemeProvider>
