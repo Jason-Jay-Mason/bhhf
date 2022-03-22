@@ -11,7 +11,7 @@ div.popupStuff = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: #0000008f;
-  z-index: 10;
+  z-index: 200;
   display: ${(props) => (props.isVisible ? "flex" : "none")};
   flex-direction: column;
   div {
