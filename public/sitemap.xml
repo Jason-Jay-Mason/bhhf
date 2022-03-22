@@ -2,37 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://INPUT DOMAIN HERE!!!/contact</loc>
-    <lastmod>2022-03-21T23:37:02.956Z</lastmod>
+    <lastmod>2022-03-22T01:39:40.920Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://INPUT DOMAIN HERE!!!/contact/contact</loc>
-    <lastmod>2022-03-21T23:37:02.956Z</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://INPUT DOMAIN HERE!!!/page/camps</loc>
-    <lastmod>2022-03-21T23:37:02.956Z</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://INPUT DOMAIN HERE!!!/page/home</loc>
-    <lastmod>2022-03-21T23:37:02.956Z</lastmod>
+    <lastmod>2022-03-22T01:39:40.920Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://INPUT DOMAIN HERE!!!/legal/privacy-policy</loc>
-    <lastmod>2022-03-21T23:37:02.956Z</lastmod>
+    <lastmod>2022-03-22T01:39:40.920Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://INPUT DOMAIN HERE!!!/testimonial/t</loc>
-    <lastmod>2022-03-21T23:37:02.956Z</lastmod>
+    <loc>https://INPUT DOMAIN HERE!!!/page/camps</loc>
+    <lastmod>2022-03-22T01:39:40.920Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://INPUT DOMAIN HERE!!!/page/home</loc>
+    <lastmod>2022-03-22T01:39:40.920Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

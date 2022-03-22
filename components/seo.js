@@ -6,8 +6,8 @@ const Seo = (props) => {
   const router = useRouter();
   const path = process.env.NODE_ENV == "development" ? `view-source:http://localhost:3000${router.asPath}` : `view-source:brokenhearthorsefarmeire.com/${router.asPath}`;
   const meta = {
-    title: "Default Title here",
-    description: "Default description here",
+    title: "Broken Heart Horse Farm",
+    description: "",
     image: "",
     type: "website",
     ...customMeta,

@@ -1,7 +1,7 @@
 import NavBar from "./navBar";
 import Footer from "./footer";
-
-import PopupVideo from "./popupVideo";
+import dynamic from "next/dynamic";
+const PopupVideo = dynamic(() => import("./popupVideo"), { ssr: false });
 import Seo from "./seo";
 
 const Layout = (props) => {

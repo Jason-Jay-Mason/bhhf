@@ -1,7 +1,8 @@
 import { styled } from "@linaria/react";
 import { fontSize, maxMin, colors, breakPoints, spacing } from "../styles/theme";
 import Section from "./section";
-import Image from "./image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import("./image"), { ssr: false });
 import { useState } from "react";
 
 //#region styles

@@ -141,12 +141,12 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
           isDesktop ? (
             <video src={backgroundVideoSource} autoPlay loop />
           ) : (
-            <Image priority={true} layout="fill" objectFit="cover" width={600} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+            <Image layout="fill" objectFit="cover" width={600} quality={80} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
           )
         ) : isDesktop ? (
-          <Image priority={true} className="desktopImage" layout="fill" objectFit="cover" width={1920} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+          <Image className="desktopImage" layout="fill" objectFit="cover" width={1800} quality={80} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
         ) : (
-          <Image priority={true} layout="fill" objectFit="cover" width={600} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+          <Image layout="fill" objectFit="cover" width={600} quality={80} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
         )}
       </section.largeHero>
       {serviceBarActive ? <ServiceBar services={services} /> : null}
