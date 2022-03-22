@@ -5,7 +5,7 @@ import Image from "next/image";
 const div = {};
 //#endregion
 
-const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale, priority }) => {
+const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale, priority, objectPosition }) => {
   const hasValidSource = (source) => {
     if (source && source !== null && source !== "" && typeof source === "string") {
       return true;
@@ -87,6 +87,7 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScal
   return (
     <Image
       src={imgSrc}
+      objectPosition={objectPosition}
       layout={layout}
       objectFit={objectFit}
       alt={alt}

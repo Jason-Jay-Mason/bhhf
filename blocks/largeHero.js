@@ -11,12 +11,12 @@ section.largeHero = styled.section`
   position: relative;
   z-index: 1;
   .contentLargeHero {
-    min-height: 750px;
+    min-height: 800px;
     position: relative;
     margin: 0 auto;
-    padding: ${(props) => (props.popupVideoActive ? "230px 0" : "260px 0 280px 0")};
+    padding: ${(props) => (props.popupVideoActive ? "160px 0" : "190px 0 20px 0")};
     width: 100%;
-    background-color: rgba(26, 26, 26, 0.3);
+    background-color: rgba(37, 19, 19, 0.56);
     @media ${breakPoints.lrg} {
       min-height: 650px;
       padding: ${(props) => (props.popupVideoActive ? "170px 17px" : "170px 17px")};
@@ -35,7 +35,8 @@ section.largeHero = styled.section`
     font-family: "Noto Sertif";
     letter-spacing: -0.5%;
     font-size: ${fontSize.xlrg};
-
+    max-width: 700px;
+    margin: 0 auto;
     padding-bottom: ${spacing.s30ish};
     @media ${breakPoints.md} {
       font-size: ${fontSize.med};
@@ -44,7 +45,7 @@ section.largeHero = styled.section`
   h2 {
     font-weight: 400;
     max-width: 700px;
-    font-size: ${fontSize.base};
+    font-size: 20px;
     line-height: 200.7%;
     margin: 0 auto;
   }
@@ -97,17 +98,10 @@ section.largeHero = styled.section`
       }
     }
   }
-  .desktopImage {
-    @media ${breakPoints.md} {
-      display: none;
-    }
-  }
-  .mobileImage {
-    display: none;
-
-    @media ${breakPoints.md} {
-      display: block;
-    }
+  span {
+    z-index: -1;
+    filter: saturate(30%);
+    filter: sepia(60%);
   }
 `;
 const desktopImage = css``;
@@ -141,12 +135,12 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
           isDesktop ? (
             <video src={backgroundVideoSource} autoPlay loop />
           ) : (
-            <Image layout="fill" objectFit="cover" width={600} quality={80} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+            <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
           )
         ) : isDesktop ? (
-          <Image className="desktopImage" layout="fill" objectFit="cover" width={1800} quality={80} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+          <Image className="desktopImage" layout="fill" objectFit="cover" width={1900} quality={80} objectPosition="top" src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
         ) : (
-          <Image layout="fill" objectFit="cover" width={600} quality={80} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+          <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
         )}
       </section.largeHero>
       {serviceBarActive ? <ServiceBar services={services} /> : null}
