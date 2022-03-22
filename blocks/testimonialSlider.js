@@ -216,7 +216,7 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
 
   if (testimonials) {
     const filteredTestimonials = testimonials.filter((testimonial) => {
-      if (testimonial) {
+      if (testimonial && testimonial?.activePages?.length) {
         for (let i = 0; i < testimonial.activePages.length; i++) {
           if (testimonial?.activePages[i]?.title?.sys?.filename == pageName) {
             return testimonial;
