@@ -149,6 +149,11 @@
   "camps": {
     "campList": [
       {
+        "title": "This is our camp Hello!",
+        "date": "2022-03-21T06:00:00.000Z",
+        "description": "500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five cen\n"
+      },
+      {
         "title": "Camp Title Here 1",
         "date": "2022-03-02T07:00:00.000Z",
         "description": "A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline.&#x20;\n",
