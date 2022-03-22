@@ -17,7 +17,7 @@
       }
     ],
     "ctaLabel": "Call Now",
-    "ctaHref": ""
+    "ctaHref": "/contact"
   },
   "businessInfo": {
     "contact": {
@@ -66,6 +66,18 @@
   ],
   "testimonials": {
     "testimonialsList": [
+      {
+        "title": "Jason Mason",
+        "shortDescription": "Web developer",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295743/sample.jpg",
+        "imageAlt": "blah",
+        "testimonialBody": "500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five cen",
+        "activePages": [
+          {
+            "title": "content/page/test.mdx"
+          }
+        ]
+      },
       {
         "title": "Jim Doe",
         "shortDescription": "Demo 2",
@@ -136,6 +148,11 @@
   },
   "camps": {
     "campList": [
+      {
+        "title": "This is our camp Hello!",
+        "date": "2022-03-21T06:00:00.000Z",
+        "description": "500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five cen\n"
+      },
       {
         "title": "Camp Title Here 1",
         "date": "2022-03-02T07:00:00.000Z",
