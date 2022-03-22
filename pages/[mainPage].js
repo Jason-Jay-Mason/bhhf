@@ -7,8 +7,6 @@ import MainPageBlocks from "../components/mainPageBlocks";
 const query = `query getMainPage($relativePath: String!) {
   ${Query.getMainPageDocument}
   ${Query.getStandardLayout}
-
-
   }
   `;
 export default function MainPage(props) {

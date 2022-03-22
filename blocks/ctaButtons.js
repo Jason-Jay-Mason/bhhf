@@ -11,6 +11,7 @@ div.buttons = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-height: 100px;
   padding: ${spacing.s120ish} 0;
   position: relative;
   z-index: 2;

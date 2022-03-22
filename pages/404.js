@@ -16,7 +16,7 @@ export default function MainPage(props) {
     data: props.data,
   });
 
-  return <Page404 />;
+  return <Page404></Page404>;
 }
 
 export const getStaticProps = async (context) => {

@@ -32,6 +32,10 @@ const Seo = (props) => {
       <meta property="twitter:image" content={meta.image} />
       <meta property="twitter:card" content="summary_large_card" />
       {meta.date && <meta property="article:publish_time" content={meta.date} />}
+
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet" />
     </Head>
   );
 };

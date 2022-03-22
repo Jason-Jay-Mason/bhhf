@@ -16,7 +16,7 @@ section.largeHero = styled.section`
     margin: 0 auto;
     padding: ${(props) => (props.popupVideoActive ? "230px 0" : "260px 0 280px 0")};
     width: 100%;
-    background-color: rgba(26, 26, 26, 0.4);
+    background-color: rgba(26, 26, 26, 0.3);
     @media ${breakPoints.lrg} {
       min-height: 650px;
       padding: ${(props) => (props.popupVideoActive ? "170px 17px" : "170px 17px")};

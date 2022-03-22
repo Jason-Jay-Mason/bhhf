@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import LongFeaturedImage from "../blocks/longFeaturedImage";
 import CtaButtons from "../blocks/ctaButtons";
 import LargeHero from "../blocks/largeHero";
