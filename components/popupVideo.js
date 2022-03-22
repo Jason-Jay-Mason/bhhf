@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
-import { theme, spacing } from "../styles/theme";
-import { usePopupSource, usePopupStatus, useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
+import { theme, breakPoints } from "../styles/theme";
+import { usePopupSource, usePopupStatus, usePopupToggle } from "../hooks/usePopUpModal";
 
 //#region styles
 const div = {};
@@ -43,6 +43,10 @@ div.popupStuff = styled.div`
     p {
       padding-left: 10px;
       color: white;
+    }
+    @media ${breakPoints.lrg} {
+      top: 20px;
+      left: 10px;
     }
   }
 `;
