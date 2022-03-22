@@ -79,7 +79,8 @@
           {
             "title": "content/page/camps.mdx"
           }
-        ]
+        ],
+        "videoActive": false
       },
       {
         "title": "Jane Doeson",
