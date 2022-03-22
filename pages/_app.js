@@ -9,6 +9,7 @@ export const globalStyles = globalcss;
 //#endregion
 
 const App = ({ Component, pageProps }) => {
+  //app
   return (
     <TinaDynamicProvider>
       <ThemeProvider>
