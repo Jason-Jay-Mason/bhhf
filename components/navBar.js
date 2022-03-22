@@ -57,6 +57,12 @@ div.nav = styled.div`
   }
   .column-logo {
     justify-content: center;
+    a {
+      width: 100%;
+    }
+    svg {
+      width: 100%;
+    }
     .logo {
       width: 320px;
       filter: var(--icon-filter);
@@ -97,6 +103,9 @@ div.nav = styled.div`
     }
     .column-logo {
       width: 50%;
+      a {
+        max-width: 220px;
+      }
       .logo {
         width: ${spacing.s195ish};
       }
@@ -146,7 +155,11 @@ const NavBar = ({ header, businessInfo }) => {
             })}
           </nav>
           <div className="column-logo">
-            <Logo />
+            <Link href="/">
+              <a>
+                <Logo />
+              </a>
+            </Link>
           </div>
           <div className="column-cta-desktop">
             <NavCta href={header?.ctaHref}>{header?.ctaLabel}</NavCta>

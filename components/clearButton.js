@@ -8,14 +8,13 @@ button.clearButton = styled.button`
   font-weight: 300;
   letter-spacing: 0.5px;
   font-size: 1.05rem;
-  height: 90px;
   min-width: 220px;
   display: flex;
   align-items: center;
   backdrop-filter: blur(1000px);
   justify-content: center;
+  -webkit-box-orient: horizontal;
   @media ${breakPoints.md} {
-    height: 80px;
     min-width: 220px;
   }
 `;
@@ -25,7 +24,6 @@ export const clearButtonCss = css`
   border-radius: 3px;
   color: white;
   background-color: rgba(255, 255, 255, 0.06);
-
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid #ffffff;
