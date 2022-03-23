@@ -3,12 +3,12 @@ import { fontSize, spacing, breakPoints } from "../styles/theme";
 import Image from "../components/image";
 import Button from "../components/clearButton";
 import { isDesktop } from "react-device-detect";
+import Link from "next/link";
 
 //#region styles
 const section = {};
 section.hero = styled.section`
   position: relative;
-
   .content {
     display: flex;
     flex-direction: column;
@@ -16,11 +16,11 @@ section.hero = styled.section`
     justify-content: center;
     color: white;
     text-align: center;
-    min-height: 600px;
-    padding: ${spacing.s120ish} ${spacing.s17ish};
+    min-height: 650px;
+    padding: 160px ${spacing.s17ish};
     position: relative;
     z-index: 10;
-    background-color: rgba(79, 56, 26, 0.66);
+    background-color: rgba(37, 19, 19, 0.56);
   }
   h1 {
     font-family: "Snell Roundhand";
@@ -55,10 +55,8 @@ section.hero = styled.section`
     padding-bottom: 37px;
   }
   span {
+    filter: saturate(80%) sepia(40%);
     z-index: -10;
-    img {
-      z-index: -10;
-    }
   }
 `;
 //#endregion
@@ -70,9 +68,15 @@ const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadlin
         <h1>{subHeadline ? subHeadline : "No Headline"}</h1>
         <h2>{headline ? headline : "No Headline"}</h2>
         {hook && <h3>{hook}</h3>}
-        {ctaActive && <Button>{ctaLabel}</Button>}
+        {ctaActive && (
+          <Link href={ctaHref ? ctaHref : "/"} passHref>
+            <a>
+              <Button>{ctaLabel}</Button>
+            </a>
+          </Link>
+        )}
       </div>
-      {isDesktop ? <Image priority={true} greyScale={true} width={1920} layout="fill" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image priority={true} greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
+      {isDesktop ? <Image priority={true} width={1900} layout="fill" objectPosition="top" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image priority={true} greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
     </section.hero>
   );
 };

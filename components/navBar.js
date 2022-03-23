@@ -131,11 +131,11 @@ const NavBar = ({ header, businessInfo }) => {
   const [page, setPage] = useState(null);
   const [modalActive, setModalActive] = useState(false);
 
-  let windowLocation = router.pathname;
+  let windowLocation = router.asPath;
 
   useEffect(() => {
-    let location = router.pathname;
-    setPage(location);
+    console.log(windowLocation);
+    setPage(windowLocation);
   }, [windowLocation]);
 
   return (

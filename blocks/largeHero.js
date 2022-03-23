@@ -100,8 +100,7 @@ section.largeHero = styled.section`
   }
   span {
     z-index: -1;
-    filter: saturate(30%);
-    filter: sepia(60%);
+    filter: saturate(80%) sepia(40%);
   }
 `;
 const desktopImage = css``;
