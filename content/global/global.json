@@ -67,6 +67,18 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "John Doe",
+        "shortDescription": "Team Member",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647992628/demos/demoimagecamps2_gun3cw.jpg",
+        "testimonialBody": "blah blah",
+        "activePages": [
+          {
+            "title": "content/page/camps.mdx"
+          }
+        ],
+        "videoActive": true
+      },
+      {
         "title": "Jane Doeson",
         "shortDescription": "This is a demo",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647832400/demos/IEA_demo_photo_gzqlaz.jpg",
