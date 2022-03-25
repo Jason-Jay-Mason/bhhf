@@ -5,6 +5,7 @@ import { isMobile } from "react-device-detect";
 
 import Toggle from "./toggle";
 import FooterMap from "./footerMap";
+import { date } from "yup/lib/locale";
 
 //#region styles
 const footer = {};
@@ -189,9 +190,11 @@ div.plug = styled.div`
 `;
 
 //#endregion
+const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday','friday', 'saturday']
 
 const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => {
-  const dummyDayOfTheWeek = "monday";
+  let currentdate = new Date(); 
+  let day = currentdate.getDay()
   const { facebook, instagram, youtube, linkedin, maps } = businessInfo?.socialLinks || {};
   const { phone, email, address } = businessInfo?.contact || {};
   const getTodaysHours = (day) => {
@@ -216,7 +219,7 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => 
             </div>
             <div className="textBlock">
               <h4>Todays Hours</h4>
-              <p>{getTodaysHours(dummyDayOfTheWeek)}</p>
+              <p>{getTodaysHours(days[day])}</p>
             </div>
           </div>
           <div className="logoColumn">
