@@ -80,7 +80,8 @@
             "title": "content/page/home.mdx"
           },
           {
-            "title": "content/page/camps.mdx"
+            "title": "content/page/camps.mdx",
+            "priority": 2
           }
         ],
         "videoActive": false
@@ -100,7 +101,8 @@
             "priority": 1
           },
           {
-            "title": "content/page/camps.mdx"
+            "title": "content/page/camps.mdx",
+            "priority": 1
           }
         ],
         "videoActive": true,
