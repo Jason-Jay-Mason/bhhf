@@ -315,6 +315,7 @@ union GlobalTestimonialsTestimonialsListActivePagesTitleDocument = MainPageDocum
 
 type GlobalTestimonialsTestimonialsListActivePages {
   title: GlobalTestimonialsTestimonialsListActivePagesTitleDocument
+  priority: Float
 }
 
 type GlobalTestimonialsTestimonialsList {
@@ -642,6 +643,7 @@ input GlobalServicesMutation {
 
 input GlobalTestimonialsTestimonialsListActivePagesMutation {
   title: String
+  priority: Float
 }
 
 input GlobalTestimonialsTestimonialsListMutation {

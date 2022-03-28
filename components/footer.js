@@ -190,11 +190,11 @@ div.plug = styled.div`
 `;
 
 //#endregion
-const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday','friday', 'saturday']
+const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
 const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => {
-  let currentdate = new Date(); 
-  let day = currentdate.getDay()
+  let currentdate = new Date();
+  let day = currentdate.getDay();
   const { facebook, instagram, youtube, linkedin, maps } = businessInfo?.socialLinks || {};
   const { phone, email, address } = businessInfo?.contact || {};
   const getTodaysHours = (day) => {

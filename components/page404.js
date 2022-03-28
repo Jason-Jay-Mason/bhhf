@@ -2,7 +2,6 @@ import { styled } from "@linaria/react";
 import { colors, fontSize, spacing } from "../styles/theme";
 import Section from "./section";
 import Button from "./standardButton";
-import router, { useRouter } from "next/router";
 
 //#region styles
 const div = {};
@@ -25,12 +24,11 @@ div.page404 = styled.div`
 //#endregion
 
 const Page404 = () => {
-  const router = useRouter();
   return (
     <Section>
       <div.page404>
         <h1>404 Not Found</h1>
-        <h2>The page: "{router.pathname}" doesn't exist.</h2>
+        <h2>Oops! This page doesn't exist.</h2>
         <Button href="/">Return To Home Page</Button>
       </div.page404>
     </Section>

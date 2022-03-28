@@ -59,6 +59,7 @@ getGlobalDocument(relativePath: "global.json") {
         videoActive
         videoSource
         activePages{
+          priority
           title{
             ...on MainPageDocument{
               sys{

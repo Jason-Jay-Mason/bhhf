@@ -1,7 +1,7 @@
 import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
 import Query from "../.tina/tools/queries/query";
-import Page404 from "../components/Page404";
+import Page404 from "../components/page404";
 
 //The query for tina cms
 const query = `{

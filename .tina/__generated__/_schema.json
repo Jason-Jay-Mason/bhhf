@@ -1587,6 +1587,19 @@
                         "activePages",
                         "title"
                       ]
+                    },
+                    {
+                      "type": "number",
+                      "name": "priority",
+                      "label": "Set priority",
+                      "description": "Type a number that sets the priority of the testimonial on this page. Leaving this field blank will ensure the default order is used. (eg. you could input 1 to set this testimonial in the first position on this page)",
+                      "namespace": [
+                        "global",
+                        "testimonials",
+                        "testimonialsList",
+                        "activePages",
+                        "priority"
+                      ]
                     }
                   ],
                   "namespace": [

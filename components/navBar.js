@@ -18,7 +18,7 @@ div.nav = styled.div`
   align-items: center;
   width: 100%;
   background-color: ${colors.white};
-  padding: 0 ${spacing.s30ish};
+  padding: 0 ${spacing.s45ish};
   .row {
     width: 100%;
     position: relative;
@@ -134,7 +134,6 @@ const NavBar = ({ header, businessInfo }) => {
   let windowLocation = router.asPath;
 
   useEffect(() => {
-    console.log(windowLocation);
     setPage(windowLocation);
   }, [windowLocation]);
 

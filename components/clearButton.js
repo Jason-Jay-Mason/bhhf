@@ -11,8 +11,8 @@ button.clearButton = styled.button`
   min-width: 220px;
   display: flex;
   align-items: center;
-  backdrop-filter: blur(1000px);
   justify-content: center;
+  align-items: center;
   -webkit-box-orient: horizontal;
   @media ${breakPoints.md} {
     min-width: 220px;
@@ -20,10 +20,10 @@ button.clearButton = styled.button`
 `;
 
 export const clearButtonCss = css`
-  backdrop-filter: blur(1.5px);
   border-radius: 3px;
+  backdrop-filter: blur(3px);
   color: white;
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid #ffffff;

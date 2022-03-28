@@ -4,6 +4,9 @@ import { breakPoints, colors, fontSize, maxMin, spacing } from "../styles/theme"
 import Section from "../components/section";
 import MainHeadline from "../components/mainHeadline";
 import Image from "../components/image";
+import { clearButtonCss } from "../components/clearButton";
+import { standardButtonCss } from "../components/standardButton";
+import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
 
 const sliderTransition = "all 300ms ease";
 
@@ -75,7 +78,7 @@ div.testimonialSlider = styled.div`
       position: relative;
       top: -43px;
       right: -665px;
-      background-color: ${colors.rainCloudBeigeTwo};
+      background-color: ${colors.skinBeige};
     }
     p {
       color: ${colors.textBrown};
@@ -131,6 +134,7 @@ div.testimonialSlider = styled.div`
       width: 100%;
     }
   }
+
   .imageContainer {
     position: relative;
     min-width: var(--slider-image-width);
@@ -138,6 +142,54 @@ div.testimonialSlider = styled.div`
     height: 532px;
     @media ${breakPoints.lrg} {
       height: 70vw;
+    }
+    .watchVideoButtonDesktop {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      z-index: 10;
+      bottom: 0;
+      @media ${breakPoints.lrg} {
+        display: none;
+      }
+      button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        left: 35%;
+        margin-bottom: ${spacing.s30ish};
+        padding: ${spacing.s30ish} ${spacing.s45ish};
+        font-size: ${fontSize.base};
+        font-weight: 200;
+        svg {
+          margin: 0 10px 0 0;
+        }
+      }
+    }
+  }
+  .watchVideoButtonMobile {
+    display: none;
+    width: 100%;
+    @media ${breakPoints.lrg} {
+      display: block;
+    }
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      min-width: 100%;
+      margin: ${spacing.s30ish} 0 0 0;
+      padding: ${spacing.s30ish} ${spacing.s17ish};
+      font-size: ${fontSize.base};
+      font-weight: 200;
+      svg {
+        margin: 0 10px 0 0;
+      }
     }
   }
   .imageContainerSelected {
@@ -213,18 +265,42 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
   const [textSelected, setTextSelected] = useState(1);
   const [isForward, setIsForward] = useState(null);
   const [buttonDisable, setButtonDisable] = useState(false);
+  const popupToggle = usePopupToggle();
+  const setPopupSource = useSetPopupSource();
 
   if (testimonials) {
-    const filteredTestimonials = testimonials.filter((testimonial) => {
-      if (testimonial && testimonial?.activePages?.length) {
-        for (let i = 0; i < testimonial.activePages.length; i++) {
-          if (testimonial?.activePages[i]?.title?.sys?.filename == pageName) {
-            return testimonial;
-            break;
+    const getTestimonials = (testimonials) => {
+      let filteredByPage;
+      let orderedByPriority = {};
+      const final = [];
+      //filter the testimonial by page and add them to the orderedByPriority object for automatic reordering by property (which are numbers)
+      filteredByPage = testimonials.map((testimonial) => {
+        if (testimonial && testimonial?.activePages?.length) {
+          for (let i = 0; i < testimonial.activePages.length; i++) {
+            if (testimonial?.activePages[i]?.title?.sys?.filename == pageName) {
+              let priority = testimonial?.activePages[i]?.priority;
+              //return { ...testimonial, priority: testimonial?.activePages[i]?.priority };
+              if (orderedByPriority[priority]) {
+                orderedByPriority[priority] = [...orderedByPriority[priority], testimonial];
+                return;
+              }
+              orderedByPriority[priority] = [testimonial];
+              return;
+            }
           }
         }
-      }
-    });
+      });
+      //create the final array by looping through the properties of the orderedByPriority object
+      Object.keys(orderedByPriority).map((testimonialArray) => {
+        orderedByPriority[testimonialArray].map((testimonial) => {
+          final.push(testimonial);
+        });
+      });
+
+      return final;
+    };
+
+    const filteredTestimonials = getTestimonials(testimonials) || [];
 
     if (filteredTestimonials.length) {
       const testimonialsForSlider = [filteredTestimonials[filteredTestimonials?.length - 1], ...filteredTestimonials, filteredTestimonials[0], filteredTestimonials[1]];
@@ -300,6 +376,22 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                       <p>"{body}</p>
                       <h5>{testimonial?.title}</h5>
                       <h6>{testimonial?.shortDescription}</h6>
+                      {imgSelected === i && testimonial.videoActive && (
+                        <div
+                          onClick={() => {
+                            popupToggle(true);
+                            setPopupSource(testimonial?.videoSource);
+                          }}
+                          className="watchVideoButtonMobile"
+                        >
+                          <button className={standardButtonCss}>
+                            <svg width="30" height="30" viewBox="0 0 66 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M33 0C14.7979 0 0 15.4705 0 34.5C0 53.5295 14.7979 69 33 69C51.2021 69 66 53.5295 66 34.5C66 15.4705 51.2021 0 33 0ZM43.6295 36.2432L28.0674 47.065C26.7472 48.0094 24.9412 46.9926 24.9412 45.3217V23.6775C24.9412 22.0071 26.7474 20.9903 28.0674 21.9342L43.6295 32.7565C44.8105 33.5554 44.8105 35.4442 43.6295 36.2432Z" fill="white" />
+                            </svg>
+                            Watch Story
+                          </button>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -309,6 +401,22 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                   return (
                     <div key={testimonial + i + "image"} className={getImageStyle(i)}>
                       <Image key={testimonial?.title + i} src={testimonial?.image} width={618} layout="fill" objectFit="cover" quality={80} alt={testimonial?.imageAlt} />
+                      {imgSelected === i && testimonial.videoActive && (
+                        <div
+                          onClick={() => {
+                            popupToggle(true);
+                            setPopupSource(testimonial?.videoSource);
+                          }}
+                          className="watchVideoButtonDesktop"
+                        >
+                          <button className={clearButtonCss}>
+                            <svg width="30" height="30" viewBox="0 0 66 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M33 0C14.7979 0 0 15.4705 0 34.5C0 53.5295 14.7979 69 33 69C51.2021 69 66 53.5295 66 34.5C66 15.4705 51.2021 0 33 0ZM43.6295 36.2432L28.0674 47.065C26.7472 48.0094 24.9412 46.9926 24.9412 45.3217V23.6775C24.9412 22.0071 26.7474 20.9903 28.0674 21.9342L43.6295 32.7565C44.8105 33.5554 44.8105 35.4442 43.6295 36.2432Z" fill="white" />
+                            </svg>
+                            Watch Story
+                          </button>
+                        </div>
+                      )}
                     </div>
                   );
                 })}

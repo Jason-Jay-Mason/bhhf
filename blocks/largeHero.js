@@ -142,7 +142,7 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
           <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
         )}
       </section.largeHero>
-      {serviceBarActive ? <ServiceBar services={services} /> : null}
+      {serviceBarActive && services && <ServiceBar services={services} />}
     </>
   );
 };

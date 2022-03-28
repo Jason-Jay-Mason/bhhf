@@ -182,6 +182,7 @@ fragment GlobalParts on Global {
             id
           }
         }
+        priority
       }
       videoActive
       videoSource
