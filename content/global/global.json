@@ -88,17 +88,13 @@
         "shortDescription": "CU Equestrian Team Member",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647832400/demos/IEA_demo_photo_gzqlaz.jpg",
         "imageAlt": "this is a demo",
-        "testimonialBody": "\"Broken Heart has the kind of programs where your teammates come to support you even when they aren't showing that day.  Everyone, no matter the age, has a team spirit that I haven't been able to find elsewhere, and I think that is due the the coaches.  Karen and Erin are incredibly kind and supportive, while also not being afraid to tell you how you can improve your riding.  They really focus on personal growth and how to make sure you can achieve your goals.  I cannot recommend them enough!",
+        "testimonialBody": "\"Broken Heart has the kind of programs where your teammates come to support you even when they aren't showing that day.  Everyone, no matter the age, has a team spirit that I haven't been able to find elsewhere, and I think that is due the the coaches.  Karen and Erin are incredibly kind and supportive, while also not being afraid to tell you how you can improve your riding.  They really focus on personal growth and how to make sure you can achieve your goals.  I cannot recommend them enough!\"",
         "activePages": [
           {
             "title": "content/page/test.mdx"
           },
           {
             "title": "content/page/home.mdx",
-            "priority": 1
-          },
-          {
-            "title": "content/page/camps.mdx",
             "priority": 1
           }
         ],
