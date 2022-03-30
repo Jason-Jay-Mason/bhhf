@@ -1,7 +1,7 @@
 {
   "header": {
-    "preHeaderCtaLabel": "Message bar here that will display a message with an intermediary CTA",
-    "preHeaderCtaHref": "/",
+    "preHeaderCtaLabel": "Sign Up Today for our 2022 Summer Camps",
+    "preHeaderCtaHref": "",
     "links": [
       {
         "title": "Home",
