@@ -68,6 +68,11 @@
     "testimonialsList": [
       {
         "title": "Mindy F",
+        "shortDescription": "Horse Owner",
+        "testimonialBody": "\"When we decided we were ready to purchase our first horse, Erin took the time to find exactly what we needed within our budget!  Erin has an amazing eye and could tell right away if a certain horse was going to work for us, or not.  She is honest, caring, fun, and easy to work with!\"  \n"
+      },
+      {
+        "title": "Mindy F",
         "shortDescription": "Parent",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295743/sample.jpg",
         "imageAlt": "blah",
