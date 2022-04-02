@@ -67,6 +67,51 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "Mindy F",
+        "shortDescription": "Horse Owner",
+        "testimonialBody": "\"When we decided we were ready to purchase our first horse, Erin took the time to find exactly what we needed within our budget!  Erin has an amazing eye and could tell right away if a certain horse was going to work for us, or not.\"  ",
+        "activePages": [
+          {
+            "title": "content/page/home.mdx"
+          }
+        ]
+      },
+      {
+        "title": "Eleanor H",
+        "shortDescription": "CU Boulder Equestrian Team Member",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647832400/demos/IEA_demo_photo_gzqlaz.jpg",
+        "imageAlt": "this is a demo",
+        "testimonialBody": "\"Broken Heart has the kind of programs where your teammates come to support you even when they aren't showing that day.  Everyone, no matter the age, has a team spirit that I haven't been able to find elsewhere.\"",
+        "activePages": [
+          {
+            "title": "content/page/test.mdx"
+          },
+          {
+            "title": "content/page/home.mdx",
+            "priority": 1
+          }
+        ],
+        "videoActive": true,
+        "videoSource": "https://www.youtube.com/embed/jByGqv0Wt-Q"
+      },
+      {
+        "title": "Maddie Feldman",
+        "shortDescription": "CU Boulder Equestrian Team Member",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295743/sample.jpg",
+        "imageAlt": "blah",
+        "testimonialBody": "\"Over the past 13 years of riding, I’ve gone through many trainers, but not one like Erin. Ever since joining the CU Boulder Equestrian Team, Erin has made me a more confident rider. Erin is a top notch trainer and I admire her skills and teaching methods.\"",
+        "activePages": [
+          {
+            "title": "content/page/test.mdx",
+            "priority": 1
+          },
+          {
+            "title": "content/page/home.mdx"
+          }
+        ],
+        "videoActive": false
+      },
+      {
         "title": "Michelle A",
         "shortDescription": "Team Parent",
         "testimonialBody": "\"In the four years that my daughter has been riding with Erin, I have seen her confidence and abilities as a rider grow tremendously. The way Erin connects with her riders goes behind the basic reasoning and goes into depth of her training and instructions.\"",
@@ -89,34 +134,20 @@
         ]
       },
       {
-        "title": "Maisie, Age 10",
-        "shortDescription": "Summer Camper",
-        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648937273/testimonials/Maisie_Testimonial_y40an9.png",
-        "imageAlt": "Summer Camp",
-        "testimonialBody": "Maisie's favorite part of summer camp was the parent showcase at the end of the week.  She loved introducing all the horses to her family and showing them all the new skills she gained.",
+        "title": "Aja Bos",
+        "shortDescription": "CU Boulder Equestrian Team Member",
+        "image": "",
+        "imageAlt": "demo image",
+        "testimonialBody": "\"Erin is very patient and is excellent at teaching each rider how to work with their horse\"",
         "activePages": [
           {
-            "title": "content/page/camps.mdx",
-            "priority": 1
-          }
-        ],
-        "videoActive": true,
-        "videoSource": "https://player.vimeo.com/progressive_redirect/playback/695280556/rendition/540p?loc=external&signature=6ffb6d9b799005971b04aa0a82b03f0c5ee3740b4f5b6831b7540f603c35eaf9"
-      },
-      {
-        "title": "Nell L",
-        "shortDescription": "CHJA Team Parent",
-        "testimonialBody": "\"My kiddos started riding with Erin and Karen 5 years ago.  Since then, they have developed from beginner riders to competitive riders. "
-      },
-      {
-        "title": "Mindy F",
-        "shortDescription": "Horse Owner",
-        "testimonialBody": "\"When we decided we were ready to purchase our first horse, Erin took the time to find exactly what we needed within our budget!  Erin has an amazing eye and could tell right away if a certain horse was going to work for us, or not.\"  ",
-        "activePages": [
+            "title": "content/page/camps.mdx"
+          },
           {
             "title": "content/page/home.mdx"
           }
-        ]
+        ],
+        "videoActive": false
       },
       {
         "title": "Mindy F",
@@ -136,55 +167,29 @@
         "videoActive": false
       },
       {
-        "title": "Eleanor H",
-        "shortDescription": "CU Boulder Equestrian Team Member",
-        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647832400/demos/IEA_demo_photo_gzqlaz.jpg",
-        "imageAlt": "this is a demo",
-        "testimonialBody": "\"Broken Heart has the kind of programs where your teammates come to support you even when they aren't showing that day.  Everyone, no matter the age, has a team spirit that I haven't been able to find elsewhere.\"",
+        "title": "Nell L",
+        "shortDescription": "CHJA Team Parent",
+        "testimonialBody": "\"My kiddos started riding with Erin and Karen 5 years ago.  Since then, they have developed from beginner riders to competitive riders. ",
         "activePages": [
           {
-            "title": "content/page/test.mdx"
-          },
+            "title": "content/page/camps.mdx"
+          }
+        ]
+      },
+      {
+        "title": "Maisie, Age 10",
+        "shortDescription": "Summer Camper",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648937273/testimonials/Maisie_Testimonial_y40an9.png",
+        "imageAlt": "Summer Camp",
+        "testimonialBody": "Maisie's favorite part of summer camp was the parent showcase at the end of the week.  She loved introducing all the horses to her family and showing them all the new skills she gained.",
+        "activePages": [
           {
-            "title": "content/page/home.mdx",
+            "title": "content/page/camps.mdx",
             "priority": 1
           }
         ],
         "videoActive": true,
-        "videoSource": "https://www.youtube.com/embed/jByGqv0Wt-Q"
-      },
-      {
-        "title": "Aja Bos",
-        "shortDescription": "CU Boulder Equestrian Team Member",
-        "image": "",
-        "imageAlt": "demo image",
-        "testimonialBody": "\"Erin is very patient and is excellent at teaching each rider how to work with their horse\"",
-        "activePages": [
-          {
-            "title": "content/page/camps.mdx"
-          },
-          {
-            "title": "content/page/home.mdx"
-          }
-        ],
-        "videoActive": false
-      },
-      {
-        "title": "Maddie Feldman",
-        "shortDescription": "CU Boulder Equestrian Team Member",
-        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295743/sample.jpg",
-        "imageAlt": "blah",
-        "testimonialBody": "\"Over the past 13 years of riding, I’ve gone through many trainers, but not one like Erin. Ever since joining the CU Boulder Equestrian Team, Erin has made me a more confident rider. Erin is a top notch trainer and I admire her skills and teaching methods.\"",
-        "activePages": [
-          {
-            "title": "content/page/test.mdx",
-            "priority": 1
-          },
-          {
-            "title": "content/page/home.mdx"
-          }
-        ],
-        "videoActive": false
+        "videoSource": "https://player.vimeo.com/progressive_redirect/playback/695280556/rendition/540p?loc=external&signature=6ffb6d9b799005971b04aa0a82b03f0c5ee3740b4f5b6831b7540f603c35eaf9"
       }
     ]
   },
