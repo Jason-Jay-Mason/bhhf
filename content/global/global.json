@@ -78,7 +78,7 @@
           }
         ],
         "videoActive": true,
-        "videoSource": "<iframe src=\"https://player.vimeo.com/video/695280556?h=9951ba2f8e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" width=\"1080\" height=\"1920\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen title=\"IMG_0275.MOV\"></iframe>"
+        "videoSource": "https://vimeo.com/695280556"
       },
       {
         "title": "Nell L",
