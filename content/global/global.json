@@ -67,6 +67,12 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "Jordyn, Age",
+        "shortDescription": "CHJA Team Member",
+        "imageAlt": "CHJA, Hunter, Jumper, Equitation",
+        "testimonialBody": "\"Erin has helped me and my horse become a team. She helped me train him to be a safe, reliable horse. She also creates a safe and positive environment for the two of us. I'm looking forward to growing and learning more with Broken Heart!\""
+      },
+      {
         "title": "Maisie, Age 10",
         "shortDescription": "Summer Camper",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648937273/testimonials/Maisie_Testimonial_y40an9.png",
