@@ -67,6 +67,16 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "Michelle A",
+        "shortDescription": "Team Parent",
+        "testimonialBody": "\"In the four years that my daughter has been riding with Erin, I have seen her confidence and abilities as a rider grow tremendously. The way Erin connects with her riders goes behind the basic reasoning and goes into depth of her training and instructions.\"",
+        "activePages": [
+          {
+            "title": "content/page/home.mdx"
+          }
+        ]
+      },
+      {
         "title": "Jordyn, Age 16",
         "shortDescription": "CHJA Team Member",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648942060/testimonials/Jordyn_Testimonial_iyomxt.jpg",
