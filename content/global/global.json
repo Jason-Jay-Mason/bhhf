@@ -112,16 +112,12 @@
         "videoSource": "https://www.youtube.com/embed/jByGqv0Wt-Q"
       },
       {
-        "title": "Brooks Doe",
-        "shortDescription": "Join Broken Heart",
-        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647832400/demos/IEA_demo_photo_gzqlaz.jpg",
+        "title": "Aja Bos",
+        "shortDescription": "CU Equestrian Team Member",
+        "image": "",
         "imageAlt": "demo image",
-        "testimonialBody": "At the beginning we have some filler here. A sentece or two here that says what the business is, breifly agitates the problems of personas and describes what they get in a bit more detail than the headline personas and describes",
+        "testimonialBody": "\"Erin is very patient and is excellent at teaching each rider how to work with their horse\"",
         "activePages": [
-          {
-            "title": "content/page/test.mdx",
-            "priority": 2
-          },
           {
             "title": "content/page/camps.mdx"
           },
