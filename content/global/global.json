@@ -153,9 +153,9 @@
   "events": {
     "eventList": [
       {
-        "title": "IHSA Zones",
+        "title": "2022 IHSA Zone 8 Championships",
         "date": "2022-04-09T06:00:00.000Z",
-        "description": ""
+        "description": "CU Equestrian Team's Emma Fraser and Caroline Kosmicki will be representing their team at this year's Zone 8 Championships! &#x20;\n\nEmma Fraser  - Open Hunt Seat Equitation on the Flat&#x20;\n\nCaroline Kosmicki - Limit Hunt Seat Over Fences and Flat&#x20;\n"
       },
       {
         "title": "CHJA Gold Crest Charity Challenge (Budweiser Event Center)",
@@ -174,11 +174,13 @@
       },
       {
         "title": "NVRHA (Wheatland, WY)",
-        "date": "2022-05-14T06:00:00.000Z"
+        "date": "2022-05-14T06:00:00.000Z",
+        "description": ""
       },
       {
         "title": "CHJA May Madness at Fox Hill",
-        "date": "2022-05-21T06:00:00.000Z"
+        "date": "2022-05-21T06:00:00.000Z",
+        "description": ""
       }
     ]
   },
