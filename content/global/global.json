@@ -167,17 +167,6 @@
         ]
       },
       {
-        "title": "Nell L",
-        "shortDescription": "Summer Camp Parent",
-        "testimonialBody": "\"Summer camp with Broken Heart is amazing. It's messy, get into nature, ride a horse, old fashioned, fun that every kids needs to experience. The kids come home excited, proud, and so tired.  I cannot recommend this camp enough.\"",
-        "activePages": [
-          {
-            "title": "content/page/camps.mdx",
-            "priority": 2
-          }
-        ]
-      },
-      {
         "title": "Maisie, Age 10",
         "shortDescription": "Summer Camper",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648937273/testimonials/Maisie_Testimonial_y40an9.png",
@@ -191,6 +180,17 @@
         ],
         "videoActive": true,
         "videoSource": "https://player.vimeo.com/progressive_redirect/playback/695280556/rendition/540p?loc=external&signature=6ffb6d9b799005971b04aa0a82b03f0c5ee3740b4f5b6831b7540f603c35eaf9"
+      },
+      {
+        "title": "Nell L",
+        "shortDescription": "Summer Camp Parent",
+        "testimonialBody": "\"Summer camp with Broken Heart is amazing. It's messy, get into nature, ride a horse, old fashioned, fun that every kids needs to experience. The kids come home excited, proud, and so tired.  I cannot recommend this camp enough.\"",
+        "activePages": [
+          {
+            "title": "content/page/camps.mdx",
+            "priority": 2
+          }
+        ]
       }
     ]
   },
