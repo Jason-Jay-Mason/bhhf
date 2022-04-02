@@ -67,6 +67,11 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "Maisie, Age 10",
+        "shortDescription": "Summer Camper",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648937273/testimonials/Maisie_Testimonial_y40an9.png"
+      },
+      {
         "title": "Nell L",
         "shortDescription": "CHJA Team Parent",
         "testimonialBody": "\"My kiddos started riding with Erin and Karen 5 years ago.  Since then, they have developed from beginner riders to competitive riders. "
