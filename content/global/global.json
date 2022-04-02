@@ -79,7 +79,7 @@
           }
         ],
         "videoActive": true,
-        "videoSource": "<iframe src=\"https://player.vimeo.com/video/695280556?h=9951ba2f8e&amp;title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" width=\"1080\" height=\"1920\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen title=\"Maisie Camp\"></iframe>"
+        "videoSource": "https://player.vimeo.com/progressive_redirect/playback/695280556/rendition/540p?loc=external&signature=6ffb6d9b799005971b04aa0a82b03f0c5ee3740b4f5b6831b7540f603c35eaf9"
       },
       {
         "title": "Nell L",
