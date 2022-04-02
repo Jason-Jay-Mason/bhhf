@@ -70,7 +70,7 @@
         "title": "Maisie, Age 10",
         "shortDescription": "Summer Camper",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648937273/testimonials/Maisie_Testimonial_y40an9.png",
-        "testimonialBody": "nzsd.kn.,XMDNv.NSD>f",
+        "testimonialBody": "Maisie's favorite part of summer camp was the parent showcase at the end of the week.  She loved introducing all the horses to her family and showing them all the new skills she gained.",
         "activePages": [
           {
             "title": "content/page/camps.mdx",
@@ -78,7 +78,7 @@
           }
         ],
         "videoActive": true,
-        "videoSource": "https://vimeo.com/695280556"
+        "videoSource": "<iframe src=\"https://player.vimeo.com/video/695280556?h=9951ba2f8e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" width=\"1080\" height=\"1920\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen title=\"IMG_0275.MOV\"></iframe>"
       },
       {
         "title": "Nell L",
