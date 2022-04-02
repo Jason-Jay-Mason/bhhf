@@ -172,7 +172,8 @@
         "testimonialBody": "\"My kiddos started riding with Erin and Karen 5 years ago.  Since then, they have developed from beginner riders to competitive riders. ",
         "activePages": [
           {
-            "title": "content/page/camps.mdx"
+            "title": "content/page/camps.mdx",
+            "priority": 2
           }
         ]
       },
