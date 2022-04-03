@@ -67,6 +67,12 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "Harper, Age 11",
+        "shortDescription": "Summer Camper",
+        "videoActive": true,
+        "videoSource": "https://player.vimeo.com/progressive_redirect/playback/695491540/rendition/360p?loc=external&signature=07fe81c9715eea7a0ade40c77d8b891ecf519065f6e90ea9a6e59993820f16a7"
+      },
+      {
         "title": "Eleanor H",
         "shortDescription": "CU Boulder Equestrian Team Member",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648944364/testimonials/Eleanor_Testimonial_wvpokj.png",
