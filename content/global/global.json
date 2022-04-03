@@ -148,9 +148,6 @@
         "testimonialBody": "\"Erin is very patient and is excellent at teaching each rider how to work with their horse\"",
         "activePages": [
           {
-            "title": "content/page/camps.mdx"
-          },
-          {
             "title": "content/page/home.mdx"
           }
         ],
