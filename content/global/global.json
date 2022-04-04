@@ -70,7 +70,10 @@
         "title": "Jalynn & Janelle, Ages 11 & 9",
         "shortDescription": "Summer Campers",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1649040722/testimonials/Jalynn_Janelle_rhokfn.png",
-        "imageAlt": "Summer Camp, Western"
+        "imageAlt": "Summer Camp, Western",
+        "testimonialBody": "We love camp",
+        "videoActive": true,
+        "videoSource": "https://player.vimeo.com/progressive_redirect/playback/695545308/rendition/360p?loc=external&signature=431bd8165b7b496e56eaa44621276d8e925cc22659a6d7e60dab8d0d39808b5d"
       },
       {
         "title": "Eleanor H",
