@@ -105,6 +105,7 @@ export type QueryGetDocumentListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -118,6 +119,7 @@ export type QueryGetMainPageListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -131,6 +133,7 @@ export type QueryGetContactListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -144,6 +147,7 @@ export type QueryGetGlobalListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -157,6 +161,7 @@ export type QueryGetLegalListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 export type DocumentConnectionEdges = {
@@ -191,6 +196,7 @@ export type CollectionDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 export type DocumentNode = MainPageDocument | ContactDocument | GlobalDocument | LegalDocument;
