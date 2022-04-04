@@ -67,6 +67,12 @@
   "testimonials": {
     "testimonialsList": [
       {
+        "title": "Jalynn & Janelle, Ages 11 & 9",
+        "shortDescription": "Summer Campers",
+        "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1649040722/testimonials/Jalynn_Janelle_rhokfn.png",
+        "imageAlt": "Summer Camp, Western"
+      },
+      {
         "title": "Eleanor H",
         "shortDescription": "CU Boulder Equestrian Team Member",
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648944364/testimonials/Eleanor_Testimonial_wvpokj.png",
