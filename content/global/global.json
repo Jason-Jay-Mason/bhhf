@@ -107,15 +107,6 @@
         "image": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295743/sample.jpg",
         "imageAlt": "blah",
         "testimonialBody": "\"I can't thank Erin enough for all she has done for both me and my daughter!  Erin has given my girl not only confidence in her ability to ride, but confidence in herself.\"\n",
-        "activePages": [
-          {},
-          {
-            "title": "content/page/test.mdx"
-          },
-          {
-            "title": "content/page/home.mdx"
-          }
-        ],
         "videoActive": false
       },
       {
