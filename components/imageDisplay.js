@@ -38,7 +38,7 @@ div.imageDisplay = styled.div`
   }
   :hover {
     .selectionBar {
-      opacity: 0.7;
+      opacity: 0.8;
     }
   }
   @media ${breakPoints.lrg} {
@@ -61,7 +61,8 @@ div.imageDisplay = styled.div`
     width: 100%;
     min-height: 105px;
     height: 15%;
-    opacity: 0;
+    max-height: 120px;
+    opacity: 0.8;
     transition: all 0.5s ease;
     :hover {
       opacity: 0.9;
@@ -244,11 +245,12 @@ const ImageDisplay = ({ featuredImage }) => {
       return;
     }
   };
+
   return (
     <>
       <div.imageDisplay className="image">
         <div className="imgContainer">
-          <Image src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].image : null} layout="fill" objectFit="cover" quality={80} width={900} alt={featuredImage?.title} />
+          <Image src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].image : null} layout="fill" objectFit="cover" quality={80} width={900} alt={featuredImage[selectedImage] ? featuredImage[selectedImage].title : ""} />
         </div>
         {featuredImage && featuredImage.length > 1 && (
           <div className="selectionBar">

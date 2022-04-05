@@ -6,7 +6,7 @@ const div = {};
 //#endregion
 
 const dummy = `https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295678/demos/demoicon_csoc2i.svg`;
-const Svg = ({ src }) => {
+const Svg = ({ src, alt }) => {
   const checkSvg = (url) => {
     if (url && url !== "" && typeof url == "string") {
       let found = url.search(".svg");
@@ -31,7 +31,7 @@ const Svg = ({ src }) => {
 
   const sanitizedSrc = getSanitizedSrc(src);
 
-  return <>{isSvg ? <object type="image/svg+xml" data={sanitizedSrc}></object> : "Not an SVG"}</>;
+  return <>{isSvg ? <object type="image/svg+xml" data={sanitizedSrc} aria-label={alt}></object> : "Not an SVG"}</>;
 };
 
 export default Svg;

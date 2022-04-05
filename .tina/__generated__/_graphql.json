@@ -1858,6 +1858,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "desktopBackgroundPosition"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "backgroundImageMobile"
           },
           "arguments": [],
@@ -3321,6 +3336,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "desktopBackgroundPosition"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "backgroundImageAlt"
           },
           "arguments": [],
@@ -4343,7 +4373,52 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "toggleDates"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Boolean"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "date"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "toggleEndDates"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Boolean"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "endDate"
           },
           "arguments": [],
           "type": {
@@ -6226,6 +6301,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "desktopBackgroundPosition"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "backgroundImageMobile"
           },
           "type": {
@@ -7425,6 +7514,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "desktopBackgroundPosition"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "backgroundImageAlt"
           },
           "type": {
@@ -8121,7 +8224,49 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "toggleDates"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Boolean"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "date"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "toggleEndDates"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Boolean"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "endDate"
           },
           "type": {
             "kind": "NamedType",

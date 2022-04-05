@@ -14,8 +14,7 @@ This Privacy Policy applies only to our online activities and is&#x20;
 valid for visitors to our website with regards to the information that&#x20;
 they shared and/or collect in Broken Heart Horse Farm. This policy is&#x20;
 not applicable to any information collected offline or via channels&#x20;
-other than this website. Our Privacy Policy was created with the help of
-&#x20;the [Free Privacy Policy Generator](https://www.privacypolicygenerator.info).
+other than this website.&#x20;
 
 ## Consent
 

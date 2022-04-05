@@ -104,6 +104,7 @@ type MainPageBlocksHero {
   headline: String
   hook: String
   backgroundImage: String
+  desktopBackgroundPosition: String
   backgroundImageMobile: String
   backgroundImageAlt: String
   ctaActive: Boolean
@@ -238,6 +239,7 @@ type Contact {
   headline: String
   hook: String
   backgroundImage: String
+  desktopBackgroundPosition: String
   backgroundImageAlt: String
   backgroundImageMobile: String
   seo: ContactSeo
@@ -335,7 +337,10 @@ type GlobalTestimonials {
 
 type GlobalEventsEventList {
   title: String
+  toggleDates: Boolean
   date: String
+  toggleEndDates: Boolean
+  endDate: String
   description: JSON
   ctaLabel: String
   ctaHref: String
@@ -461,6 +466,7 @@ input MainPageBlocksHeroMutation {
   headline: String
   hook: String
   backgroundImage: String
+  desktopBackgroundPosition: String
   backgroundImageMobile: String
   backgroundImageAlt: String
   ctaActive: Boolean
@@ -588,6 +594,7 @@ input ContactMutation {
   headline: String
   hook: String
   backgroundImage: String
+  desktopBackgroundPosition: String
   backgroundImageAlt: String
   backgroundImageMobile: String
   seo: ContactSeoMutation
@@ -663,7 +670,10 @@ input GlobalTestimonialsMutation {
 
 input GlobalEventsEventListMutation {
   title: String
+  toggleDates: Boolean
   date: String
+  toggleEndDates: Boolean
+  endDate: String
   description: JSON
   ctaLabel: String
   ctaHref: String

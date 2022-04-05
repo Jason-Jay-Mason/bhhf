@@ -111,6 +111,15 @@ const contactFields: TinaField[] = [
   },
   {
     type: "string",
+    name: "desktopBackgroundPosition",
+    label: "Desktop Background Position",
+    options: ["center", "top", "bottom"],
+    ui: {
+      component: "select",
+    },
+  },
+  {
+    type: "string",
     name: "backgroundImageAlt",
     label: "Background image description",
   },
@@ -436,6 +445,15 @@ const heroFields: TinaField[] = [
     label: "Background Image",
   },
   {
+    type: "string",
+    name: "desktopBackgroundPosition",
+    label: "Desktop Background Position",
+    options: ["center", "top", "bottom"],
+    ui: {
+      component: "select",
+    },
+  },
+  {
     type: "image",
     name: "backgroundImageMobile",
     label: "Background Image Mobile",
@@ -616,9 +634,27 @@ const eventFields: TinaField = {
       label: "Event Title",
     },
     {
+      type: "boolean",
+      name: "toggleDates",
+      label: "Enable Date",
+    },
+    {
       type: "string",
       name: "date",
-      label: "Event Date",
+      label: "Event Start Date",
+      ui: {
+        component: "date",
+      },
+    },
+    {
+      type: "boolean",
+      name: "toggleEndDates",
+      label: "Enable End Date",
+    },
+    {
+      type: "string",
+      name: "endDate",
+      label: "Event End Date",
       ui: {
         component: "date",
       },

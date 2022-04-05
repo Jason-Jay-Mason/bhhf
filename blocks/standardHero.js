@@ -61,7 +61,7 @@ section.hero = styled.section`
 `;
 //#endregion
 
-const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadline, backgroundImage, backgroundImageAlt, backgroundImageMobile }) => {
+const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadline, backgroundImage, backgroundImageAlt, backgroundImageMobile, desktopBackgroundPosition }) => {
   return (
     <section.hero>
       <div className="content">
@@ -76,7 +76,7 @@ const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadlin
           </Link>
         )}
       </div>
-      {isDesktop ? <Image priority={true} width={1900} layout="fill" objectPosition="top" objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image priority={true} greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
+      {isDesktop ? <Image priority={true} width={1900} layout="fill" objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} objectFit="cover" quality={90} src={backgroundImage} alt={backgroundImageAlt} /> : <Image priority={true} greyScale={true} width={600} layout="fill" objectFit="cover" quality={80} src={backgroundImageMobile} alt={backgroundImageAlt} />}
     </section.hero>
   );
 };

@@ -11,8 +11,6 @@ const Seo = (props) => {
     image: "",
     type: "website",
     ...customMeta,
-    noFollow: true,
-    noIndex: true,
   };
 
   return (

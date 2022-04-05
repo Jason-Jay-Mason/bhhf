@@ -76,6 +76,7 @@ const EventCard = ({ event, index }) => {
   const [readMore, setReadMore] = useState();
   const [width, _] = useWindowSize();
   const date = moment(event?.date).format("LL");
+  const endDate = moment(event?.endDate).format("LL");
   useEffect(() => {
     const handler = setTimeout(() => {
       let element = document.getElementById(`${index + event.title}-event-card`);
@@ -93,7 +94,12 @@ const EventCard = ({ event, index }) => {
       <div className="eventCardHeadline">
         <div className="eventHeadlineText">
           <h6>{event?.title}</h6>
-          <span>{date}</span>
+
+          {event?.toggleDates && (
+            <span>
+              {date} {event.toggleEndDates && " - " + endDate}
+            </span>
+          )}
         </div>
       </div>
       <div id={`${index + event.title}-event-card`} className="eventDescription">

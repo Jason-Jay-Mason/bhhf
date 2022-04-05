@@ -74,7 +74,7 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScal
 
       return [primary, placeholder, webpPrimary];
     }
-    return ["/no-image.svg", "/no-image.svg", "/no-image.svg"];
+    return ["/", "/", "/"];
   };
 
   const [primary, placeholder, webpPrimary] = buildSrcUrls(width, height, quality, src, greyScale);

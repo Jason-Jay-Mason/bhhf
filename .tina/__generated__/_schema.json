@@ -219,6 +219,25 @@
                   ]
                 },
                 {
+                  "type": "string",
+                  "name": "desktopBackgroundPosition",
+                  "label": "Desktop Background Position",
+                  "options": [
+                    "center",
+                    "top",
+                    "bottom"
+                  ],
+                  "ui": {
+                    "component": "select"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "hero",
+                    "desktopBackgroundPosition"
+                  ]
+                },
+                {
                   "type": "image",
                   "name": "backgroundImageMobile",
                   "label": "Background Image Mobile",
@@ -1033,6 +1052,23 @@
         },
         {
           "type": "string",
+          "name": "desktopBackgroundPosition",
+          "label": "Desktop Background Position",
+          "options": [
+            "center",
+            "top",
+            "bottom"
+          ],
+          "ui": {
+            "component": "select"
+          },
+          "namespace": [
+            "contact",
+            "desktopBackgroundPosition"
+          ]
+        },
+        {
+          "type": "string",
           "name": "backgroundImageAlt",
           "label": "Background image description",
           "namespace": [
@@ -1672,9 +1708,20 @@
                   ]
                 },
                 {
+                  "type": "boolean",
+                  "name": "toggleDates",
+                  "label": "Enable Date",
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "toggleDates"
+                  ]
+                },
+                {
                   "type": "string",
                   "name": "date",
-                  "label": "Event Date",
+                  "label": "Event Start Date",
                   "ui": {
                     "component": "date"
                   },
@@ -1683,6 +1730,31 @@
                     "events",
                     "eventList",
                     "date"
+                  ]
+                },
+                {
+                  "type": "boolean",
+                  "name": "toggleEndDates",
+                  "label": "Enable End Date",
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "toggleEndDates"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "endDate",
+                  "label": "Event End Date",
+                  "ui": {
+                    "component": "date"
+                  },
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "endDate"
                   ]
                 },
                 {

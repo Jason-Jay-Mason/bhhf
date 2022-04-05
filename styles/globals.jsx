@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { colorPallet } from "./theme";
+import { colors } from "./theme";
 //#region global styles
 const globals = css`
   :global() {
@@ -51,6 +51,7 @@ const globals = css`
       color: inherit;
       text-decoration: none;
       cursor: pointer;
+      color: ${colors.ribbonBlue};
     }
   }
 `;

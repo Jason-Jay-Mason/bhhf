@@ -99,6 +99,8 @@ div.testimonialSlider = styled.div`
       color: ${colors.saddleBeige};
       font-weight: lighter;
       padding-top: ${spacing.s10ish};
+      padding-left: 20px;
+      margin-left: -15px;
     }
   }
 
@@ -156,7 +158,9 @@ div.testimonialSlider = styled.div`
         display: none;
       }
       button {
+        cursor: pointer;
         display: flex;
+        background-color: ${colors.rainCloudBeige};
         flex-direction: row;
         align-items: center;
         justify-content: center;
@@ -165,7 +169,15 @@ div.testimonialSlider = styled.div`
         padding: ${spacing.s30ish} ${spacing.s45ish};
         font-size: ${fontSize.base};
         font-weight: 200;
+        color: ${colors.textBrown};
+        opacity: 0.8;
+        transition: all 0.2s ease;
+        font-weight: 400;
+        :hover {
+          opacity: 1;
+        }
         svg {
+          fill: ${colors.textBrown};
           margin: 0 10px 0 0;
         }
       }
@@ -369,11 +381,11 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                   let bodyLegth = testimonial?.testimonialBody.length;
                   let body = testimonial?.testimonialBody;
                   if (bodyLegth > 250) {
-                    body = testimonial?.testimonialBody.slice(0, 240) + '..."';
+                    body = testimonial?.testimonialBody.slice(0, 240) + "...";
                   }
                   return (
                     <div key={testimonial?.title + i} className={i == textSelected ? `testimonialText testimonialVisible` : `testimonialText testimonialHidden`}>
-                      <p>"{body}</p>
+                      <p>{body}</p>
                       <h5>{testimonial?.title}</h5>
                       <h6>{testimonial?.shortDescription}</h6>
                       {imgSelected === i && testimonial.videoActive && (
@@ -409,9 +421,9 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                           }}
                           className="watchVideoButtonDesktop"
                         >
-                          <button className={clearButtonCss}>
+                          <button>
                             <svg width="30" height="30" viewBox="0 0 66 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M33 0C14.7979 0 0 15.4705 0 34.5C0 53.5295 14.7979 69 33 69C51.2021 69 66 53.5295 66 34.5C66 15.4705 51.2021 0 33 0ZM43.6295 36.2432L28.0674 47.065C26.7472 48.0094 24.9412 46.9926 24.9412 45.3217V23.6775C24.9412 22.0071 26.7474 20.9903 28.0674 21.9342L43.6295 32.7565C44.8105 33.5554 44.8105 35.4442 43.6295 36.2432Z" fill="white" />
+                              <path d="M33 0C14.7979 0 0 15.4705 0 34.5C0 53.5295 14.7979 69 33 69C51.2021 69 66 53.5295 66 34.5C66 15.4705 51.2021 0 33 0ZM43.6295 36.2432L28.0674 47.065C26.7472 48.0094 24.9412 46.9926 24.9412 45.3217V23.6775C24.9412 22.0071 26.7474 20.9903 28.0674 21.9342L43.6295 32.7565C44.8105 33.5554 44.8105 35.4442 43.6295 36.2432Z" />
                             </svg>
                             Watch Story
                           </button>
@@ -424,6 +436,7 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
             </div>
             <div className="testimonialButtons">
               <button
+                aria-label="Previous image in image slider"
                 className="back"
                 onClick={() => {
                   nextOrPrevSelected("back");
@@ -436,6 +449,7 @@ const TestimonialSlider = ({ standardHeadline, standardSubHeadline, testimonials
                 </svg>
               </button>
               <button
+                aria-label="Next image in image slider"
                 className="forward"
                 onClick={() => {
                   nextOrPrevSelected("forward");

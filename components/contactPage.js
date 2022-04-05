@@ -2,10 +2,10 @@ import StandardHero from "../blocks/standardHero";
 import Events from "../components/events";
 import ContactAndMap from "./contactAndMap";
 
-const ContactPage = ({ businessInfo, camps, events, headline, hook, subHeadline, backgroundImageAlt, backgroundImage, backgroundImageMobile }) => {
+const ContactPage = ({ contactHero, camps, events, businessInfo }) => {
   return (
     <>
-      <StandardHero headline={headline} subHeadline={subHeadline} hook={hook} ctaActive={false} backgroundImage={backgroundImage} backgroundImageMobile={backgroundImageMobile} backgroundImageAlt={backgroundImageAlt} />
+      <StandardHero {...contactHero} />
       <ContactAndMap businessInfo={businessInfo} />
       <Events camps={camps} events={events} />
     </>

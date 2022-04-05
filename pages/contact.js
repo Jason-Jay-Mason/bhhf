@@ -21,7 +21,7 @@ export default function MainPage(props) {
   const events = data?.getGlobalDocument?.data?.events;
   const businessInfo = data?.getGlobalDocument?.data?.businessInfo;
   //deconstruct data here for use in components
-  return <ContactPage {...contactHero} contactHero={contactHero} camps={camps} events={events} businessInfo={businessInfo} />;
+  return <ContactPage contactHero={contactHero} camps={camps} events={events} businessInfo={businessInfo} />;
 }
 
 export const getStaticProps = async (context) => {

@@ -2031,7 +2031,7 @@
   resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.2.tgz#d44998aac125a68d96d097e49ff84d1c1ff7a7c2"
   integrity sha512-5oBWtkXG8vu/W9txQrcIb7r2GC6XlgpPsO2EKdjGF4gTWZVlwah73OHqL/QogZWIbZ/4znPL1QkZVwGZuYURiw==
 
-"@tinacms/cli@^0.60.5":
+"@tinacms/cli@^0.60.10":
   version "0.60.10"
   resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.10.tgz#75ba0130aff47349e446e22fe762a41d068808d5"
   integrity sha512-l2QLxcVJkvFKdBkMF62pOtGMRjVztAO/Uet7cqDAtqcK30Us2ge/nxG0/DjqLh+70ZcJRvKfNe2dXFafxNYC7Q==
@@ -7331,9 +7331,9 @@ jest-worker@^26.6.2:
     supports-color "^7.0.0"
 
 jotai@^1.4.0:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/jotai/-/jotai-1.6.1.tgz#a6379d7dce159474f24963921d55ae8f6e9e8dd6"
-  integrity sha512-iNKHmpKGN31KXDqxGLsplb4HLTroYtiM7oBEQ9leyoXSEGQGUZKK5IOV4kN6fUmkBSJbwb5WnmInYOYzpjIDOw==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/jotai/-/jotai-1.6.2.tgz#101193b24701ce0621eb017f8dc3d35be3f14da0"
+  integrity sha512-WglyuXX67f8QPCOX5tDR0N9GhasOV1+IQ3piaF4owr2wBn2CV51T8zbw01ZCme/24JKJilFe6+aA29PJx+jsQw==
 
 js-cookie@^2.2.1:
   version "2.2.1"
@@ -8578,7 +8578,7 @@ next-linaria@^0.11.0:
   resolved "https://registry.yarnpkg.com/next-linaria/-/next-linaria-0.11.0.tgz#dc7da2e2c348c8548d003f571905ef1845f32282"
   integrity sha512-JoVY9gF8d8NXRWfGMCIqh1m0uLvFV7wQA2kz8mzU4diHe3/VuNuXXwnogJOK9JMvhK1RD36/0eKiCbbeGI2mTw==
 
-next-tinacms-cloudinary@^3.5.12:
+next-tinacms-cloudinary@^3.5.13:
   version "3.5.13"
   resolved "https://registry.yarnpkg.com/next-tinacms-cloudinary/-/next-tinacms-cloudinary-3.5.13.tgz#201b8b878f4e254921d47cdeebb7f5d80d103b3d"
   integrity sha512-qmdqm8fnH602EJyRHj20/Hnjkb1rV25ufgYKvaaSQ5c/pEbM1lSvzEBuv/gLyCvb5Kvvx5Pqnm9lhnFaBiczqw==
@@ -9569,7 +9569,7 @@ react-dnd@^14.0.2:
     fast-deep-equal "^3.1.3"
     hoist-non-react-statics "^3.3.2"
 
-react-dom@17.0.2:
+react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -9693,7 +9693,7 @@ react-use@^17.1.1:
     ts-easing "^0.2.0"
     tslib "^2.1.0"
 
-react@17.0.2:
+react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -10958,7 +10958,7 @@ timers-browserify@2.0.12:
   dependencies:
     setimmediate "^1.0.4"
 
-tinacms@^0.66.5:
+tinacms@^0.66.10:
   version "0.66.10"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.66.10.tgz#8ac30142f6accf43af98e6c7c4055cee0ed50851"
   integrity sha512-jxn6p0nLlz9ZkhUdm7x1kmszZnEd4FjSCYashcS9SeAsh1bX4UkQkHQZ3NximtopveZuSb6DpSmzKCB6+FOnXg==

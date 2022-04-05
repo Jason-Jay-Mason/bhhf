@@ -67,7 +67,7 @@ const Toggle = ({ uniqueKey }) => {
   return (
     <div.wrapper>
       <input type="checkbox" id={"toggle-check" + uniqueKey} onChange={handleChange} checked={checked} />
-      <label htmlFor={"toggle-check" + uniqueKey}></label>
+      <label htmlFor={"toggle-check" + uniqueKey} aria-label="Toggle Website Theme"></label>
     </div.wrapper>
   );
 };

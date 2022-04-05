@@ -68,7 +68,7 @@ const TitledIconBlurb = ({ blurb, Headline, iconAlt, subHeadline, icon }) => {
   return (
     <div.titledIconBlurb>
       <div className="title">
-        <Svg src={icon} />
+        <Svg src={icon} alt={iconAlt} />
         <div>
           <h5>{Headline}</h5>
           <h6>{subHeadline}</h6>

@@ -20,6 +20,7 @@ fragment MainPageParts on MainPage {
       headline
       hook
       backgroundImage
+      desktopBackgroundPosition
       backgroundImageMobile
       backgroundImageAlt
       ctaActive
@@ -109,6 +110,7 @@ fragment ContactParts on Contact {
   headline
   hook
   backgroundImage
+  desktopBackgroundPosition
   backgroundImageAlt
   backgroundImageMobile
   seo {
@@ -193,7 +195,10 @@ fragment GlobalParts on Global {
     eventList {
       __typename
       title
+      toggleDates
       date
+      toggleEndDates
+      endDate
       description
       ctaLabel
       ctaHref

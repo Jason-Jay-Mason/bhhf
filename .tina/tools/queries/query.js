@@ -74,6 +74,9 @@ getGlobalDocument(relativePath: "global.json") {
       eventList {
         title
         date
+        toggleDates
+        toggleEndDates
+        endDate
         description
         ctaHref
         ctaLabel
@@ -182,6 +185,7 @@ const standardHero = `
   ctaLabel
   ctaHref
   backgroundImage
+  desktopBackgroundPosition
   backgroundImageAlt
   backgroundImageMobile
 }
@@ -240,6 +244,7 @@ const getContactPage = `
     data {
       subHeadline
       headline
+      desktopBackgroundPosition
       hook
       backgroundImage
       backgroundImageMobile

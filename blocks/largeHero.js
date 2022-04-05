@@ -9,16 +9,16 @@ import { isDesktop } from "react-device-detect";
 const section = {};
 section.largeHero = styled.section`
   position: relative;
+
   z-index: 1;
   .contentLargeHero {
-    min-height: 800px;
     position: relative;
     margin: 0 auto;
-    padding: ${(props) => (props.popupVideoActive ? "160px 0" : "190px 0 20px 0")};
+    padding: 260px 0 300px 0;
     width: 100%;
     background-color: rgba(37, 19, 19, 0.56);
     @media ${breakPoints.lrg} {
-      min-height: 650px;
+      min-height: 500px;
       padding: ${(props) => (props.popupVideoActive ? "170px 17px" : "170px 17px")};
       display: flex;
       flex-direction: column;
@@ -137,7 +137,7 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
             <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
           )
         ) : isDesktop ? (
-          <Image className="desktopImage" layout="fill" objectFit="cover" width={1900} quality={80} objectPosition="top" src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+          <Image className="desktopImage" layout="fill" objectFit="cover" width={1900} quality={90} objectPosition="top" src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
         ) : (
           <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
         )}

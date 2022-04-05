@@ -35,17 +35,17 @@ div.centeredIconBlurb = styled.div`
 `;
 //#endregion
 
-const CenteredIconBlurb = ({ text, icon, list, iconList }) => {
+const CenteredIconBlurb = ({ text, icon, iconList, iconAlt }) => {
   return (
     <div.centeredIconBlurb>
       {iconList ? (
         <div className="iconList">
           {iconList.map((icon, i) => (
-            <Svg key={icon + i + "iconBlurb"} src={icon.icon} />
+            <Svg key={icon + i + "iconBlurb"} src={icon.icon} alt={icon.title} />
           ))}
         </div>
       ) : (
-        <Svg src={icon}></Svg>
+        <Svg src={icon} alt={iconAlt}></Svg>
       )}
       {text && <TinaMarkdown content={text} />}
     </div.centeredIconBlurb>
