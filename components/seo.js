@@ -7,8 +7,8 @@ const Seo = (props) => {
   const path = process.env.NODE_ENV == "development" ? `view-source:http://localhost:3000${router.asPath}` : `view-source:brokenhearthorsefarmeire.com/${router.asPath}`;
   const meta = {
     title: "Broken Heart Horse Farm",
-    description: "",
-    image: "",
+    description: "A new horse boarding and equestrian center located in the Erie/Longmont area! Horse stables with horseback riding lessons for all ages.",
+    image: "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1648928497/Camp_6_daiq6j.png",
     type: "website",
     ...customMeta,
   };
