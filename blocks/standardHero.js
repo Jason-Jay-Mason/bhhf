@@ -59,7 +59,7 @@ section.hero = styled.section`
     z-index: -10;
   }
 `;
-//#endregion
+//#endregion style
 
 const StandardHero = ({ ctaActive, ctaHref, ctaLabel, headline, hook, subHeadline, backgroundImage, backgroundImageAlt, backgroundImageMobile, desktopBackgroundPosition }) => {
   return (
