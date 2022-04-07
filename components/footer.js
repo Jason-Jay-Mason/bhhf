@@ -34,6 +34,7 @@ footer.main = styled.footer`
     .contactColumn,
     .logoColumn,
     .links {
+      padding: 0 ${spacing.s17ish};
       text-align: center;
       p,
       a {
