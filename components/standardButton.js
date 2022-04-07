@@ -16,7 +16,7 @@ button.standardButton = styled.button`
   align-items: center;
   justify-content: center;
   @media ${breakPoints.md} {
-    height: 80px;
+    min-height: 80px;
     min-width: 220px;
   }
 `;
