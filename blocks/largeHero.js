@@ -25,6 +25,14 @@ section.largeHero = styled.section`
       align-items: center;
       justify-content: center;
     }
+    @media ${breakPoints.md} {
+      min-height: 300px;
+      padding: ${(props) => (props.popupVideoActive ? "100px 17px" : "100px 17px")};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
   h1,
   h2 {

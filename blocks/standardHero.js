@@ -21,6 +21,10 @@ section.hero = styled.section`
     position: relative;
     z-index: 10;
     background-color: rgba(37, 19, 19, 0.56);
+    @media ${breakPoints.md} {
+      min-height: 300px;
+      padding: 100px 17px;
+    }
   }
   h1 {
     font-family: "Snell Roundhand";
