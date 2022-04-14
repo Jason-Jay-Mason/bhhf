@@ -29,6 +29,10 @@ div.preFooterCta = styled.div`
     font-family: "Snell Roundhand";
     font-size: ${fontSize.lrg};
     font-weight: lighter;
+    border-bottom: solid 2px #7c7c7c;
+    width: fit-content;
+    min-width: 60%;
+    padding-left: 30px;
     @media ${breakPoints.lrg} {
       font-size: ${fontSize.med};
     }
@@ -47,7 +51,6 @@ div.preFooterCta = styled.div`
     width: fit-content;
     margin: 0 auto;
     color: ${colors.textBrown};
-    border-top: solid 2px #7c7c7c;
     padding-bottom: ${spacing.s30ish};
 
     @media ${breakPoints.lrg} {
@@ -84,7 +87,7 @@ div.preFooterCta = styled.div`
   }
 `;
 div.backgroundHeart = styled.div`
-  height: 900px;
+  height: 800px;
   right: 0;
   left: 0;
   top: 80px;
@@ -93,7 +96,7 @@ div.backgroundHeart = styled.div`
   @media ${breakPoints.lrg} {
   }
   @media ${breakPoints.md} {
-    top: -200px;
+    top: -100px;
   }
   svg {
     color: ${colors.rainCloudBeige};

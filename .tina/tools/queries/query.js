@@ -77,6 +77,10 @@ getGlobalDocument(relativePath: "global.json") {
         toggleDates
         toggleEndDates
         endDate
+        eventLogos{
+          title
+          logo
+        }
         description
         ctaHref
         ctaLabel
@@ -86,6 +90,7 @@ getGlobalDocument(relativePath: "global.json") {
       campList {
         title
         date
+        dateEnd
         description
         ctaHref
         ctaLabel
@@ -101,9 +106,12 @@ const LongFeaturedImage = `
           standardSubHeadline
           standardHeadline
           twoColumnText
+          bottomPaddingActive
+          backgroundColor
             featuredImage {
               image
               title
+              imagePosition
             }
           featuredImageRightActive
           bottomPaddingActive
@@ -125,6 +133,9 @@ const LongFeaturedImage = `
               label
               href
             }
+            ...on MainPageBlocksLongFeaturedImageBlocksCursiveHeadline {
+              headline
+            }
             ...on MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb {
               icon
               iconAlt
@@ -142,19 +153,20 @@ const CtaButtons = `
   secondaryCallToActionLabel
 secondaryCallToActionVideoActive
   secondaryCallToActionHrefOrSource
-
+  backgroundColor
 }
 `;
 const LargeHero = `
 ...on MainPageBlocksLargeHero{
   headline
-hook
+  richHook
 popupVideoActive
 popupVideoButtonLabel
 popupVideoButtonSource
 serviceBarActive
 videoBackgroundActive
 backgroundVideoSource
+desktopBackgroundPosition
 backgroundImageSourceDesktop
 backgroundImageAltDesktop
 backgroundImageSourceMobile
@@ -190,13 +202,45 @@ const standardHero = `
   backgroundImageMobile
 }
 `;
-const shorIconGrid = `
+const pricingTable = `
+...on MainPageBlocksPricingTable{
+  standardHeadline
+  standardSubHeadline
+  tableSections{
+    title
+    tables{
+      title
+      price
+      description
+      attention
+      ctaLabel
+      ctaHref
+      features{
+        title
+      }
+    }
+  }
+}
+`;
+const shortIconGrid = `
 ...on MainPageBlocksShortIconGrid{
   headline
   featuredIconBlurb{
     title
     icon
     blurb
+  }
+}
+`;
+const featuredIconGrid = `
+...on MainPageBlocksFeaturedIconGrid{
+  standardSubHeadline
+  standardHeadline
+  backgroundImageSrc
+  maxColumns
+  iconSections{
+    title
+    icon
   }
 }
 `;
@@ -215,14 +259,15 @@ getMainPageDocument (relativePath: $relativePath) {
       ${preFooterCta}
       ${testimonialSlider}
       ${standardHero}
-      ${shorIconGrid}
+      ${shortIconGrid}
+      ${pricingTable}
+      ${featuredIconGrid}
       }
       mapEnabled
       ${seoFields}
     }
 }
 `;
-
 const getMainPageList = `
 getMainPageList {
   totalCount

@@ -5,18 +5,18 @@ import Image from "../components/image";
 import ServiceBar from "../components/serviceBar";
 import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
 import { isDesktop } from "react-device-detect";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 //#region styles
 const section = {};
 section.largeHero = styled.section`
   position: relative;
-
   z-index: 1;
   .contentLargeHero {
     position: relative;
     margin: 0 auto;
-    padding: 260px 0 300px 0;
+    padding: 215px 0 300px 0;
     width: 100%;
-    background-color: rgba(37, 19, 19, 0.56);
+    background-color: rgba(51, 49, 48, 0.6);
     @media ${breakPoints.lrg} {
       min-height: 500px;
       padding: ${(props) => (props.popupVideoActive ? "170px 17px" : "170px 17px")};
@@ -51,7 +51,7 @@ section.largeHero = styled.section`
     }
   }
   h2 {
-    font-weight: 400;
+    font-weight: 300;
     max-width: 700px;
     font-size: 20px;
     line-height: 200.7%;
@@ -108,21 +108,22 @@ section.largeHero = styled.section`
   }
   span {
     z-index: -1;
-    filter: saturate(80%) sepia(40%);
+    filter: saturate(70%) brightness(110%);
   }
 `;
 const desktopImage = css``;
 //#endregion
 
-const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobile, backgroundImageSourceDesktop, backgroundImageSourceMobile, backgroundVideoSource, headline, hook, popupVideoActive, popupVideoButtonLabel, popupVideoButtonSource, serviceBarActive, videoBackgroundActive }) => {
+const LargeHero = ({ desktopBackgroundPosition, services, backgroundImageAltDesktop, backgroundImageAltMobile, backgroundImageSourceDesktop, backgroundImageSourceMobile, backgroundVideoSource, headline, richHook, popupVideoActive, popupVideoButtonLabel, popupVideoButtonSource, serviceBarActive, videoBackgroundActive }) => {
   const popupToggle = usePopupToggle();
   const setPopupSource = useSetPopupSource();
+
   return (
     <>
       <section.largeHero popupVideoActive={popupVideoActive}>
         <div className="contentLargeHero">
           <h1>{headline ? headline : "No Headline!"}</h1>
-          <h2>{hook ? hook : "No hook!"}</h2>
+          <TinaMarkdown content={richHook} />
           {popupVideoActive ? (
             <div
               className="playButton"
@@ -142,12 +143,12 @@ const LargeHero = ({ services, backgroundImageAltDesktop, backgroundImageAltMobi
           isDesktop ? (
             <video src={backgroundVideoSource} autoPlay loop />
           ) : (
-            <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+            <Image layout="fill" objectFit="cover" width={600} quality={90} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
           )
         ) : isDesktop ? (
-          <Image className="desktopImage" layout="fill" objectFit="cover" width={1900} quality={90} objectPosition="top" src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+          <Image className="desktopImage" layout="fill" objectFit="cover" width={1600} quality={85} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
         ) : (
-          <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition="top" src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
+          <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
         )}
       </section.largeHero>
       {serviceBarActive && services && <ServiceBar services={services} />}

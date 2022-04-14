@@ -23,6 +23,8 @@ export const light = css`
   --heart-beige: ${colorPallet.light.heartBeige};
   --arrow-button: ${colorPallet.light.lightSaddleBeige};
   --arrow-button-hover: ${colorPallet.light.saddleBeige};
+  --beige-overlay: ${colorPallet.light.beigeOverlay};
+  --rain-cloud-beige-overlay: ${colorPallet.light.rainCloudBeigeOverlay};
 `;
 export const dark = css`
   --saddle-beige: ${colorPallet.dark.saddleBeige};
@@ -46,4 +48,6 @@ export const dark = css`
   --heart-beige: ${colorPallet.dark.heartBeige};
   --arrow-button: ${colorPallet.dark.coalDarkTwo};
   --arrow-button-hover: ${colorPallet.dark.coalDarkOne};
+  --beige-overlay: ${colorPallet.dark.greyOverlay};
+  --rain-cloud-beige-overlay: ${colorPallet.dark.darkGreyOverlay};
 `;

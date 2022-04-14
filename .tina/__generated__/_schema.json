@@ -35,14 +35,14 @@
                   ]
                 },
                 {
-                  "type": "string",
-                  "name": "hook",
+                  "type": "rich-text",
+                  "name": "richHook",
                   "label": "Hook",
                   "namespace": [
                     "mainPage",
                     "blocks",
                     "largeHero",
-                    "hook"
+                    "richHook"
                   ]
                 },
                 {
@@ -135,6 +135,25 @@
                     "blocks",
                     "largeHero",
                     "backgroundImageAltDesktop"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "desktopBackgroundPosition",
+                  "label": "Desktop Background Position",
+                  "options": [
+                    "center",
+                    "top",
+                    "bottom"
+                  ],
+                  "ui": {
+                    "component": "select"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "largeHero",
+                    "desktopBackgroundPosition"
                   ]
                 },
                 {
@@ -370,6 +389,26 @@
                         "longFeaturedImage",
                         "featuredImage",
                         "title"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "imagePosition",
+                      "label": "Image Position",
+                      "options": [
+                        "center",
+                        "top",
+                        "bottom"
+                      ],
+                      "ui": {
+                        "component": "select"
+                      },
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "featuredImage",
+                        "imagePosition"
                       ]
                     }
                   ],
@@ -639,6 +678,32 @@
                         "blocks",
                         "titledIconBlurb"
                       ]
+                    },
+                    {
+                      "name": "cursiveHeadline",
+                      "label": "Cursive Headline",
+                      "fields": [
+                        {
+                          "type": "string",
+                          "name": "headline",
+                          "label": "Cursive Headline",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "longFeaturedImage",
+                            "blocks",
+                            "cursiveHeadline",
+                            "headline"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "longFeaturedImage",
+                        "blocks",
+                        "cursiveHeadline"
+                      ]
                     }
                   ],
                   "namespace": [
@@ -649,9 +714,27 @@
                   ]
                 },
                 {
+                  "type": "string",
+                  "name": "backgroundColor",
+                  "label": "Background Color",
+                  "options": [
+                    "Rain Cloud Beige",
+                    "Rain Cloud Beige 2"
+                  ],
+                  "ui": {
+                    "component": "select"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "longFeaturedImage",
+                    "backgroundColor"
+                  ]
+                },
+                {
                   "type": "boolean",
                   "name": "bottomPaddingActive",
-                  "label": "Activate bottom Padding",
+                  "label": "Activate bottom margin",
                   "namespace": [
                     "mainPage",
                     "blocks",
@@ -727,6 +810,26 @@
                     "blocks",
                     "ctaButtons",
                     "secondaryCallToActionHrefOrSource"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "backgroundColor",
+                  "label": "Background Color",
+                  "options": [
+                    "None",
+                    "White",
+                    "Rain Cloud Beige",
+                    "Rain Cloud Beige 2"
+                  ],
+                  "ui": {
+                    "component": "select"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "ctaButtons",
+                    "backgroundColor"
                   ]
                 }
               ],
@@ -916,6 +1019,303 @@
                 "mainPage",
                 "blocks",
                 "preFooterCta"
+              ]
+            },
+            {
+              "name": "pricingTable",
+              "label": "Pricing Table",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "standardSubHeadline",
+                  "label": "Sub Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "pricingTable",
+                    "standardSubHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "standardHeadline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "pricingTable",
+                    "standardHeadline"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "tableSections",
+                  "label": "Table Sections",
+                  "list": true,
+                  "ui": {
+                    "component": "labeled-group-list"
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Title",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "pricingTable",
+                        "tableSections",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "name": "tables",
+                      "label": "Tables",
+                      "list": true,
+                      "ui": {
+                        "component": "labeled-group-list"
+                      },
+                      "fields": [
+                        {
+                          "type": "string",
+                          "name": "title",
+                          "label": "Title",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "title"
+                          ]
+                        },
+                        {
+                          "type": "number",
+                          "name": "price",
+                          "label": "Price",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "price"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "description",
+                          "label": "Description",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "description"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "attention",
+                          "label": "Attention Text",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "attention"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "ctaLabel",
+                          "label": "Call To Action Label",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "ctaLabel"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "ctaHref",
+                          "label": "Call To Action Href",
+                          "description": "When somebody clicks the Call To Action, it will go to this location.",
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "ctaHref"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "name": "features",
+                          "label": "Features",
+                          "list": true,
+                          "ui": {
+                            "component": "labeled-group-list"
+                          },
+                          "fields": [
+                            {
+                              "type": "string",
+                              "name": "title",
+                              "label": "Feature",
+                              "namespace": [
+                                "mainPage",
+                                "blocks",
+                                "pricingTable",
+                                "tableSections",
+                                "tables",
+                                "features",
+                                "title"
+                              ]
+                            }
+                          ],
+                          "namespace": [
+                            "mainPage",
+                            "blocks",
+                            "pricingTable",
+                            "tableSections",
+                            "tables",
+                            "features"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "pricingTable",
+                        "tableSections",
+                        "tables"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "pricingTable",
+                    "tableSections"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "pricingTable"
+              ]
+            },
+            {
+              "name": "featuredIconGrid",
+              "label": "Featured Icon Grid",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "standardSubHeadline",
+                  "label": "Sub Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "featuredIconGrid",
+                    "standardSubHeadline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "standardHeadline",
+                  "label": "Headline",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "featuredIconGrid",
+                    "standardHeadline"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "name": "backgroundImageSrc",
+                  "label": "Background Image",
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "featuredIconGrid",
+                    "backgroundImageSrc"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "maxColumns",
+                  "label": "Max Columns",
+                  "options": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                  ],
+                  "ui": {
+                    "component": "select"
+                  },
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "featuredIconGrid",
+                    "maxColumns"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "iconSections",
+                  "label": "Icon Sections",
+                  "list": true,
+                  "ui": {
+                    "component": "labeled-group-list"
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Title",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "featuredIconGrid",
+                        "iconSections",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "name": "icon",
+                      "label": "Icon (SVG file type only please!)",
+                      "namespace": [
+                        "mainPage",
+                        "blocks",
+                        "featuredIconGrid",
+                        "iconSections",
+                        "icon"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "mainPage",
+                    "blocks",
+                    "featuredIconGrid",
+                    "iconSections"
+                  ]
+                }
+              ],
+              "namespace": [
+                "mainPage",
+                "blocks",
+                "featuredIconGrid"
               ]
             }
           ],
@@ -1758,6 +2158,47 @@
                   ]
                 },
                 {
+                  "type": "object",
+                  "name": "eventLogos",
+                  "label": "Event Logos",
+                  "list": true,
+                  "ui": {
+                    "component": "labeled-group-list"
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Title",
+                      "namespace": [
+                        "global",
+                        "events",
+                        "eventList",
+                        "eventLogos",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "name": "logo",
+                      "label": "Logo",
+                      "namespace": [
+                        "global",
+                        "events",
+                        "eventList",
+                        "eventLogos",
+                        "logo"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "events",
+                    "eventList",
+                    "eventLogos"
+                  ]
+                },
+                {
                   "type": "rich-text",
                   "name": "description",
                   "label": "Event Description",
@@ -1843,6 +2284,20 @@
                     "camps",
                     "campList",
                     "date"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "dateEnd",
+                  "label": "Camp End Date",
+                  "ui": {
+                    "component": "date"
+                  },
+                  "namespace": [
+                    "global",
+                    "camps",
+                    "campList",
+                    "dateEnd"
                   ]
                 },
                 {

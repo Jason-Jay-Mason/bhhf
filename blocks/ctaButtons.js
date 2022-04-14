@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { breakPoints, spacing } from "../styles/theme";
+import { breakPoints, spacing, maxMin, colors } from "../styles/theme";
 import Section from "../components/section";
 import Button from "../components/standardButton";
 import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
@@ -9,6 +9,22 @@ const div = {};
 div.buttons = styled.div`
   display: flex;
   flex-direction: row;
+  background-color: ${({ backgroundColor }) => {
+    switch (backgroundColor) {
+      case "None":
+        return "none";
+      case "White":
+        return "white";
+      case "Rain Cloud Beige":
+        return colors.rainCloudBeige;
+      case "Rain Cloud Beige 2":
+        return colors.rainCloudBeigeTwo;
+      default:
+        return "none";
+    }
+  }};
+  max-width: ${maxMin.containerMaxWidth};
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
   min-height: 100px;
@@ -28,12 +44,12 @@ div.buttons = styled.div`
 `;
 //#endregion
 
-const CtaButtons = ({ mainCallToActionHref, mainCallToActionLabel, secondaryCallToActionHrefOrSource, secondaryCallToActionLabel, secondaryCallToActionVideoActive }) => {
+const CtaButtons = ({ mainCallToActionHref, mainCallToActionLabel, secondaryCallToActionHrefOrSource, secondaryCallToActionLabel, secondaryCallToActionVideoActive, backgroundColor }) => {
   const popupToggle = usePopupToggle();
   const setPopupSource = useSetPopupSource();
   return (
     <Section>
-      <div.buttons>
+      <div.buttons backgroundColor={backgroundColor}>
         <Button href={mainCallToActionHref}>{mainCallToActionLabel}</Button>
         {secondaryCallToActionLabel && (
           <>

@@ -7,7 +7,7 @@ import Svg from "../components/renderSvg";
 const div = {};
 div.titledIconBlurb = styled.div`
   padding: 0 ${spacing.s45ish} ${spacing.s75ish} ${spacing.s45ish};
-  max-width: 650px;
+  max-width: 680px;
   margin: 0 auto;
   p,
   h5,
@@ -24,7 +24,7 @@ div.titledIconBlurb = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding-bottom: ${spacing.s30ish};
+    padding-bottom: ${spacing.s17ish};
     @media ${breakPoints.md} {
       flex-direction: column;
       align-items: center;
@@ -33,7 +33,7 @@ div.titledIconBlurb = styled.div`
     }
     object {
       filter: ${colors.iconFilter};
-      height: 65px;
+      height: 60px;
       margin-right: ${spacing.s17ish};
       @media ${breakPoints.md} {
         height: 43px;
@@ -43,7 +43,7 @@ div.titledIconBlurb = styled.div`
     }
     h5 {
       font-family: "Noto Serif";
-      font-size: ${fontSize.sml};
+      font-size: ${fontSize.xsml};
       font-weight: bold;
       letter-spacing: 3%;
       padding-bottom: 5px;
@@ -53,8 +53,8 @@ div.titledIconBlurb = styled.div`
     }
     h6 {
       font-family: "Open Sans";
-      font-size: ${fontSize.base};
-      font-weight: 300;
+      font-size: 19px;
+      font-weight: 100;
       letter-spacing: 3%;
       @media ${breakPoints.md} {
         font-size: ${fontSize.baseSml};

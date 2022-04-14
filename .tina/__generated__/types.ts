@@ -204,7 +204,7 @@ export type DocumentNode = MainPageDocument | ContactDocument | GlobalDocument |
 export type MainPageBlocksLargeHero = {
   __typename?: 'MainPageBlocksLargeHero';
   headline?: Maybe<Scalars['String']>;
-  hook?: Maybe<Scalars['String']>;
+  richHook?: Maybe<Scalars['JSON']>;
   popupVideoActive?: Maybe<Scalars['Boolean']>;
   popupVideoButtonLabel?: Maybe<Scalars['String']>;
   popupVideoButtonSource?: Maybe<Scalars['String']>;
@@ -213,6 +213,7 @@ export type MainPageBlocksLargeHero = {
   backgroundVideoSource?: Maybe<Scalars['String']>;
   backgroundImageSourceDesktop?: Maybe<Scalars['String']>;
   backgroundImageAltDesktop?: Maybe<Scalars['String']>;
+  desktopBackgroundPosition?: Maybe<Scalars['String']>;
   backgroundImageSourceMobile?: Maybe<Scalars['String']>;
   backgroundImageAltMobile?: Maybe<Scalars['String']>;
 };
@@ -235,6 +236,7 @@ export type MainPageBlocksLongFeaturedImageFeaturedImage = {
   __typename?: 'MainPageBlocksLongFeaturedImageFeaturedImage';
   image?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  imagePosition?: Maybe<Scalars['String']>;
 };
 
 export type MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb = {
@@ -271,7 +273,12 @@ export type MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb = {
   blurb?: Maybe<Scalars['JSON']>;
 };
 
-export type MainPageBlocksLongFeaturedImageBlocks = MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb | MainPageBlocksLongFeaturedImageBlocksIconListBlurb | MainPageBlocksLongFeaturedImageBlocksButton | MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb;
+export type MainPageBlocksLongFeaturedImageBlocksCursiveHeadline = {
+  __typename?: 'MainPageBlocksLongFeaturedImageBlocksCursiveHeadline';
+  headline?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksLongFeaturedImageBlocks = MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb | MainPageBlocksLongFeaturedImageBlocksIconListBlurb | MainPageBlocksLongFeaturedImageBlocksButton | MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb | MainPageBlocksLongFeaturedImageBlocksCursiveHeadline;
 
 export type MainPageBlocksLongFeaturedImage = {
   __typename?: 'MainPageBlocksLongFeaturedImage';
@@ -281,6 +288,7 @@ export type MainPageBlocksLongFeaturedImage = {
   featuredImage?: Maybe<Array<Maybe<MainPageBlocksLongFeaturedImageFeaturedImage>>>;
   featuredImageRightActive?: Maybe<Scalars['Boolean']>;
   blocks?: Maybe<Array<Maybe<MainPageBlocksLongFeaturedImageBlocks>>>;
+  backgroundColor?: Maybe<Scalars['String']>;
   bottomPaddingActive?: Maybe<Scalars['Boolean']>;
 };
 
@@ -291,6 +299,7 @@ export type MainPageBlocksCtaButtons = {
   secondaryCallToActionLabel?: Maybe<Scalars['String']>;
   secondaryCallToActionVideoActive?: Maybe<Scalars['Boolean']>;
   secondaryCallToActionHrefOrSource?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
 };
 
 export type MainPageBlocksShortIconGridFeaturedIconBlurb = {
@@ -321,7 +330,51 @@ export type MainPageBlocksPreFooterCta = {
   mainCallToActionHref?: Maybe<Scalars['String']>;
 };
 
-export type MainPageBlocks = MainPageBlocksLargeHero | MainPageBlocksHero | MainPageBlocksLongFeaturedImage | MainPageBlocksCtaButtons | MainPageBlocksShortIconGrid | MainPageBlocksTestimonialSlider | MainPageBlocksPreFooterCta;
+export type MainPageBlocksPricingTableTableSectionsTablesFeatures = {
+  __typename?: 'MainPageBlocksPricingTableTableSectionsTablesFeatures';
+  title?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksPricingTableTableSectionsTables = {
+  __typename?: 'MainPageBlocksPricingTableTableSectionsTables';
+  title?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Float']>;
+  description?: Maybe<Scalars['String']>;
+  attention?: Maybe<Scalars['String']>;
+  ctaLabel?: Maybe<Scalars['String']>;
+  ctaHref?: Maybe<Scalars['String']>;
+  features?: Maybe<Array<Maybe<MainPageBlocksPricingTableTableSectionsTablesFeatures>>>;
+};
+
+export type MainPageBlocksPricingTableTableSections = {
+  __typename?: 'MainPageBlocksPricingTableTableSections';
+  title?: Maybe<Scalars['String']>;
+  tables?: Maybe<Array<Maybe<MainPageBlocksPricingTableTableSectionsTables>>>;
+};
+
+export type MainPageBlocksPricingTable = {
+  __typename?: 'MainPageBlocksPricingTable';
+  standardSubHeadline?: Maybe<Scalars['String']>;
+  standardHeadline?: Maybe<Scalars['String']>;
+  tableSections?: Maybe<Array<Maybe<MainPageBlocksPricingTableTableSections>>>;
+};
+
+export type MainPageBlocksFeaturedIconGridIconSections = {
+  __typename?: 'MainPageBlocksFeaturedIconGridIconSections';
+  title?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+};
+
+export type MainPageBlocksFeaturedIconGrid = {
+  __typename?: 'MainPageBlocksFeaturedIconGrid';
+  standardSubHeadline?: Maybe<Scalars['String']>;
+  standardHeadline?: Maybe<Scalars['String']>;
+  backgroundImageSrc?: Maybe<Scalars['String']>;
+  maxColumns?: Maybe<Scalars['String']>;
+  iconSections?: Maybe<Array<Maybe<MainPageBlocksFeaturedIconGridIconSections>>>;
+};
+
+export type MainPageBlocks = MainPageBlocksLargeHero | MainPageBlocksHero | MainPageBlocksLongFeaturedImage | MainPageBlocksCtaButtons | MainPageBlocksShortIconGrid | MainPageBlocksTestimonialSlider | MainPageBlocksPreFooterCta | MainPageBlocksPricingTable | MainPageBlocksFeaturedIconGrid;
 
 export type MainPageSeo = {
   __typename?: 'MainPageSeo';
@@ -486,6 +539,12 @@ export type GlobalTestimonials = {
   testimonialsList?: Maybe<Array<Maybe<GlobalTestimonialsTestimonialsList>>>;
 };
 
+export type GlobalEventsEventListEventLogos = {
+  __typename?: 'GlobalEventsEventListEventLogos';
+  title?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['String']>;
+};
+
 export type GlobalEventsEventList = {
   __typename?: 'GlobalEventsEventList';
   title?: Maybe<Scalars['String']>;
@@ -493,6 +552,7 @@ export type GlobalEventsEventList = {
   date?: Maybe<Scalars['String']>;
   toggleEndDates?: Maybe<Scalars['Boolean']>;
   endDate?: Maybe<Scalars['String']>;
+  eventLogos?: Maybe<Array<Maybe<GlobalEventsEventListEventLogos>>>;
   description?: Maybe<Scalars['JSON']>;
   ctaLabel?: Maybe<Scalars['String']>;
   ctaHref?: Maybe<Scalars['String']>;
@@ -507,6 +567,7 @@ export type GlobalCampsCampList = {
   __typename?: 'GlobalCampsCampList';
   title?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
+  dateEnd?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['JSON']>;
   ctaLabel?: Maybe<Scalars['String']>;
   ctaHref?: Maybe<Scalars['String']>;
@@ -682,7 +743,7 @@ export type DocumentMutation = {
 
 export type MainPageBlocksLargeHeroMutation = {
   headline?: InputMaybe<Scalars['String']>;
-  hook?: InputMaybe<Scalars['String']>;
+  richHook?: InputMaybe<Scalars['JSON']>;
   popupVideoActive?: InputMaybe<Scalars['Boolean']>;
   popupVideoButtonLabel?: InputMaybe<Scalars['String']>;
   popupVideoButtonSource?: InputMaybe<Scalars['String']>;
@@ -691,6 +752,7 @@ export type MainPageBlocksLargeHeroMutation = {
   backgroundVideoSource?: InputMaybe<Scalars['String']>;
   backgroundImageSourceDesktop?: InputMaybe<Scalars['String']>;
   backgroundImageAltDesktop?: InputMaybe<Scalars['String']>;
+  desktopBackgroundPosition?: InputMaybe<Scalars['String']>;
   backgroundImageSourceMobile?: InputMaybe<Scalars['String']>;
   backgroundImageAltMobile?: InputMaybe<Scalars['String']>;
 };
@@ -711,6 +773,7 @@ export type MainPageBlocksHeroMutation = {
 export type MainPageBlocksLongFeaturedImageFeaturedImageMutation = {
   image?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
+  imagePosition?: InputMaybe<Scalars['String']>;
 };
 
 export type MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation = {
@@ -742,11 +805,16 @@ export type MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation = {
   blurb?: InputMaybe<Scalars['JSON']>;
 };
 
+export type MainPageBlocksLongFeaturedImageBlocksCursiveHeadlineMutation = {
+  headline?: InputMaybe<Scalars['String']>;
+};
+
 export type MainPageBlocksLongFeaturedImageBlocksMutation = {
   centeredIconBlurb?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation>;
   iconListBlurb?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksIconListBlurbMutation>;
   button?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksButtonMutation>;
   titledIconBlurb?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation>;
+  cursiveHeadline?: InputMaybe<MainPageBlocksLongFeaturedImageBlocksCursiveHeadlineMutation>;
 };
 
 export type MainPageBlocksLongFeaturedImageMutation = {
@@ -756,6 +824,7 @@ export type MainPageBlocksLongFeaturedImageMutation = {
   featuredImage?: InputMaybe<Array<InputMaybe<MainPageBlocksLongFeaturedImageFeaturedImageMutation>>>;
   featuredImageRightActive?: InputMaybe<Scalars['Boolean']>;
   blocks?: InputMaybe<Array<InputMaybe<MainPageBlocksLongFeaturedImageBlocksMutation>>>;
+  backgroundColor?: InputMaybe<Scalars['String']>;
   bottomPaddingActive?: InputMaybe<Scalars['Boolean']>;
 };
 
@@ -765,6 +834,7 @@ export type MainPageBlocksCtaButtonsMutation = {
   secondaryCallToActionLabel?: InputMaybe<Scalars['String']>;
   secondaryCallToActionVideoActive?: InputMaybe<Scalars['Boolean']>;
   secondaryCallToActionHrefOrSource?: InputMaybe<Scalars['String']>;
+  backgroundColor?: InputMaybe<Scalars['String']>;
 };
 
 export type MainPageBlocksShortIconGridFeaturedIconBlurbMutation = {
@@ -791,6 +861,44 @@ export type MainPageBlocksPreFooterCtaMutation = {
   mainCallToActionHref?: InputMaybe<Scalars['String']>;
 };
 
+export type MainPageBlocksPricingTableTableSectionsTablesFeaturesMutation = {
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksPricingTableTableSectionsTablesMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  price?: InputMaybe<Scalars['Float']>;
+  description?: InputMaybe<Scalars['String']>;
+  attention?: InputMaybe<Scalars['String']>;
+  ctaLabel?: InputMaybe<Scalars['String']>;
+  ctaHref?: InputMaybe<Scalars['String']>;
+  features?: InputMaybe<Array<InputMaybe<MainPageBlocksPricingTableTableSectionsTablesFeaturesMutation>>>;
+};
+
+export type MainPageBlocksPricingTableTableSectionsMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  tables?: InputMaybe<Array<InputMaybe<MainPageBlocksPricingTableTableSectionsTablesMutation>>>;
+};
+
+export type MainPageBlocksPricingTableMutation = {
+  standardSubHeadline?: InputMaybe<Scalars['String']>;
+  standardHeadline?: InputMaybe<Scalars['String']>;
+  tableSections?: InputMaybe<Array<InputMaybe<MainPageBlocksPricingTableTableSectionsMutation>>>;
+};
+
+export type MainPageBlocksFeaturedIconGridIconSectionsMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  icon?: InputMaybe<Scalars['String']>;
+};
+
+export type MainPageBlocksFeaturedIconGridMutation = {
+  standardSubHeadline?: InputMaybe<Scalars['String']>;
+  standardHeadline?: InputMaybe<Scalars['String']>;
+  backgroundImageSrc?: InputMaybe<Scalars['String']>;
+  maxColumns?: InputMaybe<Scalars['String']>;
+  iconSections?: InputMaybe<Array<InputMaybe<MainPageBlocksFeaturedIconGridIconSectionsMutation>>>;
+};
+
 export type MainPageBlocksMutation = {
   largeHero?: InputMaybe<MainPageBlocksLargeHeroMutation>;
   hero?: InputMaybe<MainPageBlocksHeroMutation>;
@@ -799,6 +907,8 @@ export type MainPageBlocksMutation = {
   shortIconGrid?: InputMaybe<MainPageBlocksShortIconGridMutation>;
   testimonialSlider?: InputMaybe<MainPageBlocksTestimonialSliderMutation>;
   preFooterCta?: InputMaybe<MainPageBlocksPreFooterCtaMutation>;
+  pricingTable?: InputMaybe<MainPageBlocksPricingTableMutation>;
+  featuredIconGrid?: InputMaybe<MainPageBlocksFeaturedIconGridMutation>;
 };
 
 export type MainPageSeoMutation = {
@@ -902,12 +1012,18 @@ export type GlobalTestimonialsMutation = {
   testimonialsList?: InputMaybe<Array<InputMaybe<GlobalTestimonialsTestimonialsListMutation>>>;
 };
 
+export type GlobalEventsEventListEventLogosMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  logo?: InputMaybe<Scalars['String']>;
+};
+
 export type GlobalEventsEventListMutation = {
   title?: InputMaybe<Scalars['String']>;
   toggleDates?: InputMaybe<Scalars['Boolean']>;
   date?: InputMaybe<Scalars['String']>;
   toggleEndDates?: InputMaybe<Scalars['Boolean']>;
   endDate?: InputMaybe<Scalars['String']>;
+  eventLogos?: InputMaybe<Array<InputMaybe<GlobalEventsEventListEventLogosMutation>>>;
   description?: InputMaybe<Scalars['JSON']>;
   ctaLabel?: InputMaybe<Scalars['String']>;
   ctaHref?: InputMaybe<Scalars['String']>;
@@ -920,6 +1036,7 @@ export type GlobalEventsMutation = {
 export type GlobalCampsCampListMutation = {
   title?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
+  dateEnd?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   ctaLabel?: InputMaybe<Scalars['String']>;
   ctaHref?: InputMaybe<Scalars['String']>;
@@ -952,11 +1069,11 @@ export type LegalMutation = {
   seo?: InputMaybe<LegalSeoMutation>;
 };
 
-export type MainPagePartsFragment = { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
+export type MainPagePartsFragment = { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, richHook?: any | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, desktopBackgroundPosition?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, backgroundColor?: string | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null, imagePosition?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksCursiveHeadline', headline?: string | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null, backgroundColor?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | { __typename: 'MainPageBlocksPricingTable', standardSubHeadline?: string | null, standardHeadline?: string | null, tableSections?: Array<{ __typename: 'MainPageBlocksPricingTableTableSections', title?: string | null, tables?: Array<{ __typename: 'MainPageBlocksPricingTableTableSectionsTables', title?: string | null, price?: number | null, description?: string | null, attention?: string | null, ctaLabel?: string | null, ctaHref?: string | null, features?: Array<{ __typename: 'MainPageBlocksPricingTableTableSectionsTablesFeatures', title?: string | null } | null> | null } | null> | null } | null> | null } | { __typename: 'MainPageBlocksFeaturedIconGrid', standardSubHeadline?: string | null, standardHeadline?: string | null, backgroundImageSrc?: string | null, maxColumns?: string | null, iconSections?: Array<{ __typename: 'MainPageBlocksFeaturedIconGridIconSections', title?: string | null, icon?: string | null } | null> | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
 export type ContactPartsFragment = { __typename?: 'Contact', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageAlt?: string | null, backgroundImageMobile?: string | null, seo?: { __typename: 'ContactSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
-export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', priority?: number | null, title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, toggleDates?: boolean | null, date?: string | null, toggleEndDates?: boolean | null, endDate?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null };
+export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', priority?: number | null, title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, toggleDates?: boolean | null, date?: string | null, toggleEndDates?: boolean | null, endDate?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null, eventLogos?: Array<{ __typename: 'GlobalEventsEventListEventLogos', title?: string | null, logo?: string | null } | null> | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, dateEnd?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null };
 
 export type LegalPartsFragment = { __typename?: 'Legal', legalPageTitle?: string | null, body?: any | null, seo?: { __typename: 'LegalSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null };
 
@@ -965,12 +1082,12 @@ export type GetMainPageDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetMainPageDocumentQuery = { __typename?: 'Query', getMainPageDocument: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } };
+export type GetMainPageDocumentQuery = { __typename?: 'Query', getMainPageDocument: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, richHook?: any | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, desktopBackgroundPosition?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, backgroundColor?: string | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null, imagePosition?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksCursiveHeadline', headline?: string | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null, backgroundColor?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | { __typename: 'MainPageBlocksPricingTable', standardSubHeadline?: string | null, standardHeadline?: string | null, tableSections?: Array<{ __typename: 'MainPageBlocksPricingTableTableSections', title?: string | null, tables?: Array<{ __typename: 'MainPageBlocksPricingTableTableSectionsTables', title?: string | null, price?: number | null, description?: string | null, attention?: string | null, ctaLabel?: string | null, ctaHref?: string | null, features?: Array<{ __typename: 'MainPageBlocksPricingTableTableSectionsTablesFeatures', title?: string | null } | null> | null } | null> | null } | null> | null } | { __typename: 'MainPageBlocksFeaturedIconGrid', standardSubHeadline?: string | null, standardHeadline?: string | null, backgroundImageSrc?: string | null, maxColumns?: string | null, iconSections?: Array<{ __typename: 'MainPageBlocksFeaturedIconGridIconSections', title?: string | null, icon?: string | null } | null> | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } };
 
 export type GetMainPageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMainPageListQuery = { __typename?: 'Query', getMainPageList: { __typename?: 'MainPageConnection', totalCount: number, edges?: Array<{ __typename?: 'MainPageConnectionEdges', node?: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, hook?: string | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } | null } | null> | null } };
+export type GetMainPageListQuery = { __typename?: 'Query', getMainPageList: { __typename?: 'MainPageConnection', totalCount: number, edges?: Array<{ __typename?: 'MainPageConnectionEdges', node?: { __typename?: 'MainPageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'MainPage', mapEnabled?: boolean | null, blocks?: Array<{ __typename: 'MainPageBlocksLargeHero', headline?: string | null, richHook?: any | null, popupVideoActive?: boolean | null, popupVideoButtonLabel?: string | null, popupVideoButtonSource?: string | null, serviceBarActive?: boolean | null, videoBackgroundActive?: boolean | null, backgroundVideoSource?: string | null, backgroundImageSourceDesktop?: string | null, backgroundImageAltDesktop?: string | null, desktopBackgroundPosition?: string | null, backgroundImageSourceMobile?: string | null, backgroundImageAltMobile?: string | null } | { __typename: 'MainPageBlocksHero', subHeadline?: string | null, headline?: string | null, hook?: string | null, backgroundImage?: string | null, desktopBackgroundPosition?: string | null, backgroundImageMobile?: string | null, backgroundImageAlt?: string | null, ctaActive?: boolean | null, ctaLabel?: string | null, ctaHref?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImage', standardSubHeadline?: string | null, standardHeadline?: string | null, twoColumnText?: any | null, featuredImageRightActive?: boolean | null, backgroundColor?: string | null, bottomPaddingActive?: boolean | null, featuredImage?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageFeaturedImage', image?: string | null, title?: string | null, imagePosition?: string | null } | null> | null, blocks?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb', icon?: string | null, iconAlt?: string | null, text?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurb', text?: any | null, iconList?: Array<{ __typename: 'MainPageBlocksLongFeaturedImageBlocksIconListBlurbIconList', title?: string | null, icon?: string | null } | null> | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksButton', label?: string | null, href?: string | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb', icon?: string | null, iconAlt?: string | null, Headline?: string | null, subHeadline?: string | null, blurb?: any | null } | { __typename: 'MainPageBlocksLongFeaturedImageBlocksCursiveHeadline', headline?: string | null } | null> | null } | { __typename: 'MainPageBlocksCtaButtons', mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null, secondaryCallToActionLabel?: string | null, secondaryCallToActionVideoActive?: boolean | null, secondaryCallToActionHrefOrSource?: string | null, backgroundColor?: string | null } | { __typename: 'MainPageBlocksShortIconGrid', headline?: string | null, featuredIconBlurb?: Array<{ __typename: 'MainPageBlocksShortIconGridFeaturedIconBlurb', title?: string | null, icon?: string | null, blurb?: string | null } | null> | null } | { __typename: 'MainPageBlocksTestimonialSlider', standardSubHeadline?: string | null, standardHeadline?: string | null } | { __typename: 'MainPageBlocksPreFooterCta', standardSubHeadline?: string | null, standardHeadline?: string | null, hook?: string | null, mainCallToActionLabel?: string | null, mainCallToActionHref?: string | null } | { __typename: 'MainPageBlocksPricingTable', standardSubHeadline?: string | null, standardHeadline?: string | null, tableSections?: Array<{ __typename: 'MainPageBlocksPricingTableTableSections', title?: string | null, tables?: Array<{ __typename: 'MainPageBlocksPricingTableTableSectionsTables', title?: string | null, price?: number | null, description?: string | null, attention?: string | null, ctaLabel?: string | null, ctaHref?: string | null, features?: Array<{ __typename: 'MainPageBlocksPricingTableTableSectionsTablesFeatures', title?: string | null } | null> | null } | null> | null } | null> | null } | { __typename: 'MainPageBlocksFeaturedIconGrid', standardSubHeadline?: string | null, standardHeadline?: string | null, backgroundImageSrc?: string | null, maxColumns?: string | null, iconSections?: Array<{ __typename: 'MainPageBlocksFeaturedIconGridIconSections', title?: string | null, icon?: string | null } | null> | null } | null> | null, seo?: { __typename: 'MainPageSeo', title?: string | null, description?: string | null, image?: string | null, noFollow?: boolean | null, noIndex?: boolean | null } | null } } | null } | null> | null } };
 
 export type GetContactDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -989,12 +1106,12 @@ export type GetGlobalDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetGlobalDocumentQuery = { __typename?: 'Query', getGlobalDocument: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', priority?: number | null, title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, toggleDates?: boolean | null, date?: string | null, toggleEndDates?: boolean | null, endDate?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } };
+export type GetGlobalDocumentQuery = { __typename?: 'Query', getGlobalDocument: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', priority?: number | null, title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, toggleDates?: boolean | null, date?: string | null, toggleEndDates?: boolean | null, endDate?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null, eventLogos?: Array<{ __typename: 'GlobalEventsEventListEventLogos', title?: string | null, logo?: string | null } | null> | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, dateEnd?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } };
 
 export type GetGlobalListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', priority?: number | null, title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, toggleDates?: boolean | null, date?: string | null, toggleEndDates?: boolean | null, endDate?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } | null } | null> | null } };
+export type GetGlobalListQuery = { __typename?: 'Query', getGlobalList: { __typename?: 'GlobalConnection', totalCount: number, edges?: Array<{ __typename?: 'GlobalConnectionEdges', node?: { __typename?: 'GlobalDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Global', header?: { __typename: 'GlobalHeader', preHeaderCtaLabel?: string | null, preHeaderCtaHref?: string | null, ctaLabel?: string | null, ctaHref?: string | null, links?: Array<{ __typename: 'GlobalHeaderLinks', title?: string | null, href?: string | null } | null> | null } | null, businessInfo?: { __typename: 'GlobalBusinessInfo', contact?: { __typename: 'GlobalBusinessInfoContact', phone?: string | null, address?: string | null, email?: string | null } | null, hours?: { __typename: 'GlobalBusinessInfoHours', monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null, sunday?: string | null } | null, socialLinks?: { __typename: 'GlobalBusinessInfoSocialLinks', facebook?: string | null, instagram?: string | null, youtube?: string | null, maps?: string | null, linkedin?: string | null } | null } | null, services?: Array<{ __typename: 'GlobalServices', title?: string | null, serviceBarImage?: string | null } | null> | null, testimonials?: { __typename: 'GlobalTestimonials', testimonialsList?: Array<{ __typename: 'GlobalTestimonialsTestimonialsList', title?: string | null, shortDescription?: string | null, image?: string | null, imageAlt?: string | null, testimonialBody?: string | null, videoActive?: boolean | null, videoSource?: string | null, activePages?: Array<{ __typename: 'GlobalTestimonialsTestimonialsListActivePages', priority?: number | null, title?: { __typename?: 'MainPageDocument', id: string } | null } | null> | null } | null> | null } | null, events?: { __typename: 'GlobalEvents', eventList?: Array<{ __typename: 'GlobalEventsEventList', title?: string | null, toggleDates?: boolean | null, date?: string | null, toggleEndDates?: boolean | null, endDate?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null, eventLogos?: Array<{ __typename: 'GlobalEventsEventListEventLogos', title?: string | null, logo?: string | null } | null> | null } | null> | null } | null, camps?: { __typename: 'GlobalCamps', campList?: Array<{ __typename: 'GlobalCampsCampList', title?: string | null, date?: string | null, dateEnd?: string | null, description?: any | null, ctaLabel?: string | null, ctaHref?: string | null } | null> | null } | null } } | null } | null> | null } };
 
 export type GetLegalDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -1014,7 +1131,7 @@ export const MainPagePartsFragmentDoc = gql`
     __typename
     ... on MainPageBlocksLargeHero {
       headline
-      hook
+      richHook
       popupVideoActive
       popupVideoButtonLabel
       popupVideoButtonSource
@@ -1023,6 +1140,7 @@ export const MainPagePartsFragmentDoc = gql`
       backgroundVideoSource
       backgroundImageSourceDesktop
       backgroundImageAltDesktop
+      desktopBackgroundPosition
       backgroundImageSourceMobile
       backgroundImageAltMobile
     }
@@ -1046,6 +1164,7 @@ export const MainPagePartsFragmentDoc = gql`
         __typename
         image
         title
+        imagePosition
       }
       featuredImageRightActive
       blocks {
@@ -1074,7 +1193,11 @@ export const MainPagePartsFragmentDoc = gql`
           subHeadline
           blurb
         }
+        ... on MainPageBlocksLongFeaturedImageBlocksCursiveHeadline {
+          headline
+        }
       }
+      backgroundColor
       bottomPaddingActive
     }
     ... on MainPageBlocksCtaButtons {
@@ -1083,6 +1206,7 @@ export const MainPagePartsFragmentDoc = gql`
       secondaryCallToActionLabel
       secondaryCallToActionVideoActive
       secondaryCallToActionHrefOrSource
+      backgroundColor
     }
     ... on MainPageBlocksShortIconGrid {
       headline
@@ -1103,6 +1227,38 @@ export const MainPagePartsFragmentDoc = gql`
       hook
       mainCallToActionLabel
       mainCallToActionHref
+    }
+    ... on MainPageBlocksPricingTable {
+      standardSubHeadline
+      standardHeadline
+      tableSections {
+        __typename
+        title
+        tables {
+          __typename
+          title
+          price
+          description
+          attention
+          ctaLabel
+          ctaHref
+          features {
+            __typename
+            title
+          }
+        }
+      }
+    }
+    ... on MainPageBlocksFeaturedIconGrid {
+      standardSubHeadline
+      standardHeadline
+      backgroundImageSrc
+      maxColumns
+      iconSections {
+        __typename
+        title
+        icon
+      }
     }
   }
   seo {
@@ -1212,6 +1368,11 @@ export const GlobalPartsFragmentDoc = gql`
       date
       toggleEndDates
       endDate
+      eventLogos {
+        __typename
+        title
+        logo
+      }
       description
       ctaLabel
       ctaHref
@@ -1223,6 +1384,7 @@ export const GlobalPartsFragmentDoc = gql`
       __typename
       title
       date
+      dateEnd
       description
       ctaLabel
       ctaHref

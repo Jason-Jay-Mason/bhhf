@@ -31,11 +31,17 @@ div.mainHeadline = styled.div`
     font-family: "Snell Roundhand";
     font-size: ${fontSize.lrg};
     font-weight: lighter;
+    border-bottom: solid 2px #7c7c7c;
+    width: fit-content;
+    min-width: 60%;
+    margin: 0 auto;
+    padding-left: 30px;
     @media ${breakPoints.lrg} {
       font-size: ${fontSize.med};
     }
     @media ${breakPoints.md} {
       font-size: ${fontSize.sml};
+      padding-left: 10px;
     }
     padding-bottom: 4px;
     color: ${colors.saddleBeige};
@@ -45,9 +51,7 @@ div.mainHeadline = styled.div`
     font-size: ${fontSize.lrg};
     font-weight: lighter;
     letter-spacing: 3%;
-
     color: ${colors.textBrown};
-    border-top: solid 2px #7c7c7c;
     padding-bottom: ${spacing.s75ish};
 
     @media ${breakPoints.lrg} {

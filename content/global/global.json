@@ -195,7 +195,21 @@
         "date": "2022-04-09T06:00:00.000Z",
         "toggleEndDates": false,
         "endDate": "2022-04-11T06:00:00.000Z",
-        "description": "CU Equestrian Team's Emma Fraser and Caroline Kosmicki will be representing their team at this year's Zone 8 Championships! &#x20;\n\nEmma Fraser  - Open Hunt Seat Equitation on the Flat&#x20;\n\nCaroline Kosmicki - Limit Hunt Seat Over Fences and Flat&#x20;\n"
+        "eventLogos": [
+          {
+            "title": "Logo 1",
+            "logo": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1649702026/org%20logos/IEA_final_dark_l28dku.svg"
+          },
+          {
+            "title": "Logo 2",
+            "logo": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1649702031/org%20logos/NVRHA_final_dark_oqvcwb.svg"
+          },
+          {
+            "title": "Logo 3",
+            "logo": "https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1649702036/org%20logos/us_equestrian_logo_dark_ly4bhh.svg"
+          }
+        ],
+        "description": "CU Equestrian Team's Emma Fraser and Caroline Kosmicki will be representing their team at this year's Zone 8 Championships! &#x20;\n\nEmma Fraser  - Open Hunt Seat Equitation on the Flat&#x20;\n\nCaroline Kosmicki - Limit Hunt Seat Over Fences and Flat\n"
       },
       {
         "title": "CHJA Gold Crest Charity Challenge ",
@@ -236,10 +250,11 @@
   "camps": {
     "campList": [
       {
-        "title": "Summer Camps 2022 ",
-        "date": "2022-06-06T06:00:00.000Z",
-        "description": "Join us for Summer Camp 2022\n\n[***Click Here for Details***](/camps)\n\nDates Include:\n\nJune 6-9\n\nJune 13-16\n\nJune 20-23\n\nJune 27-30\n\nJuly 5-8\n\nJuly 11-14\n\nJuly 18-21\n\nJuly 25-28\n\nAugust 1-4\n\nAugust 8-11\n",
-        "ctaLabel": "Sign Up Now",
+        "title": "Summer Camp June 2022 ",
+        "date": "",
+        "dateEnd": "",
+        "description": "Join us for Summer Camp 2022\n\nClick Here for Details\n\nDates Include:\n\nJune 6-9\n\nJune 13-16\n\nJune 20-23\n\nJune 27-30\n\nJuly 5-8\n\nJuly 11-14\n\nJuly 18-21\n\nJuly 25-28\n\nAugust 1-4\n\nAugust 8-11\n",
+        "ctaLabel": "Book Now",
         "ctaHref": "https://brokenhearthorsefarm.getomnify.com/#!/home"
       },
       {

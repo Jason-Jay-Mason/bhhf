@@ -1,6 +1,7 @@
 import TitledIconBlurb from "../blocks/titledIconBlurb";
 import CenteredIconBlurb from "../blocks/centeredIconBlurb";
 import Button from "../blocks/button";
+import CursiveHeadline from "../blocks/cursiveHeadline";
 
 const FeaturedImageBlocks = ({ blocks }) => {
   return (
@@ -29,6 +30,12 @@ const FeaturedImageBlocks = ({ blocks }) => {
             return (
               <div key={i + block.__typename}>
                 <TitledIconBlurb {...block} />
+              </div>
+            );
+          case "MainPageBlocksLongFeaturedImageBlocksCursiveHeadline":
+            return (
+              <div key={i + block.__typename}>
+                <CursiveHeadline {...block} />
               </div>
             );
           default:

@@ -8,7 +8,7 @@ const div = {};
 div.imageDisplay = styled.div`
   width: 50%;
   position: relative;
-  border-radius: 4px 0 0 4px;
+  border-radius: 2px;
   @media ${breakPoints.lrg} {
     width: 100%;
   }
@@ -30,7 +30,7 @@ div.imageDisplay = styled.div`
   }
   img {
     z-index: 0;
-    border-radius: 4px 0 0 4px;
+    border-radius: 2px;
   }
   @media ${breakPoints.lrg} {
     height: 100vw;
@@ -192,7 +192,6 @@ const ImageDisplay = ({ featuredImage }) => {
   const imgPerPage = 5;
   const [coordinate, setCoordinate] = useState([0, imgPerPage]);
   const [selectedImage, setSelectedImage] = useState(0);
-
   const handleImageChange = (i) => {
     if (i === selectedImage) {
       return;
@@ -250,7 +249,7 @@ const ImageDisplay = ({ featuredImage }) => {
     <>
       <div.imageDisplay className="image">
         <div className="imgContainer">
-          <Image src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].image : null} layout="fill" objectFit="cover" quality={80} width={900} alt={featuredImage[selectedImage] ? featuredImage[selectedImage].title : ""} />
+          <Image src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].image : null} layout="fill" objectPosition={featuredImage && featuredImage[selectedImage].imagePosition ? featuredImage[selectedImage].imagePosition : "center"} objectFit="cover" quality={80} width={900} alt={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].title : ""} />
         </div>
         {featuredImage && featuredImage.length > 1 && (
           <div className="selectionBar">
@@ -279,7 +278,7 @@ const ImageDisplay = ({ featuredImage }) => {
                     }}
                     className={`listItem ${selectedImage === i + coordinate[0] && "selected"}`}
                   >
-                    <Image src={img.image ? img.image : null} layout="fill" objectFit="cover" quality={80} width={180} alt={img.title} />
+                    <Image src={img.image ? img.image : null} layout="fill" objectFit="cover" objectPosition={featuredImage.imagePosition ? featuredImage.imagePosition : "center"} quality={80} width={180} alt={img.title} />
                   </div>
                 );
               })}

@@ -11,7 +11,7 @@ div.centeredIconBlurb = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 ${spacing.s45ish} ${spacing.s75ish} ${spacing.s45ish};
-  max-width: 650px;
+  max-width: 680px;
   margin: 0 auto;
   text-align: center;
   p {
@@ -27,7 +27,7 @@ div.centeredIconBlurb = styled.div`
   }
   .iconList {
     object {
-      height: 90px;
+      height: 100px;
       padding-right: ${spacing.s17ish};
       filter: ${colors.iconFilter};
     }

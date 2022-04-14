@@ -38,7 +38,7 @@ footer.main = styled.footer`
       text-align: center;
       p,
       a {
-        line-height: 100%;
+        line-height: 160%;
         font-size: 17;
         color: ${colors.linkGrey};
       }
@@ -414,6 +414,9 @@ const Footer = ({ businessInfo, services, mainPageList, mapEnabled, legal }) => 
               {mainPageList.length &&
                 mainPageList?.map((page, i) => {
                   let uppercase = page[0].toUpperCase();
+                  if (page === "lesson-pricing") {
+                    return null;
+                  }
                   if (page === "home") {
                     return (
                       <Link href={"/"} key={page + "i" + "footerpage"}>

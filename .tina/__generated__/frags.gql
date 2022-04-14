@@ -3,7 +3,7 @@ fragment MainPageParts on MainPage {
     __typename
     ... on MainPageBlocksLargeHero {
       headline
-      hook
+      richHook
       popupVideoActive
       popupVideoButtonLabel
       popupVideoButtonSource
@@ -12,6 +12,7 @@ fragment MainPageParts on MainPage {
       backgroundVideoSource
       backgroundImageSourceDesktop
       backgroundImageAltDesktop
+      desktopBackgroundPosition
       backgroundImageSourceMobile
       backgroundImageAltMobile
     }
@@ -35,6 +36,7 @@ fragment MainPageParts on MainPage {
         __typename
         image
         title
+        imagePosition
       }
       featuredImageRightActive
       blocks {
@@ -63,7 +65,11 @@ fragment MainPageParts on MainPage {
           subHeadline
           blurb
         }
+        ... on MainPageBlocksLongFeaturedImageBlocksCursiveHeadline {
+          headline
+        }
       }
+      backgroundColor
       bottomPaddingActive
     }
     ... on MainPageBlocksCtaButtons {
@@ -72,6 +78,7 @@ fragment MainPageParts on MainPage {
       secondaryCallToActionLabel
       secondaryCallToActionVideoActive
       secondaryCallToActionHrefOrSource
+      backgroundColor
     }
     ... on MainPageBlocksShortIconGrid {
       headline
@@ -92,6 +99,38 @@ fragment MainPageParts on MainPage {
       hook
       mainCallToActionLabel
       mainCallToActionHref
+    }
+    ... on MainPageBlocksPricingTable {
+      standardSubHeadline
+      standardHeadline
+      tableSections {
+        __typename
+        title
+        tables {
+          __typename
+          title
+          price
+          description
+          attention
+          ctaLabel
+          ctaHref
+          features {
+            __typename
+            title
+          }
+        }
+      }
+    }
+    ... on MainPageBlocksFeaturedIconGrid {
+      standardSubHeadline
+      standardHeadline
+      backgroundImageSrc
+      maxColumns
+      iconSections {
+        __typename
+        title
+        icon
+      }
     }
   }
   seo {
@@ -199,6 +238,11 @@ fragment GlobalParts on Global {
       date
       toggleEndDates
       endDate
+      eventLogos {
+        __typename
+        title
+        logo
+      }
       description
       ctaLabel
       ctaHref
@@ -210,6 +254,7 @@ fragment GlobalParts on Global {
       __typename
       title
       date
+      dateEnd
       description
       ctaLabel
       ctaHref

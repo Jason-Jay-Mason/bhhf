@@ -6,6 +6,7 @@ import PreFooterCta from "../blocks/preFooterCta";
 import TestimonialSlider from "../blocks/testimonialSlider";
 import StandardHero from "../blocks/standardHero";
 import ShortIconGrid from "../blocks/shortIconGrid";
+//import FeaturedIconGrid from "../blocks/featuredIconGrid";
 
 const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
   return (
@@ -52,6 +53,20 @@ const MainPageBlocks = ({ blocks, services, testimonials, pageName }) => {
             return (
               <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                 <PreFooterCta {...block} />
+              </div>
+            );
+          case "MainPageBlocksPricingTable":
+            const PricingTable = dynamic(() => import("../blocks/pricingTable"), { ssr: false });
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <PricingTable {...block} />
+              </div>
+            );
+          case "MainPageBlocksFeaturedIconGrid":
+            const FeaturedIconGrid = dynamic(() => import("../blocks/featuredIconGrid"), { ssr: false });
+            return (
+              <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                <FeaturedIconGrid {...block} />
               </div>
             );
           default:

@@ -20,7 +20,7 @@ section.hero = styled.section`
     padding: 160px ${spacing.s17ish};
     position: relative;
     z-index: 10;
-    background-color: rgba(37, 19, 19, 0.56);
+    background-color: rgba(51, 49, 48, 0.7);
     @media ${breakPoints.md} {
       min-height: 300px;
       padding: 100px 17px;
@@ -59,7 +59,7 @@ section.hero = styled.section`
     padding-bottom: 37px;
   }
   span {
-    filter: saturate(80%) sepia(40%);
+    filter: saturate(60%);
     z-index: -10;
   }
 `;

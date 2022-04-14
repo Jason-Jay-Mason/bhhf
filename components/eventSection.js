@@ -15,7 +15,6 @@ div.eventSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 1280px;
   @media ${breakPoints.lrg} {
     max-width: 800px;
     padding: ${spacing.s75ish} 0;
@@ -86,13 +85,29 @@ const EventSection = ({ events, title }) => {
       setVisibleEvents(visibleEvents - 2);
     }
   };
-
+  const todaysDate = new Date();
+  const currentEvents = events.filter((event) => {
+    if (!event.toggleDates) {
+      return event;
+    }
+    if (event.toggleEndDates) {
+      const eventEnd = new Date(event?.endDate);
+      if (todaysDate < eventEnd) {
+        return event;
+      }
+    }
+    const eventStart = new Date(event?.date);
+    if (todaysDate < eventStart) {
+      return event;
+    }
+    return null;
+  });
   return (
     <div.eventSection>
       <div>
         <h4>{title}</h4>
-        {events ? (
-          events.map((event, i) => {
+        {currentEvents ? (
+          currentEvents.map((event, i) => {
             if (i === visibleEvents || i === visibleEvents - 1) return <EventCard key={event + i + "event"} event={event} index={i} />;
           })
         ) : (

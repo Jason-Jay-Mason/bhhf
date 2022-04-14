@@ -7,10 +7,11 @@ const section = {};
 section.default = styled.section`
   position: relative;
   background-color: ${colors.backgroundWhite};
-
   .mainSection {
+    height: fit-content;
     background-color: ${colors.cloudBeige};
     margin: 0 ${spacing.s17ish};
+    padding: 0.05px; //this is to prevent margin collapse when bottom margin is active
   }
   @media ${breakPoints.lrg} {
     .mainSection {
@@ -18,6 +19,7 @@ section.default = styled.section`
     }
   }
 `;
+
 //#endregion
 
 const Section = ({ children }) => {

@@ -2,6 +2,10 @@ import { defineSchema } from "@tinacms/cli";
 import type { TinaTemplate, TinaField } from "@tinacms/cli";
 
 const businessName = "Broken Heart";
+
+const plugins = {
+  labeledList: "labeled-group-list",
+};
 //#region reusable fields
 const cta: TinaField[] = [
   {
@@ -135,6 +139,125 @@ const contactFields: TinaField[] = [
 
 //#region Main Page blocks and fields
 
+//#region Featured Icon Grid
+const featuredIconGrid: TinaTemplate = {
+  name: "featuredIconGrid",
+  label: "Featured Icon Grid",
+  fields: [
+    ...standardHeadlineFields,
+    {
+      type: "image",
+      name: "backgroundImageSrc",
+      label: "Background Image",
+    },
+    {
+      type: "string",
+      name: "maxColumns",
+      label: "Max Columns",
+      options: ["1", "2", "3", "4"],
+      ui: {
+        component: "select",
+      },
+    },
+    {
+      type: "object",
+      name: "iconSections",
+      label: "Icon Sections",
+      list: true,
+      ui: {
+        component: "labeled-group-list",
+      },
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Title",
+        },
+        {
+          type: "image",
+          name: "icon",
+          label: "Icon (SVG file type only please!)",
+        },
+      ],
+    },
+  ],
+};
+//#endregion
+
+//#region pricing table
+const pricingTable: TinaTemplate = {
+  name: "pricingTable",
+  label: "Pricing Table",
+  fields: [
+    ...standardHeadlineFields,
+    {
+      type: "object",
+      name: "tableSections",
+      label: "Table Sections",
+      list: true,
+      ui: {
+        component: "labeled-group-list",
+      },
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Title",
+        },
+        {
+          type: "object",
+          name: "tables",
+          label: "Tables",
+          list: true,
+          ui: {
+            component: "labeled-group-list",
+          },
+          fields: [
+            {
+              type: "string",
+              name: "title",
+              label: "Title",
+            },
+            {
+              type: "number",
+              name: "price",
+              label: "Price",
+            },
+            {
+              type: "string",
+              name: "description",
+              label: "Description",
+            },
+            {
+              type: "string",
+              name: "attention",
+              label: "Attention Text",
+            },
+            ...cta,
+            {
+              type: "object",
+              name: "features",
+              label: "Features",
+              list: true,
+              ui: {
+                component: "labeled-group-list",
+              },
+              fields: [
+                {
+                  type: "string",
+                  name: "title",
+                  label: "Feature",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+//#endregion pricing table
+
 //#region pre footer cta
 
 const preFooterCta: TinaTemplate = {
@@ -256,11 +379,32 @@ const ctaButtons: TinaTemplate = {
       label: "Secondary call to action href or video source",
       description: "If video is activated, paste the video embedded source, if not, input the buttons link (location).",
     },
+    {
+      type: "string",
+      name: "backgroundColor",
+      label: "Background Color",
+      options: ["None", "White", "Rain Cloud Beige", "Rain Cloud Beige 2"],
+      ui: {
+        component: "select",
+      },
+    },
   ],
 };
 //#endregion CTA button section block
 
 //#region long form featured image
+
+const cursiveHeadline: TinaTemplate = {
+  name: "cursiveHeadline",
+  label: "Cursive Headline",
+  fields: [
+    {
+      type: "string",
+      name: "headline",
+      label: "Cursive Headline",
+    },
+  ],
+};
 
 const twoColumnText: TinaField = {
   type: "rich-text",
@@ -392,6 +536,15 @@ const longFormFeaturedImageFields: TinaField[] = [
         name: "title",
         label: "Featured Image Description (for SEO)",
       },
+      {
+        type: "string",
+        name: "imagePosition",
+        label: "Image Position",
+        options: ["center", "top", "bottom"],
+        ui: {
+          component: "select",
+        },
+      },
     ],
   },
   {
@@ -404,12 +557,21 @@ const longFormFeaturedImageFields: TinaField[] = [
     name: "blocks",
     label: "Featured Sections",
     list: true,
-    templates: [centeredIconBlurb, iconListBlurb, longFormFeaturedImageButton, titledIconBlurb],
+    templates: [centeredIconBlurb, iconListBlurb, longFormFeaturedImageButton, titledIconBlurb, cursiveHeadline],
+  },
+  {
+    type: "string",
+    name: "backgroundColor",
+    label: "Background Color",
+    options: ["Rain Cloud Beige", "Rain Cloud Beige 2"],
+    ui: {
+      component: "select",
+    },
   },
   {
     type: "boolean",
     name: "bottomPaddingActive",
-    label: "Activate bottom Padding",
+    label: "Activate bottom margin",
   },
 ];
 const longFeaturedImage: TinaTemplate = {
@@ -485,8 +647,8 @@ const largeHeroFields: TinaField[] = [
     label: "Headline",
   },
   {
-    type: "string",
-    name: "hook",
+    type: "rich-text",
+    name: "richHook",
     label: "Hook",
   },
   {
@@ -534,6 +696,15 @@ const largeHeroFields: TinaField[] = [
     label: "Background image Desktop description (for SEO)",
   },
   {
+    type: "string",
+    name: "desktopBackgroundPosition",
+    label: "Desktop Background Position",
+    options: ["center", "top", "bottom"],
+    ui: {
+      component: "select",
+    },
+  },
+  {
     type: "image",
     name: "backgroundImageSourceMobile",
     label: "Background image source (mobile)",
@@ -564,7 +735,7 @@ const mainPageFields: TinaField = {
   name: "blocks",
   label: "Page Sections",
   list: true,
-  templates: [largeHero, hero, longFeaturedImage, ctaButtons, shortIconGrid, testimonialSlider, preFooterCta],
+  templates: [largeHero, hero, longFeaturedImage, ctaButtons, shortIconGrid, testimonialSlider, preFooterCta, pricingTable, featuredIconGrid],
 };
 //#endregion Main Page blocks and fields
 
@@ -592,6 +763,14 @@ const campFields: TinaField = {
       },
     },
     {
+      type: "string",
+      name: "dateEnd",
+      label: "Camp End Date",
+      ui: {
+        component: "date",
+      },
+    },
+    {
       type: "rich-text",
       name: "description",
       label: "Camp Description",
@@ -610,7 +789,6 @@ const campFields: TinaField = {
     },
   ],
 };
-
 const camps: TinaField = {
   type: "object",
   name: "camps",
@@ -618,7 +796,6 @@ const camps: TinaField = {
   description: `Add ${businessName} camps globally`,
   fields: [campFields],
 };
-
 const eventFields: TinaField = {
   type: "object",
   name: "eventList",
@@ -633,6 +810,7 @@ const eventFields: TinaField = {
       name: "title",
       label: "Event Title",
     },
+
     {
       type: "boolean",
       name: "toggleDates",
@@ -658,6 +836,27 @@ const eventFields: TinaField = {
       ui: {
         component: "date",
       },
+    },
+    {
+      type: "object",
+      name: "eventLogos",
+      label: "Event Logos",
+      list: true,
+      ui: {
+        component: plugins.labeledList,
+      },
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Title",
+        },
+        {
+          type: "image",
+          name: "logo",
+          label: "Logo",
+        },
+      ],
     },
     {
       type: "rich-text",

@@ -142,6 +142,9 @@ div.testimonialSlider = styled.div`
     min-width: var(--slider-image-width);
     margin-right: var(--slider-image-spacing);
     height: 532px;
+    img {
+      border-radius: 2px;
+    }
     @media ${breakPoints.lrg} {
       height: 70vw;
     }
@@ -235,7 +238,7 @@ div.testimonialSlider = styled.div`
   }
 
   .testimonialButtons {
-    padding: ${spacing.s45ish};
+    padding: ${spacing.s45ish} ${spacing.s45ish} ${spacing.s75ish} ${spacing.s45ish};
     margin: 0 auto;
     width: fit-content;
     button {

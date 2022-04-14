@@ -86,7 +86,7 @@ union DocumentNode = MainPageDocument | ContactDocument | GlobalDocument | Legal
 
 type MainPageBlocksLargeHero {
   headline: String
-  hook: String
+  richHook: JSON
   popupVideoActive: Boolean
   popupVideoButtonLabel: String
   popupVideoButtonSource: String
@@ -95,6 +95,7 @@ type MainPageBlocksLargeHero {
   backgroundVideoSource: String
   backgroundImageSourceDesktop: String
   backgroundImageAltDesktop: String
+  desktopBackgroundPosition: String
   backgroundImageSourceMobile: String
   backgroundImageAltMobile: String
 }
@@ -115,6 +116,7 @@ type MainPageBlocksHero {
 type MainPageBlocksLongFeaturedImageFeaturedImage {
   image: String
   title: String
+  imagePosition: String
 }
 
 type MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb {
@@ -146,7 +148,11 @@ type MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb {
   blurb: JSON
 }
 
-union MainPageBlocksLongFeaturedImageBlocks = MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb | MainPageBlocksLongFeaturedImageBlocksIconListBlurb | MainPageBlocksLongFeaturedImageBlocksButton | MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb
+type MainPageBlocksLongFeaturedImageBlocksCursiveHeadline {
+  headline: String
+}
+
+union MainPageBlocksLongFeaturedImageBlocks = MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb | MainPageBlocksLongFeaturedImageBlocksIconListBlurb | MainPageBlocksLongFeaturedImageBlocksButton | MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb | MainPageBlocksLongFeaturedImageBlocksCursiveHeadline
 
 type MainPageBlocksLongFeaturedImage {
   standardSubHeadline: String
@@ -155,6 +161,7 @@ type MainPageBlocksLongFeaturedImage {
   featuredImage: [MainPageBlocksLongFeaturedImageFeaturedImage]
   featuredImageRightActive: Boolean
   blocks: [MainPageBlocksLongFeaturedImageBlocks]
+  backgroundColor: String
   bottomPaddingActive: Boolean
 }
 
@@ -164,6 +171,7 @@ type MainPageBlocksCtaButtons {
   secondaryCallToActionLabel: String
   secondaryCallToActionVideoActive: Boolean
   secondaryCallToActionHrefOrSource: String
+  backgroundColor: String
 }
 
 type MainPageBlocksShortIconGridFeaturedIconBlurb {
@@ -190,7 +198,45 @@ type MainPageBlocksPreFooterCta {
   mainCallToActionHref: String
 }
 
-union MainPageBlocks = MainPageBlocksLargeHero | MainPageBlocksHero | MainPageBlocksLongFeaturedImage | MainPageBlocksCtaButtons | MainPageBlocksShortIconGrid | MainPageBlocksTestimonialSlider | MainPageBlocksPreFooterCta
+type MainPageBlocksPricingTableTableSectionsTablesFeatures {
+  title: String
+}
+
+type MainPageBlocksPricingTableTableSectionsTables {
+  title: String
+  price: Float
+  description: String
+  attention: String
+  ctaLabel: String
+  ctaHref: String
+  features: [MainPageBlocksPricingTableTableSectionsTablesFeatures]
+}
+
+type MainPageBlocksPricingTableTableSections {
+  title: String
+  tables: [MainPageBlocksPricingTableTableSectionsTables]
+}
+
+type MainPageBlocksPricingTable {
+  standardSubHeadline: String
+  standardHeadline: String
+  tableSections: [MainPageBlocksPricingTableTableSections]
+}
+
+type MainPageBlocksFeaturedIconGridIconSections {
+  title: String
+  icon: String
+}
+
+type MainPageBlocksFeaturedIconGrid {
+  standardSubHeadline: String
+  standardHeadline: String
+  backgroundImageSrc: String
+  maxColumns: String
+  iconSections: [MainPageBlocksFeaturedIconGridIconSections]
+}
+
+union MainPageBlocks = MainPageBlocksLargeHero | MainPageBlocksHero | MainPageBlocksLongFeaturedImage | MainPageBlocksCtaButtons | MainPageBlocksShortIconGrid | MainPageBlocksTestimonialSlider | MainPageBlocksPreFooterCta | MainPageBlocksPricingTable | MainPageBlocksFeaturedIconGrid
 
 type MainPageSeo {
   title: String
@@ -335,12 +381,18 @@ type GlobalTestimonials {
   testimonialsList: [GlobalTestimonialsTestimonialsList]
 }
 
+type GlobalEventsEventListEventLogos {
+  title: String
+  logo: String
+}
+
 type GlobalEventsEventList {
   title: String
   toggleDates: Boolean
   date: String
   toggleEndDates: Boolean
   endDate: String
+  eventLogos: [GlobalEventsEventListEventLogos]
   description: JSON
   ctaLabel: String
   ctaHref: String
@@ -353,6 +405,7 @@ type GlobalEvents {
 type GlobalCampsCampList {
   title: String
   date: String
+  dateEnd: String
   description: JSON
   ctaLabel: String
   ctaHref: String
@@ -448,7 +501,7 @@ input DocumentMutation {
 
 input MainPageBlocksLargeHeroMutation {
   headline: String
-  hook: String
+  richHook: JSON
   popupVideoActive: Boolean
   popupVideoButtonLabel: String
   popupVideoButtonSource: String
@@ -457,6 +510,7 @@ input MainPageBlocksLargeHeroMutation {
   backgroundVideoSource: String
   backgroundImageSourceDesktop: String
   backgroundImageAltDesktop: String
+  desktopBackgroundPosition: String
   backgroundImageSourceMobile: String
   backgroundImageAltMobile: String
 }
@@ -477,6 +531,7 @@ input MainPageBlocksHeroMutation {
 input MainPageBlocksLongFeaturedImageFeaturedImageMutation {
   image: String
   title: String
+  imagePosition: String
 }
 
 input MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation {
@@ -508,11 +563,16 @@ input MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation {
   blurb: JSON
 }
 
+input MainPageBlocksLongFeaturedImageBlocksCursiveHeadlineMutation {
+  headline: String
+}
+
 input MainPageBlocksLongFeaturedImageBlocksMutation {
   centeredIconBlurb: MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurbMutation
   iconListBlurb: MainPageBlocksLongFeaturedImageBlocksIconListBlurbMutation
   button: MainPageBlocksLongFeaturedImageBlocksButtonMutation
   titledIconBlurb: MainPageBlocksLongFeaturedImageBlocksTitledIconBlurbMutation
+  cursiveHeadline: MainPageBlocksLongFeaturedImageBlocksCursiveHeadlineMutation
 }
 
 input MainPageBlocksLongFeaturedImageMutation {
@@ -522,6 +582,7 @@ input MainPageBlocksLongFeaturedImageMutation {
   featuredImage: [MainPageBlocksLongFeaturedImageFeaturedImageMutation]
   featuredImageRightActive: Boolean
   blocks: [MainPageBlocksLongFeaturedImageBlocksMutation]
+  backgroundColor: String
   bottomPaddingActive: Boolean
 }
 
@@ -531,6 +592,7 @@ input MainPageBlocksCtaButtonsMutation {
   secondaryCallToActionLabel: String
   secondaryCallToActionVideoActive: Boolean
   secondaryCallToActionHrefOrSource: String
+  backgroundColor: String
 }
 
 input MainPageBlocksShortIconGridFeaturedIconBlurbMutation {
@@ -557,6 +619,44 @@ input MainPageBlocksPreFooterCtaMutation {
   mainCallToActionHref: String
 }
 
+input MainPageBlocksPricingTableTableSectionsTablesFeaturesMutation {
+  title: String
+}
+
+input MainPageBlocksPricingTableTableSectionsTablesMutation {
+  title: String
+  price: Float
+  description: String
+  attention: String
+  ctaLabel: String
+  ctaHref: String
+  features: [MainPageBlocksPricingTableTableSectionsTablesFeaturesMutation]
+}
+
+input MainPageBlocksPricingTableTableSectionsMutation {
+  title: String
+  tables: [MainPageBlocksPricingTableTableSectionsTablesMutation]
+}
+
+input MainPageBlocksPricingTableMutation {
+  standardSubHeadline: String
+  standardHeadline: String
+  tableSections: [MainPageBlocksPricingTableTableSectionsMutation]
+}
+
+input MainPageBlocksFeaturedIconGridIconSectionsMutation {
+  title: String
+  icon: String
+}
+
+input MainPageBlocksFeaturedIconGridMutation {
+  standardSubHeadline: String
+  standardHeadline: String
+  backgroundImageSrc: String
+  maxColumns: String
+  iconSections: [MainPageBlocksFeaturedIconGridIconSectionsMutation]
+}
+
 input MainPageBlocksMutation {
   largeHero: MainPageBlocksLargeHeroMutation
   hero: MainPageBlocksHeroMutation
@@ -565,6 +665,8 @@ input MainPageBlocksMutation {
   shortIconGrid: MainPageBlocksShortIconGridMutation
   testimonialSlider: MainPageBlocksTestimonialSliderMutation
   preFooterCta: MainPageBlocksPreFooterCtaMutation
+  pricingTable: MainPageBlocksPricingTableMutation
+  featuredIconGrid: MainPageBlocksFeaturedIconGridMutation
 }
 
 input MainPageSeoMutation {
@@ -668,12 +770,18 @@ input GlobalTestimonialsMutation {
   testimonialsList: [GlobalTestimonialsTestimonialsListMutation]
 }
 
+input GlobalEventsEventListEventLogosMutation {
+  title: String
+  logo: String
+}
+
 input GlobalEventsEventListMutation {
   title: String
   toggleDates: Boolean
   date: String
   toggleEndDates: Boolean
   endDate: String
+  eventLogos: [GlobalEventsEventListEventLogosMutation]
   description: JSON
   ctaLabel: String
   ctaHref: String
@@ -686,6 +794,7 @@ input GlobalEventsMutation {
 input GlobalCampsCampListMutation {
   title: String
   date: String
+  dateEnd: String
   description: JSON
   ctaLabel: String
   ctaHref: String

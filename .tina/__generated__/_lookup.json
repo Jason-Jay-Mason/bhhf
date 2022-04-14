@@ -26,7 +26,8 @@
       "centeredIconBlurb": "MainPageBlocksLongFeaturedImageBlocksCenteredIconBlurb",
       "iconListBlurb": "MainPageBlocksLongFeaturedImageBlocksIconListBlurb",
       "button": "MainPageBlocksLongFeaturedImageBlocksButton",
-      "titledIconBlurb": "MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb"
+      "titledIconBlurb": "MainPageBlocksLongFeaturedImageBlocksTitledIconBlurb",
+      "cursiveHeadline": "MainPageBlocksLongFeaturedImageBlocksCursiveHeadline"
     }
   },
   "MainPageBlocks": {
@@ -39,7 +40,9 @@
       "ctaButtons": "MainPageBlocksCtaButtons",
       "shortIconGrid": "MainPageBlocksShortIconGrid",
       "testimonialSlider": "MainPageBlocksTestimonialSlider",
-      "preFooterCta": "MainPageBlocksPreFooterCta"
+      "preFooterCta": "MainPageBlocksPreFooterCta",
+      "pricingTable": "MainPageBlocksPricingTable",
+      "featuredIconGrid": "MainPageBlocksFeaturedIconGrid"
     }
   },
   "MainPageDocument": {

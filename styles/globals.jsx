@@ -32,7 +32,7 @@ const globals = css`
     ul,
     li {
       line-height: 223%;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 300;
     }
     h1,

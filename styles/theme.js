@@ -20,6 +20,8 @@ export const colorPallet = {
     headlineGrey: "#343232",
     lineGrey: "#EEEEEE",
     heartBeige: "#E6D9C9",
+    beigeOverlay: "rgba(239, 230, 220, 0.84)",
+    rainCloudBeigeOverlay: "rgba(239, 230, 220, 0.62)",
   },
   dark: {
     saddleBeige: "#BC946C",
@@ -30,6 +32,8 @@ export const colorPallet = {
     white: "#ffffff",
     buttonBlue: "#526FBC",
     heartBeige: "#756A5F",
+    greyOverlay: "rgba(68, 68, 68, 0.78)",
+    darkGreyOverlay: "rgba(51, 49, 48, 0.54)",
   },
 };
 
@@ -54,7 +58,9 @@ export const colors = {
   lineGrey: "var(--line-grey)",
   heartBeige: "var(--heart-beige)",
   arrowButtonBeige: "var(--arrow-button)",
-  arrowButtonHoverBeige: "var( --arrow-button-hover)",
+  arrowButtonHoverBeige: "var(--arrow-button-hover)",
+  beigeOverlay: "var(--beige-overlay)",
+  rainCloudBeigeOverlay: "var(--rain-cloud-beige-overlay)",
 };
 
 export const breakPoints = {
@@ -85,7 +91,7 @@ export const fontSize = {
   med: "2.125rem",
   sml: "1.7rem",
   xsml: "1.25rem",
-  base: "17px",
+  base: "16px",
   baseSml: "14.8px",
   baseXsml: "12px",
 };
