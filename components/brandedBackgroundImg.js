@@ -21,7 +21,7 @@ const BrandedBackgroundImg = ({ src, children }) => {
   return (
     <div.brandedBackground>
       <div className="content">{children}</div>
-      <Image layout="fill" objectFit="cover" src={src} />
+      <Image layout="fill" objectFit="cover" alt="Branded horse" src={src} />
     </div.brandedBackground>
   );
 };

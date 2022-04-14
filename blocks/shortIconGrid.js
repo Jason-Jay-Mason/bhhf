@@ -73,7 +73,7 @@ const ShortIconGrid = ({ featuredIconBlurb, headline }) => {
             featuredIconBlurb.map((iconBlurb, i) => {
               return (
                 <div key={iconBlurb + i + "iconBlurb"} className="iconBlurb">
-                  <Svg src={iconBlurb.icon} />
+                  <Svg alt={"Icon representing " + iconBlurb} src={iconBlurb.icon} />
                   <h5>{iconBlurb.blurb}</h5>
                 </div>
               );

@@ -80,7 +80,7 @@ const FeaturedIconGrid = ({ standardHeadline, standardSubHeadline, backgroundIma
               iconSections.map((section) => {
                 return (
                   <div className="column">
-                    <Svg src={section.icon} />
+                    <Svg alt={"Icon representing " + section.title} src={section.icon} />
                     <h5>{section.title}</h5>
                   </div>
                 );
