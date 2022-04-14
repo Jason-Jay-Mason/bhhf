@@ -162,7 +162,7 @@ const ServiceBar = ({ services }) => {
                   <div className="service" key={service + i + "service"}>
                     <div className="image">
                       <div className="imageContainer">
-                        <Image layout="fill" objectFit="cover" src={service.serviceBarImage} height={400} quality={70} />
+                        <Image layout="fill" objectFit="cover" src={service.serviceBarImage} height={400} quality={70} alt={service.title} />
                       </div>
                     </div>
                     <h4>{service.title}</h4>

@@ -1,6 +1,7 @@
 import { styled } from "@linaria/react";
 import { css } from "linaria";
 import { spacing, breakPoints } from "../styles/theme";
+import Link from "next/link";
 //#region styles
 const button = {};
 button.clearButton = styled.button`

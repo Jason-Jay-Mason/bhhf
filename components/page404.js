@@ -28,7 +28,7 @@ const Page404 = () => {
     <Section>
       <div.page404>
         <h1>404 Not Found</h1>
-        <h2>Oops! This page doesn't exist.</h2>
+        <h2>Oops! This page doesn&apos;t exist.</h2>
         <Button href="/">Return To Home Page</Button>
       </div.page404>
     </Section>

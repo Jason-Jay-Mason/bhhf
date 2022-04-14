@@ -17,6 +17,7 @@ async function generate() {
     "content/**/*.mdx",
     "content/**/*.md",
     "content/**/*.json",
+    "!pages/contact.js",
     "!content/global",
     "!pages/_*.jsx",
     "!pages/_*.js",
@@ -41,8 +42,8 @@ async function generate() {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${pages
           .map((page) => {
-            const path = page.replace("pages/", "").replace("content/", "").replace(".js", "").replace(".mdx", "").replace(".md", "").replace(".json", "");
-            const route = path === "index" ? "" : path;
+            const path = page.replace("page/", "").replace("content/", "").replace("pages/", "").replace("contact/", "").replace(".js", "").replace(".mdx", "").replace(".md", "").replace(".json", "");
+            const route = path === "home" ? "" : path;
 
             return `
               <url>
