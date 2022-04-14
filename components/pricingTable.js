@@ -192,7 +192,7 @@ const PricingTable = ({ table }) => {
             ) : null}
           </div>
         )}
-        {table.ctaLabel && <Button>{table.ctaLabel}</Button>}
+        {table.ctaLabel && <Button href={table.ctaHref}>{table.ctaLabel}</Button>}
       </div>
     </div.pricingTable>
   );
