@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { spacing, colors, breakPoints } from "../styles/theme";
 import Image from "./image";
 
@@ -244,6 +244,11 @@ const ImageDisplay = ({ featuredImage }) => {
       return;
     }
   };
+  useEffect(() => {
+    if (!featuredImage[selectedImage]) {
+      setSelectedImage(0);
+    }
+  });
 
   return (
     <>
