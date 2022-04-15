@@ -249,7 +249,15 @@ const ImageDisplay = ({ featuredImage }) => {
     <>
       <div.imageDisplay className="image">
         <div className="imgContainer">
-          <Image src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].image : null} layout="fill" objectPosition={featuredImage && featuredImage[selectedImage].imagePosition ? featuredImage[selectedImage].imagePosition : "center"} objectFit="cover" quality={80} width={900} alt={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].title : ""} />
+          <Image
+            src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage]?.image : null}
+            layout="fill"
+            objectPosition={featuredImage && featuredImage[selectedImage]?.imagePosition ? featuredImage[selectedImage]?.imagePosition : "center"}
+            objectFit="cover"
+            quality={80}
+            width={900}
+            alt={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].title : ""}
+          />
         </div>
         {featuredImage && featuredImage.length > 1 && (
           <div className="selectionBar">
