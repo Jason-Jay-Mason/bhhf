@@ -1,11 +1,3 @@
-import { styled } from "@linaria/react";
-import { theme } from "../styles/theme";
-
-//#region styles
-const div = {};
-//#endregion
-
-const dummy = `https://res.cloudinary.com/broken-heart-horse-farm/image/upload/v1647295678/demos/demoicon_csoc2i.svg`;
 const Svg = ({ src, alt }) => {
   const checkSvg = (url) => {
     if (url && url !== "" && typeof url == "string") {

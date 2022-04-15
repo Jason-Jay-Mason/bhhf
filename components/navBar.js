@@ -8,13 +8,12 @@ import Toggle from "./toggle";
 import Hamburger from "./hamburger";
 import ModalNav from "./modelNav";
 import SubNav from "./subNav";
-import StickyNav from "./stickyNav";
 
 //#region styles
 const div = {};
 div.nav = styled.div`
   position: sticky;
-  z-index: 100;
+  z-index: 200;
   top: 0;
   display: flex;
   justify-content: center;

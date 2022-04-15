@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-//#region styles
-const div = {};
-//#endregion
-
 const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScale, priority, objectPosition }) => {
   const hasValidSource = (source) => {
     if (source && source !== null && source !== "" && typeof source === "string") {

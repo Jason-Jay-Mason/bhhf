@@ -4,7 +4,6 @@ import { breakPoints, colors, fontSize, maxMin, spacing } from "../styles/theme"
 import Section from "../components/section";
 import MainHeadline from "../components/mainHeadline";
 import Image from "../components/image";
-import { clearButtonCss } from "../components/clearButton";
 import { standardButtonCss } from "../components/standardButton";
 import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
 

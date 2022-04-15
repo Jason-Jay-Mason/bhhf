@@ -3,7 +3,7 @@ import { spacing, colors, fontSize, breakPoints } from "../styles/theme";
 import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
-const FooterMap = dynamic(() => import("./footerMap"));
+const FooterMap = dynamic(() => import("./footerMap"), { ssr: false });
 
 import Toggle from "./toggle";
 
