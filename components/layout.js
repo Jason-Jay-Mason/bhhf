@@ -3,6 +3,11 @@ import dynamic from "next/dynamic";
 const PopupVideo = dynamic(() => import("./popupVideo"), { ssr: false });
 const Footer = dynamic(() => import("./footer"), { ssr: false });
 import Seo from "./seo";
+import { styled } from "@linaria/react";
+const div = {};
+div.layout = styled.div`
+  overflow: hidden;
+`;
 
 const Layout = (props) => {
   const header = props?.data?.getGlobalDocument?.data?.header || {};
@@ -20,7 +25,7 @@ const Layout = (props) => {
       <Seo {...seo} />
       <PopupVideo />
       <NavBar businessInfo={businessInfo} header={header} />
-      {props?.children}
+      <div.layout>{props?.children}</div.layout>
       <Footer businessInfo={businessInfo} services={services} mainPageList={mainPageList} mapEnabled={mapEnabled} legal={legal} />
     </>
   );

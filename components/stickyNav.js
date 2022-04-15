@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import Link from "next/link";
 import { useState } from "react";
-import { spacing, theme } from "../styles/theme";
+import { spacing } from "../styles/theme";
 
 //#region styles
 const nav = {};
