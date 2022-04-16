@@ -36,7 +36,7 @@
     },
     "socialLinks": {
       "facebook": "http://www.facebook.com/brokenhearthorsefarm",
-      "instagram": "/",
+      "instagram": "/https://www.instagram.com/brokenhearthorse_farm/",
       "youtube": "/",
       "maps": "/",
       "linkedin": "/"
@@ -253,14 +253,14 @@
         "title": "Summer Camp June 2022 ",
         "date": "",
         "dateEnd": "",
-        "description": "Join us for Summer Camp 2022\n\n[Click Here for Details](https://brokenhearthorsefarm.getomnify.com/#!/home \"Booking Page\")\n\nDates Include:\n\nJune 6-9\n\nJune 13-16\n\nJune 20-23\n\nJune 27-30\n\nJuly 5-8\n\nJuly 11-14\n\nJuly 18-21\n\nJuly 25-28\n\nAugust 1-4\n\nAugust 8-11\n",
+        "description": "Join us for Summer Camp 2022\n\n[Click Here for Details](https://brokenhearthorsefarm.getomnify.com/#!/home)\n\nDates Include:\n\nJune 6-9\n\nJune 13-16\n\nJune 20-23\n\nJune 27-30\n\nJuly 5-8\n\nJuly 11-14\n\nJuly 18-21\n\nJuly 25-28\n\nAugust 1-4\n\nAugust 8-11\n",
         "ctaLabel": "Book Now",
         "ctaHref": "https://brokenhearthorsefarm.getomnify.com/#!/home"
       },
       {
         "title": "Winter Break Camp",
         "date": "2022-12-19T07:00:00.000Z",
-        "description": "Join Broken Heart for Winter Break Camp\n\n[Click Here for Details](https://brokenhearthorsefarm.getomnify.com/#!/home \"Booking page\")\n\nDates Include:\n\nDecember 19-22\n\nDecember 27-30\n",
+        "description": "Join Broken Heart for Winter Break Camp\n\n[Click Here for Details](https://brokenhearthorsefarm.getomnify.com/#!/home)\n\nDates Include:\n\nDecember 19-22\n\nDecember 27-30\n",
         "ctaLabel": "",
         "ctaHref": "/"
       }
