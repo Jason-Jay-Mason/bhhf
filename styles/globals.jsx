@@ -17,7 +17,7 @@ const globals = css`
     body {
       padding: 0;
       margin: 0;
-      font-family: "Open Sans", sans-serif;
+      font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     }
     body {
       overflow-x: hidden;

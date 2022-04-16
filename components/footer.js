@@ -20,7 +20,7 @@ footer.main = styled.footer`
     grid-template-columns: 1fr 1fr 1fr;
     padding: ${spacing.s195ish} 0 ${spacing.s195ish} 0;
     h4 {
-      font-family: "Noto Serif";
+      font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
       font-weight: 200;
       line-height: 100%;
       padding-bottom: ${spacing.s30ish};

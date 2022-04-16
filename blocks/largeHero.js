@@ -40,7 +40,7 @@ section.largeHero = styled.section`
     color: white;
   }
   h1 {
-    font-family: "Noto Sertif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     letter-spacing: -0.5%;
     font-size: ${fontSize.xlrg};
     max-width: 700px;
@@ -91,7 +91,7 @@ section.largeHero = styled.section`
     color: white;
     padding-top: ${spacing.s17ish};
     p {
-      font-family: "Noto Serif";
+      font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
       letter-spacing: 2px;
       font-size: ${fontSize.lrg};
       padding-left: ${spacing.s30ish};

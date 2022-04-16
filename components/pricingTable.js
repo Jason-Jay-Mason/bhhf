@@ -39,7 +39,7 @@ div.pricingTable = styled.div`
   .price,
   h5 {
     color: ${colors.textBrown};
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
   }
   h5 {
     font-size: ${fontSize.sml};
@@ -49,7 +49,7 @@ div.pricingTable = styled.div`
     line-height: 150%;
   }
   .price {
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-size: 4.5em;
     margin: 0;
     padding: 0;

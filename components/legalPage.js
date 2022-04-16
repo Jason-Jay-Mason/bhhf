@@ -18,7 +18,7 @@ div.legal = styled.div`
     margin: 0 auto;
     max-width: 1200px;
     h1 {
-      font-family: "Noto Serif";
+      font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
       font-size: ${fontSize.lrg};
       font-weight: lighter;
       padding: 0 0 ${spacing.s30ish} 0;

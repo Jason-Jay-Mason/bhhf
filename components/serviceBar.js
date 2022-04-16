@@ -11,7 +11,7 @@ div.serviceBar = styled.div`
   background-color: ${colors.white};
   max-width: ${maxMin.containerMaxWidth};
   margin: 0 auto;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
   color: ${colors.linkGrey};
   font-size: 20px;
   text-transform: uppercase;

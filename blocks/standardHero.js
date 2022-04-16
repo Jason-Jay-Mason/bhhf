@@ -27,7 +27,7 @@ section.hero = styled.section`
     }
   }
   h1 {
-    font-family: "Snell Roundhand";
+    font-family: "Snell Roundhand", "Helvetica", "Arial", sans-serif;
     font-weight: lighter;
     line-height: 135%;
     font-size: ${fontSize.xlrg};
@@ -39,7 +39,7 @@ section.hero = styled.section`
   h2 {
     margin: 0 auto;
     width: fit-content;
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-weight: lighter;
     line-height: 135%;
     letter-spacing: -0.005em;

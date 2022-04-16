@@ -33,7 +33,7 @@ div.eventCard = styled.div`
     }
   }
   h6 {
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-size: 20px;
     font-weight: bold;
     line-height: 135%;
@@ -41,7 +41,7 @@ div.eventCard = styled.div`
     padding-bottom: 7px;
   }
   span {
-    font-family: "Open Sans";
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     font-weight: 100;
   }
   .eventCardHeadline {

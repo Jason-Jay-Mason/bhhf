@@ -64,7 +64,7 @@ div.eventSection = styled.div`
     }
   }
   h4 {
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-size: ${fontSize.med};
     font-weight: lighter;
     line-height: 135%;

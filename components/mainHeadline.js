@@ -28,7 +28,7 @@ div.mainHeadline = styled.div`
     }
   }
   h3 {
-    font-family: "Snell Roundhand";
+    font-family: "Snell Roundhand", "Helvetica", "Arial", sans-serif;
     font-size: ${fontSize.lrg};
     font-weight: lighter;
     border-bottom: solid 2px #7c7c7c;
@@ -47,7 +47,7 @@ div.mainHeadline = styled.div`
     color: ${colors.saddleBeige};
   }
   h4 {
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-size: ${fontSize.lrg};
     font-weight: lighter;
     letter-spacing: 3%;

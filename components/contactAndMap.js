@@ -50,7 +50,7 @@ div.contact = styled.div`
         margin-right: ${spacing.s10ish};
       }
       h4 {
-        font-family: "Noto Serif";
+        font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
         font-weight: lighter;
         font-size: ${fontSize.med};
       }

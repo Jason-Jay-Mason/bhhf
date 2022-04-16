@@ -44,7 +44,7 @@ div.container = styled.div`
   }
   h4 {
     text-align: center;
-    font-family: "Noto Serif";
+    font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-weight: lighter;
     font-size: ${fontSize.med};
     padding-bottom: ${spacing.s45ish};

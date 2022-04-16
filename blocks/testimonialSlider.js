@@ -84,7 +84,7 @@ div.testimonialSlider = styled.div`
       padding-bottom: ${spacing.s30ish};
     }
     h5 {
-      font-family: "Noto Serif";
+      font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
       color: ${colors.textBrown};
       font-size: ${fontSize.sml};
       font-weight: lighter;
@@ -93,7 +93,7 @@ div.testimonialSlider = styled.div`
       padding-bottom: ${spacing.s10ish};
     }
     h6 {
-      font-family: "Snell Roundhand";
+      font-family: "Snell Roundhand", "Helvetica", "Arial", sans-serif;
       font-size: ${fontSize.sml};
       color: ${colors.saddleBeige};
       font-weight: lighter;

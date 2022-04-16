@@ -42,7 +42,7 @@ div.titledIconBlurb = styled.div`
       }
     }
     h5 {
-      font-family: "Noto Serif";
+      font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
       font-size: ${fontSize.xsml};
       font-weight: bold;
       letter-spacing: 3%;
@@ -52,7 +52,7 @@ div.titledIconBlurb = styled.div`
       }
     }
     h6 {
-      font-family: "Open Sans";
+      font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
       font-size: 19px;
       font-weight: 100;
       letter-spacing: 3%;

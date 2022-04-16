@@ -4,7 +4,7 @@ import { colors, fontSize, spacing } from "../styles/theme";
 //#region styles
 const h3 = {};
 h3.cursive = styled.h3`
-  font-family: "Snell Roundhand";
+  font-family: "Snell Roundhand", "Helvetica", "Arial", sans-serif;
   font-size: ${fontSize.lrg};
   color: ${colors.textBrown};
   text-align: center;
