@@ -32,6 +32,10 @@ section.hero = styled.section`
     line-height: 135%;
     font-size: ${fontSize.xlrg};
     padding-bottom: 5px;
+    border-bottom: solid 2px white;
+    width: fit-content;
+    min-width: 20%;
+    padding-left: 30px;
     @media ${breakPoints.md} {
       font-size: ${fontSize.med};
     }
@@ -45,7 +49,7 @@ section.hero = styled.section`
     letter-spacing: -0.005em;
     font-size: ${fontSize.xlrg};
     padding-bottom: ${spacing.s30ish};
-    border-top: 1px white solid;
+
     @media ${breakPoints.md} {
       font-size: ${fontSize.med};
     }

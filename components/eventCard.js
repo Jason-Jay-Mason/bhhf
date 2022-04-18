@@ -11,14 +11,16 @@ import Svg from "./renderSvg";
 const div = {};
 div.eventCard = styled.div`
   background-color: ${colors.rainCloudBeigeTwo};
-  padding: ${spacing.s45ish} ${spacing.s75ish};
+  padding: ${spacing.s45ish} ${spacing.s45ish};
   margin-bottom: ${spacing.s30ish};
   animation: fadeIn 1s;
   @media ${breakPoints.xlrg} {
-    padding: ${spacing.s45ish} ${spacing.s30ish};
+    padding: ${spacing.s45ish} ${spacing.s45ish};
   }
   @media ${breakPoints.lrg} {
     padding: ${spacing.s45ish} ${spacing.s45ish};
+    max-width: 600px;
+    margin: 0 auto ${spacing.s45ish} auto;
   }
   @media ${breakPoints.md} {
     padding: ${spacing.s45ish} ${spacing.s17ish};
@@ -32,6 +34,10 @@ div.eventCard = styled.div`
       opacity: 1;
     }
   }
+  .wrapper {
+    max-width: 530px;
+    margin: 0 auto;
+  }
   h6 {
     font-family: "Noto Serif", "Helvetica", "Arial", sans-serif;
     font-size: 20px;
@@ -44,11 +50,64 @@ div.eventCard = styled.div`
     font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     font-weight: 100;
   }
+  button {
+    cursor: pointer;
+    height: 60px;
+    padding: 0 ${spacing.s45ish};
+    background-color: ${colors.textBrown};
+    border-radius: 3px;
+    color: ${colors.white};
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    :hover {
+      opacity: 0.9;
+    }
+  }
   .eventCardHeadline {
     display: flex;
     flex-direction: row;
+    align-items: center;
     @media ${breakPoints.xlrg} {
       flex-direction: column;
+      width: 100%;
+    }
+    @media ${breakPoints.md} {
+      text-align: center;
+      justify-content: center;
+    }
+    .eventHeadlineText {
+      text-align: left;
+      @media ${breakPoints.xlrg} {
+        width: 100%;
+      }
+      @media ${breakPoints.md} {
+        text-align: center;
+        justify-content: center;
+      }
+    }
+    .ctaLeft {
+      width: 50%;
+      position: relative;
+      justify-self: flex-end;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      @media ${breakPoints.xlrg} {
+        justify-content: flex-start;
+        width: 100%;
+      }
+      @media ${breakPoints.md} {
+        text-align: center;
+        justify-content: center;
+      }
+
+      button {
+        margin: 0 0 0 10px;
+        white-space: nowrap;
+        @media ${breakPoints.xlrg} {
+          margin: ${spacing.s17ish} 0 0 0;
+        }
+      }
     }
   }
   .logos {
@@ -68,6 +127,7 @@ div.eventCard = styled.div`
       max-width: 50px;
       max-height: 50px;
       padding-left: ${spacing.s10ish};
+      filter: ${colors.iconFilter};
     }
   }
   .eventDescription {
@@ -91,24 +151,16 @@ div.eventCard = styled.div`
     height: 0;
     transition: all 0.2s ease;
   }
-  button {
-    cursor: pointer;
-    height: 60px;
-    padding: 0 ${spacing.s45ish};
-    margin-top: ${spacing.s17ish};
-    background-color: ${colors.textBrown};
-    border-radius: 3px;
-    color: ${colors.white};
-    opacity: 1;
-    transition: opacity 0.2s ease;
-    :hover {
-      opacity: 0.9;
+
+  .ctaBottom {
+    button {
+      margin-top: ${spacing.s17ish};
     }
   }
 `;
 //#endregion
 
-const EventCard = ({ event, index }) => {
+const EventCard = ({ event, index, ctaLeft }) => {
   const [expanded, setExpanded] = useState(false);
   const [readMore, setReadMore] = useState();
   const [width, _] = useWindowSize();
@@ -130,58 +182,71 @@ const EventCard = ({ event, index }) => {
   }, [width]);
   return (
     <div.eventCard expanded={expanded}>
-      <div className="eventCardHeadline">
-        <div className="eventHeadlineText">
-          <h6>{event?.title}</h6>
-          {event?.toggleDates && (
-            <span>
-              {date} {event.toggleEndDates && " - " + endDate}
-            </span>
+      <div className="wrapper">
+        <div className="eventCardHeadline">
+          <div className="eventHeadlineText">
+            <h6>{event?.title}</h6>
+            {event?.toggleDates && (
+              <span>
+                {date} {event.toggleEndDates && " - " + endDate}
+              </span>
+            )}
+          </div>
+          {event.eventLogos && (
+            <div className="logos">
+              {event.eventLogos.map((logo, i) => {
+                return (
+                  <div key={logo.title + i}>
+                    <Svg src={logo.logo} />
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {ctaLeft && (
+            <div className="ctaLeft">
+              <Link href={event.ctaHref ? event.ctaHref : "/contact"} passHref>
+                <a>
+                  <button>{event?.ctaLabel}</button>
+                </a>
+              </Link>
+            </div>
           )}
         </div>
-        {event.eventLogos && (
-          <div className="logos">
-            {event.eventLogos.map((logo, i) => {
-              return (
-                <div key={logo.title + i}>
-                  <Svg src={logo.logo} />
-                </div>
-              );
-            })}
+        {event.description && event.description.children.length > 0 && (
+          <div id={`${index + event.title}-event-card`} className="eventDescription">
+            <TinaMarkdown content={event.description} />
+          </div>
+        )}
+        {readMore ? (
+          <p
+            className="showMore"
+            onClick={() => {
+              setExpanded(!expanded);
+            }}
+          >
+            {expanded ? "show less" : "...show more"}
+          </p>
+        ) : (
+          <p
+            className="hideShowMore"
+            onClick={() => {
+              setExpanded(!expanded);
+            }}
+          >
+            {expanded ? "show less" : "...show more"}
+          </p>
+        )}
+        {event?.ctaLabel && !ctaLeft && (
+          <div className="ctaBottom">
+            <Link href={event.ctaHref ? event.ctaHref : "/contact"} passHref>
+              <a>
+                <button>{event?.ctaLabel}</button>
+              </a>
+            </Link>
           </div>
         )}
       </div>
-      {event.description && event.description.children.length > 0 && (
-        <div id={`${index + event.title}-event-card`} className="eventDescription">
-          <TinaMarkdown content={event.description} />
-        </div>
-      )}
-      {readMore ? (
-        <p
-          className="showMore"
-          onClick={() => {
-            setExpanded(!expanded);
-          }}
-        >
-          {expanded ? "show less" : "...show more"}
-        </p>
-      ) : (
-        <p
-          className="hideShowMore"
-          onClick={() => {
-            setExpanded(!expanded);
-          }}
-        >
-          {expanded ? "show less" : "...show more"}
-        </p>
-      )}
-      {event?.ctaLabel && (
-        <Link href={event.ctaHref ? event.ctaHref : "/contact"} passHref>
-          <a>
-            <button>{event?.ctaLabel}</button>
-          </a>
-        </Link>
-      )}
     </div.eventCard>
   );
 };
