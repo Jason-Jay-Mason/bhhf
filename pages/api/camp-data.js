@@ -29,6 +29,7 @@ const getCampData = async () => {
 
 const handler = async (req, res) => {
   const data = await getCampData();
+  res.setHeader("Cache-Control", "s-maxage=3600");
   res.status(200).json({ camps: data });
 };
 
