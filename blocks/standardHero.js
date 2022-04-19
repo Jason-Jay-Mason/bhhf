@@ -21,6 +21,10 @@ section.hero = styled.section`
     position: relative;
     z-index: 10;
     background-color: rgba(51, 49, 48, 0.7);
+    @media ${breakPoints.xxlrg} {
+      min-height: 540px;
+      padding: 105px 17px 120px 17px;
+    }
     @media ${breakPoints.md} {
       min-height: 300px;
       padding: 100px 17px;
