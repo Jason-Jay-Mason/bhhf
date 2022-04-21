@@ -6,7 +6,7 @@ const getCampData = async () => {
     const baseUrl = "https://app.getomnify.com/v1/businesses/22949/home.json?timezone=America%2FDenver&widget_key=";
     const data = await axios.get(baseUrl);
     if (data) {
-      const fetched = data.data.data.events || {};
+      const fetched = data.data.data.events || [];
       //make the returned data more useful for the front end
       const newArr = fetched.map((event) => {
         return {
