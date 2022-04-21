@@ -66,7 +66,7 @@ div.eventCard = styled.div`
   .eventCardHeadline {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     @media ${breakPoints.xlrg} {
       flex-direction: column;
       width: 100%;
@@ -77,6 +77,7 @@ div.eventCard = styled.div`
     }
     .eventHeadlineText {
       text-align: left;
+      width: 100%;
       @media ${breakPoints.xlrg} {
         width: 100%;
       }
@@ -111,7 +112,7 @@ div.eventCard = styled.div`
     }
   }
   .logos {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -122,10 +123,11 @@ div.eventCard = styled.div`
     }
     @media ${breakPoints.md} {
       justify-content: center;
+      margin: 0 auto;
     }
     object {
-      max-width: 50px;
-      max-height: 50px;
+      max-width: 65px;
+      max-height: 65px;
       padding-left: ${spacing.s10ish};
       filter: ${colors.iconFilter};
     }
@@ -188,13 +190,13 @@ const EventCard = ({ event, index, ctaLeft }) => {
             <h6>{event?.title}</h6>
             {event?.toggleDates && (
               <span>
-                {date} {event.toggleEndDates && " - " + endDate}
+                {date} {event?.toggleEndDates && " - " + endDate}
               </span>
             )}
           </div>
-          {event.eventLogos && (
+          {event?.eventLogos && (
             <div className="logos">
-              {event.eventLogos.map((logo, i) => {
+              {event?.eventLogos.map((logo, i) => {
                 return (
                   <div key={logo.title + i}>
                     <Svg src={logo.logo} />
@@ -205,7 +207,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
           )}
           {ctaLeft && (
             <div className="ctaLeft">
-              <Link href={event.ctaHref ? event.ctaHref : "/contact"} passHref>
+              <Link href={event?.ctaHref ? event?.ctaHref : "/contact"} passHref>
                 <a>
                   <button>{event?.ctaLabel}</button>
                 </a>
@@ -213,7 +215,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
             </div>
           )}
         </div>
-        {event.description && event.description.children.length > 0 && (
+        {event?.description && event?.description?.children?.length > 0 && (
           <div id={`${index + event.title}-event-card`} className="eventDescription">
             <TinaMarkdown content={event.description} />
           </div>
@@ -239,7 +241,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
         )}
         {event?.ctaLabel && !ctaLeft && (
           <div className="ctaBottom">
-            <Link href={event.ctaHref ? event.ctaHref : "/contact"} passHref>
+            <Link href={event?.ctaHref ? event?.ctaHref : "/contact"} passHref>
               <a>
                 <button>{event?.ctaLabel}</button>
               </a>

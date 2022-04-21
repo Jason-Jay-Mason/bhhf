@@ -112,10 +112,10 @@ const EventSection = ({ events, title, error, pageLimit, ctaLeft, globalLink }) 
   };
   const todaysDate = new Date();
   const currentEvents = events?.filter((event) => {
-    if (!event.toggleDates) {
+    if (!event?.toggleDates) {
       return event;
     }
-    if (event.toggleEndDates) {
+    if (event?.toggleEndDates) {
       const eventEnd = new Date(event?.endDate);
       if (todaysDate < eventEnd) {
         return event;
