@@ -4,6 +4,7 @@ const TinaCMS = dynamic(() => import("tinacms"), { ssr: false });
 import Layout from "../components/layout";
 import { PopupProvider } from "../hooks/usePopUpModal";
 import { ThemeProvider } from "../hooks/useTheme";
+import Script from "next/script";
 //#region Exporting global styles
 import globalcss from "../styles/globals";
 export const globalStyles = globalcss;
@@ -85,6 +86,16 @@ const App = ({ Component, pageProps }) => {
         </TinaCMS>
       }
     >
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-QN8N9XDXLE" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PC9G2RF');
+        `}
+      </Script>
       <PopupProvider>
         <ThemeProvider>
           <Layout {...pageProps}>
