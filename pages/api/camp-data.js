@@ -47,7 +47,7 @@ const getCampData = async () => {
         }
       }
 
-      return final;
+      return newArr;
     }
     //return null if data doesn't exist
     return null;
