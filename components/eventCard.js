@@ -168,6 +168,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
   const [width, _] = useWindowSize();
   const date = moment(event?.date).format("LL");
   const endDate = moment(event?.endDate).format("LL");
+
   useEffect(() => {
     const handler = setTimeout(() => {
       let element = document.getElementById(`${index + event.title}-event-card`);
@@ -182,6 +183,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
     }, 100);
     return () => clearTimeout(handler);
   }, [width]);
+
   return (
     <div.eventCard expanded={expanded}>
       <div className="wrapper">

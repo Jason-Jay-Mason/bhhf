@@ -20,13 +20,52 @@ div.events = styled.div`
 `;
 //#endregion
 
-const fetchFunc = (input, init) => {
-  return fetch(input, init).then((res) => res.json());
+//A function to reorder camps by date before returned from the fetch function
+const orderCamps = (camps) => {
+  // Convert date string to an int for each camp
+  const newArr = camps?.map((camp) => {
+    let num = parseInt(camp?.date?.replaceAll("-", ""));
+    return {
+      ...camp,
+      dateNum: num,
+    };
+  });
+  //reorder the array by date
+  let ordered = {};
+  let final = [];
+  for (let i = 0; i < newArr.length; i++) {
+    if (ordered[newArr[i].dateNum]) {
+      if (ordered[newArr[i].dateNum].length) {
+        ordered[newArr[i].dateNum] = [...ordered[newArr[i].dateNum], newArr[i]];
+      }
+      ordered[newArr[i].dateNum] = [ordered[newArr[i].dateNum], newArr[i]];
+    } else {
+      ordered[newArr[i].dateNum] = newArr[i];
+    }
+  }
+  let keys = Object.keys(ordered);
+  for (let j = 0; j < keys.length; j++) {
+    if (ordered[keys[j]].length) {
+      ordered[keys[j]].forEach((element) => {
+        final.push(element);
+      });
+    } else {
+      final.push(ordered[keys[j]]);
+    }
+  }
+  return final;
+};
+
+const fetchFunc = async (input, init) => {
+  const data = await fetch(input, init);
+  const dataJson = await data.json();
+  const final = orderCamps(dataJson.camps);
+  return final;
 };
 
 const Events = ({ events: { eventList } }) => {
   const { data, error } = useSWR("/api/camp-data", fetchFunc);
-  const campData = data?.camps;
+  const campData = data;
   const campPage = "https://brokenhearthorsefarm.getomnify.com/#!/home";
   return (
     <Section>
