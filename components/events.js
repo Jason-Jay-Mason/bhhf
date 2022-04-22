@@ -23,13 +23,13 @@ div.events = styled.div`
 //A function to reorder camps by date before returned from the fetch function
 const orderCamps = (camps) => {
   // Convert date string to an int for each camp
+
   const newArr = camps?.map((camp) => {
-    let num = parseInt(camp?.date?.replaceAll("-", ""));
-    return {
-      ...camp,
-      dateNum: num,
-    };
+    let num = parseInt(camp.date.replace(/-/g, ""));
+    camp.dateNum = num;
+    return camp;
   });
+
   //reorder the array by date
   let ordered = {};
   let final = [];
@@ -57,21 +57,19 @@ const orderCamps = (camps) => {
 };
 
 const fetchFunc = async (input, init) => {
-  const data = await fetch(input, init);
-  const dataJson = await data.json();
-  const final = orderCamps(dataJson.camps);
-  return final;
+  const final = await fetch(input, init).then((data) => data.json());
+  return orderCamps(final?.camps);
 };
 
 const Events = ({ events: { eventList } }) => {
   const { data, error } = useSWR("/api/camp-data", fetchFunc);
-  const campData = data;
+
   const campPage = "https://brokenhearthorsefarm.getomnify.com/#!/home";
   return (
     <Section>
       <div.events>
         <EventSection title={"Upcoming Events"} events={eventList} pageLimit={2} />
-        <EventSection title={"Upcoming Camps"} events={campData} ctaButton={true} error={error} pageLimit={3} ctaLeft={true} globalLink={campPage} />
+        <EventSection title={"Upcoming Camps"} events={data} ctaButton={true} error={error} pageLimit={3} ctaLeft={true} globalLink={campPage} />
       </div.events>
     </Section>
   );
