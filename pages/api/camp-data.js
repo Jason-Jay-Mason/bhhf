@@ -23,30 +23,6 @@ const getCampData = async () => {
         };
       });
 
-      //make the final array ordered by start date (without deleting camps on the same date)
-      let ordered = {};
-      let final = [];
-      for (let i = 0; i < newArr.length; i++) {
-        if (ordered[newArr[i].dateNum]) {
-          if (ordered[newArr[i].dateNum].length) {
-            ordered[newArr[i].dateNum] = [...ordered[newArr[i].dateNum], newArr[i]];
-          }
-          ordered[newArr[i].dateNum] = [ordered[newArr[i].dateNum], newArr[i]];
-        } else {
-          ordered[newArr[i].dateNum] = newArr[i];
-        }
-      }
-      let keys = Object.keys(ordered);
-      for (let j = 0; j < keys.length; j++) {
-        if (ordered[keys[j]].length) {
-          ordered[keys[j]].forEach((element) => {
-            final.push(element);
-          });
-        } else {
-          final.push(ordered[keys[j]]);
-        }
-      }
-
       return newArr;
     }
     //return null if data doesn't exist
