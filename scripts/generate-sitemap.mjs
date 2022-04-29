@@ -47,7 +47,7 @@ async function generate() {
 
             return `
               <url>
-                  <loc>${`https://brokenhearthorsefarm.com/${route}`}</loc>
+                  <loc>${`https://www.brokenhearthorsefarm.com/${route}`}</loc>
                   <lastmod>${new Date().toISOString()}</lastmod>
                   <changefreq>monthly</changefreq>
               </url>
