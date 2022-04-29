@@ -78,7 +78,7 @@ const MyImage = ({ src, height, width, objectFit, alt, layout, quality, greyScal
   const [imgSrc, setImgSrc] = useState(webpPrimary);
   useEffect(() => {
     setImgSrc(webpPrimary);
-  }, [src]);
+  }, [src, webpPrimary]);
 
   return (
     <Image

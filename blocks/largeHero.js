@@ -4,7 +4,7 @@ import { breakPoints, fontSize, spacing } from "../styles/theme";
 import Image from "../components/image";
 import ServiceBar from "../components/serviceBar";
 import { useSetPopupSource, usePopupToggle } from "../hooks/usePopUpModal";
-import { isDesktop } from "react-device-detect";
+/* import { isDesktop } from "react-device-detect"; */
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 //#region styles
 const section = {};
@@ -117,7 +117,6 @@ section.largeHero = styled.section`
     filter: saturate(70%) brightness(110%);
   }
 `;
-const desktopImage = css``;
 //#endregion
 
 const LargeHero = ({ desktopBackgroundPosition, services, backgroundImageAltDesktop, backgroundImageAltMobile, backgroundImageSourceDesktop, backgroundImageSourceMobile, backgroundVideoSource, headline, richHook, popupVideoActive, popupVideoButtonLabel, popupVideoButtonSource, serviceBarActive, videoBackgroundActive }) => {
@@ -145,17 +144,18 @@ const LargeHero = ({ desktopBackgroundPosition, services, backgroundImageAltDesk
             </div>
           ) : null}
         </div>
-        {videoBackgroundActive ? (
+        <Image priority={true} className="desktopImage" layout="fill" objectFit="cover" width={1440} quality={40} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+        {/*         {videoBackgroundActive ? (
           isDesktop ? (
             <video src={backgroundVideoSource} autoPlay loop />
           ) : (
             <Image layout="fill" objectFit="cover" width={600} quality={90} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
           )
         ) : isDesktop ? (
-          <Image className="desktopImage" layout="fill" objectFit="cover" width={1600} quality={85} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
+          <Image className="desktopImage" layout="fill" objectFit="cover" width={1200} quality={85} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceDesktop} alt={backgroundImageAltDesktop} />
         ) : (
           <Image layout="fill" objectFit="cover" width={600} quality={80} objectPosition={desktopBackgroundPosition ? desktopBackgroundPosition : "center"} src={backgroundImageSourceMobile} alt={backgroundImageAltMobile} />
-        )}
+        )} */}
       </section.largeHero>
       {serviceBarActive && services && <ServiceBar services={services} />}
     </>

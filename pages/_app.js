@@ -86,7 +86,7 @@ const App = ({ Component, pageProps }) => {
         </TinaCMS>
       }
     >
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-QN8N9XDXLE" strategy="afterInteractive" />
+      <Script rel="preconnect" src="https://www.googletagmanager.com/gtag/js?id=G-QN8N9XDXLE" strategy="afterInteractive" async="true" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

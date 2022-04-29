@@ -248,7 +248,7 @@ const ImageDisplay = ({ featuredImage }) => {
     if (!featuredImage[selectedImage]) {
       setSelectedImage(0);
     }
-  });
+  }, [featuredImage, selectedImage]);
 
   return (
     <>

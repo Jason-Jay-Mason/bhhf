@@ -171,7 +171,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      let element = document.getElementById(`${index + event.title}-event-card`);
+      let element = document.getElementById(`${index + event?.title}-event-card`);
       if (element === null) {
         return;
       }
@@ -182,7 +182,7 @@ const EventCard = ({ event, index, ctaLeft }) => {
       }
     }, 100);
     return () => clearTimeout(handler);
-  }, [width]);
+  }, [width, index, event?.title]);
 
   return (
     <div.eventCard expanded={expanded}>
