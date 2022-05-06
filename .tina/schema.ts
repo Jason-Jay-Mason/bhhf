@@ -1,139 +1,140 @@
-import { defineSchema } from "@tinacms/cli";
-import type { TinaTemplate, TinaField } from "@tinacms/cli";
+import { defineSchema } from '@tinacms/cli'
+import type { TinaTemplate, TinaField } from '@tinacms/cli'
 
-const businessName = "Broken Heart";
+const businessName = 'Broken Heart'
 
 const plugins = {
-  labeledList: "labeled-group-list",
-};
+  labeledList: 'labeled-group-list',
+}
 //#region reusable fields
 const cta: TinaField[] = [
   {
-    type: "string",
-    name: "ctaLabel",
-    label: "Call To Action Label",
+    type: 'string',
+    name: 'ctaLabel',
+    label: 'Call To Action Label',
   },
   {
-    type: "string",
-    name: "ctaHref",
-    label: "Call To Action Href",
-    description: "When somebody clicks the Call To Action, it will go to this location.",
+    type: 'string',
+    name: 'ctaHref',
+    label: 'Call To Action Href',
+    description:
+      'When somebody clicks the Call To Action, it will go to this location.',
   },
-];
+]
 const standardHeadlineFields: TinaField[] = [
   {
-    type: "string",
-    name: "standardSubHeadline",
-    label: "Sub Headline",
+    type: 'string',
+    name: 'standardSubHeadline',
+    label: 'Sub Headline',
   },
   {
-    type: "string",
-    name: "standardHeadline",
-    label: "Headline",
+    type: 'string',
+    name: 'standardHeadline',
+    label: 'Headline',
   },
-];
+]
 const seo: TinaField = {
-  type: "object",
-  label: "SEO",
-  name: "seo",
+  type: 'object',
+  label: 'SEO',
+  name: 'seo',
   ui: {
-    component: "group",
+    component: 'group',
   },
   fields: [
     {
-      type: "string",
-      label: "Title",
-      description: "50-60 characters",
-      name: "title",
+      type: 'string',
+      label: 'Title',
+      description: '50-60 characters',
+      name: 'title',
     },
     {
-      type: "string",
-      label: "Description",
-      description: "155-160 characters",
-      name: "description",
+      type: 'string',
+      label: 'Description',
+      description: '155-160 characters',
+      name: 'description',
       ui: {
-        component: "textarea",
+        component: 'textarea',
       },
     },
     {
-      type: "image",
-      label: "Image",
-      name: "image",
+      type: 'image',
+      label: 'Image',
+      name: 'image',
     },
     {
-      type: "boolean",
-      label: "No Follow",
-      name: "noFollow",
+      type: 'boolean',
+      label: 'No Follow',
+      name: 'noFollow',
     },
     {
-      type: "boolean",
-      label: "No Index",
-      name: "noIndex",
+      type: 'boolean',
+      label: 'No Index',
+      name: 'noIndex',
     },
   ],
-};
+}
 
 //#region legal document fields
 const legalFields: TinaField[] = [
   {
-    type: "string",
-    label: "Legal Page Title",
-    name: "legalPageTitle",
+    type: 'string',
+    label: 'Legal Page Title',
+    name: 'legalPageTitle',
   },
   {
-    type: "rich-text",
-    label: "Legal Page Title",
-    name: "body",
+    type: 'rich-text',
+    label: 'Legal Page Title',
+    name: 'body',
     isBody: true,
   },
   seo,
-];
+]
 //#endregion legal document fields
 //#endregion reusable fields
 
 //#region Contact page fields
 const contactFields: TinaField[] = [
   {
-    type: "string",
-    name: "subHeadline",
-    label: "Sub Headline",
+    type: 'string',
+    name: 'subHeadline',
+    label: 'Sub Headline',
   },
   {
-    type: "string",
-    name: "headline",
-    label: "Headline",
+    type: 'string',
+    name: 'headline',
+    label: 'Headline',
   },
   {
-    type: "string",
-    name: "hook",
-    label: "Hook",
+    type: 'string',
+    name: 'hook',
+    label: 'Hook',
   },
   {
-    type: "image",
-    name: "backgroundImage",
-    label: "Background image",
+    type: 'image',
+    name: 'backgroundImage',
+    label: 'Background image',
   },
   {
-    type: "string",
-    name: "desktopBackgroundPosition",
-    label: "Desktop Background Position",
-    options: ["center", "top", "bottom"],
+    type: 'string',
+    name: 'desktopBackgroundPosition',
+    label: 'Desktop Background Position',
+    options: ['center', 'top', 'bottom'],
     ui: {
-      component: "select",
+      component: 'select',
     },
   },
   {
-    type: "string",
-    name: "backgroundImageAlt",
-    label: "Background image description",
+    type: 'string',
+    name: 'backgroundImageAlt',
+    label: 'Background image description',
   },
   {
-    type: "image",
-    name: "backgroundImageMobile",
-    label: "Background image mobile",
+    type: 'image',
+    name: 'backgroundImageMobile',
+    label: 'Background image mobile',
   },
   seo,
-];
+]
 
 //#endregion contact page fields
 
@@ -141,112 +142,112 @@ const contactFields: TinaField[] = [
 
 //#region Featured Icon Grid
 const featuredIconGrid: TinaTemplate = {
-  name: "featuredIconGrid",
-  label: "Featured Icon Grid",
+  name: 'featuredIconGrid',
+  label: 'Featured Icon Grid',
   fields: [
     ...standardHeadlineFields,
     {
-      type: "image",
-      name: "backgroundImageSrc",
-      label: "Background Image",
+      type: 'image',
+      name: 'backgroundImageSrc',
+      label: 'Background Image',
     },
     {
-      type: "string",
-      name: "maxColumns",
-      label: "Max Columns",
-      options: ["1", "2", "3", "4"],
+      type: 'string',
+      name: 'maxColumns',
+      label: 'Max Columns',
+      options: ['1', '2', '3', '4'],
       ui: {
-        component: "select",
+        component: 'select',
       },
     },
     {
-      type: "object",
-      name: "iconSections",
-      label: "Icon Sections",
+      type: 'object',
+      name: 'iconSections',
+      label: 'Icon Sections',
       list: true,
       ui: {
-        component: "labeled-group-list",
+        component: 'labeled-group-list',
       },
       fields: [
         {
-          type: "string",
-          name: "title",
-          label: "Title",
+          type: 'string',
+          name: 'title',
+          label: 'Title',
         },
         {
-          type: "image",
-          name: "icon",
-          label: "Icon (SVG file type only please!)",
+          type: 'image',
+          name: 'icon',
+          label: 'Icon (SVG file type only please!)',
         },
       ],
     },
   ],
-};
+}
 //#endregion
 
 //#region pricing table
 const pricingTable: TinaTemplate = {
-  name: "pricingTable",
-  label: "Pricing Table",
+  name: 'pricingTable',
+  label: 'Pricing Table',
   fields: [
     ...standardHeadlineFields,
     {
-      type: "object",
-      name: "tableSections",
-      label: "Table Sections",
+      type: 'object',
+      name: 'tableSections',
+      label: 'Table Sections',
       list: true,
       ui: {
-        component: "labeled-group-list",
+        component: 'labeled-group-list',
       },
       fields: [
         {
-          type: "string",
-          name: "title",
-          label: "Title",
+          type: 'string',
+          name: 'title',
+          label: 'Title',
         },
         {
-          type: "object",
-          name: "tables",
-          label: "Tables",
+          type: 'object',
+          name: 'tables',
+          label: 'Tables',
           list: true,
           ui: {
-            component: "labeled-group-list",
+            component: 'labeled-group-list',
           },
           fields: [
             {
-              type: "string",
-              name: "title",
-              label: "Title",
+              type: 'string',
+              name: 'title',
+              label: 'Title',
             },
             {
-              type: "number",
-              name: "price",
-              label: "Price",
+              type: 'number',
+              name: 'price',
+              label: 'Price',
             },
             {
-              type: "string",
-              name: "description",
-              label: "Description",
+              type: 'string',
+              name: 'description',
+              label: 'Description',
             },
             {
-              type: "string",
-              name: "attention",
-              label: "Attention Text",
+              type: 'string',
+              name: 'attention',
+              label: 'Attention Text',
             },
             ...cta,
             {
-              type: "object",
-              name: "features",
-              label: "Features",
+              type: 'object',
+              name: 'features',
+              label: 'Features',
               list: true,
               ui: {
-                component: "labeled-group-list",
+                component: 'labeled-group-list',
               },
               fields: [
                 {
-                  type: "string",
-                  name: "title",
-                  label: "Feature",
+                  type: 'string',
+                  name: 'title',
+                  label: 'Feature',
                 },
               ],
             },
@@ -255,885 +256,938 @@ const pricingTable: TinaTemplate = {
       ],
     },
   ],
-};
+}
 //#endregion pricing table
 
 //#region pre footer cta
 
 const preFooterCta: TinaTemplate = {
-  name: "preFooterCta",
-  label: "Pre Footer CTA",
+  name: 'preFooterCta',
+  label: 'Pre Footer CTA',
   fields: [
     ...standardHeadlineFields,
     {
-      type: "string",
-      name: "hook",
-      label: "Hook",
+      type: 'string',
+      name: 'hook',
+      label: 'Hook',
       ui: {
-        component: "textarea",
+        component: 'textarea',
       },
     },
     {
-      type: "string",
-      name: "mainCallToActionLabel",
-      label: "Main call to action  Label",
+      type: 'string',
+      name: 'mainCallToActionLabel',
+      label: 'Main call to action  Label',
     },
     {
-      type: "string",
-      name: "mainCallToActionHref",
-      label: "Main call to action Href",
-      description: "The location a user will be brought to when the CTA is clicked.",
+      type: 'string',
+      name: 'mainCallToActionHref',
+      label: 'Main call to action Href',
+      description:
+        'The location a user will be brought to when the CTA is clicked.',
     },
   ],
-};
+}
 
 //#endregion pre footer cta
 
 //#region testimonial slider
 const testimonialSlider: TinaTemplate = {
-  name: "testimonialSlider",
-  label: "Testimonial Slider",
+  name: 'testimonialSlider',
+  label: 'Testimonial Slider',
   fields: [...standardHeadlineFields],
-};
+}
 //#endregion testimonal slider
 
 //#region Short Icon Grid
 const featuredIconBlurb: TinaField = {
-  type: "object",
-  name: "featuredIconBlurb",
-  label: "Featured Icon Blurb",
+  type: 'object',
+  name: 'featuredIconBlurb',
+  label: 'Featured Icon Blurb',
   list: true,
   ui: {
-    component: "labeled-group-list",
+    component: 'labeled-group-list',
   },
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Title",
+      type: 'string',
+      name: 'title',
+      label: 'Title',
     },
     {
-      type: "image",
-      name: "icon",
-      label: "Icon",
+      type: 'image',
+      name: 'icon',
+      label: 'Icon',
     },
     {
-      type: "string",
-      name: "blurb",
-      label: "Short Blurb",
+      type: 'string',
+      name: 'blurb',
+      label: 'Short Blurb',
       ui: {
-        component: "textarea",
+        component: 'textarea',
       },
     },
   ],
-};
+}
 
 const shortIconGridFields: TinaField[] = [
   {
-    type: "string",
-    name: "headline",
-    label: "Headline",
-    description: "Leave blank to deactivate headline",
+    type: 'string',
+    name: 'headline',
+    label: 'Headline',
+    description: 'Leave blank to deactivate headline',
   },
   featuredIconBlurb,
-];
+]
 
 const shortIconGrid: TinaTemplate = {
-  name: "shortIconGrid",
-  label: "Short Icon Grid",
+  name: 'shortIconGrid',
+  label: 'Short Icon Grid',
   fields: [...shortIconGridFields],
-};
+}
 //#endregion short icon grid
 
 //#region CTA button section block
 const ctaButtons: TinaTemplate = {
-  name: "ctaButtons",
-  label: "CTA Button Section",
+  name: 'ctaButtons',
+  label: 'CTA Button Section',
   fields: [
     {
-      type: "string",
-      name: "mainCallToActionLabel",
-      label: "Main call to action  Label",
+      type: 'string',
+      name: 'mainCallToActionLabel',
+      label: 'Main call to action  Label',
     },
     {
-      type: "string",
-      name: "mainCallToActionHref",
-      label: "Main call to action Href",
-      description: "The location a user will be brought to when the CTA is clicked.",
+      type: 'string',
+      name: 'mainCallToActionHref',
+      label: 'Main call to action Href',
+      description:
+        'The location a user will be brought to when the CTA is clicked.',
     },
     {
-      type: "string",
-      name: "secondaryCallToActionLabel",
-      label: "Secondary call to action Label",
-      description: "Leave blank to disable",
+      type: 'string',
+      name: 'secondaryCallToActionLabel',
+      label: 'Secondary call to action Label',
+      description: 'Leave blank to disable',
     },
     {
-      type: "boolean",
-      name: "secondaryCallToActionVideoActive",
-      label: "Secondary call to action video popup",
-      description: "When this is activated, a video pop will occur when the button is clicked.",
+      type: 'boolean',
+      name: 'secondaryCallToActionVideoActive',
+      label: 'Secondary call to action video popup',
+      description:
+        'When this is activated, a video pop will occur when the button is clicked.',
     },
     {
-      type: "string",
-      name: "secondaryCallToActionHrefOrSource",
-      label: "Secondary call to action href or video source",
-      description: "If video is activated, paste the video embedded source, if not, input the buttons link (location).",
+      type: 'string',
+      name: 'secondaryCallToActionHrefOrSource',
+      label: 'Secondary call to action href or video source',
+      description:
+        'If video is activated, paste the video embedded source, if not, input the buttons link (location).',
     },
     {
-      type: "string",
-      name: "backgroundColor",
-      label: "Background Color",
-      options: ["None", "White", "Rain Cloud Beige", "Rain Cloud Beige 2"],
+      type: 'string',
+      name: 'backgroundColor',
+      label: 'Background Color',
+      options: ['None', 'White', 'Rain Cloud Beige', 'Rain Cloud Beige 2'],
       ui: {
-        component: "select",
+        component: 'select',
       },
     },
   ],
-};
+}
 //#endregion CTA button section block
 
 //#region long form featured image
 
 const cursiveHeadline: TinaTemplate = {
-  name: "cursiveHeadline",
-  label: "Cursive Headline",
+  name: 'cursiveHeadline',
+  label: 'Cursive Headline',
   fields: [
     {
-      type: "string",
-      name: "headline",
-      label: "Cursive Headline",
+      type: 'string',
+      name: 'headline',
+      label: 'Cursive Headline',
     },
   ],
-};
+}
 
 const twoColumnText: TinaField = {
-  type: "rich-text",
-  name: "twoColumnText",
-  label: "Two Column Body Text",
-  description: "Leave blank to deactivate",
-};
+  type: 'rich-text',
+  name: 'twoColumnText',
+  label: 'Two Column Body Text',
+  description: 'Leave blank to deactivate',
+}
 const centeredIconBlurb: TinaTemplate = {
-  name: "centeredIconBlurb",
-  label: "Centered Icon Blurb",
+  name: 'centeredIconBlurb',
+  label: 'Centered Icon Blurb',
   fields: [
     {
-      type: "image",
-      name: "icon",
-      label: "Icon (SVG file type only please!)",
+      type: 'image',
+      name: 'icon',
+      label: 'Icon (SVG file type only please!)',
     },
     {
-      type: "string",
-      name: "iconAlt",
-      label: "Icon description (for SEO)",
+      type: 'string',
+      name: 'iconAlt',
+      label: 'Icon description (for SEO)',
     },
     {
-      type: "rich-text",
-      name: "text",
-      label: "Text",
+      type: 'rich-text',
+      name: 'text',
+      label: 'Text',
     },
   ],
-};
+}
 const iconListBlurb: TinaTemplate = {
-  name: "iconListBlurb",
-  label: "Icon List Blurb",
+  name: 'iconListBlurb',
+  label: 'Icon List Blurb',
   fields: [
     {
-      type: "object",
-      name: "iconList",
-      label: "Icon List (SVG file type only please!)",
+      type: 'object',
+      name: 'iconList',
+      label: 'Icon List (SVG file type only please!)',
       list: true,
       ui: {
-        component: "labeled-group-list",
+        component: 'labeled-group-list',
       },
       fields: [
         {
-          type: "string",
-          name: "title",
-          label: "Icon Alt Text",
+          type: 'string',
+          name: 'title',
+          label: 'Icon Alt Text',
         },
         {
-          type: "image",
-          name: "icon",
-          label: "Icon (SVG file type only please!)",
+          type: 'image',
+          name: 'icon',
+          label: 'Icon (SVG file type only please!)',
         },
       ],
     },
     {
-      type: "rich-text",
-      name: "text",
-      label: "Text",
+      type: 'rich-text',
+      name: 'text',
+      label: 'Text',
     },
   ],
-};
+}
 const longFormFeaturedImageButton: TinaTemplate = {
-  name: "button",
-  label: "Button",
+  name: 'button',
+  label: 'Button',
   fields: [
     {
-      type: "string",
-      name: "label",
-      label: "Button Label",
+      type: 'string',
+      name: 'label',
+      label: 'Button Label',
     },
     {
-      type: "string",
-      name: "href",
-      label: "Button Href",
-      description: "When the button is clicked the user will go to this location.",
+      type: 'string',
+      name: 'href',
+      label: 'Button Href',
+      description:
+        'When the button is clicked the user will go to this location.',
     },
   ],
-};
+}
 const titledIconBlurb: TinaTemplate = {
-  name: "titledIconBlurb",
-  label: "Titled Icon Blurb",
+  name: 'titledIconBlurb',
+  label: 'Titled Icon Blurb',
   fields: [
     {
-      type: "image",
-      name: "icon",
-      label: "Icon (SVG file type only please!)",
+      type: 'image',
+      name: 'icon',
+      label: 'Icon (SVG file type only please!)',
     },
     {
-      type: "string",
-      name: "iconAlt",
-      label: "Icon description (for SEO)",
+      type: 'string',
+      name: 'iconAlt',
+      label: 'Icon description (for SEO)',
     },
     {
-      type: "string",
-      name: "Headline",
-      label: "Headline",
+      type: 'string',
+      name: 'Headline',
+      label: 'Headline',
     },
     {
-      type: "string",
-      name: "subHeadline",
-      label: "Sub Headline",
+      type: 'string',
+      name: 'subHeadline',
+      label: 'Sub Headline',
     },
     {
-      type: "rich-text",
-      name: "blurb",
-      label: "Blurb",
+      type: 'rich-text',
+      name: 'blurb',
+      label: 'Blurb',
     },
   ],
-};
+}
 const longFormFeaturedImageFields: TinaField[] = [
   ...standardHeadlineFields,
   twoColumnText,
   {
-    type: "object",
-    name: "featuredImage",
-    label: "Featured Image(s)",
+    type: 'object',
+    name: 'featuredImage',
+    label: 'Featured Image(s)',
     list: true,
-    description: "Adding more than one image will activate slider functionality",
+    description:
+      'Adding more than one image will activate slider functionality',
     ui: {
-      component: "labeled-group-list",
+      component: 'labeled-group-list',
     },
     fields: [
       {
-        type: "image",
-        name: "image",
-        label: "Image",
+        type: 'image',
+        name: 'image',
+        label: 'Image',
       },
       {
-        type: "string",
-        name: "title",
-        label: "Featured Image Description (for SEO)",
+        type: 'string',
+        name: 'title',
+        label: 'Featured Image Description (for SEO)',
       },
       {
-        type: "string",
-        name: "imagePosition",
-        label: "Image Position",
-        options: ["center", "top", "bottom"],
+        type: 'string',
+        name: 'imagePosition',
+        label: 'Image Position',
+        options: ['center', 'top', 'bottom'],
         ui: {
-          component: "select",
+          component: 'select',
         },
       },
     ],
   },
   {
-    type: "boolean",
-    name: "featuredImageRightActive",
-    label: "Featured image left vs right",
+    type: 'boolean',
+    name: 'featuredImageRightActive',
+    label: 'Featured image left vs right',
   },
   {
-    type: "object",
-    name: "blocks",
-    label: "Featured Sections",
+    type: 'object',
+    name: 'blocks',
+    label: 'Featured Sections',
     list: true,
-    templates: [centeredIconBlurb, iconListBlurb, longFormFeaturedImageButton, titledIconBlurb, cursiveHeadline],
+    templates: [
+      centeredIconBlurb,
+      iconListBlurb,
+      longFormFeaturedImageButton,
+      titledIconBlurb,
+      cursiveHeadline,
+    ],
   },
   {
-    type: "string",
-    name: "backgroundColor",
-    label: "Background Color",
-    options: ["Rain Cloud Beige", "Rain Cloud Beige 2"],
+    type: 'string',
+    name: 'backgroundColor',
+    label: 'Background Color',
+    options: ['Rain Cloud Beige', 'Rain Cloud Beige 2'],
     ui: {
-      component: "select",
+      component: 'select',
     },
   },
   {
-    type: "boolean",
-    name: "bottomPaddingActive",
-    label: "Activate bottom margin",
+    type: 'boolean',
+    name: 'bottomPaddingActive',
+    label: 'Activate bottom margin',
   },
-];
+]
 const longFeaturedImage: TinaTemplate = {
-  name: "longFeaturedImage",
-  label: "Long Form Featured Image",
+  name: 'longFeaturedImage',
+  label: 'Long Form Featured Image',
   fields: [...longFormFeaturedImageFields],
-};
+}
 //#endregion long form featured image
 
 //#region Standard hero
 const heroFields: TinaField[] = [
   {
-    type: "string",
-    name: "subHeadline",
-    label: "Sub Headline",
+    type: 'string',
+    name: 'subHeadline',
+    label: 'Sub Headline',
   },
   {
-    type: "string",
-    name: "headline",
-    label: "Headline",
+    type: 'string',
+    name: 'headline',
+    label: 'Headline',
   },
   {
-    type: "string",
-    name: "hook",
-    label: "Hook",
+    type: 'string',
+    name: 'hook',
+    label: 'Hook',
     ui: {
-      component: "textarea",
+      component: 'textarea',
     },
   },
   {
-    type: "image",
-    name: "backgroundImage",
-    label: "Background Image",
+    type: 'image',
+    name: 'backgroundImage',
+    label: 'Background Image',
   },
   {
-    type: "string",
-    name: "desktopBackgroundPosition",
-    label: "Desktop Background Position",
-    options: ["center", "top", "bottom"],
+    type: 'string',
+    name: 'desktopBackgroundPosition',
+    label: 'Desktop Background Position',
+    options: ['center', 'top', 'bottom'],
     ui: {
-      component: "select",
+      component: 'select',
     },
   },
   {
-    type: "image",
-    name: "backgroundImageMobile",
-    label: "Background Image Mobile",
+    type: 'image',
+    name: 'backgroundImageMobile',
+    label: 'Background Image Mobile',
   },
   {
-    type: "string",
-    name: "backgroundImageAlt",
-    label: "Background Image Description",
+    type: 'string',
+    name: 'backgroundImageAlt',
+    label: 'Background Image Description',
   },
   {
-    type: "boolean",
-    name: "ctaActive",
-    label: "Activate Call To Action Button",
+    type: 'boolean',
+    name: 'ctaActive',
+    label: 'Activate Call To Action Button',
   },
   ...cta,
-];
+]
 const hero: TinaTemplate = {
-  name: "hero",
-  label: "Hero",
+  name: 'hero',
+  label: 'Hero',
   fields: [...heroFields],
-};
+}
 //#endregion standard hero
 
 //#region Large hero
 const largeHeroFields: TinaField[] = [
   {
-    type: "string",
-    name: "headline",
-    label: "Headline",
+    type: 'string',
+    name: 'headline',
+    label: 'Headline',
   },
   {
-    type: "rich-text",
-    name: "richHook",
-    label: "Hook",
+    type: 'rich-text',
+    name: 'richHook',
+    label: 'Hook',
   },
   {
-    type: "boolean",
-    name: "popupVideoActive",
-    label: "Active popup video button",
+    type: 'boolean',
+    name: 'popupVideoActive',
+    label: 'Active popup video button',
   },
   {
-    type: "string",
-    name: "popupVideoButtonLabel",
-    label: "Popup video button label",
+    type: 'string',
+    name: 'popupVideoButtonLabel',
+    label: 'Popup video button label',
   },
   {
-    type: "string",
-    name: "popupVideoButtonSource",
-    label: "Popup video button source",
-    description: "Paste the iframe video link (not the entire iframe code) here.",
+    type: 'string',
+    name: 'popupVideoButtonSource',
+    label: 'Popup video button source',
+    description:
+      'Paste the iframe video link (not the entire iframe code) here.',
   },
   {
-    type: "boolean",
-    name: "serviceBarActive",
-    label: "Activate Service Bar",
-    description: "Services are edited in the Global Menu",
+    type: 'boolean',
+    name: 'serviceBarActive',
+    label: 'Activate Service Bar',
+    description: 'Services are edited in the Global Menu',
   },
   {
-    type: "boolean",
-    name: "videoBackgroundActive",
-    label: "Activate background video functionality",
+    type: 'boolean',
+    name: 'videoBackgroundActive',
+    label: 'Activate background video functionality',
   },
   {
-    type: "string",
-    name: "backgroundVideoSource",
-    label: "Background video source",
-    description: "Paste the video source link here. Make sure background video functionality is set to true. note: vimeo download link is the recommended method tutorial here (https://vimeo.zendesk.com/hc/en-us/articles/224823567-Direct-links-to-video-files)",
+    type: 'string',
+    name: 'backgroundVideoSource',
+    label: 'Background video source',
+    description:
+      'Paste the video source link here. Make sure background video functionality is set to true. note: vimeo download link is the recommended method tutorial here (https://vimeo.zendesk.com/hc/en-us/articles/224823567-Direct-links-to-video-files)',
   },
   {
-    type: "image",
-    name: "backgroundImageSourceDesktop",
-    label: "Background image source (Desktop)",
-    description: "(Optimal size: width = 1920px, height = 900px) The image that will be displayed if the background video is deactivated.",
+    type: 'image',
+    name: 'backgroundImageSourceDesktop',
+    label: 'Background image source (Desktop)',
+    description:
+      '(Optimal size: width = 1920px, height = 900px) The image that will be displayed if the background video is deactivated.',
   },
   {
-    type: "string",
-    name: "backgroundImageAltDesktop",
-    label: "Background image Desktop description (for SEO)",
+    type: 'string',
+    name: 'backgroundImageAltDesktop',
+    label: 'Background image Desktop description (for SEO)',
   },
   {
-    type: "string",
-    name: "desktopBackgroundPosition",
-    label: "Desktop Background Position",
-    options: ["center", "top", "bottom"],
+    type: 'string',
+    name: 'desktopBackgroundPosition',
+    label: 'Desktop Background Position',
+    options: ['center', 'top', 'bottom'],
     ui: {
-      component: "select",
+      component: 'select',
     },
   },
   {
-    type: "image",
-    name: "backgroundImageSourceMobile",
-    label: "Background image source (mobile)",
-    description: "(Optimal size: width = 320px, height = 468px) The image that will be displayed on mobile.",
+    type: 'image',
+    name: 'backgroundImageSourceMobile',
+    label: 'Background image source (mobile)',
+    description:
+      '(Optimal size: width = 320px, height = 468px) The image that will be displayed on mobile.',
   },
   {
-    type: "string",
-    name: "backgroundImageAltMobile",
-    label: "Background image mobile description (for SEO)",
+    type: 'string',
+    name: 'backgroundImageAltMobile',
+    label: 'Background image mobile description (for SEO)',
   },
-];
+]
 const largeHero: TinaTemplate = {
-  name: "largeHero",
-  label: "Large Hero",
+  name: 'largeHero',
+  label: 'Large Hero',
   fields: [...largeHeroFields],
-};
+}
 //#endregion large hero
 
 const mapEnabled: TinaField = {
-  type: "boolean",
-  name: "mapEnabled",
-  label: "Enable Footer Map",
-  description: "The google map in the footer can be turned on and off. Note: using the map in the footer is a double edged sword, on one hand, google like when a map is in the footer with your location information. However, google maps can decrease page load speed.",
-};
+  type: 'boolean',
+  name: 'mapEnabled',
+  label: 'Enable Footer Map',
+  description:
+    'The google map in the footer can be turned on and off. Note: using the map in the footer is a double edged sword, on one hand, google like when a map is in the footer with your location information. However, google maps can decrease page load speed.',
+}
 
 const mainPageFields: TinaField = {
-  type: "object",
-  name: "blocks",
-  label: "Page Sections",
+  type: 'object',
+  name: 'blocks',
+  label: 'Page Sections',
   list: true,
-  templates: [largeHero, hero, longFeaturedImage, ctaButtons, shortIconGrid, testimonialSlider, preFooterCta, pricingTable, featuredIconGrid],
-};
+  templates: [
+    largeHero,
+    hero,
+    longFeaturedImage,
+    ctaButtons,
+    shortIconGrid,
+    testimonialSlider,
+    preFooterCta,
+    pricingTable,
+    featuredIconGrid,
+  ],
+}
 //#endregion Main Page blocks and fields
 
 //#region global fields
 const campFields: TinaField = {
-  type: "object",
-  name: "campList",
-  label: "Add Camps",
+  type: 'object',
+  name: 'campList',
+  label: 'Add Camps',
   list: true,
   ui: {
-    component: "labeled-group-list",
+    component: 'labeled-group-list',
   },
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Camp Title",
+      type: 'string',
+      name: 'title',
+      label: 'Camp Title',
     },
     {
-      type: "string",
-      name: "date",
-      label: "Camp Date",
+      type: 'string',
+      name: 'date',
+      label: 'Camp Date',
       ui: {
-        component: "date",
+        component: 'date',
       },
     },
     {
-      type: "string",
-      name: "dateEnd",
-      label: "Camp End Date",
+      type: 'string',
+      name: 'dateEnd',
+      label: 'Camp End Date',
       ui: {
-        component: "date",
+        component: 'date',
       },
     },
     {
-      type: "rich-text",
-      name: "description",
-      label: "Camp Description",
+      type: 'rich-text',
+      name: 'description',
+      label: 'Camp Description',
     },
     {
-      type: "string",
-      name: "ctaLabel",
-      label: "CTA Label",
-      description: "The button label. Leave blank to disable button.",
+      type: 'string',
+      name: 'ctaLabel',
+      label: 'CTA Label',
+      description: 'The button label. Leave blank to disable button.',
     },
     {
-      type: "string",
-      name: "ctaHref",
-      label: "CTA href",
-      description: "The button link",
+      type: 'string',
+      name: 'ctaHref',
+      label: 'CTA href',
+      description: 'The button link',
     },
   ],
-};
+}
 const camps: TinaField = {
-  type: "object",
-  name: "camps",
-  label: "Camps",
+  type: 'object',
+  name: 'camps',
+  label: 'Camps',
   description: `Add ${businessName} camps globally`,
   fields: [campFields],
-};
+}
 const eventFields: TinaField = {
-  type: "object",
-  name: "eventList",
-  label: "Add Events",
+  type: 'object',
+  name: 'eventList',
+  label: 'Add Events',
   list: true,
   ui: {
-    component: "labeled-group-list",
+    component: 'labeled-group-list',
   },
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Event Title",
+      type: 'string',
+      name: 'title',
+      label: 'Event Title',
     },
 
     {
-      type: "boolean",
-      name: "toggleDates",
-      label: "Enable Date",
+      type: 'boolean',
+      name: 'toggleDates',
+      label: 'Enable Date',
     },
     {
-      type: "string",
-      name: "date",
-      label: "Event Start Date",
+      type: 'string',
+      name: 'date',
+      label: 'Event Start Date',
       ui: {
-        component: "date",
+        component: 'date',
       },
     },
     {
-      type: "boolean",
-      name: "toggleEndDates",
-      label: "Enable End Date",
+      type: 'boolean',
+      name: 'toggleEndDates',
+      label: 'Enable End Date',
     },
     {
-      type: "string",
-      name: "endDate",
-      label: "Event End Date",
+      type: 'string',
+      name: 'endDate',
+      label: 'Event End Date',
       ui: {
-        component: "date",
+        component: 'date',
       },
     },
     {
-      type: "object",
-      name: "eventLogos",
-      label: "Event Logos",
+      type: 'object',
+      name: 'eventLogos',
+      label: 'Event Logos',
       list: true,
       ui: {
         component: plugins.labeledList,
       },
       fields: [
         {
-          type: "string",
-          name: "title",
-          label: "Title",
+          type: 'string',
+          name: 'title',
+          label: 'Title',
         },
         {
-          type: "image",
-          name: "logo",
-          label: "Logo",
+          type: 'image',
+          name: 'logo',
+          label: 'Logo',
         },
       ],
     },
     {
-      type: "rich-text",
-      name: "description",
-      label: "Event Description",
+      type: 'rich-text',
+      name: 'description',
+      label: 'Event Description',
     },
     {
-      type: "string",
-      name: "ctaLabel",
-      label: "CTA Label",
-      description: "The button label. Leave blank to disable button.",
+      type: 'string',
+      name: 'ctaLabel',
+      label: 'CTA Label',
+      description: 'The button label. Leave blank to disable button.',
     },
     {
-      type: "string",
-      name: "ctaHref",
-      label: "CTA href",
-      description: "The button link",
+      type: 'string',
+      name: 'ctaHref',
+      label: 'CTA href',
+      description: 'The button link',
     },
   ],
-};
+}
 const events: TinaField = {
-  type: "object",
-  name: "events",
-  label: "Events",
+  type: 'object',
+  name: 'events',
+  label: 'Events',
   description: `Add ${businessName} events globally`,
   fields: [eventFields],
-};
+}
 const testimonialFields: TinaField = {
-  type: "object",
-  name: "testimonialsList",
-  label: "Testimonials",
-  description: "Create/delete testimonials and add/remove them by page",
+  type: 'object',
+  name: 'testimonialsList',
+  label: 'Testimonials',
+  description: 'Create/delete testimonials and add/remove them by page',
   list: true,
   ui: {
-    component: "labeled-group-list",
+    component: 'labeled-group-list',
   },
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Name",
+      type: 'string',
+      name: 'title',
+      label: 'Name',
     },
     {
-      type: "string",
-      name: "shortDescription",
-      label: "Short Description",
+      type: 'string',
+      name: 'shortDescription',
+      label: 'Short Description',
       description: 'Example: "IEA Team Member"',
     },
     {
-      type: "image",
-      name: "image",
-      label: "Image",
+      type: 'image',
+      name: 'image',
+      label: 'Image',
     },
     {
-      type: "string",
-      name: "imageAlt",
-      label: "Image Description (for SEO)",
+      type: 'string',
+      name: 'imageAlt',
+      label: 'Image Description (for SEO)',
     },
     {
-      type: "string",
-      name: "testimonialBody",
-      label: "Testimonial",
+      type: 'string',
+      name: 'testimonialBody',
+      label: 'Testimonial',
       ui: {
-        component: "textarea",
+        component: 'textarea',
       },
     },
     {
-      type: "object",
-      name: "activePages",
-      label: "Active Pages",
-      description: "Choose the pages you want this testimonial to be on",
+      type: 'object',
+      name: 'activePages',
+      label: 'Active Pages',
+      description: 'Choose the pages you want this testimonial to be on',
       list: true,
       ui: {
-        component: "labeled-group-list",
+        component: 'labeled-group-list',
       },
       fields: [
         {
-          type: "reference",
-          name: "title",
-          label: "Active Pages",
-          description: "Choose the pages you want this testimonial to be on",
-          collections: ["mainPage"],
+          type: 'reference',
+          name: 'title',
+          label: 'Active Pages',
+          description: 'Choose the pages you want this testimonial to be on',
+          collections: ['mainPage'],
         },
         {
-          type: "number",
-          name: "priority",
-          label: "Set priority",
-          description: "Type a number that sets the priority of the testimonial on this page. Leaving this field blank will ensure the default order is used. (eg. you could input 1 to set this testimonial in the first position on this page)",
+          type: 'number',
+          name: 'priority',
+          label: 'Set priority',
+          description:
+            'Type a number that sets the priority of the testimonial on this page. Leaving this field blank will ensure the default order is used. (eg. you could input 1 to set this testimonial in the first position on this page)',
         },
       ],
     },
 
     {
-      type: "boolean",
-      name: "videoActive",
-      label: "Activate Video",
+      type: 'boolean',
+      name: 'videoActive',
+      label: 'Activate Video',
     },
     {
-      type: "string",
-      name: "videoSource",
-      label: "Video Source",
-      description: "Paste the src link from the vimeo embeded code here (ie in the embed code you will see src='{copy the link in here}'). Make sure video functionality is enabled. Video tutorial here: (https://vimeo.zendesk.com/hc/en-us/articles/224823567-Direct-links-to-video-files)",
+      type: 'string',
+      name: 'videoSource',
+      label: 'Video Source',
+      description:
+        "Paste the src link from the vimeo embeded code here (ie in the embed code you will see src='{copy the link in here}'). Make sure video functionality is enabled. Video tutorial here: (https://vimeo.zendesk.com/hc/en-us/articles/224823567-Direct-links-to-video-files)",
     },
   ],
-};
+}
 const testimonials: TinaField = {
-  type: "object",
-  name: "testimonials",
-  label: "Testimonials",
+  type: 'object',
+  name: 'testimonials',
+  label: 'Testimonials',
   description: `Add ${businessName} testimonials by page`,
   fields: [testimonialFields],
-};
+}
 const services: TinaField = {
-  type: "object",
-  name: "services",
-  label: "Services",
-  description: "This section will be removed from the Global Menu in a future update when service pages are introduced",
+  type: 'object',
+  name: 'services',
+  label: 'Services',
+  description:
+    'This section will be removed from the Global Menu in a future update when service pages are introduced',
   list: true,
   ui: {
-    component: "labeled-group-list",
+    component: 'labeled-group-list',
   },
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Service Label",
+      type: 'string',
+      name: 'title',
+      label: 'Service Label',
     },
     {
-      type: "image",
-      name: "serviceBarImage",
-      label: "Service Bar Image",
+      type: 'image',
+      name: 'serviceBarImage',
+      label: 'Service Bar Image',
       description: `(Optimal Size: width: 238px height: 337px) The image that will be display on the ${businessName} home page service bar on mouse hover.`,
     },
   ],
-};
+}
 const contactInfo: TinaField = {
-  type: "object",
-  name: "contact",
-  label: "Contact",
-  description: "Your contact info that is propagated throughout the site automatically!",
+  type: 'object',
+  name: 'contact',
+  label: 'Contact',
+  description:
+    'Your contact info that is propagated throughout the site automatically!',
   fields: [
     {
-      type: "string",
-      name: "phone",
-      label: "Phone",
+      type: 'string',
+      name: 'phone',
+      label: 'Phone',
     },
     {
-      type: "string",
-      name: "address",
-      label: "Address",
-      description: "Your business address.",
+      type: 'string',
+      name: 'address',
+      label: 'Address',
+      description: 'Your business address.',
     },
     {
-      type: "string",
-      name: "email",
-      label: "Email",
+      type: 'string',
+      name: 'email',
+      label: 'Email',
     },
   ],
-};
+}
 const createSocialLink = (socialPlatform: String) => {
-  let lower = socialPlatform.slice(1);
-  let capFirst = socialPlatform[0].toUpperCase();
-  let cap = capFirst.concat(lower);
+  let lower = socialPlatform.slice(1)
+  let capFirst = socialPlatform[0].toUpperCase()
+  let cap = capFirst.concat(lower)
   let field: TinaField = {
-    type: "string",
+    type: 'string',
     name: `${socialPlatform}`,
     label: `${cap} Link`,
     description: `Enter the link to the ${businessName} ${cap} page. (Leave blank if there is none)`,
-  };
-  return field;
-};
+  }
+  return field
+}
 const socialLinks: TinaField = {
-  type: "object",
-  name: "socialLinks",
-  label: "Social Links",
+  type: 'object',
+  name: 'socialLinks',
+  label: 'Social Links',
   description: `Input the ${businessName} social links.`,
-  fields: [createSocialLink("facebook"), createSocialLink("instagram"), createSocialLink("youtube"), createSocialLink("maps"), createSocialLink("linkedin")],
-};
+  fields: [
+    createSocialLink('facebook'),
+    createSocialLink('instagram'),
+    createSocialLink('youtube'),
+    createSocialLink('maps'),
+    createSocialLink('tiktok'),
+  ],
+}
 const createHoursField = (dayOfWeek: String) => {
-  let lower = dayOfWeek.slice(1);
-  let capFirst = dayOfWeek[0].toUpperCase();
-  let cap = capFirst.concat(lower);
+  let lower = dayOfWeek.slice(1)
+  let capFirst = dayOfWeek[0].toUpperCase()
+  let cap = capFirst.concat(lower)
   let field: TinaField = {
-    type: "string",
+    type: 'string',
     name: `${dayOfWeek}`,
     label: `${cap} Hours`,
     description: `Enter the hours for ${cap}. Format 00:00 - 00:00`,
-  };
-  return field;
-};
+  }
+  return field
+}
 const hours: TinaField = {
-  type: "object",
-  label: "Hours",
-  name: "hours",
-  description: "Enter your business hours by day.",
-  fields: [createHoursField("monday"), createHoursField("tuesday"), createHoursField("wednesday"), createHoursField("thursday"), createHoursField("friday"), createHoursField("saturday"), createHoursField("sunday")],
-};
+  type: 'object',
+  label: 'Hours',
+  name: 'hours',
+  description: 'Enter your business hours by day.',
+  fields: [
+    createHoursField('monday'),
+    createHoursField('tuesday'),
+    createHoursField('wednesday'),
+    createHoursField('thursday'),
+    createHoursField('friday'),
+    createHoursField('saturday'),
+    createHoursField('sunday'),
+  ],
+}
 const businessInfo: TinaField = {
-  type: "object",
-  name: "businessInfo",
-  label: "Business Info",
+  type: 'object',
+  name: 'businessInfo',
+  label: 'Business Info',
   description: `The ${businessName} business info like hours, contact, social, etc.`,
   fields: [contactInfo, hours, socialLinks],
-};
+}
 const links: TinaField = {
-  type: "object",
-  label: "Links",
-  name: "links",
+  type: 'object',
+  label: 'Links',
+  name: 'links',
   list: true,
   ui: {
-    component: "labeled-group-list",
+    component: 'labeled-group-list',
   },
   fields: [
     {
-      type: "string",
-      name: "title",
-      label: "Link Label",
+      type: 'string',
+      name: 'title',
+      label: 'Link Label',
     },
     {
-      type: "string",
-      name: "href",
-      label: "Link Href",
-      description: "When somebody clicks the link, it will go to this location.",
+      type: 'string',
+      name: 'href',
+      label: 'Link Href',
+      description:
+        'When somebody clicks the link, it will go to this location.',
     },
   ],
-};
+}
 const preHeader: TinaField[] = [
   {
-    type: "string",
-    name: "preHeaderCtaLabel",
-    label: "Pre Header Call To Action Label",
+    type: 'string',
+    name: 'preHeaderCtaLabel',
+    label: 'Pre Header Call To Action Label',
   },
   {
-    type: "string",
-    name: "preHeaderCtaHref",
-    label: "Pre Header Call To Action Href",
-    description: "When somebody clicks the label, it will go to this location.",
+    type: 'string',
+    name: 'preHeaderCtaHref',
+    label: 'Pre Header Call To Action Href',
+    description: 'When somebody clicks the label, it will go to this location.',
   },
-];
+]
 const header: TinaField = {
-  type: "object",
-  name: "header",
-  label: "Header",
+  type: 'object',
+  name: 'header',
+  label: 'Header',
   fields: [...preHeader, links, ...cta],
-};
-const globalFields: TinaField[] = [header, businessInfo, services, testimonials, events, camps];
+}
+const globalFields: TinaField[] = [
+  header,
+  businessInfo,
+  services,
+  testimonials,
+  events,
+  camps,
+]
 //#endregion global fields
 
 export default defineSchema({
   collections: [
     {
-      label: "Main Pages",
-      name: "mainPage",
-      path: "content/page",
-      format: "mdx",
+      label: 'Main Pages',
+      name: 'mainPage',
+      path: 'content/page',
+      format: 'mdx',
       fields: [mainPageFields, seo, mapEnabled],
     },
     {
-      label: "Contact",
-      name: "contact",
-      path: "content/contact",
-      format: "mdx",
+      label: 'Contact',
+      name: 'contact',
+      path: 'content/contact',
+      format: 'mdx',
       fields: [...contactFields],
     },
     {
-      label: "Global",
-      name: "global",
-      path: "content/global",
-      format: "json",
+      label: 'Global',
+      name: 'global',
+      path: 'content/global',
+      format: 'json',
       fields: [...globalFields],
     },
     {
-      label: "Legal",
-      name: "legal",
-      path: "content/legal",
-      format: "md",
+      label: 'Legal',
+      name: 'legal',
+      path: 'content/legal',
+      format: 'md',
       fields: [...legalFields],
     },
   ],
-});
+})

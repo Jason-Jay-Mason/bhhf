@@ -1863,14 +1863,14 @@
                 },
                 {
                   "type": "string",
-                  "name": "linkedin",
-                  "label": "Linkedin Link",
-                  "description": "Enter the link to the Broken Heart Linkedin page. (Leave blank if there is none)",
+                  "name": "tiktok",
+                  "label": "Tiktok Link",
+                  "description": "Enter the link to the Broken Heart Tiktok page. (Leave blank if there is none)",
                   "namespace": [
                     "global",
                     "businessInfo",
                     "socialLinks",
-                    "linkedin"
+                    "tiktok"
                   ]
                 }
               ],

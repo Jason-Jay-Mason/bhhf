@@ -4499,7 +4499,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "linkedin"
+            "value": "tiktok"
           },
           "arguments": [],
           "type": {
@@ -8938,7 +8938,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "linkedin"
+            "value": "tiktok"
           },
           "type": {
             "kind": "NamedType",

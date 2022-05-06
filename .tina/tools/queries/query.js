@@ -6,7 +6,7 @@ seo {
   noFollow
   noIndex
 }
-`;
+`
 
 const getGlobalDocument = `
 getGlobalDocument(relativePath: "global.json") {
@@ -42,7 +42,7 @@ getGlobalDocument(relativePath: "global.json") {
         instagram
         youtube
         maps
-        linkedin
+				tiktok
       }
     }
     services {
@@ -98,7 +98,7 @@ getGlobalDocument(relativePath: "global.json") {
     }
   }
 }
-`;
+`
 //#region main page document blocks
 
 const LongFeaturedImage = `
@@ -145,7 +145,7 @@ const LongFeaturedImage = `
               }
           }
         }
-`;
+`
 const CtaButtons = `
 ...on MainPageBlocksCtaButtons{
   mainCallToActionLabel
@@ -155,7 +155,7 @@ secondaryCallToActionVideoActive
   secondaryCallToActionHrefOrSource
   backgroundColor
 }
-`;
+`
 const LargeHero = `
 ...on MainPageBlocksLargeHero{
   headline
@@ -172,7 +172,7 @@ backgroundImageAltDesktop
 backgroundImageSourceMobile
 backgroundImageAltMobile
 }
-`;
+`
 const preFooterCta = `
 ...on MainPageBlocksPreFooterCta{
   mainCallToActionHref
@@ -181,13 +181,13 @@ const preFooterCta = `
   standardHeadline
   standardSubHeadline
 }
-`;
+`
 const testimonialSlider = `
 ...on MainPageBlocksTestimonialSlider {
   standardSubHeadline
   standardHeadline
 }
-`;
+`
 const standardHero = `
 ...on MainPageBlocksHero{
   subHeadline
@@ -201,7 +201,7 @@ const standardHero = `
   backgroundImageAlt
   backgroundImageMobile
 }
-`;
+`
 const pricingTable = `
 ...on MainPageBlocksPricingTable{
   standardHeadline
@@ -221,7 +221,7 @@ const pricingTable = `
     }
   }
 }
-`;
+`
 const shortIconGrid = `
 ...on MainPageBlocksShortIconGrid{
   headline
@@ -231,7 +231,7 @@ const shortIconGrid = `
     blurb
   }
 }
-`;
+`
 const featuredIconGrid = `
 ...on MainPageBlocksFeaturedIconGrid{
   standardSubHeadline
@@ -243,7 +243,7 @@ const featuredIconGrid = `
     icon
   }
 }
-`;
+`
 const getMainPageDocument = `
 getMainPageDocument (relativePath: $relativePath) {
   id
@@ -267,7 +267,7 @@ getMainPageDocument (relativePath: $relativePath) {
       ${seoFields}
     }
 }
-`;
+`
 const getMainPageList = `
 getMainPageList {
   totalCount
@@ -280,7 +280,7 @@ getMainPageList {
     }
   }
 }
-`;
+`
 //#endregion main page document blocks
 
 const getContactPage = `
@@ -298,7 +298,7 @@ const getContactPage = `
     }
   }
 
-`;
+`
 
 export const getLegalList = `
   getLegalList {
@@ -315,7 +315,7 @@ export const getLegalList = `
       }
     }
   }
-`;
+`
 
 export const getLegalDynamicDocument = `
   getLegalDocument(relativePath: $relativePath) {
@@ -325,13 +325,13 @@ export const getLegalDynamicDocument = `
       ${seoFields}
     }
   }
-`;
+`
 
 const getStandardLayout = `
 ${getGlobalDocument}
 ${getMainPageList}
 ${getLegalList}
-`;
+`
 const Query = {
   getGlobalDocument,
   getMainPageDocument,
@@ -340,6 +340,6 @@ const Query = {
   getLegalDynamicDocument,
   getLegalList,
   getStandardLayout,
-};
+}
 
-export default Query;
+export default Query

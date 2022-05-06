@@ -37,9 +37,9 @@
     "socialLinks": {
       "facebook": "http://www.facebook.com/brokenhearthorsefarm",
       "instagram": "http://www.instagram.com/brokenhearthorse_farm",
-      "youtube": "/",
-      "maps": "/",
-      "linkedin": "/"
+      "youtube": "",
+      "maps": "https://www.google.com/maps/place/Broken+Heart+Horse+Farm/@40.1088825,-105.0495085,15z/data=!4m5!3m4!1s0x0:0x191a47e3d9b410ca!8m2!3d40.1088825!4d-105.0495085",
+      "tiktok": "/"
     }
   },
   "services": [

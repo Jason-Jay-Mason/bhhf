@@ -345,7 +345,7 @@ type GlobalBusinessInfoSocialLinks {
   instagram: String
   youtube: String
   maps: String
-  linkedin: String
+  tiktok: String
 }
 
 type GlobalBusinessInfo {
@@ -736,7 +736,7 @@ input GlobalBusinessInfoSocialLinksMutation {
   instagram: String
   youtube: String
   maps: String
-  linkedin: String
+  tiktok: String
 }
 
 input GlobalBusinessInfoMutation {
