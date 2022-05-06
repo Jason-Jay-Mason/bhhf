@@ -127,7 +127,7 @@ const ModalNav = ({ isActive, links, setModalActive, socialLinks }) => {
             <Link href={tiktok || '/'} passHref>
               <a aria-label='tiktok'>
                 <svg
-                  stroke-width='0'
+                  strokeWidth='0'
                   stroke='currentColor'
                   fill='currentColor'
                   viewBox='0 0 448 512'

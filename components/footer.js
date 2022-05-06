@@ -436,7 +436,7 @@ const Footer = ({
                       <svg
                         stroke={colors.horseBrown}
                         fill={colors.horseBrown}
-                        stroke-width='0'
+                        strokeWidth='0'
                         viewBox='0 0 448 512'
                         height={26}
                         width={26}
