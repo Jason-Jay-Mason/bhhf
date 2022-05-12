@@ -1,16 +1,16 @@
-import { styled } from "@linaria/react";
-import { colors, fontSize, spacing } from "../styles/theme";
-import Section from "./section";
-import Button from "./standardButton";
+import { styled } from '@linaria/react'
+import { colors, fontSize, spacing } from '../styles/theme'
+import Section from './section'
+import Button from './standardButton'
 
 //#region styles
-const div = {};
+const div = {}
 div.page404 = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 600px;
+  height: 100vh;
   h1 {
     font-size: ${fontSize.xlrg};
     color: ${colors.textBrown};
@@ -20,7 +20,7 @@ div.page404 = styled.div`
     padding-bottom: ${spacing.s45ish};
     color: ${colors.textBrown};
   }
-`;
+`
 //#endregion
 
 const Page404 = () => {
@@ -29,10 +29,10 @@ const Page404 = () => {
       <div.page404>
         <h1>404 Not Found</h1>
         <h2>Oops! This page doesn&apos;t exist.</h2>
-        <Button href="/">Return To Home Page</Button>
+        <Button href='/'>Return To Home Page</Button>
       </div.page404>
     </Section>
-  );
-};
+  )
+}
 
-export default Page404;
+export default Page404
