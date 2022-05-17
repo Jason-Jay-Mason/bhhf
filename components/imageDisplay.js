@@ -1,10 +1,10 @@
-import { styled } from "@linaria/react";
-import { useEffect, useState } from "react";
-import { spacing, colors, breakPoints } from "../styles/theme";
-import Image from "./image";
+import { styled } from '@linaria/react'
+import { useEffect, useState } from 'react'
+import { spacing, colors, breakPoints } from '../styles/theme'
+import Image from './image'
 
 //#region styles
-const div = {};
+const div = {}
 div.imageDisplay = styled.div`
   width: 50%;
   position: relative;
@@ -184,151 +184,215 @@ div.imageDisplay = styled.div`
       }
     }
   }
-`;
+`
 
 //#endregion
 
 const ImageDisplay = ({ featuredImage }) => {
-  const imgPerPage = 5;
-  const [coordinate, setCoordinate] = useState([0, imgPerPage]);
-  const [selectedImage, setSelectedImage] = useState(0);
+  const imgPerPage = 5
+  const [coordinate, setCoordinate] = useState([0, imgPerPage])
+  const [selectedImage, setSelectedImage] = useState(0)
   const handleImageChange = (i) => {
     if (i === selectedImage) {
-      return;
+      return
     }
-    setSelectedImage(i);
-  };
+    setSelectedImage(i)
+  }
   const handlePageChange = (direction) => {
-    let start;
-    let end;
-    if (direction === "forward") {
+    let start
+    let end
+    if (direction === 'forward') {
       if (coordinate[1] >= featuredImage.length) {
-        setCoordinate([0, imgPerPage]);
-        return;
+        setCoordinate([0, imgPerPage])
+        return
       }
-      start = coordinate[0] + imgPerPage;
-      end = coordinate[1] + imgPerPage;
-      setCoordinate([start, end]);
-      return;
+      start = coordinate[0] + imgPerPage
+      end = coordinate[1] + imgPerPage
+      setCoordinate([start, end])
+      return
     }
 
-    if (direction === "back") {
+    if (direction === 'back') {
       if (coordinate[0] === 0) {
-        start = featuredImage.length - (featuredImage.length % imgPerPage);
-        end = start + imgPerPage;
-        setCoordinate([start, end]);
-        return;
+        start = featuredImage.length - (featuredImage.length % imgPerPage)
+        end = start + imgPerPage
+        setCoordinate([start, end])
+        return
       }
 
-      start = coordinate[0] - imgPerPage;
-      end = coordinate[1] - imgPerPage;
-      setCoordinate([start, end]);
-      return;
+      start = coordinate[0] - imgPerPage
+      end = coordinate[1] - imgPerPage
+      setCoordinate([start, end])
+      return
     }
-  };
+  }
   const handleImageMobile = (direction) => {
-    if (direction == "forward") {
+    if (direction == 'forward') {
       if (selectedImage == featuredImage.length - 1) {
-        setSelectedImage(0);
-        return;
+        setSelectedImage(0)
+        return
       }
-      setSelectedImage(selectedImage + 1);
-      return;
+      setSelectedImage(selectedImage + 1)
+      return
     }
-    if (direction == "back") {
+    if (direction == 'back') {
       if (selectedImage == 0) {
-        setSelectedImage(featuredImage.length - 1);
-        return;
+        setSelectedImage(featuredImage.length - 1)
+        return
       }
-      setSelectedImage(selectedImage - 1);
-      return;
+      setSelectedImage(selectedImage - 1)
+      return
     }
-  };
+  }
   useEffect(() => {
-    if (!featuredImage[selectedImage]) {
-      setSelectedImage(0);
+    if (featuredImage && !featuredImage[selectedImage]) {
+      setSelectedImage(0)
     }
-  }, [featuredImage, selectedImage]);
+  }, [featuredImage, selectedImage])
 
   return (
     <>
-      <div.imageDisplay className="image">
-        <div className="imgContainer">
+      <div.imageDisplay className='image'>
+        <div className='imgContainer'>
           <Image
-            src={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage]?.image : null}
-            layout="fill"
-            objectPosition={featuredImage && featuredImage[selectedImage]?.imagePosition ? featuredImage[selectedImage]?.imagePosition : "center"}
-            objectFit="cover"
+            src={
+              featuredImage && featuredImage[selectedImage]
+                ? featuredImage[selectedImage]?.image
+                : null
+            }
+            layout='fill'
+            objectPosition={
+              featuredImage && featuredImage[selectedImage]?.imagePosition
+                ? featuredImage[selectedImage]?.imagePosition
+                : 'center'
+            }
+            objectFit='cover'
             quality={80}
             width={900}
-            alt={featuredImage && featuredImage[selectedImage] ? featuredImage[selectedImage].title : ""}
+            alt={
+              featuredImage && featuredImage[selectedImage]
+                ? featuredImage[selectedImage].title
+                : ''
+            }
           />
         </div>
         {featuredImage && featuredImage.length > 1 && (
-          <div className="selectionBar">
-            <div className="desktopButtonContainer">
+          <div className='selectionBar'>
+            <div className='desktopButtonContainer'>
               {coordinate[0] > 0 && (
                 <button
-                  className="back"
+                  className='back'
                   onClick={() => {
-                    handlePageChange("back");
+                    handlePageChange('back')
                   }}
                 >
-                  <svg width="22" height="30" viewBox="0 0 22 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z" fill="currentColor" />
+                  <svg
+                    width='22'
+                    height='30'
+                    viewBox='0 0 22 30'
+                    fill='currentColor'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      d='M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z'
+                      fill='currentColor'
+                    />
                   </svg>
                 </button>
               )}
             </div>
 
-            <div className="imageList">
-              {featuredImage.slice(coordinate[0], coordinate[1]).map((img, i) => {
-                return (
-                  <div
-                    key={i}
-                    onClick={() => {
-                      handleImageChange(i + coordinate[0]);
-                    }}
-                    className={`listItem ${selectedImage === i + coordinate[0] && "selected"}`}
-                  >
-                    <Image src={img.image ? img.image : null} layout="fill" objectFit="cover" objectPosition={featuredImage.imagePosition ? featuredImage.imagePosition : "center"} quality={80} width={180} alt={img.title} />
-                  </div>
-                );
-              })}
+            <div className='imageList'>
+              {featuredImage
+                .slice(coordinate[0], coordinate[1])
+                .map((img, i) => {
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        handleImageChange(i + coordinate[0])
+                      }}
+                      className={`listItem ${
+                        selectedImage === i + coordinate[0] && 'selected'
+                      }`}
+                    >
+                      <Image
+                        src={img.image ? img.image : null}
+                        layout='fill'
+                        objectFit='cover'
+                        objectPosition={
+                          featuredImage.imagePosition
+                            ? featuredImage.imagePosition
+                            : 'center'
+                        }
+                        quality={80}
+                        width={180}
+                        alt={img.title}
+                      />
+                    </div>
+                  )
+                })}
             </div>
-            <div className="desktopButtonContainer">
+            <div className='desktopButtonContainer'>
               {coordinate[1] < featuredImage.length && (
                 <button
-                  className="forward"
+                  className='forward'
                   onClick={() => {
-                    handlePageChange("forward");
+                    handlePageChange('forward')
                   }}
                 >
-                  <svg width="22" height="30" viewBox="0 0 22 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z" fill="currentColor" />
+                  <svg
+                    width='22'
+                    height='30'
+                    viewBox='0 0 22 30'
+                    fill='currentColor'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      d='M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z'
+                      fill='currentColor'
+                    />
                   </svg>
                 </button>
               )}
             </div>
-            <div className="mobileButtonContainer">
+            <div className='mobileButtonContainer'>
               <button
-                className="back"
+                className='back'
                 onClick={() => {
-                  handleImageMobile("back");
+                  handleImageMobile('back')
                 }}
               >
-                <svg width="22" height="30" viewBox="0 0 22 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z" fill="currentColor" />
+                <svg
+                  width='22'
+                  height='30'
+                  viewBox='0 0 22 30'
+                  fill='currentColor'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z'
+                    fill='currentColor'
+                  />
                 </svg>
               </button>
               <button
-                className="forward"
+                className='forward'
                 onClick={() => {
-                  handleImageMobile("forward");
+                  handleImageMobile('forward')
                 }}
               >
-                <svg width="22" height="30" viewBox="0 0 22 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z" fill="currentColor" />
+                <svg
+                  width='22'
+                  height='30'
+                  viewBox='0 0 22 30'
+                  fill='currentColor'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M1.3455 15.8128C0.788889 15.4139 0.788888 14.5861 1.3455 14.1872L20.3789 0.545771C21.0406 0.0715207 21.9614 0.544467 21.9614 1.35857L21.9614 28.6414C21.9614 29.4555 21.0406 29.9285 20.3789 29.4542L1.3455 15.8128Z'
+                    fill='currentColor'
+                  />
                 </svg>
               </button>
             </div>
@@ -336,7 +400,7 @@ const ImageDisplay = ({ featuredImage }) => {
         )}
       </div.imageDisplay>
     </>
-  );
-};
+  )
+}
 
-export default ImageDisplay;
+export default ImageDisplay
