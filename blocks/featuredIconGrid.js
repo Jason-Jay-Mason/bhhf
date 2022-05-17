@@ -2,7 +2,6 @@ import Section from '../components/section'
 import MainHeadline from '../components/mainHeadline'
 import { styled } from '@linaria/react'
 import { breakPoints, colors, fontSize, maxMin, spacing } from '../styles/theme'
-import BrandedBackgroundImg from '../components/brandedBackgroundImg'
 import Svg from '../components/renderSvg'
 //#region styles
 const div = {}
@@ -44,7 +43,7 @@ div.iconGrid = styled.div`
       justify-content: center;
       align-items: center;
       margin: ${spacing.s10ish} 0;
-      width: 95%;
+      width: 100%;
       max-width: 300px;
       background-color: ${colors.rainCloudBeigeTwo};
       padding: ${spacing.s45ish} ${spacing.s17ish};
@@ -60,8 +59,8 @@ div.iconGrid = styled.div`
       object {
         filter: ${colors.iconFilter};
         padding-bottom: ${spacing.s17ish};
-        max-width: 65px;
-        max-height: 70px;
+        max-width: 71px;
+        max-height: ${spacing.s75ish};
       }
     }
   }
@@ -71,7 +70,6 @@ div.iconGrid = styled.div`
 const FeaturedIconGrid = ({
   standardHeadline,
   standardSubHeadline,
-  backgroundImageSrc,
   maxColumns,
   iconSections,
 }) => {
@@ -86,12 +84,11 @@ const FeaturedIconGrid = ({
             }
           />
         )}
-        {/* <BrandedBackgroundImg src={backgroundImageSrc}> */}
         <div className='grid'>
           {iconSections &&
-            iconSections.map((section) => {
+            iconSections.map((section, i) => {
               return (
-                <div className='column'>
+                <div className='column' key={i + 'icon'}>
                   <Svg
                     alt={'Icon representing ' + section.title}
                     src={section.icon}
@@ -101,7 +98,6 @@ const FeaturedIconGrid = ({
               )
             })}
         </div>
-        {/* </BrandedBackgroundImg> */}
       </div.iconGrid>
     </Section>
   )
