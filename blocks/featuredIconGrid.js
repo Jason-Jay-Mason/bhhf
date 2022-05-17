@@ -43,7 +43,7 @@ div.iconGrid = styled.div`
       justify-content: center;
       align-items: center;
       margin: ${spacing.s10ish} 0;
-      width: 100%;
+      width: 95%;
       max-width: 300px;
       background-color: ${colors.rainCloudBeigeTwo};
       padding: ${spacing.s45ish} ${spacing.s17ish};
