@@ -26,7 +26,6 @@ const Layout = (props) => {
   })
   const seo = props?.data?.getMainPageDocument?.data?.seo
 
-  console.log(props)
   return (
     <>
       <Seo {...seo} />
