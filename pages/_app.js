@@ -48,6 +48,7 @@ const App = ({ Component, pageProps }) => {
           cmsCallback={(cms) => {
             //this is the new tina admin section
             cms.flags.set('tina-admin', true)
+            cms.flags.set('branch-switcher', true)
 
             //maps the link to the admin section collections
             import('tinacms').then(({ RouteMappingPlugin }) => {
