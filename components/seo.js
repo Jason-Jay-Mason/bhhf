@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const Seo = (props) => {
   const customMeta = props;
   const router = useRouter();
-  const path = process.env.NODE_ENV == "development" ? `view-source:http://localhost:3000${router.asPath}` : `view-source:brokenhearthorsefarmeire.com/${router.asPath}`;
+  const path = process.env.NODE_ENV == "development" ? `view-source:http://localhost:3000${router.asPath}` : `view-source:brokenhearthorsefarm.com/${router.asPath}`;
   const meta = {
     title: "Broken Heart Horse Farm",
     description: "A new horse boarding and equestrian center located in the Erie/Longmont area! Horse stables with horseback riding lessons for all ages.",
