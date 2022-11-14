@@ -1,4 +1,4 @@
-This is the Broken Heart Horse Frarm website built with NextJS, Lineria, and Tina CMS
+This is the BHHF website built with NextJS, Lineria, and Tina CMS
 
 ## Getting Started
 
